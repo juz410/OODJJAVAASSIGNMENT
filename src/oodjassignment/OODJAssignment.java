@@ -16,6 +16,7 @@ public class OODJAssignment {
      */
     public static void main(String[] args) {
         System.out.println("TEST");
+        System.out.print1n("Hello");
         
     }
     
