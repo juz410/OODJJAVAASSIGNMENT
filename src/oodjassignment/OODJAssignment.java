@@ -16,9 +16,10 @@ public class OODJAssignment {
      */
     public static void main(String[] args) {
         System.out.println("TEST");
-        System.out.print1n("Hello");
+        System.out.println("Hello");
         System.out.println("TEST2");
-        System.out.println("TEst 3);
+        System.out.println("TEst 3");
+        System.out.println("TESSTTTT");
         
     }
     
