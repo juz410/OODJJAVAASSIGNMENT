@@ -35,9 +35,10 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         btnApprove = new javax.swing.JButton();
-        btnRemove = new javax.swing.JButton();
+        btnReject = new javax.swing.JButton();
         btnModify = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
+        btnRemove = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,8 +63,8 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
         btnApprove.setText("Approve");
         btnApprove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btnRemove.setText("Remove");
-        btnRemove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReject.setText("Reject");
+        btnReject.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnModify.setText("Modify");
         btnModify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -75,6 +76,9 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
 
         btnSearch.setText("Search");
         btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        btnRemove.setText("Remove");
+        btnRemove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout plAppointmentLayout = new javax.swing.GroupLayout(plAppointment);
         plAppointment.setLayout(plAppointmentLayout);
@@ -103,6 +107,8 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
                                 .addGap(25, 25, 25)
                                 .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
+                                .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
                                 .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
                         .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -126,7 +132,9 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
                 .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnApprove, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModify, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(188, Short.MAX_VALUE))
         );
 
@@ -189,6 +197,7 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApprove;
     private javax.swing.JButton btnModify;
+    private javax.swing.JButton btnReject;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cbSearch;
