@@ -29,6 +29,13 @@ public class OODJAssignment {
         
         System.out.println(adm.getName());
         user user = new user("a","b");
+        System.out.println("TEST");
+        System.out.println("Hello");
+        System.out.println("TEST2");
+        System.out.println("TEst 3");
+        System.out.println("TESSTTTT");
+        System.out.println("TESSTTTT");
+        System.out.println("AAAAA");
 
         
         
