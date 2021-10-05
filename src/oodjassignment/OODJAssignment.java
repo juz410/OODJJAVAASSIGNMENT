@@ -22,6 +22,9 @@ public class OODJAssignment {
         System.out.println("TESSTTTT");
         System.out.println("TESSTTTT");
         System.out.println("AAAAA");
+        Admin adm = new Admin("KOK FEENG");
+        System.out.println(adm.getName());
+        
         
         
     }
