@@ -16,31 +16,6 @@ public class OODJAssignment {
      */
     public static void main(String[] args)
     {
-        System.out.println("TEST");
-        System.out.println("Hello");
-        System.out.println("TEST2");
-        System.out.println("TEst 3");
-        System.out.println("TESSTTTT");
-        System.out.println("TESSTTTT");
-        System.out.println("AAAAA");
-
-        Admin adm = new Admin("ZILIANG");
-        System.out.println(adm.getName() + adm.getName());
-
-        
-        System.out.println(adm.getName());
-        user user = new user("a","b");
-        System.out.println("TEST");
-        System.out.println("Hello");
-        System.out.println("TEST2");
-        System.out.println("TEst 3");
-        System.out.println("TESSTTTT");
-        System.out.println("TESSTTTT");
-        System.out.println("AAAAA");
-
-        System.out.println("Hello");
-        System.out.println("TEST2");
-        
         
     }
     
