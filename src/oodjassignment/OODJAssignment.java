@@ -14,7 +14,8 @@ public class OODJAssignment {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         System.out.println("TEST");
         System.out.println("Hello");
         System.out.println("TEST2");
@@ -30,7 +31,8 @@ public class OODJAssignment {
         System.out.println(adm.getName());
         user user = new user("a","b");
 
-        
+        System.out.println("Hello");
+        System.out.println("TEST2");
         
         
     }
