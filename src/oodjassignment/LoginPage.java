@@ -5,6 +5,10 @@
  */
 package oodjassignment;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 /**
  *
  * @author user
@@ -49,6 +53,11 @@ public class LoginPage extends javax.swing.JFrame {
 
         btnLogin.setText("Login");
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         jLabel3.setText("Register");
@@ -126,6 +135,24 @@ public class LoginPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            File userFile = new File("User.txt");
+            Scanner myreader = new Scanner(userFile);
+            while (myreader.hasNextLine())
+            {
+                
+            }
+        }
+        catch(FileNotFoundException e)
+        {
+            
+        }
+                
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
