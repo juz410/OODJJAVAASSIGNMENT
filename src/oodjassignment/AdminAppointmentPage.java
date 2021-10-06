@@ -27,6 +27,31 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dlgModify = new javax.swing.JDialog();
+        plModify = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtAddress = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtIC = new javax.swing.JTextField();
+        btnConfirm = new javax.swing.JButton();
+        txtAddress5 = new javax.swing.JTextField();
+        txtEmail1 = new javax.swing.JTextField();
+        txtIC1 = new javax.swing.JTextField();
+        txtPhone1 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        lblAdminName = new javax.swing.JLabel();
+        lblAdminName1 = new javax.swing.JLabel();
+        txtAddress2 = new javax.swing.JTextField();
+        txtAddress3 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtAddress4 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtAddress1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         plAppointment = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lsAppointment = new javax.swing.JList<>();
@@ -39,6 +64,234 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
         btnModify = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setText("Date:");
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4.setText("Address:");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setText("Center ID:");
+
+        txtAddress.setBorder(null);
+        txtAddress.setCaretColor(java.awt.Color.darkGray);
+        txtAddress.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setText("User ID:");
+
+        txtIC.setBorder(null);
+        txtIC.setCaretColor(java.awt.Color.darkGray);
+        txtIC.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        btnConfirm.setText("Confirm");
+        btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        txtAddress5.setBorder(null);
+        txtAddress5.setCaretColor(java.awt.Color.darkGray);
+        txtAddress5.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtAddress5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAddress5ActionPerformed(evt);
+            }
+        });
+
+        txtEmail1.setBorder(null);
+        txtEmail1.setCaretColor(java.awt.Color.darkGray);
+        txtEmail1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        txtIC1.setBorder(null);
+        txtIC1.setCaretColor(java.awt.Color.darkGray);
+        txtIC1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        txtPhone1.setBorder(null);
+        txtPhone1.setCaretColor(java.awt.Color.darkGray);
+        txtPhone1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel11.setText("Dose:");
+
+        lblAdminName.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
+        lblAdminName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAdminName.setText("Modify");
+
+        lblAdminName1.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
+        lblAdminName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAdminName1.setText("Appointment");
+
+        txtAddress2.setBorder(null);
+        txtAddress2.setCaretColor(java.awt.Color.darkGray);
+        txtAddress2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtAddress2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAddress2ActionPerformed(evt);
+            }
+        });
+
+        txtAddress3.setBorder(null);
+        txtAddress3.setCaretColor(java.awt.Color.darkGray);
+        txtAddress3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtAddress3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAddress3ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel8.setText("Vaccine ID:");
+
+        txtAddress4.setBorder(null);
+        txtAddress4.setCaretColor(java.awt.Color.darkGray);
+        txtAddress4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtAddress4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAddress4ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel9.setText("Vaccine Type:");
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel10.setText("Appoint Status:");
+
+        txtAddress1.setBorder(null);
+        txtAddress1.setCaretColor(java.awt.Color.darkGray);
+        txtAddress1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtAddress1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAddress1ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel5.setText("Time:");
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setText("Appointment ID:");
+
+        javax.swing.GroupLayout plModifyLayout = new javax.swing.GroupLayout(plModify);
+        plModify.setLayout(plModifyLayout);
+        plModifyLayout.setHorizontalGroup(
+            plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(plModifyLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(plModifyLayout.createSequentialGroup()
+                        .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel7))
+                            .addGroup(plModifyLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))))
+                        .addGap(68, 68, 68)
+                        .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(plModifyLayout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtAddress2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAddress3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAddress4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAddress5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtAddress1)
+                                    .addComponent(txtEmail1)
+                                    .addComponent(txtIC1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plModifyLayout.createSequentialGroup()
+                                    .addGap(2, 2, 2)
+                                    .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtPhone1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnConfirm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(plModifyLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(plModifyLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(lblAdminName))
+                            .addComponent(lblAdminName1))))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        plModifyLayout.setVerticalGroup(
+            plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(plModifyLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(lblAdminName)
+                .addGap(5, 5, 5)
+                .addComponent(lblAdminName1)
+                .addGap(18, 18, 18)
+                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtAddress2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtAddress3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtAddress4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtAddress5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtPhone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtIC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout dlgModifyLayout = new javax.swing.GroupLayout(dlgModify.getContentPane());
+        dlgModify.getContentPane().setLayout(dlgModifyLayout);
+        dlgModifyLayout.setHorizontalGroup(
+            dlgModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgModifyLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(plModify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        dlgModifyLayout.setVerticalGroup(
+            dlgModifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgModifyLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(plModify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,9 +340,6 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
             .addGroup(plAppointmentLayout.createSequentialGroup()
                 .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(plAppointmentLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(plAppointmentLayout.createSequentialGroup()
                         .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(plAppointmentLayout.createSequentialGroup()
                                 .addGap(241, 241, 241)
@@ -102,16 +352,20 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 290, Short.MAX_VALUE))
+                    .addGroup(plAppointmentLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
                             .addGroup(plAppointmentLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
+                                .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
-                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         plAppointmentLayout.setVerticalGroup(
@@ -129,27 +383,28 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnApprove, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnModify, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(plAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(plAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(plAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(plAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -158,6 +413,26 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModifyActionPerformed
+
+    private void txtAddress5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddress5ActionPerformed
+
+    private void txtAddress2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddress2ActionPerformed
+
+    private void txtAddress3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddress3ActionPerformed
+
+    private void txtAddress4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddress4ActionPerformed
+
+    private void txtAddress1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddress1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,16 +471,41 @@ public class AdminAppointmentPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApprove;
+    private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnModify;
     private javax.swing.JButton btnReject;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cbSearch;
+    private javax.swing.JDialog dlgModify;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAdminName;
+    private javax.swing.JLabel lblAdminName1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JList<String> lsAppointment;
     private javax.swing.JPanel plAppointment;
+    private javax.swing.JPanel plModify;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtAddress1;
+    private javax.swing.JTextField txtAddress2;
+    private javax.swing.JTextField txtAddress3;
+    private javax.swing.JTextField txtAddress4;
+    private javax.swing.JTextField txtAddress5;
+    private javax.swing.JTextField txtEmail1;
+    private javax.swing.JTextField txtIC;
+    private javax.swing.JTextField txtIC1;
+    private javax.swing.JTextField txtPhone1;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

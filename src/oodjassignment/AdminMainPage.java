@@ -34,6 +34,8 @@ public class AdminMainPage extends javax.swing.JFrame {
         lblTitle1 = new javax.swing.JLabel();
         lblAdminName = new javax.swing.JLabel();
         btnUserAcc = new javax.swing.JButton();
+        btnAppointment1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +59,12 @@ public class AdminMainPage extends javax.swing.JFrame {
         btnUserAcc.setText("User Account");
         btnUserAcc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        btnAppointment1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        btnAppointment1.setText("Vaccine");
+        btnAppointment1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel3.setText("Manage Vaccine");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -72,7 +80,9 @@ public class AdminMainPage extends javax.swing.JFrame {
                                     .addGap(72, 72, 72)
                                     .addComponent(jLabel1))
                                 .addComponent(btnUserAcc)
-                                .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAppointment1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(94, 94, 94)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +107,11 @@ public class AdminMainPage extends javax.swing.JFrame {
                 .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAppointment1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,9 +171,11 @@ public class AdminMainPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAppointment;
+    private javax.swing.JButton btnAppointment1;
     private javax.swing.JButton btnUserAcc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAdminName;
     private javax.swing.JLabel lblTitle1;

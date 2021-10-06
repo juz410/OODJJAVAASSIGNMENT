@@ -27,6 +27,33 @@ public class UserMainPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dlgDoseStatus = new javax.swing.JDialog();
+        plDoseStatus = new javax.swing.JPanel();
+        lblTitle2 = new javax.swing.JLabel();
+        lblTITLE = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblIC = new javax.swing.JLabel();
+        lblUsername1 = new javax.swing.JLabel();
+        plDose1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        lblVaccineID = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        lblCenterID = new javax.swing.JLabel();
+        lblVaccineType = new javax.swing.JLabel();
+        plDose2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        lblVaccineID1 = new javax.swing.JLabel();
+        lblDate1 = new javax.swing.JLabel();
+        lblCenterID1 = new javax.swing.JLabel();
+        lblVaccineType1 = new javax.swing.JLabel();
         plUserMain = new javax.swing.JPanel();
         lblTitle1 = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
@@ -38,6 +65,232 @@ public class UserMainPage extends javax.swing.JFrame {
         btnModify = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+
+        plDoseStatus.setBackground(new java.awt.Color(255, 204, 102));
+
+        lblTitle2.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        lblTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle2.setText("Digital Certificate");
+
+        lblTITLE.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        lblTITLE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTITLE.setText("Covid-19 Vaccination");
+
+        jLabel3.setText("———————————————————————————————————————————————————————————————");
+
+        lblIC.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        lblIC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIC.setText("IC");
+
+        lblUsername1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        lblUsername1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUsername1.setText("UserName");
+
+        plDose1.setBackground(new java.awt.Color(255, 204, 204));
+
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel7.setText("Dose 1:");
+
+        jLabel9.setText("Date:");
+
+        jLabel10.setText("CenterID:");
+
+        jLabel11.setText("Vaccine Type:");
+
+        jLabel12.setText("Vaccine ID:");
+
+        lblVaccineID.setText("lblVaccine ID");
+
+        lblDate.setText("lblDate");
+
+        lblCenterID.setText("lblCenterID");
+
+        lblVaccineType.setText("lblVaccine Type");
+
+        javax.swing.GroupLayout plDose1Layout = new javax.swing.GroupLayout(plDose1);
+        plDose1.setLayout(plDose1Layout);
+        plDose1Layout.setHorizontalGroup(
+            plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(plDose1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12)
+                    .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addGroup(plDose1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)))
+                        .addComponent(jLabel11)))
+                .addGap(18, 18, 18)
+                .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblCenterID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblVaccineType, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                    .addComponent(lblDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblVaccineID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        plDose1Layout.setVerticalGroup(
+            plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(plDose1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(plDose1Layout.createSequentialGroup()
+                        .addComponent(lblDate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCenterID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblVaccineID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblVaccineType))
+                    .addGroup(plDose1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        plDose2.setBackground(new java.awt.Color(255, 204, 204));
+
+        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel8.setText("Dose 1:");
+
+        jLabel13.setText("Date:");
+
+        jLabel14.setText("CenterID:");
+
+        jLabel15.setText("Vaccine Type:");
+
+        jLabel16.setText("Vaccine ID:");
+
+        lblVaccineID1.setText("lblVaccine ID");
+
+        lblDate1.setText("lblDate");
+
+        lblCenterID1.setText("lblCenterID");
+
+        lblVaccineType1.setText("lblVaccine Type");
+
+        javax.swing.GroupLayout plDose2Layout = new javax.swing.GroupLayout(plDose2);
+        plDose2.setLayout(plDose2Layout);
+        plDose2Layout.setHorizontalGroup(
+            plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(plDose2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel16)
+                    .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addGroup(plDose2Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)))
+                        .addComponent(jLabel15)))
+                .addGap(18, 18, 18)
+                .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblCenterID1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblVaccineType1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                    .addComponent(lblDate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblVaccineID1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        plDose2Layout.setVerticalGroup(
+            plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(plDose2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(plDose2Layout.createSequentialGroup()
+                        .addComponent(lblDate1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCenterID1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblVaccineID1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblVaccineType1))
+                    .addGroup(plDose2Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout plDoseStatusLayout = new javax.swing.GroupLayout(plDoseStatus);
+        plDoseStatus.setLayout(plDoseStatusLayout);
+        plDoseStatusLayout.setHorizontalGroup(
+            plDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(plDoseStatusLayout.createSequentialGroup()
+                .addGroup(plDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(plDoseStatusLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(plDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(plDose1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 500, Short.MAX_VALUE)
+                            .addComponent(plDose2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(plDoseStatusLayout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addGroup(plDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTITLE)
+                            .addGroup(plDoseStatusLayout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addComponent(lblTitle2))))
+                    .addGroup(plDoseStatusLayout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(lblUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(plDoseStatusLayout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(lblIC, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        plDoseStatusLayout.setVerticalGroup(
+            plDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(plDoseStatusLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblTITLE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTitle2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addGap(1, 1, 1)
+                .addComponent(lblUsername1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblIC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(plDose1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(plDose2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout dlgDoseStatusLayout = new javax.swing.GroupLayout(dlgDoseStatus.getContentPane());
+        dlgDoseStatus.getContentPane().setLayout(dlgDoseStatusLayout);
+        dlgDoseStatusLayout.setHorizontalGroup(
+            dlgDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgDoseStatusLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(plDoseStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        dlgDoseStatusLayout.setVerticalGroup(
+            dlgDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgDoseStatusLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(plDoseStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,48 +328,49 @@ public class UserMainPage extends javax.swing.JFrame {
         plUserMain.setLayout(plUserMainLayout);
         plUserMainLayout.setHorizontalGroup(
             plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserMainLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserMainLayout.createSequentialGroup()
+                            .addGap(68, 68, 68)
+                            .addComponent(jLabel2))
+                        .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserMainLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(btnProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserMainLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)))
+                .addGap(84, 84, 84))
             .addGroup(plUserMainLayout.createSequentialGroup()
                 .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(plUserMainLayout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitle)
-                            .addGroup(plUserMainLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lblTitle1))
-                            .addGroup(plUserMainLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserMainLayout.createSequentialGroup()
-                                            .addGap(68, 68, 68)
-                                            .addComponent(jLabel2))
-                                        .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserMainLayout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addComponent(btnProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserMainLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(16, 16, 16))))))
                     .addGroup(plUserMainLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(plUserMainLayout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitle)
+                            .addGroup(plUserMainLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(lblTitle1)))))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         plUserMainLayout.setVerticalGroup(
             plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plUserMainLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(42, 42, 42)
                 .addComponent(lblTitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTitle)
-                .addGap(30, 30, 30)
+                .addGap(29, 29, 29)
                 .addComponent(btnProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(jLabel1)
@@ -128,11 +382,11 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(30, 30, 30)
+                .addGap(72, 72, 72)
                 .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
-                .addGap(121, 121, 121))
+                .addGap(65, 65, 65))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -147,9 +401,9 @@ public class UserMainPage extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(plUserMain, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(plUserMain, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -194,13 +448,40 @@ public class UserMainPage extends javax.swing.JFrame {
     private javax.swing.JButton btnAppointment;
     private javax.swing.JButton btnModify;
     private javax.swing.JButton btnProfile;
+    private javax.swing.JDialog dlgDoseStatus;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblCenterID;
+    private javax.swing.JLabel lblCenterID1;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDate1;
+    private javax.swing.JLabel lblIC;
+    private javax.swing.JLabel lblTITLE;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
+    private javax.swing.JLabel lblTitle2;
+    private javax.swing.JLabel lblUsername1;
+    private javax.swing.JLabel lblVaccineID;
+    private javax.swing.JLabel lblVaccineID1;
+    private javax.swing.JLabel lblVaccineType;
+    private javax.swing.JLabel lblVaccineType1;
+    private javax.swing.JPanel plDose1;
+    private javax.swing.JPanel plDose2;
+    private javax.swing.JPanel plDoseStatus;
     private javax.swing.JPanel plUserMain;
     // End of variables declaration//GEN-END:variables
 }

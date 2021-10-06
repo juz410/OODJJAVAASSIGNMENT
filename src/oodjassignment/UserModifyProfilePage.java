@@ -28,41 +28,31 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
     private void initComponents() {
 
         plModifyUserAcc = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtIC = new javax.swing.JTextField();
         txtPhone = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        cbState = new javax.swing.JComboBox<>();
+        cbCountry = new javax.swing.JComboBox<>();
+        txtEmail = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtAddress = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtIC = new javax.swing.JTextField();
         txtGender = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtRegister = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         txtCPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel2.setText("Gender:");
-
-        txtEmail.setBorder(null);
-        txtEmail.setCaretColor(java.awt.Color.darkGray);
-        txtEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        txtName.setBorder(null);
-        txtName.setCaretColor(java.awt.Color.darkGray);
-        txtName.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel5.setText("IC/Passport:");
 
         btnConfirm.setText("Confirm");
         btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -71,19 +61,9 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("User Account");
 
-        txtAddress.setBorder(null);
-        txtAddress.setCaretColor(java.awt.Color.darkGray);
-        txtAddress.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel1.setText("Password:");
-
         lblTitle1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Modify");
-
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel6.setText("Address:");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Phone:");
@@ -91,88 +71,125 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel8.setText("Confirm Password:");
 
-        txtIC.setBorder(null);
-        txtIC.setCaretColor(java.awt.Color.darkGray);
-        txtIC.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
         txtPhone.setBorder(null);
         txtPhone.setCaretColor(java.awt.Color.darkGray);
-        txtPhone.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        txtGender.setBorder(null);
-        txtGender.setCaretColor(java.awt.Color.darkGray);
-        txtGender.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel7.setText("Name:");
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Email:");
 
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel9.setText("Current State:");
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel10.setText("Country:");
+
+        cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        txtEmail.setBorder(null);
+        txtEmail.setCaretColor(java.awt.Color.darkGray);
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel5.setText("IC/Passport:");
+
+        txtAddress.setBorder(null);
+        txtAddress.setCaretColor(java.awt.Color.darkGray);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setText("Password:");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setText("Current Address:");
+
+        txtIC.setBorder(null);
+        txtIC.setCaretColor(java.awt.Color.darkGray);
+
+        txtGender.setBorder(null);
+        txtGender.setCaretColor(java.awt.Color.darkGray);
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setText("Name:");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setText("Gender:");
+
+        txtRegister.setBorder(null);
+        txtRegister.setCaretColor(java.awt.Color.darkGray);
+
         txtPassword.setBorder(null);
-        txtPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         txtCPassword.setBorder(null);
-        txtCPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         javax.swing.GroupLayout plModifyUserAccLayout = new javax.swing.GroupLayout(plModifyUserAcc);
         plModifyUserAcc.setLayout(plModifyUserAccLayout);
         plModifyUserAccLayout.setHorizontalGroup(
             plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plModifyUserAccLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plModifyUserAccLayout.createSequentialGroup()
+                    .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtGender, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                            .addComponent(txtIC, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                            .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                            .addComponent(txtCPassword)
-                            .addComponent(txtPassword)
-                            .addComponent(txtName))
-                        .addGap(52, 52, 52))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plModifyUserAccLayout.createSequentialGroup()
-                        .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(39, 39, 39))))
+                            .addGroup(plModifyUserAccLayout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPassword))
+                            .addGroup(plModifyUserAccLayout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCPassword)))
+                        .addGroup(plModifyUserAccLayout.createSequentialGroup()
+                            .addGap(25, 25, 25)
+                            .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(plModifyUserAccLayout.createSequentialGroup()
+                                    .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel10))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtGender)
+                                        .addComponent(txtIC)
+                                        .addComponent(txtAddress)
+                                        .addComponent(txtEmail)
+                                        .addComponent(txtPhone)
+                                        .addComponent(cbState, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cbCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(plModifyUserAccLayout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(plModifyUserAccLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         plModifyUserAccLayout.setVerticalGroup(
             plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -192,9 +209,17 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
                 .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(cbCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -202,16 +227,16 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(26, 26, 26)
                 .addComponent(plModifyUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addComponent(plModifyUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -254,7 +279,10 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JComboBox<String> cbCountry;
+    private javax.swing.JComboBox<String> cbState;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -262,6 +290,7 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JPanel plModifyUserAcc;
@@ -270,8 +299,8 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtIC;
-    private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtRegister;
     // End of variables declaration//GEN-END:variables
 }
