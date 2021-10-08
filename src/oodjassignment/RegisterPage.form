@@ -75,26 +75,21 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="txtGender" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtIC" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtPhone" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cbState" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cbCountry" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtRegister" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtCPassword" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="81" max="32767" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="txtGender" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtIC" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtPhone" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cbState" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cbCountry" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtRegister" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtCPassword" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnRegister" min="-2" pref="103" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="btnRegister" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace pref="81" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>

@@ -42,6 +42,11 @@ public class AdminMainPage extends javax.swing.JFrame {
         btnAppointment.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btnAppointment.setText("Appointment");
         btnAppointment.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointmentActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Manage User Account");
 
@@ -58,6 +63,11 @@ public class AdminMainPage extends javax.swing.JFrame {
         btnUserAcc.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btnUserAcc.setText("User Account");
         btnUserAcc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUserAcc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserAccActionPerformed(evt);
+            }
+        });
 
         btnAppointment1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btnAppointment1.setText("Vaccine");
@@ -133,6 +143,16 @@ public class AdminMainPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnUserAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserAccActionPerformed
+        AdminUMainPage userPage = new AdminUMainPage();
+        userPage.setVisible(true);
+        
+    }//GEN-LAST:event_btnUserAccActionPerformed
+
+    private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAppointmentActionPerformed
 
     /**
      * @param args the command line arguments
