@@ -1,2 +1,2 @@
-UserID,Password,Name,IC/PNumber,Gender,PhoneNo,Email,Address,State,Country,VacStatus
-A01,abcd1234,ADMIN,,,,,,,,
+UserID|Password|Name|IC/PNumber|Gender|PhoneNo|Email|Address|State|Country|VacStatus
+A01|abcd1234|ADMIN||||||||

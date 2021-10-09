@@ -1,1 +1,1 @@
-ApptID,UserID,CenterID,Address,Date,TIME,AppStatus,VacType,VacID,VacDose
+ApptID|UserID|CenterID|Address|Date|TIME|AppStatus|VacType|VacID|VacDose
