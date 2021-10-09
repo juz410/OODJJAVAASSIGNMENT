@@ -60,6 +60,11 @@ public class AdminUMainPage extends javax.swing.JFrame {
         btnRegister.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btnRegister.setText("Register");
         btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Search/View User Account");
 
@@ -125,6 +130,11 @@ public class AdminUMainPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        RegisterPage rPage = new RegisterPage("Admin");
+        rPage.setVisible(true);
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**
      * @param args the command line arguments

@@ -158,9 +158,12 @@ public class Users {
             {
                 
                 String line = myReader.nextLine(); //File reading line by line
-                String [] userArray = line.split(","); //Splitting the line into different index using String[] Array
+                
+                String [] userArray = line.split("\\|"); //Splitting the line into different index using String[] Array
+                
                 if(userArray[0].equals(this.userID) && userArray[1].equals(this.Password))
                 {
+                    
                     access = true;
                     AdminMainPage adm  =new AdminMainPage();
                     adm.setVisible(true);
