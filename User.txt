@@ -1,2 +1,7 @@
 UserID|Password|Name|IC/PNumber|Gender|PhoneNo|Email|Address|State|Country|VacStatus
 A01|abcd1234|ADMIN||||||||
+01137700973|TAN KOK FEENG|L3ft4d3@d|MALE|01137700973|kokfeengtan@gmail.com|1327,jalan senai utama|010808010973|Johor|Malaysia|null
+
+01137700973|TAN KOK SHENG|L3ft4d3@d|MALE|01137700973|kokshengtan@gmail.com|1327,jalansenia|010808010973|Johor|Malaysia|null
+01123312312|test|Test!@#1221|MALE|01123312312|test@gmail.com|123,test|0109202010201|Johor|Malaysia|null
+null|test123|TestPassword1@|MALE|01231221231|test@gmail.com|123,jalan test|231231231231|Johor|Malaysia|null

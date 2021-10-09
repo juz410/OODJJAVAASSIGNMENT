@@ -8,6 +8,7 @@ package oodjassignment;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import javax.swing.JOptionPane;
@@ -297,69 +298,104 @@ public class RegisterPage extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-        String UserID = txtPhone.getText();
-        String VaccineStatus = "null";
-        Validation validation = new Validation();
         
-        if (validation.confirmPassword(txtPassword.getText(), txtCPassword.getText()))
+        Users user = new Users();
+        user.setName(txtName.getText());
+        user.setPassword(txtPassword.getText());
+        user.setCPassword(txtCPassword.getText());
+        user.setEmail(txtEmail.getText());
+        user.setIC(txtIC.getText());
+        user.setPhoneNo(txtPhone.getText());
+        user.setAddress(txtAddress.getText());
+        user.setGender(cbGender.getSelectedItem().toString());
+        user.setCountry(cbCountry.getSelectedItem().toString());
+        user.setState(cbState.getSelectedItem().toString());
+        user.userRegister();
+        
+        if(user.Succesful())
         {
-            if(validation.passwordValid(txtPassword.getText()))
-            {
-                if (validation.phoneValid(txtPhone.getText()))
-                {
-                    if (validation.emailValid(txtEmail.getText()))
-                    {
-                        if (validation.icValid(txtIC.getText()))
-                        {
-                                try 
-                                {
-                                    FileWriter userFileWriter = new FileWriter("User.txt",true);
-                                    PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
-                                    userPrintWriter.println("\n" + UserID + "|" +
-                                            txtName.getText()+"|"+
-                                            txtPassword.getText()+ "|" +
-                                            cbGender.getSelectedItem().toString()+ "|"+
-                                            txtPhone.getText()+ "|"+
-                                            txtEmail.getText()+ "|"+
-                                            txtAddress.getText()+ "|"+
-                                            txtIC.getText()+ "|"+
-                                            cbState.getSelectedItem().toString()+ "|"+
-                                            cbCountry.getSelectedItem().toString() + "|"+ VaccineStatus);
-                                    userFileWriter.close();
-                                    JOptionPane.showMessageDialog(null,"Register Successfully");
-                                } 
-                                catch (IOException e) 
-                                {
-                                    JOptionPane.showMessageDialog(null,"An error occurred.");
-                                }
-                        }
-                        else
-                        {
-                            JOptionPane.showMessageDialog(null, "<html> Please enter valid IC/passport! <br> "
-                                    + "[format: xxxxxx-xx-xxxx] <html>");
-                        }
-                    }
-                    else
-                    {
-                        JOptionPane.showMessageDialog(null, "Please enter valid email!");
-                    }
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "Please enter valid phone number!");
-                }
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null,"<html> Please choose a stronger password!"
-                        + " <br> Try a mix of letters, numbers, and symbols. "
-                        + " <br< [format: Abcd123@] </html>");
-            }
+            //Clean txtBox overhere
         }
-        else
-        {
-            JOptionPane.showMessageDialog(null,"<html> Those passwords didn’t match! <br> Try again. </html>");
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        String UserID = txtPhone.getText();
+//        String VaccineStatus = "null";
+//        Validation validation = new Validation();
+//        
+//        if (validation.confirmPassword(txtPassword.getText(), txtCPassword.getText()))
+//        {
+//            if(validation.passwordValid(txtPassword.getText()))
+//            {
+//                if (validation.phoneValid(txtPhone.getText()))
+//                {
+//                    if (validation.emailValid(txtEmail.getText()))
+//                    {
+//                        if (validation.icValid(txtIC.getText()))
+//                        {
+//                                try 
+//                                {
+//                                    FileWriter userFileWriter = new FileWriter("User.txt",true);
+//                                    PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
+//                                    userPrintWriter.println(UserID + "|" +
+//                                            txtName.getText()+"|"+
+//                                            txtPassword.getText()+ "|" +
+//                                            cbGender.getSelectedItem().toString()+ "|"+
+//                                            txtPhone.getText()+ "|"+
+//                                            txtEmail.getText()+ "|"+
+//                                            txtAddress.getText()+ "|"+
+//                                            txtIC.getText()+ "|"+
+//                                            cbState.getSelectedItem().toString()+ "|"+
+//                                            cbCountry.getSelectedItem().toString() + "|"+ VaccineStatus);
+//                                    userFileWriter.close();
+//                                    JOptionPane.showMessageDialog(null,"Register Successfully");
+//                                } 
+//                                catch (IOException e) 
+//                                {
+//                                    JOptionPane.showMessageDialog(null,"An error occurred.");
+//                                }
+//                        }
+//                        else
+//                        {
+//                            JOptionPane.showMessageDialog(null, "<html> Please enter valid IC/passport! <br> "
+//                                    + "[format: xxxxxx-xx-xxxx] <html>");
+//                        }
+//                    }
+//                    else
+//                    {
+//                        JOptionPane.showMessageDialog(null, "Please enter valid email!");
+//                    }
+//                }
+//                else
+//                {
+//                    JOptionPane.showMessageDialog(null, "Please enter valid phone number!");
+//                }
+//            }
+//            else
+//            {
+//                JOptionPane.showMessageDialog(null,"<html> Please choose a stronger password!"
+//                        + " <br> Try a mix of letters, numbers, and symbols. "
+//                        + " <br< [format: Abcd123@] </html>");
+//            }
+//        }
+//        else
+//        {
+//            JOptionPane.showMessageDialog(null,"<html> Those passwords didn’t match! <br> Try again. </html>");
+//        }
     
         
     }//GEN-LAST:event_btnRegisterActionPerformed
