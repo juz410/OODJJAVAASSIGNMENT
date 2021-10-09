@@ -22,28 +22,12 @@ public class RegisterPage extends javax.swing.JFrame {
     /**
      * Creates new form RegisterPage
      */
-    public static boolean isValid(String password) 
-    {   
-        String passwordPattern =
-                "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
-        Pattern pattern = Pattern.compile(passwordPattern);
-        Matcher matcher = pattern.matcher(password);
-        return matcher.matches();
-    }
-    public static boolean emailValid(String email)
-    {
-        String emailPattern = 
-                "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-        Pattern pattern = Pattern.compile(emailPattern);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
     
     public RegisterPage(String role) 
     {
         
         initComponents();
-        lblTest.setText(role);
+        lblRole.setText(role);
     }
 
     /**
@@ -80,7 +64,11 @@ public class RegisterPage extends javax.swing.JFrame {
         txtCPassword = new javax.swing.JPasswordField();
         txtName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
-        lblTest = new javax.swing.JLabel();
+        lblRole = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -166,7 +154,7 @@ public class RegisterPage extends javax.swing.JFrame {
 
         txtPassword.setBorder(null);
 
-        lblTest.setText("testing");
+        lblRole.setText("testing");
 
         javax.swing.GroupLayout plUserRegisterLayout = new javax.swing.GroupLayout(plUserRegister);
         plUserRegister.setLayout(plUserRegisterLayout);
@@ -226,7 +214,7 @@ public class RegisterPage extends javax.swing.JFrame {
                 .addGap(102, 102, 102)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTest)
+                .addComponent(lblRole)
                 .addGap(59, 59, 59))
         );
         plUserRegisterLayout.setVerticalGroup(
@@ -236,7 +224,7 @@ public class RegisterPage extends javax.swing.JFrame {
                     .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(plUserRegisterLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblTest)))
+                        .addComponent(lblRole)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
@@ -286,6 +274,19 @@ public class RegisterPage extends javax.swing.JFrame {
                 .addContainerGap(93, Short.MAX_VALUE))
         );
 
+        btnBack.setText("Back to Previous Page");
+
+        jButton1.setText("jButton1");
+
+        jButton2.setText("jButton2");
+
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -294,13 +295,29 @@ public class RegisterPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(plUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBack)
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(plUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -455,6 +472,10 @@ public class RegisterPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbShowPasswordActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        lblRole.setText("AAA");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -492,12 +513,16 @@ public class RegisterPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRegister;
     private javax.swing.JComboBox<String> cbCountry;
     private javax.swing.JComboBox<String> cbGender;
     private javax.swing.JCheckBox cbRegisterAdmin;
     private javax.swing.JCheckBox cbShowPassword;
     private javax.swing.JComboBox<String> cbState;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCPassword;
     private javax.swing.JLabel lblCountry;
@@ -507,8 +532,8 @@ public class RegisterPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblState;
-    private javax.swing.JLabel lblTest;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel plUserRegister;
     private javax.swing.JTextField txtAddress;
