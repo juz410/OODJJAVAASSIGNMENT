@@ -162,7 +162,7 @@ public class LoginPage extends javax.swing.JFrame {
        }
        else //normal user login;
        {
-           
+           user.userLogin();
        }
        
 

@@ -11,11 +11,11 @@ package oodjassignment;
  */
 public class UserMainPage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UserMainPage
-     */
-    public UserMainPage() {
+    
+    private String userID;
+    public UserMainPage(String UID) {
         initComponents();
+        this.userID = UID;
     }
 
     /**
@@ -439,7 +439,7 @@ public class UserMainPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserMainPage().setVisible(true);
+                new UserMainPage("").setVisible(true);
             }
         });
     }

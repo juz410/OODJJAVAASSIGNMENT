@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -161,7 +163,7 @@ public class Users {
                 
                 String [] userArray = line.split("\\|"); //Splitting the line into different index using String[] Array
                 
-                if(userArray[0].equals(this.userID) && userArray[1].equals(this.Password))
+                if(userArray[0].equals(this.userID) && userArray[2].equals(this.Password))
                 {
                     
                     access = true;
@@ -190,73 +192,140 @@ public class Users {
     public boolean Succesful(){
         return this.Succesful;
     }
+     
+    
+    public void userLogin()
+    {
+        Boolean access = false;
+        try {
+            File file = new File("User.txt");
+            Scanner myReader = new Scanner(file);
+            while(myReader.hasNextLine())
+            {
+                
+                String line = myReader.nextLine(); //File reading line by line
+                
+                String [] userArray = line.split("\\|"); //Splitting the line into different index using String[] Array
+                
+                if(userArray[0].equals(this.userID) && userArray[2].equals(this.Password))
+                {
+                    
+                    access = true;
+                    UserMainPage userMain = new UserMainPage(this.userID);
+                    userMain.setVisible(true);
+                    break;
+                }
+                
+                    
+                
+                
+            }
+            if (access == false)
+            {
+                JOptionPane.showMessageDialog(null,"Wrong UserID or Password", "Unable to login",JOptionPane.WARNING_MESSAGE);
+            }
+            
+//        new AdminMainPage().setVisible(true);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
+    }
     public void userRegister()
     {
+        boolean exist = false;
+        File file = new File("User.txt");
+        try {
+            BufferedReader userExistCheck = new BufferedReader(new FileReader(file));
+            String readline;
+            String [] userArray;
+            try {
+                while((readline = userExistCheck.readLine())!= null)
+                {
+                    userArray = readline.split("\\|");
+                    if(this.userID.equals(userArray[0]) )
+                    {
+                        exist = true;
+                        break;
+                    }
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         String VaccineStatus = "null";
         
-        
-        if (validation.confirmPassword(this.Password, this.confirmPassword))
+        if (exist == false)
         {
-            if(validation.passwordValid(this.Password))
+                if (validation.confirmPassword(this.Password, this.confirmPassword))
             {
-                if (validation.phoneValid(this.PhoneNo))
+                if(validation.passwordValid(this.Password))
                 {
-                    if (validation.emailValid(this.Email))
+                    if (validation.phoneValid(this.PhoneNo))
                     {
-                        if (validation.icValid(this.IC))
+                        if (validation.emailValid(this.Email))
                         {
-                                try 
-                                {
-                                    FileWriter userFileWriter = new FileWriter("User.txt",true);
-                                    PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
-                                    userPrintWriter.println(this.userID + "|" +
-                                            this.Name+"|"+
-                                            this.Password+ "|" +
-                                            this.Gender+ "|"+
-                                            this.PhoneNo+ "|"+
-                                            this.Email+ "|"+
-                                            this.Address+ "|"+
-                                            this.IC+ "|"+
-                                            this.State+ "|"+
-                                            this.Country + "|"+ VaccineStatus);
-                                    userFileWriter.close();
-                                    JOptionPane.showMessageDialog(null,"Register Successfully");
-                                    Succesful = true;
-                                } 
-                                catch (IOException e) 
-                                {
-                                    JOptionPane.showMessageDialog(null,"An error occurred.");
-                                }
+                            if (validation.icValid(this.IC))
+                            {
+                                    try 
+                                    {
+                                        FileWriter userFileWriter = new FileWriter("User.txt",true);
+                                        PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
+                                        userPrintWriter.println(this.userID + "|" +
+                                                this.Name+"|"+
+                                                this.Password+ "|" +
+                                                this.Gender+ "|"+
+                                                this.PhoneNo+ "|"+
+                                                this.Email+ "|"+
+                                                this.Address+ "|"+
+                                                this.IC+ "|"+
+                                                this.State+ "|"+
+                                                this.Country + "|"+ VaccineStatus);
+                                        userFileWriter.close();
+                                        JOptionPane.showMessageDialog(null,"Register Successfully");
+                                        Succesful = true;
+                                    } 
+                                    catch (IOException e) 
+                                    {
+                                        JOptionPane.showMessageDialog(null,"An error occurred.");
+                                    }
+                            }
+                            else
+                            {
+                                JOptionPane.showMessageDialog(null, "<html> Please enter valid IC/passport! <br> "
+                                        + "[format: xxxxxx-xx-xxxx] <html>");
+                            }
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "<html> Please enter valid IC/passport! <br> "
-                                    + "[format: xxxxxx-xx-xxxx] <html>");
+                            JOptionPane.showMessageDialog(null, "Please enter valid email!");
                         }
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null, "Please enter valid email!");
+                        JOptionPane.showMessageDialog(null, "Please enter valid phone number!");
                     }
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null, "Please enter valid phone number!");
+                    JOptionPane.showMessageDialog(null,"<html> Please choose a stronger password!"
+                            + " <br> Try a mix of letters, numbers, and symbols. "
+                            + " <br< [format: Abcd123@] </html>");
                 }
             }
             else
             {
-                JOptionPane.showMessageDialog(null,"<html> Please choose a stronger password!"
-                        + " <br> Try a mix of letters, numbers, and symbols. "
-                        + " <br< [format: Abcd123@] </html>");
+                JOptionPane.showMessageDialog(null,"<html> Those passwords didn’t match! <br> Try again. </html>");
             }
-        }
-        else
+        }else
         {
-            JOptionPane.showMessageDialog(null,"<html> Those passwords didn’t match! <br> Try again. </html>");
+            JOptionPane.showMessageDialog(null,"User ID Already Exist Please insert a NEW User ID","Duplicated ID",JOptionPane.WARNING_MESSAGE);
         }
+        
     
         
     }

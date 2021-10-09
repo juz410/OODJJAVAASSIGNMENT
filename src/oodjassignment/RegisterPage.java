@@ -18,16 +18,23 @@ import javax.swing.JOptionPane;
  * @author user
  */
 public class RegisterPage extends javax.swing.JFrame {
-
+    private String role;
     /**
      * Creates new form RegisterPage
      */
     
-    public RegisterPage(String role) 
+    public RegisterPage(String R) 
     {
         
         initComponents();
-        lblRole.setText(role);
+        role = R;
+        if (role.equals("Admin"))
+        {
+            btnBack.setText("Back to User Main Page");
+        }else
+        {
+            btnBack.setText("Back to Login");
+        }
     }
 
     /**
@@ -66,9 +73,6 @@ public class RegisterPage extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         lblRole = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -275,15 +279,9 @@ public class RegisterPage extends javax.swing.JFrame {
         );
 
         btnBack.setText("Back to Previous Page");
-
-        jButton1.setText("jButton1");
-
-        jButton2.setText("jButton2");
-
-        jButton3.setText("jButton3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -297,12 +295,6 @@ public class RegisterPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBack)
                 .addGap(19, 19, 19))
         );
@@ -312,11 +304,7 @@ public class RegisterPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(plUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                .addComponent(btnBack)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -344,86 +332,6 @@ public class RegisterPage extends javax.swing.JFrame {
         {
             //Clean txtBox overhere
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        String UserID = txtPhone.getText();
-//        String VaccineStatus = "null";
-//        Validation validation = new Validation();
-//        
-//        if (validation.confirmPassword(txtPassword.getText(), txtCPassword.getText()))
-//        {
-//            if(validation.passwordValid(txtPassword.getText()))
-//            {
-//                if (validation.phoneValid(txtPhone.getText()))
-//                {
-//                    if (validation.emailValid(txtEmail.getText()))
-//                    {
-//                        if (validation.icValid(txtIC.getText()))
-//                        {
-//                                try 
-//                                {
-//                                    FileWriter userFileWriter = new FileWriter("User.txt",true);
-//                                    PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
-//                                    userPrintWriter.println(UserID + "|" +
-//                                            txtName.getText()+"|"+
-//                                            txtPassword.getText()+ "|" +
-//                                            cbGender.getSelectedItem().toString()+ "|"+
-//                                            txtPhone.getText()+ "|"+
-//                                            txtEmail.getText()+ "|"+
-//                                            txtAddress.getText()+ "|"+
-//                                            txtIC.getText()+ "|"+
-//                                            cbState.getSelectedItem().toString()+ "|"+
-//                                            cbCountry.getSelectedItem().toString() + "|"+ VaccineStatus);
-//                                    userFileWriter.close();
-//                                    JOptionPane.showMessageDialog(null,"Register Successfully");
-//                                } 
-//                                catch (IOException e) 
-//                                {
-//                                    JOptionPane.showMessageDialog(null,"An error occurred.");
-//                                }
-//                        }
-//                        else
-//                        {
-//                            JOptionPane.showMessageDialog(null, "<html> Please enter valid IC/passport! <br> "
-//                                    + "[format: xxxxxx-xx-xxxx] <html>");
-//                        }
-//                    }
-//                    else
-//                    {
-//                        JOptionPane.showMessageDialog(null, "Please enter valid email!");
-//                    }
-//                }
-//                else
-//                {
-//                    JOptionPane.showMessageDialog(null, "Please enter valid phone number!");
-//                }
-//            }
-//            else
-//            {
-//                JOptionPane.showMessageDialog(null,"<html> Please choose a stronger password!"
-//                        + " <br> Try a mix of letters, numbers, and symbols. "
-//                        + " <br< [format: Abcd123@] </html>");
-//            }
-//        }
-//        else
-//        {
-//            JOptionPane.showMessageDialog(null,"<html> Those passwords didn’t match! <br> Try again. </html>");
-//        }
     
         
     }//GEN-LAST:event_btnRegisterActionPerformed
@@ -472,9 +380,10 @@ public class RegisterPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbShowPasswordActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        lblRole.setText("AAA");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+       setVisible(false);
+       dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -520,9 +429,6 @@ public class RegisterPage extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbRegisterAdmin;
     private javax.swing.JCheckBox cbShowPassword;
     private javax.swing.JComboBox<String> cbState;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCPassword;
     private javax.swing.JLabel lblCountry;
