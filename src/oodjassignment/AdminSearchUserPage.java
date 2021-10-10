@@ -4,18 +4,49 @@
  * and open the template in the editor.
  */
 package oodjassignment;
-
+import javax.swing.DefaultListModel;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author user
  */
 public class AdminSearchUserPage extends javax.swing.JFrame {
-
+    DefaultListModel lm = new DefaultListModel();
+  
     /**
      * Creates new form AdminSearchUserPage
      */
     public AdminSearchUserPage() {
         initComponents();
+       
+        ((DefaultTableModel)userTable.getModel()).setNumRows(0);
+
+        DefaultTableModel model =(DefaultTableModel)userTable.getModel();
+        listUser.setModel(lm);
+        
+       
+        
+        Users user = new Users();
+        String [] userArray = user.userViewAll();
+        model.setColumnIdentifiers(userArray[0].split("\\|"));
+        String space = "         ";
+        
+        
+        for (int i =0; i < userArray.length ; i ++)
+        {
+            if(i!= 0)
+            {
+              String temp = userArray[i];
+            
+              String [] temp2 = temp.split("\\|");
+            
+            
+              model.addRow(temp2);  
+            }
+            
+        }
+        
     }
 
     /**
@@ -27,6 +58,8 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -34,9 +67,24 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         cbSearch = new javax.swing.JComboBox<>();
         txtSearch = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        lsUser = new javax.swing.JList<>();
+        listUser = new javax.swing.JList<>();
         btnModify = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        userTable = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,18 +103,30 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
 
         txtSearch.setText("jTextField1");
 
-        lsUser.setModel(new javax.swing.AbstractListModel<String>() {
+        listUser.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(lsUser);
+        jScrollPane1.setViewportView(listUser);
 
         btnModify.setText("Modify");
         btnModify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnSearch.setText("Search");
         btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        userTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10"
+            }
+        ));
+        jScrollPane3.setViewportView(userTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,10 +153,12 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
                                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 214, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -116,9 +178,11 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
                     .addComponent(btnSearch))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(489, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -126,7 +190,7 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -135,7 +199,7 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -183,9 +247,13 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
-    private javax.swing.JList<String> lsUser;
+    private javax.swing.JList<String> listUser;
     private javax.swing.JTextField txtSearch;
+    private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
 }

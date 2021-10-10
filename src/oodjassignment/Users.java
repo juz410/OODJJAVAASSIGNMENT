@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Arrays;
 
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -327,6 +328,33 @@ public class Users {
         }
         
     
+        
+    }
+    
+    public String[] userViewAll()
+    {
+        int count = 0;
+        File file = new File("User.txt");
+        String [] lineArray = new String[0];
+        try {
+            Scanner myReader = new Scanner(file);
+            while(myReader.hasNextLine())
+            {
+                
+                String line = myReader.nextLine(); 
+                lineArray = Arrays.copyOf(lineArray, count + 1);
+                lineArray[count] = line;
+                
+                
+                count += 1;
+                
+                
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lineArray;
         
     }
 }
