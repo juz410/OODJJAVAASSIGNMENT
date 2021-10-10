@@ -4,49 +4,44 @@
  * and open the template in the editor.
  */
 package oodjassignment;
-import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.RowFilter;
+import javax.swing.RowSorter;
+import javax.swing.table.TableRowSorter;
+import javax.swing.table.TableModel;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 /**
  *
  * @author user
  */
 public class AdminSearchUserPage extends javax.swing.JFrame {
-    DefaultListModel lm = new DefaultListModel();
-  
+   
+    
     /**
      * Creates new form AdminSearchUserPage
      */
     public AdminSearchUserPage() {
         initComponents();
        
-        ((DefaultTableModel)userTable.getModel()).setNumRows(0);
-
-        DefaultTableModel model =(DefaultTableModel)userTable.getModel();
-        listUser.setModel(lm);
-        
-       
-        
+        ((DefaultTableModel)tblUser.getModel()).setNumRows(0);
+        DefaultTableModel model =(DefaultTableModel)tblUser.getModel();
         Users user = new Users();
         String [] userArray = user.userViewAll();
         model.setColumnIdentifiers(userArray[0].split("\\|"));
-        String space = "         ";
-        
-        
         for (int i =0; i < userArray.length ; i ++)
         {
-            if(i!= 0)
+            if(i > 1)
             {
+                
               String temp = userArray[i];
-            
-              String [] temp2 = temp.split("\\|");
-            
-            
+              
+              String [] temp2 = temp.split("\\|");  
               model.addRow(temp2);  
             }
-            
         }
-        
     }
 
     /**
@@ -64,14 +59,13 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        cbSearch = new javax.swing.JComboBox<>();
+        cbTypeofUser = new javax.swing.JComboBox<>();
         txtSearch = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listUser = new javax.swing.JList<>();
         btnModify = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        userTable = new javax.swing.JTable();
+        tblUser = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,27 +90,31 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("User");
 
-        jLabel1.setText("Search by:");
+        jLabel1.setText("Citizen or Non Citizen");
 
-        cbSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        txtSearch.setText("jTextField1");
-
-        listUser.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        cbTypeofUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Citizen", "Non-Citizen" }));
+        cbTypeofUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbTypeofUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                cbTypeofUserMouseReleased(evt);
+            }
         });
-        jScrollPane1.setViewportView(listUser);
+        cbTypeofUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTypeofUserActionPerformed(evt);
+            }
+        });
+
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
 
         btnModify.setText("Modify");
         btnModify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btnSearch.setText("Search");
-        btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        userTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -126,41 +124,47 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10"
             }
         ));
-        jScrollPane3.setViewportView(userTable);
+        jScrollPane3.setViewportView(tblUser);
+
+        jLabel2.setText("Search here: ");
+
+        btnBack.setText("Back to Previous Page");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(196, 196, 196)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                                    .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cbSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))
-                                .addGap(18, 18, 18)
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(518, 518, 518)
+                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cbTypeofUser, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnBack)))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,17 +176,18 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbTypeofUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(489, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2))
+                    .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addComponent(btnBack)
+                .addContainerGap(480, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -205,6 +210,52 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        DefaultTableModel model =(DefaultTableModel)tblUser.getModel();
+        TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblUser.getModel());
+        tblUser.setRowSorter(rowSorter);
+        rowSorter.setRowFilter(RowFilter.regexFilter(txtSearch.getText().trim()));
+    }//GEN-LAST:event_txtSearchKeyReleased
+
+    private void cbTypeofUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTypeofUserActionPerformed
+        ((DefaultTableModel)tblUser.getModel()).setNumRows(0);
+        Users user = new Users();
+        String choice = cbTypeofUser.getSelectedItem().toString().trim();
+        DefaultTableModel model =(DefaultTableModel)tblUser.getModel();
+        String [] userArray = user.userViewAll();
+        model.setColumnIdentifiers(userArray[0].split("\\|"));
+        
+        for (int i =0; i < userArray.length ; i ++)
+        {
+            
+            if(i > 1)
+            {
+              
+              String temp = userArray[i];
+              String [] temp2 = temp.split("\\|");
+              if(choice.equals("All")){
+                  model.addRow(temp2);  
+              }else if (choice.equals("Citizen") && temp2[9].equals("Malaysia"))
+              {
+                model.addRow(temp2); 
+              }else if (choice.equals("Non-Citizen") && (!"Malaysia".equals(temp2[9].trim())) && temp2[9].trim().length() != 0)
+              {
+                  model.addRow(temp2); 
+              }
+
+            }
+        }
+    }//GEN-LAST:event_cbTypeofUserActionPerformed
+
+    private void cbTypeofUserMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbTypeofUserMouseReleased
+        
+    }//GEN-LAST:event_cbTypeofUserMouseReleased
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+       setVisible(false);
+       dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
+                 
     /**
      * @param args the command line arguments
      */
@@ -241,19 +292,18 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnModify;
-    private javax.swing.JButton btnSearch;
-    private javax.swing.JComboBox<String> cbSearch;
+    private javax.swing.JComboBox<String> cbTypeofUser;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
-    private javax.swing.JList<String> listUser;
+    private javax.swing.JTable tblUser;
     private javax.swing.JTextField txtSearch;
-    private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
 }
