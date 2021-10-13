@@ -1,5 +1,9 @@
-UserID|Password|Name|IC/PNumber|Gender|PhoneNo|Email|Address|State|Country|VacStatus
-A01|ADMIN|abcd1234||||||||
-01137700973|TAN KOK FEENG|L3ft4d3@d|MALE|01137700973|kokfeengtan@gmail.com|1327,jalan senai utama|010808010973|Johor|Malaysia|null
+UserID|Name|Password|IC or Passport Number|Gender|Phone Number|Email|Address|State|Country|VacStatus
+A01|ADMIN|abcd1234| | | | | | | |
 01137700973|TAN KOK SHENG|L3ft4d3@d|MALE|01137700973|kokshengtan@gmail.com|1327,jalansenia|010808010973|Johor|Malaysia|null
 01123312312|test|Test!@#1221|MALE|01123312312|test@gmail.com|123,test|0109202010201|Johor|Malaysia|null
+011452640|Bob|Bob1234!|MALE|011452640|bob@gmail.com|23, Jalna Bob|001122-66-5522|Johor|Malaysia|null
+012341234|Cat|Cat1234!|MALE|012341234|cat@gmail.com|14, Jalan Cat|212131-13-1424|Johor|Malaysia|null
+019328471|Dony|Dony123!|MALE|019328471|dony@gmail.com|41, Jalan Dony|012432-41-2343|Johor|Malaysia|null
+017312449|Ellen|Ellen123!|FEMALE|017312449|ellen@gmail.com|431, Jalna Ellen|123928-14-4231|Johor|Malaysia|null
+019783631|Foon|Foon123!|MALE|019783631|foon@gmail.com|234, Jalan Foon|892340-14-2434|Johor|Malaysia|null

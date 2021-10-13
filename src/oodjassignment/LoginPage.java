@@ -5,10 +5,6 @@
  */
 package oodjassignment;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-import java.util.Set;
 
 /**
  *
@@ -89,7 +85,7 @@ public class LoginPage extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,35 +148,19 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         
-        
        Users user = new Users(); //Creating new user object
        user.setUserID(txtUserID.getText());
        user.setPassword(txtPassword.getText());
-       if (user.getUserID().equals("A01")) //IF EQUAL THEN GOING TO ADMIN LOGIN
+       if (user.getUserID().startsWith("A")) //IF EQUAL THEN GOING TO ADMIN LOGIN
        {
            user.adminLogin();
+           this.setVisible(false);
        }
        else //normal user login;
        {
+           this.setVisible(false);
            user.userLogin();
        }
-       
-
-       
-// TODO add your handling code here:
-//        try
-//        {
-//            File userFile = new File("User.txt");
-//            Scanner myreader = new Scanner(userFile);
-//            while (myreader.hasNextLine())
-//            {
-//                
-//            }
-//        }
-//        catch(FileNotFoundException e)
-//        {
-//            
-//        }
                 
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -191,6 +171,7 @@ public class LoginPage extends javax.swing.JFrame {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         RegisterPage rPage = new RegisterPage("User");
         rPage.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**

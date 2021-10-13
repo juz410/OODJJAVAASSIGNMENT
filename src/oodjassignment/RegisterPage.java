@@ -5,13 +5,7 @@
  */
 package oodjassignment;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.HashSet;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -160,26 +154,17 @@ public class RegisterPage extends javax.swing.JFrame {
 
         lblRole.setText("testing");
 
+        btnBack.setText("Back to Previous Page");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout plUserRegisterLayout = new javax.swing.GroupLayout(plUserRegister);
         plUserRegister.setLayout(plUserRegisterLayout);
         plUserRegisterLayout.setHorizontalGroup(
             plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plUserRegisterLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblName)
-                    .addComponent(lblPassword))
-                .addGap(18, 18, 18)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserRegisterLayout.createSequentialGroup()
-                .addGap(22, 22, Short.MAX_VALUE)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblEmail)
-                    .addComponent(lblAddress))
-                .addGap(321, 321, 321))
             .addGroup(plUserRegisterLayout.createSequentialGroup()
                 .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,18 +193,41 @@ public class RegisterPage extends javax.swing.JFrame {
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserRegisterLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbRegisterAdmin)
-                .addGap(95, 95, 95))
             .addGroup(plUserRegisterLayout.createSequentialGroup()
                 .addGap(102, 102, 102)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblRole)
                 .addGap(59, 59, 59))
+            .addGroup(plUserRegisterLayout.createSequentialGroup()
+                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(plUserRegisterLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblName)
+                            .addComponent(lblPassword))
+                        .addGap(18, 18, 18)
+                        .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(plUserRegisterLayout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserRegisterLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserRegisterLayout.createSequentialGroup()
+                        .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblEmail)
+                            .addComponent(lblAddress))
+                        .addGap(321, 321, 321))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserRegisterLayout.createSequentialGroup()
+                        .addComponent(cbRegisterAdmin)
+                        .addGap(82, 82, 82))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserRegisterLayout.createSequentialGroup()
+                        .addComponent(btnBack)
+                        .addContainerGap())))
         );
         plUserRegisterLayout.setVerticalGroup(
             plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,18 +280,12 @@ public class RegisterPage extends javax.swing.JFrame {
                     .addComponent(cbCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCountry))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbRegisterAdmin))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addComponent(cbRegisterAdmin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(btnBack))
         );
-
-        btnBack.setText("Back to Previous Page");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -293,19 +295,13 @@ public class RegisterPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(plUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(plUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBack)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -313,7 +309,6 @@ public class RegisterPage extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-        
         Users user = new Users();
         user.setUserID(txtPhone.getText());
         user.setName(txtName.getText());
@@ -326,7 +321,19 @@ public class RegisterPage extends javax.swing.JFrame {
         user.setGender(cbGender.getSelectedItem().toString());
         user.setCountry(cbCountry.getSelectedItem().toString());
         user.setState(cbState.getSelectedItem().toString());
-        user.userRegister();
+        if (cbRegisterAdmin.isSelected())
+        {
+            user.adminRegister();
+        }
+        else
+        {
+           if (user.userRegister())
+           {
+                LoginPage loginPage = new LoginPage();
+                loginPage.setVisible(true);
+                this.setVisible(false);
+           }
+        }
         
         if(user.Succesful())
         {
@@ -381,8 +388,10 @@ public class RegisterPage extends javax.swing.JFrame {
     }//GEN-LAST:event_cbShowPasswordActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-       setVisible(false);
-       dispose();
+       LoginPage loginPage = new LoginPage();
+       loginPage.setVisible(true);
+       this.setVisible(false);
+       this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**

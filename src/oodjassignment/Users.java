@@ -12,7 +12,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -27,6 +32,7 @@ public class Users {
     private String userID, Password,Name,IC,PhoneNo,Email,Address,State,Country,VacStatus;
     private String confirmPassword;
     private String Gender;
+    private File file = new File("User.txt");
     private Validation validation = new Validation();
     
     public Users(){}
@@ -155,7 +161,6 @@ public class Users {
     {
         Boolean access = false;
         try {
-            File file = new File("User.txt");
             Scanner myReader = new Scanner(file);
             while(myReader.hasNextLine())
             {
@@ -173,9 +178,6 @@ public class Users {
                     break;
                 }
                 
-                    
-                
-                
             }
             if (access == false)
             {
@@ -186,7 +188,6 @@ public class Users {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
     
     private boolean Succesful = false;
@@ -199,7 +200,6 @@ public class Users {
     {
         Boolean access = false;
         try {
-            File file = new File("User.txt");
             Scanner myReader = new Scanner(file);
             while(myReader.hasNextLine())
             {
@@ -210,16 +210,11 @@ public class Users {
                 
                 if(userArray[0].equals(this.userID) && userArray[2].equals(this.Password))
                 {
-                    
                     access = true;
                     UserMainPage userMain = new UserMainPage(this.userID);
                     userMain.setVisible(true);
                     break;
                 }
-                
-                    
-                
-                
             }
             if (access == false)
             {
@@ -232,11 +227,68 @@ public class Users {
         }
         
     }
-    public void userRegister()
+    
+    public void adminRegister()
+    {
+        int adminNum = 1;
+        try 
+        {
+            BufferedReader adminIDCheck = new BufferedReader(new FileReader(file));
+            String readline;
+            try {
+                while((readline = adminIDCheck.readLine())!= null)
+                {
+                    String [] adminArray = readline.split("\\|");
+                    if(adminArray[0].startsWith("A"))
+                    {
+                        adminNum ++;
+                    }
+
+                }
+            } 
+            catch (IOException ex) 
+            {
+                Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } 
+        catch (FileNotFoundException ex) 
+        {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String adminID = "A0" + String.valueOf(adminNum);
+        
+        if(validation.confirmPassword(this.Password, this.confirmPassword ))
+        {
+            try
+            {
+                FileWriter userFileWriter = new FileWriter("User.txt",true);
+                PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
+                int n = JOptionPane.showOptionDialog(null,
+                    "<html> UserID: "+ this.userID + "<br> Name: " + this.Name+ " <html>", "check",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,null,null,null);
+                switch (n)
+                {
+                    case 0:
+                        userPrintWriter.println("\n" + adminID + this.Name+"|"+ this.Password + "|" + "|" + "|" 
+                            + "|" + "|" + "|" + "|" + "|");
+                    case 1:
+                        break;
+                }
+            }    
+            catch(IOException e)
+            {
+                JOptionPane.showMessageDialog(null,"An error occurred.");
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public boolean userRegister()
     {
         boolean exist = false;
-        File file = new File("User.txt");
-        try {
+        boolean pass = false;
+        try 
+        {
             BufferedReader userExistCheck = new BufferedReader(new FileReader(file));
             String readline;
             String [] userArray;
@@ -244,7 +296,7 @@ public class Users {
                 while((readline = userExistCheck.readLine())!= null)
                 {
                     userArray = readline.split("\\|");
-                    if(this.userID.equals(userArray[0]) )
+                    if(this.userID.equals(userArray[0]))
                     {
                         exist = true;
                         break;
@@ -253,109 +305,207 @@ public class Users {
             } catch (IOException ex) {
                 Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-        } catch (FileNotFoundException ex) {
+        } 
+        catch (FileNotFoundException ex) 
+        {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         String VaccineStatus = "null";
         
-        if (exist == false)
+        if (validation.confirmPassword(this.Password, this.confirmPassword))
         {
-                if (validation.confirmPassword(this.Password, this.confirmPassword))
+            if(validation.passwordValid(this.Password))
             {
-                if(validation.passwordValid(this.Password))
+                if (validation.phoneValid(this.PhoneNo))
                 {
-                    if (validation.phoneValid(this.PhoneNo))
+                    if (validation.emailValid(this.Email))
                     {
-                        if (validation.emailValid(this.Email))
+                        if (validation.icValid(this.IC))
                         {
-                            if (validation.icValid(this.IC))
+                            if(exist == false) //avoid userID duplicate
                             {
-                                    try 
+                                try 
+                                {
+                                    FileWriter userFileWriter = new FileWriter("User.txt",true);
+                                    PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
+                                    int n = JOptionPane.showOptionDialog(null,
+                                        "<html> UserID: "+ this.userID + "<br> Name: " + this.Name+
+                                        "<br> Gender: " + this.Gender +
+                                        "<br> Phone: " + this.PhoneNo + "<br> Email: " +this.Email+
+                                        "<br> Address" +this.Address + "<br> IC/Passport: " + this.IC +
+                                        "<br> State: " +this.State +
+                                        "<br> Country: " +this.Country + " <html>", "Check",
+                                        JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,null,null,null);
+                                    switch (n)
                                     {
-                                        FileWriter userFileWriter = new FileWriter("User.txt",true);
-                                        PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
-                                        userPrintWriter.println(this.userID + "|" +
-                                                this.Name+"|"+
-                                                this.Password+ "|" +
-                                                this.Gender+ "|"+
-                                                this.PhoneNo+ "|"+
-                                                this.Email+ "|"+
-                                                this.Address+ "|"+
-                                                this.IC+ "|"+
-                                                this.State+ "|"+
-                                                this.Country + "|"+ VaccineStatus);
-                                        userFileWriter.close();
-                                        JOptionPane.showMessageDialog(null,"Register Successfully");
-                                        Succesful = true;
-                                    } 
-                                    catch (IOException e) 
-                                    {
-                                        JOptionPane.showMessageDialog(null,"An error occurred.");
+                                        case 0:
+                                            userPrintWriter.println(this.userID +"|"+ 
+                                            this.Name+"|"+
+                                            this.Password+ "|" +
+                                            this.Gender+ "|"+
+                                            this.PhoneNo+ "|"+
+                                            this.Email+ "|"+
+                                            this.Address+ "|"+
+                                            this.IC+ "|"+
+                                            this.State+ "|"+
+                                            this.Country + "|"+ VaccineStatus);
+                                            userFileWriter.close();
+                                            userPrintWriter.close();
+
+                                            JOptionPane.showMessageDialog(null, "Registration Success!");
+                                            pass = true;
+                                            break;
+                                        case 1:
+                                        break;
                                     }
+                                    return pass;
+                                }
+                                catch (IOException e) 
+                                {
+                                    JOptionPane.showMessageDialog(null,"An error occurred.");
+                                    e.printStackTrace();
+                                }
                             }
-                            else
+                            else //phone number exist
                             {
-                                JOptionPane.showMessageDialog(null, "<html> Please enter valid IC/passport! <br> "
-                                        + "[format: xxxxxx-xx-xxxx] <html>");
+                                JOptionPane.showMessageDialog(null,"<html> Phone Number Already Used! <br> "
+                            + "Please insert a NEW Phone Number! <html>","Duplicated Phone Number",
+                            JOptionPane.WARNING_MESSAGE);
                             }
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Please enter valid email!");
+                            JOptionPane.showMessageDialog(null, "<html> Please enter valid IC/passport! <br> "
+                                    + "[format: xxxxxx-xx-xxxx] <html>");
                         }
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null, "Please enter valid phone number!");
+                        JOptionPane.showMessageDialog(null, "Please enter valid email!");
                     }
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null,"<html> Please choose a stronger password!"
-                            + " <br> Try a mix of letters, numbers, and symbols. "
-                            + " <br< [format: Abcd123@] </html>");
+                    JOptionPane.showMessageDialog(null, "Please enter valid phone number!");
                 }
             }
             else
             {
-                JOptionPane.showMessageDialog(null,"<html> Those passwords didn’t match! <br> Try again. </html>");
+                JOptionPane.showMessageDialog(null,"<html> Please choose a stronger password!"
+                        + " <br> Try a mix of letters, numbers, and symbols. "
+                        + " <br< [format: Abcd123@] </html>");
             }
-        }else
-        {
-            JOptionPane.showMessageDialog(null,"User ID Already Exist Please insert a NEW User ID","Duplicated ID",JOptionPane.WARNING_MESSAGE);
         }
-        
-    
-        
+        else
+        {
+            JOptionPane.showMessageDialog(null,"<html> Those passwords didn’t match! <br> Try again. </html>");
+        }
+        return pass;
     }
     
     public String[] userViewAll()
     {
         int count = 0;
-        File file = new File("User.txt");
         String [] lineArray = new String[0];
         try {
             Scanner myReader = new Scanner(file);
             while(myReader.hasNextLine())
             {
-                
                 String line = myReader.nextLine(); 
                 lineArray = Arrays.copyOf(lineArray, count + 1);
                 lineArray[count] = line;
                 
-                
                 count += 1;
-                
-                
             }
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lineArray;
+    }
+    
+    public void userProfile(String userID)
+    {
+        try {
+            Scanner myReader = new Scanner(file);
+            while(myReader.hasNextLine())
+            {
+                String[] userArray= myReader.nextLine().split("\\|"); 
+                if(userArray[0].equals(userID))
+                {
+                    this.userID = userArray[0];
+                    this.Name = userArray[1];
+                    this.Password = userArray[2];
+                    this.Gender = userArray[3];
+                    this.PhoneNo = userArray[4];
+                    this.Email = userArray[5];
+                    this.Address = userArray[6];
+                    this.IC = userArray[7];
+                    this.State = userArray[8];
+                    this.Country = userArray[9];
+                    this.VacStatus = userArray[10];
+                }
+            }
+            myReader.close();
+        } catch (FileNotFoundException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void userModify(String userID)
+    {
+        List<String> userList = new ArrayList<String>(); ; //store whole data into list
+        String[] userArrayModify = {}; //count which line is the user account
+        int count = -1;
+        try 
+        {
+            userList = Files.readAllLines(Paths.get("User.txt"), Charset.defaultCharset());
+        } 
+        catch (IOException ex) 
+        {
+            Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
+        try 
+        {
+            Scanner myReader = new Scanner(file);
+            do
+            {
+                userArrayModify = myReader.nextLine().split("\\|"); 
+                count += 1;
+                if(userArrayModify[0].equals(userID))
+                {
+                  break;
+                } 
+            }while(myReader.hasNextLine());
+            myReader.close();
+        }
+        catch (FileNotFoundException e) 
+        {
+            e.printStackTrace();
+        }
+        
+        userList.remove(count); //remove the old record
+        
+        String[] arr = userList.toArray(new String[userList.size()]); //convert list into array
+        arr[0].split(",");
+        
+        try 
+        {
+            FileWriter myWriter = new FileWriter(file);
+            for ( int i=0; i<arr.length;i++)
+            {
+                myWriter.write(arr[i] + "\n");
+            }
+            myWriter.close();
+        } 
+        catch (IOException e) 
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          }
     }
 }
     

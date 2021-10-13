@@ -42,7 +42,7 @@ public class Validation
         try
         {
             int phn = Integer.parseInt(phone);
-            if( String.valueOf(phn).length() >= 8 )
+            if( String.valueOf(phn).length() >= 7 )
             {
                 pass = true;
             }
