@@ -5,10 +5,7 @@
  */
 package oodjassignment;
 
-/**
- *
- * @author User
- */
+
 public class Appointment {
     
 }

@@ -388,10 +388,19 @@ public class RegisterPage extends javax.swing.JFrame {
     }//GEN-LAST:event_cbShowPasswordActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-       LoginPage loginPage = new LoginPage();
-       loginPage.setVisible(true);
+       if(role.equals("Admin"))
+       {
+           AdminUMainPage AUMP = new AdminUMainPage();
+           AUMP.setVisible(true);
+       }else
+       {
+           LoginPage loginPage = new LoginPage();
+           loginPage.setVisible(true);
+       
+       }
        this.setVisible(false);
        this.dispose();
+       
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**
