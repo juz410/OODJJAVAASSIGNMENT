@@ -113,6 +113,11 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
 
         btnModify.setText("Modify");
         btnModify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyActionPerformed(evt);
+            }
+        });
 
         tblUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -255,6 +260,33 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
        setVisible(false);
        dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
+        DefaultTableModel model = (DefaultTableModel)tblUser.getModel();
+        if(tblUser.getSelectionModel().isSelectionEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "please selected properly");
+        }else
+        {
+            int nRow =tblUser.getSelectedRow();
+    //        int nRow = model.getRowCount(); int nCol = model.getColumnCount();
+    //        String selectedString = model.getValueAt(nRow, 0).toString();
+    //        JOptionPane.showMessageDialog(null, selectedString);
+            int col = 11;
+            String [][] tb = new String[1][11];
+
+            for(int i = 0; i < col; i ++)
+            {
+                tb[0][i] = model.getValueAt(nRow, i).toString();
+
+            }
+            
+            
+            Users user = new Users(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9],tb[0][10]);
+            AdminModifyUserAccountPage ASUP = new AdminModifyUserAccountPage(user);
+            ASUP.setVisible(true);
+        }
+    }//GEN-LAST:event_btnModifyActionPerformed
                  
     /**
      * @param args the command line arguments

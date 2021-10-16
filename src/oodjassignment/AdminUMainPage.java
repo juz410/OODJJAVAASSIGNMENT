@@ -155,6 +155,7 @@ public class AdminUMainPage extends javax.swing.JFrame {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         RegisterPage rPage = new RegisterPage("Admin");
         rPage.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
