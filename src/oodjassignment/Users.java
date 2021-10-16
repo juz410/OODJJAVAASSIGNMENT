@@ -330,6 +330,7 @@ public class Users {
                                 {
                                     FileWriter userFileWriter = new FileWriter("User.txt",true);
                                     PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
+                                    
                                     int n = JOptionPane.showOptionDialog(null,
                                         "<html> UserID: "+ this.userID + "<br> Name: " + this.Name+
                                         "<br> Gender: " + this.Gender +

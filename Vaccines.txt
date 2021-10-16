@@ -1,4 +1,4 @@
-VacID|VacType|VacStatus
-P0001|Phizer|Available
-S0001|Sinovac|Available
-A0001|AstraZeneca|Available
+VacID|VacType|VacStatus|VCenterID
+P0001|Phizer|InStock|C01
+P0002|Phizer|InStock|C01
+P0003|Phizer|InStock|C01
