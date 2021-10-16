@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
  *
  * @author user
  */
-public class Validation 
+public class Validation
 {
     boolean pass;
     public static boolean passwordValid(String password) 
