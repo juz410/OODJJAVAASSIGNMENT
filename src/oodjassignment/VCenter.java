@@ -29,6 +29,7 @@ public class VCenter extends Vaccines {
     
     
     
+    
     public VCenter(String CID, String State, String ADD)
     {
         this.CenterID = CID;
@@ -248,10 +249,58 @@ public class VCenter extends Vaccines {
         } catch (IOException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+    }
+    public  static String[] showCentersAddress(String CID)
+    {
+        String [] AddressArr = new String[2];
+        File file = new File("VCenter.txt");
+        try {
+            Scanner myReader = new Scanner(file);
+            while(myReader.hasNext())
+            {
+                
+                String line [] = myReader.nextLine().split("\\|");
+                if (CID.equals(line[0]))
+                {
+                    
+                    AddressArr[0] = line[1];
+                    AddressArr[1] = line[2];
+                    break;
+                }           
+            }
+        
+            
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(VCenter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return AddressArr;
     }
     
-    
-    
+    public static String[] VCenterViewAll()
+    {
+        File file = new File("VCenter.txt");
+        int count = 0;
+        String [] lineArray = new String[0];
+        try {
+            Scanner myReader = new Scanner(file);
+            while(myReader.hasNextLine())
+            {
+                String line = myReader.nextLine(); 
+                lineArray = Arrays.copyOf(lineArray, count + 1);
+                lineArray[count] = line;
+                
+                count += 1;
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lineArray;
+    }
     
     
     

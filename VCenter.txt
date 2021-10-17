@@ -1,5 +1,17 @@
-CenterID|State|Address|VaccineID
-C01|Johor|JohorBranchAddress|
-C02|
-C03|
-C04|
+CenterID|State|Address
+C01|Johor|JohorBranchAddress
+C02|Kuala Lumpur|Kuala LumpurBranchAddress
+C03|Kedah|KedahBranchAddress
+C04|Kelantan|KelantanBranchAddress
+C05|Labuan|LabuanBranchAddress
+C06|Malacca|MalaccaBranchAddress
+C07|Negeri Sembilan|Negeri SembilanBranchAddress
+C08|Pahang|PahangBranchAddress
+C09|Penang|PenangBranchAddress
+C10|Perak|PerakBranchAddress
+C11|Perlis|PerlisBranchAddress
+C12|Putrajaya|PutrajayaBranchAddress
+C13|Sabah|SabahBranchAddress
+C14|Sarawak|SarawakBranchAddress
+C15|Selangor|SelangorBranchAddress
+C16|Terengganu|TerengganuBranchAddress
