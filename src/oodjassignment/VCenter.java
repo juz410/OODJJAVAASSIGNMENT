@@ -67,20 +67,41 @@ public class VCenter extends Vaccines {
         return this.Address;
     }
    
-    
-    public void AddVaccine() //Adding vaccine to specific center, vaccines get from vaccine werehouse
+    public void RemoveVaccine()
     {
-        String previousStats = VStatus.Available.toString();
-        this.VacStatus = VStatus.InStock;
+        String previousStats = VStatus.InStock.toString();
+        this.VacStatus = VStatus.Available;
         this.VCenterID = this.CenterID;
-        int availableQuantity = this.calVacQuantity(this.VacType);
+        int availableQuantity = this.calCenterVacQuantity(this.VacType, this.CenterID);
         
         if(availableQuantity - this.requestedQuantity >= 0)
         {
             
             String[] vacArr = this.returnFileLine();
             this.fileCleaning();
-            this.changingData(vacArr, this.requestedQuantity);
+            this.changingData(vacArr, this.requestedQuantity,previousStats,"NULL");
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "You have choose more vaccines than available in-stock","OUTNUMBERED",JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    public void AddVaccine() //Adding vaccine to specific center, vaccines get from vaccine werehouse
+    {
+        String previousStats = VStatus.Available.toString();
+       
+        this.VacStatus = VStatus.InStock;
+        
+        this.VCenterID = this.CenterID;
+        this.CenterID = "NULL"; //FOR PREVIOUS MATCHING
+        int availableQuantity = this.calVacQuantity(this.VacType, previousStats);
+        
+        if(availableQuantity - this.requestedQuantity >= 0)
+        {
+            
+            String[] vacArr = this.returnFileLine();
+            this.fileCleaning();
+            this.changingData(vacArr, this.requestedQuantity,previousStats,this.VCenterID);
         }else
         {
             JOptionPane.showMessageDialog(null, "You have choose more vaccines than available in werehouse","OUTNUMBERED",JOptionPane.WARNING_MESSAGE);
@@ -111,8 +132,8 @@ public class VCenter extends Vaccines {
         return VacQuantity;
     }
     
-    @Override
-    protected int calVacQuantity(VType type) //to Return the specifc vaccines quantity available in the Werehouse
+    
+    protected int calVacQuantity(VType type, String status) //to Return the specifc vaccines quantity available in the Werehouse
     {
         int VacQuantity = 0;
         File file = new File("Vaccines.txt");
@@ -121,7 +142,7 @@ public class VCenter extends Vaccines {
             while(myReader.hasNext())
             {
                 String[] list = myReader.nextLine().split("\\|");
-                if(list[1].equals(type.toString()) && list[2].equals(VStatus.Available.toString()))
+                if(list[1].equals(type.toString()) && list[2].equals(status))
                 {
                     VacQuantity ++;
                 }
@@ -170,9 +191,9 @@ public class VCenter extends Vaccines {
         }
     }
     
-    private void changingData(String [] Arr, int Quantity)
+    private void changingData(String [] Arr, int Quantity, String previousStats, String nCID)
     {
-        String newline = "";
+        
         File file = new File("Vaccines.txt");
         
         
@@ -184,12 +205,12 @@ public class VCenter extends Vaccines {
             String [] list = Arr[i].split("\\|");
             
             {
-                if(list[1].equals(this.VacType.toString()) && list[2].equals(VStatus.Available.toString()) && count < Quantity)
+                if(list[1].equals(this.VacType.toString()) && list[2].equals(previousStats) && count < Quantity && list[3].equals(this.CenterID))
                 {
 
                     
                     list[2] = this.VacStatus.toString();
-                    list[3] = this.VCenterID;
+                    list[3] = nCID;
                     
                     count ++;
                     
@@ -216,7 +237,14 @@ public class VCenter extends Vaccines {
             }
             
             fw.close();
-            JOptionPane.showMessageDialog(null,  "Succesfully insert " + Quantity + "of " + this.VacType.toString());
+            if(this.VacStatus.equals(VStatus.InStock))
+            {
+                JOptionPane.showMessageDialog(null,  "Succesfully insert " + Quantity + " of " + this.VacType.toString());
+            }else if(this.VacStatus.equals(VStatus.Available))
+            {
+                JOptionPane.showMessageDialog(null,  "Succesfully Remove " + Quantity + " of " + this.VacType.toString() + " from the stock");
+            }
+            
         } catch (IOException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
