@@ -127,6 +127,11 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
                 cbCenterID.addItem("SLG02");
                 cbCenterID.addItem("SLG03");
                 break;
+            case "Terengganu":
+                cbCenterID.removeAll();
+                cbCenterID.addItem("T01");
+                cbCenterID.addItem("T02");
+                cbCenterID.addItem("T03");
             default:
                 break;
         }
