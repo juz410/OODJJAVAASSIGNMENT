@@ -40,3 +40,13 @@ A0009|AstraZeneca|InStock|C01
 A0010|AstraZeneca|InStock|C01
 A0011|AstraZeneca|InStock|C01
 A0012|AstraZeneca|Available|NULL
+S0013|Sinovac|Available|NULL
+S0014|Sinovac|Available|NULL
+S0015|Sinovac|Available|NULL
+S0016|Sinovac|Available|NULL
+S0017|Sinovac|Available|NULL
+S0018|Sinovac|Available|NULL
+S0019|Sinovac|Available|NULL
+S0020|Sinovac|Available|NULL
+S0021|Sinovac|Available|NULL
+S0022|Sinovac|Available|NULL
