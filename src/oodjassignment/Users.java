@@ -316,6 +316,7 @@ public class Users {
         
         String VaccineStatus = "NULL";
         
+        
         if (validation.confirmPassword(this.Password, this.confirmPassword))
         {
             if(validation.passwordValid(this.Password))
@@ -332,6 +333,7 @@ public class Users {
                                 {
                                     FileWriter userFileWriter = new FileWriter(file,true);
                                     PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
+                                    
                                     int n = JOptionPane.showOptionDialog(null,
                                         "<html> UserID: "+ this.userID + "<br> Name: " + this.Name+
                                         "<br> Gender: " + this.Gender +
