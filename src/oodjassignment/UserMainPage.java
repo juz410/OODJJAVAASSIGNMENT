@@ -12,17 +12,17 @@ package oodjassignment;
 public class UserMainPage extends javax.swing.JFrame {
 
     
-    private String userID = "01137700973";
+    private String userID = "019328471";
 //    private String userID;
     public UserMainPage(String userID) 
     {
         initComponents();
 //        this.userID = userID;
-        userID = "01137700973";
+        userID = "019328471";
         Users user = new Users();
+        this.userID = userID;
         user.userProfile(this.userID);
         lblTitle.setText(user.getName());
-        this.userID = userID;
     }
 
     /**

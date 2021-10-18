@@ -13,12 +13,16 @@ import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JComboBox;
 
 
 
@@ -45,6 +49,7 @@ public class test extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        cb1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,13 +60,17 @@ public class test extends javax.swing.JFrame {
             }
         });
 
+        cb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(120, 120, 120)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(207, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -69,79 +78,48 @@ public class test extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(125, 125, 125)
                 .addComponent(jButton1)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(cb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    String aptID,userID,centerID, state, date, time, aptStatus, vacType, vacID, vacDose;
+    File file = new File("Appointment.txt");
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        File file1 = new File("User.txt"); 
-        File file2 = new File("abc.txt");
-        List<String> userList = new ArrayList<String>(); ; //store whole data into list
-        String[] userArrayModify = {}; //count which line is the user account
-        int count = -1;
         try 
         {
-            userList = Files.readAllLines(Paths.get("User.txt"), Charset.defaultCharset());
-        } 
-        catch (IOException ex) 
-        {
-            Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try 
-        {
-            Scanner myReader = new Scanner(file1);
-            do
+            Scanner appointmentReader = new Scanner(file);
+            while(appointmentReader.hasNextLine())
             {
-                userArrayModify = myReader.nextLine().split("\\|"); 
-                count += 1;
-                if(userArrayModify[0].equals("A01"))
-                {
-                  break;
-                } 
-            }while(myReader.hasNextLine());
-            myReader.close();
-        }
-        catch (FileNotFoundException e) 
-        {
-            e.printStackTrace();
-        }
-        
-        userList.remove(count); //remove the old record
-        
-//        try 
-//        {
-//            FileWriter userReWriter = new FileWriter(file2);
-//            for (int i=0; i<=userList.size();i++)
-//            {
-//                userReWriter.write(userList.get(i));
-//            }
-//            userReWriter.close();
-//        } 
-//        catch (IOException e) 
-//        {
-//            System.out.println("An error occurred.");
-//            e.printStackTrace();
-//        }
-//        System.out.print(userList);
-        String[] arr = userList.toArray(new String[userList.size()]);
-        arr[0].split(",");
-        try 
-        {
-            FileWriter myWriter = new FileWriter(file1);
-            for ( int i=0; i<arr.length;i++)
-            {
-                myWriter.write(arr[i]+"\n");
+                String[] appointmentArray= appointmentReader.nextLine().split("\\|"); 
+                System.out.println(appointmentArray[1]);
             }
-            myWriter.close();
+//                if(appointmentArray[0].equals("019328471"))
+//                {
+//                    this.aptID = appointmentArray[0];
+//                    this.userID = appointmentArray[1];
+//                    this.centerID = appointmentArray[2];
+//                    this.state = appointmentArray[3];
+//                    this.date = appointmentArray[4];
+//                    this.time = appointmentArray[5];
+//                    this.aptStatus = appointmentArray[6];
+//                    this.vacType = appointmentArray[7];
+//                    this.vacID = appointmentArray[8];
+//                    this.vacDose = appointmentArray[9];
+//                }
+//                else 
+//                {
+//                    System
+//                }
+//            }
+//            appointmentReader.close();
         } 
-        catch (IOException e) 
+        catch (FileNotFoundException ex) 
         {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-          }
-        
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -180,6 +158,7 @@ public class test extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cb1;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

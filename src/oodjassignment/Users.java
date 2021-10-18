@@ -271,9 +271,12 @@ public class Users {
                     case 0:
                         userPrintWriter.println("\n" + adminID + this.Name+"|"+ this.Password + "|" + "|" + "|" 
                             + "|" + "|" + "|" + "|" + "|");
+                        JOptionPane.showMessageDialog(null, "Registration Success!");
                     case 1:
                         break;
                 }
+                userFileWriter.close();
+                userPrintWriter.close();
             }    
             catch(IOException e)
             {
@@ -311,7 +314,7 @@ public class Users {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        String VaccineStatus = "null";
+        String VaccineStatus = "NULL";
         
         if (validation.confirmPassword(this.Password, this.confirmPassword))
         {
@@ -327,7 +330,7 @@ public class Users {
                             {
                                 try 
                                 {
-                                    FileWriter userFileWriter = new FileWriter("User.txt",true);
+                                    FileWriter userFileWriter = new FileWriter(file,true);
                                     PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
                                     int n = JOptionPane.showOptionDialog(null,
                                         "<html> UserID: "+ this.userID + "<br> Name: " + this.Name+
@@ -350,8 +353,6 @@ public class Users {
                                             this.IC+ "|"+
                                             this.State+ "|"+
                                             this.Country + "|"+ VaccineStatus);
-                                            userFileWriter.close();
-                                            userPrintWriter.close();
 
                                             JOptionPane.showMessageDialog(null, "Registration Success!");
                                             pass = true;
@@ -359,6 +360,8 @@ public class Users {
                                         case 1:
                                         break;
                                     }
+                                    userFileWriter.close();
+                                    userPrintWriter.close();
                                     return pass;
                                 }
                                 catch (IOException e) 
@@ -456,12 +459,12 @@ public class Users {
     
     public void userModify(String userID)
     {
-        List<String> userList = new ArrayList<String>(); ; //store whole data into list
+        List<String> userList = new ArrayList<String>(); ; //list for storing all data
         String[] userArrayModify = {}; //count which line is the user account
         int count = -1;
         try 
         {
-            userList = Files.readAllLines(Paths.get("User.txt"), Charset.defaultCharset());
+            userList = Files.readAllLines(Paths.get("User.txt"), Charset.defaultCharset()); //store all data into list
         } 
         catch (IOException ex) 
         {

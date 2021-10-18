@@ -1,1 +1,1 @@
-CenterID|State|Address|VaccineID
+CenterID|State|Address

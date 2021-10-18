@@ -14,7 +14,10 @@ public class UserAppointmentModifyPage extends javax.swing.JFrame {
     /**
      * Creates new form UserAppointmentModifyPage
      */
-    public UserAppointmentModifyPage() {
+    
+    String userID;
+    public UserAppointmentModifyPage(String userID) 
+    {
         initComponents();
     }
 
@@ -49,6 +52,7 @@ public class UserAppointmentModifyPage extends javax.swing.JFrame {
         lblVaccineID = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
         lblDose = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,6 +148,13 @@ public class UserAppointmentModifyPage extends javax.swing.JFrame {
         lblDose.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblDose.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -193,6 +204,10 @@ public class UserAppointmentModifyPage extends javax.swing.JFrame {
                                 .addComponent(lblAdminName))
                             .addComponent(lblAdminName1))))
                 .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +254,9 @@ public class UserAppointmentModifyPage extends javax.swing.JFrame {
                     .addComponent(lblDose))
                 .addGap(18, 18, 18)
                 .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -261,6 +278,14 @@ public class UserAppointmentModifyPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        UserAppointmentMainPage userAppointmentMainPage = new UserAppointmentMainPage(this.userID);
+        userAppointmentMainPage.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,12 +317,13 @@ public class UserAppointmentModifyPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserAppointmentModifyPage().setVisible(true);
+                new UserAppointmentModifyPage("").setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCancel;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

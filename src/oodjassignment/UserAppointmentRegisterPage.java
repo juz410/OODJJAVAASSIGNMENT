@@ -14,8 +14,123 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
     /**
      * Creates new form UserAppointmentRegisterPage
      */
-    public UserAppointmentRegisterPage() {
+    
+    String userID;
+    String state;
+    public UserAppointmentRegisterPage(String userID) 
+    {
         initComponents();
+        this.userID = userID;
+        Users user = new Users();
+        user.userProfile(userID);
+        lblState.setText(user.getState());
+        this.state = user.getState();
+        
+        if("NULL".equals(user.getVacStatus()))
+        {
+            lblDose.setText("First Dose");
+        }
+        else if ("First Dose".equals(user.getVacStatus()))
+        {
+            lblDose.setText("Second Dose");
+        }
+
+        switch (lblState.getText()) //change the centerID
+        {
+            case "Johor":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("J01");
+                cbCenterID.addItem("J02");
+                cbCenterID.addItem("J03");
+                break;
+            case "Kuala Lumpur":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("KL01");
+                cbCenterID.addItem("KL02");
+                cbCenterID.addItem("KL03");
+                break;
+            case "Kedah":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("KDH01");
+                cbCenterID.addItem("KDH02");
+                cbCenterID.addItem("KDH03");
+                break;
+            case "Kelantan":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("KLT01");
+                cbCenterID.addItem("KLT02");
+                cbCenterID.addItem("KLT03");
+                break;
+            case "Labuan":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("L01");
+                cbCenterID.addItem("L02");
+                cbCenterID.addItem("L03");
+                break;
+            case "Malacca":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("M01");
+                cbCenterID.addItem("M02");
+                cbCenterID.addItem("M03");
+                break;
+            case "Negeri Sembilan":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("NS01");
+                cbCenterID.addItem("NS02");
+                cbCenterID.addItem("NS03");
+                break;
+            case "Pahang":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("PAH01");
+                cbCenterID.addItem("PAH02");
+                cbCenterID.addItem("PAH03");
+                break;
+            case "Penang":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("PEN01");
+                cbCenterID.addItem("PEN02");
+                cbCenterID.addItem("PEN03");
+                break;
+            case "Perak":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("PK01");
+                cbCenterID.addItem("PK02");
+                cbCenterID.addItem("PK03");
+                break;
+            case "Perlis":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("PS01");
+                cbCenterID.addItem("PS02");
+                cbCenterID.addItem("PS03");
+                break;
+            case "Putrajaya":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("PJ01");
+                cbCenterID.addItem("PJ02");
+                cbCenterID.addItem("PJ03");
+                break;
+            case "Sabah":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("SBH01");
+                cbCenterID.addItem("SBH02");
+                cbCenterID.addItem("SBH03");
+                break;
+            case "Sarawak":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("SRK01");
+                cbCenterID.addItem("SRK02");
+                cbCenterID.addItem("SRK03");
+                break;
+            case "Selangor":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("SLG01");
+                cbCenterID.addItem("SLG02");
+                cbCenterID.addItem("SLG03");
+                break;
+            default:
+                break;
+        }
+//        
     }
 
     /**
@@ -28,56 +143,41 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         btnRegister = new javax.swing.JButton();
-        txtState = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        txtStatus = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblAdminName = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblAdminName1 = new javax.swing.JLabel();
-        txtDate = new javax.swing.JTextField();
-        txtAppointmentID = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txtUserID = new javax.swing.JTextField();
-        txtTime = new javax.swing.JTextField();
-        cbCenterID = new javax.swing.JComboBox<>();
         cbVaccineType = new javax.swing.JComboBox<>();
-        cbDose = new javax.swing.JComboBox<>();
-        lblVaccineType = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        cbDay = new javax.swing.JComboBox<>();
+        cbMonth = new javax.swing.JComboBox<>();
+        cbYear = new javax.swing.JComboBox<>();
+        cbHour = new javax.swing.JComboBox<>();
+        cbMinute = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        cbCenterID = new javax.swing.JComboBox<>();
+        lblDose = new javax.swing.JLabel();
+        lblState = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel8.setText("Vaccine ID:");
-
         btnRegister.setText("Register");
         btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        txtState.setBorder(null);
-        txtState.setCaretColor(java.awt.Color.darkGray);
-        txtState.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtState.addActionListener(new java.awt.event.ActionListener() {
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStateActionPerformed(evt);
+                btnRegisterActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Vaccine Type:");
-
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel10.setText("Appoint Status:");
-
-        txtStatus.setBorder(null);
-        txtStatus.setCaretColor(java.awt.Color.darkGray);
-        txtStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Time:");
@@ -87,9 +187,6 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel11.setText("Dose:");
-
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel7.setText("Appointment ID:");
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("State");
@@ -105,98 +202,125 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
         lblAdminName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAdminName1.setText("Appointment");
 
-        txtDate.setBorder(null);
-        txtDate.setCaretColor(java.awt.Color.darkGray);
-        txtDate.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        cbVaccineType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AstraZeneca", "Pfizer", "Sinovac" }));
+        cbVaccineType.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        txtAppointmentID.setBorder(null);
-        txtAppointmentID.setCaretColor(java.awt.Color.darkGray);
-        txtAppointmentID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtAppointmentID.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAppointmentIDActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel2.setText("User ID:");
+        cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+        cbDay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        txtUserID.setBorder(null);
-        txtUserID.setCaretColor(java.awt.Color.darkGray);
-        txtUserID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtUserID.addActionListener(new java.awt.event.ActionListener() {
+        cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        cbMonth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2022", "2023", " " }));
+        cbYear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        cbHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        cbHour.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        cbMinute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+        cbMinute.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel1.setText(":");
+
+        jLabel2.setText("/");
+
+        jLabel7.setText("/");
+
+        cbCenterID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "J01", "J02", "J03" }));
+        cbCenterID.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbCenterID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserIDActionPerformed(evt);
+                cbCenterIDActionPerformed(evt);
             }
         });
 
-        txtTime.setBorder(null);
-        txtTime.setCaretColor(java.awt.Color.darkGray);
-        txtTime.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        lblDose.setBackground(new java.awt.Color(0, 0, 0));
+        lblDose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDose.setText("jLabel8");
+        lblDose.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        cbCenterID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbVaccineType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbDose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        lblVaccineType.setBackground(new java.awt.Color(255, 255, 255));
-        lblVaccineType.setText("jLabel1");
-        lblVaccineType.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        lblState.setBackground(new java.awt.Color(0, 0, 0));
+        lblState.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblState.setText("jLabel9");
+        lblState.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblState.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel7))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbDose, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblVaccineType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtAppointmentID)
-                                        .addComponent(txtUserID)
-                                        .addComponent(txtState)
-                                        .addComponent(txtDate)
-                                        .addComponent(txtTime)
-                                        .addComponent(cbCenterID, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(cbVaccineType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(lblAdminName))
-                            .addComponent(lblAdminName1))))
-                .addGap(85, 85, 85))
+                        .addGap(76, 76, 76)
+                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(172, 172, 172)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addGap(43, 43, 43)
+                            .addComponent(jLabel11)
+                            .addGap(18, 18, 18)
+                            .addComponent(lblDose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel9)
+                            .addGap(18, 18, 18)
+                            .addComponent(cbVaccineType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(46, 46, 46)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6))
+                                    .addGap(16, 16, 16))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel4))
+                                    .addGap(18, 18, 18)))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cbCenterID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                            .addComponent(cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                            .addComponent(cbHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(9, 9, 9)
+                                            .addComponent(jLabel1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(cbMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cbYear, 0, 85, Short.MAX_VALUE)
+                                    .addGap(2, 2, 2))
+                                .addComponent(lblState, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(lblAdminName))
+                    .addComponent(lblAdminName1))
+                .addGap(78, 78, 78))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,47 +331,39 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
                 .addComponent(lblAdminName1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtAppointmentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(cbCenterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblState))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7)
+                    .addComponent(cbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(cbMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(cbVaccineType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(lblVaccineType))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(cbDose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDose))
                 .addGap(18, 18, 18)
                 .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -255,32 +371,58 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStateActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtStateActionPerformed
+        UserAppointmentMainPage userAppointmentMainPage = new UserAppointmentMainPage(this.userID);
+        userAppointmentMainPage.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void txtAppointmentIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAppointmentIDActionPerformed
+    private void cbCenterIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCenterIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAppointmentIDActionPerformed
+    }//GEN-LAST:event_cbCenterIDActionPerformed
 
-    private void txtUserIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserIDActionPerformed
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserIDActionPerformed
+        String aptStatus = "Requesting";
+        String date = String.valueOf(cbDay.getSelectedItem()) + "/" + 
+                String.valueOf(cbMonth.getSelectedItem()) + "/" +
+                String.valueOf(cbYear.getSelectedItem());
+        String time = String.valueOf(cbHour.getSelectedItem() + ":" +
+                String.valueOf(cbMinute.getSelectedItem()));
+        Appointment appointment = new Appointment();
+        appointment.setUserID(this.userID);
+        appointment.setState(state);
+        appointment.setCenterID(String.valueOf(cbCenterID.getSelectedItem()));
+        appointment.setDate(date);
+        appointment.setTime(time);
+        appointment.setVacType(String.valueOf(cbVaccineType.getSelectedItem()));
+        appointment.setVacDose(String.valueOf(lblDose.getText()));
+        
+        if (appointment.appointmentRegister(aptStatus))
+        {
+            this.setVisible(false);
+            this.dispose();
+            UserAppointmentMainPage userAppointmentMainPage = new UserAppointmentMainPage(this.userID);
+            userAppointmentMainPage.setVisible(true);
+        }
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,17 +454,22 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserAppointmentRegisterPage().setVisible(true);
+                new UserAppointmentRegisterPage("").setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRegister;
     private javax.swing.JComboBox<String> cbCenterID;
-    private javax.swing.JComboBox<String> cbDose;
+    private javax.swing.JComboBox<String> cbDay;
+    private javax.swing.JComboBox<String> cbHour;
+    private javax.swing.JComboBox<String> cbMinute;
+    private javax.swing.JComboBox<String> cbMonth;
     private javax.swing.JComboBox<String> cbVaccineType;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JComboBox<String> cbYear;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -330,17 +477,11 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAdminName;
     private javax.swing.JLabel lblAdminName1;
-    private javax.swing.JLabel lblVaccineType;
-    private javax.swing.JTextField txtAppointmentID;
-    private javax.swing.JTextField txtDate;
-    private javax.swing.JTextField txtState;
-    private javax.swing.JTextField txtStatus;
-    private javax.swing.JTextField txtTime;
-    private javax.swing.JTextField txtUserID;
+    private javax.swing.JLabel lblDose;
+    private javax.swing.JLabel lblState;
     // End of variables declaration//GEN-END:variables
 }
