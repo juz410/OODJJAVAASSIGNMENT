@@ -72,6 +72,11 @@ public class AdminMainPage extends javax.swing.JFrame {
         btnAppointment1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btnAppointment1.setText("Vaccine");
         btnAppointment1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAppointment1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointment1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Manage Vaccine");
 
@@ -153,6 +158,11 @@ public class AdminMainPage extends javax.swing.JFrame {
     private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAppointmentActionPerformed
+
+    private void btnAppointment1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointment1ActionPerformed
+       AdminVaccineCenterPage AVCP = new AdminVaccineCenterPage();
+       AVCP.setVisible(true);
+    }//GEN-LAST:event_btnAppointment1ActionPerformed
 
     /**
      * @param args the command line arguments

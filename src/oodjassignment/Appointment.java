@@ -17,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -255,4 +256,46 @@ public class Appointment
             e.printStackTrace();
         }
     }
+    
+     public static String[] VaccineViewAll()  //Returning all requesting appointments to the tblRequestedAppTable in AdminVaccinePage
+    {
+        File file = new File("Appointment.txt");
+        int count = 0;
+        String [] lineArray = new String[0];
+        try {
+            Scanner myReader = new Scanner(file);
+            while(myReader.hasNextLine())
+            {
+                String line = myReader.nextLine(); 
+                String[] checkArr = line.split("\\|");
+                if(checkArr[6].equals(AppStatus.Requesting.toString()) || count == 0)
+                {
+                    lineArray = Arrays.copyOf(lineArray, count + 1);
+                    lineArray[count] = line;
+                    count += 1;
+                }else
+                {
+                    continue;
+                }
+                
+                
+                
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lineArray;
+    }
+     
+}
+enum AppStatus
+{
+    Requesting,
+    Approved,
+    Canceled,
+    RequestingCancel,
+    Rejected,
+    Done;
+    
 }
