@@ -341,6 +341,11 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
 
         btnReject.setText("Reject");
         btnReject.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
+            }
+        });
 
         btnModify.setText("Modify");
         btnModify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -495,6 +500,30 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_btnApproveActionPerformed
+
+    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+        DefaultTableModel model = (DefaultTableModel)tblRequestedAppTable.getModel();
+        if(tblRequestedAppTable.getSelectionModel().isSelectionEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "please selected properly");
+        }else
+        {
+            int nRow =tblRequestedAppTable.getSelectedRow();
+            int col = 10;
+            String [][] tb = new String[1][10];
+
+            for(int i = 0; i < col; i ++)
+            {
+                tb[0][i] = model.getValueAt(nRow, i).toString();
+
+            }
+            
+            
+            Appointment app = new Appointment(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9]);
+            app.RejectUserAppRequest();
+            this.showTableData();
+        }
+    }//GEN-LAST:event_btnRejectActionPerformed
 
     /**
      * @param args the command line arguments

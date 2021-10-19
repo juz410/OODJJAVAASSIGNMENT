@@ -306,6 +306,15 @@ public class Appointment
          
      }
      
+     public void RejectUserAppRequest()
+     {
+        String previousStats = AppStatus.Requesting.toString();
+        this.aptStatus = AppStatus.Rejected;
+        String[] aptArr = this.returnFileLine();
+        this.fileCleaning();
+        this.changingData(aptArr, previousStats);
+        JOptionPane.showMessageDialog(null, "Appointment Rejected");
+     }
      public void ApproveUserAppRequest() //KF
      {
          VCenter vc = new VCenter(this.centerID);
