@@ -5,6 +5,7 @@
  */
 package oodjassignment;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,7 +20,7 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         ((DefaultTableModel)tblRequestedAppTable.getModel()).setNumRows(0);
         DefaultTableModel model =(DefaultTableModel)tblRequestedAppTable.getModel();
         
-        String [] Arr = Appointment.VaccineViewAll();
+        String [] Arr = Appointment.AppointmentViewAll(AppStatus.Requesting);
         model.setColumnIdentifiers(Arr[0].split("\\|"));
         model.setColumnCount(10);
         for (int i =0; i < Arr.length ; i ++)
@@ -332,6 +333,11 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
 
         btnApprove.setText("Approve");
         btnApprove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnApprove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApproveActionPerformed(evt);
+            }
+        });
 
         btnReject.setText("Reject");
         btnReject.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -464,6 +470,31 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
     private void txtAddress1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddress1ActionPerformed
+
+    private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
+       DefaultTableModel model = (DefaultTableModel)tblRequestedAppTable.getModel();
+        if(tblRequestedAppTable.getSelectionModel().isSelectionEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "please selected properly");
+        }else
+        {
+            int nRow =tblRequestedAppTable.getSelectedRow();
+            int col = 10;
+            String [][] tb = new String[1][10];
+
+            for(int i = 0; i < col; i ++)
+            {
+                tb[0][i] = model.getValueAt(nRow, i).toString();
+
+            }
+            
+            
+            Appointment app = new Appointment(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9]);
+            app.ApproveUserAppRequest();
+            this.showTableData();
+            
+        }
+    }//GEN-LAST:event_btnApproveActionPerformed
 
     /**
      * @param args the command line arguments
