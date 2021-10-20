@@ -253,7 +253,7 @@ public class VCenter extends Vaccines {
             }
             
             fw.close();
-            if(this.VacStatus.equals(VStatus.InStock))
+            if(this.VacStatus.equals(VStatus.InStock) && previousStats.equals(VStatus.Available.toString()))
             {
                 JOptionPane.showMessageDialog(null,  "Succesfully insert " + Quantity + " of " + this.VacType.toString());
             }else if(this.VacStatus.equals(VStatus.Available))

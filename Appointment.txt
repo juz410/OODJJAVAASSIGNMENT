@@ -1,2 +1,2 @@
 ApptID|UserID|CenterID|State|Date|TIME|AppStatus|VacType|VacID|VacDose
-APT00000001|019328471|KL01|Kuala Lumpur|01/01/2021|00:00|Requesting|AstraZeneca|NULL|FirstDose
+APT00000001|019328471|KL01|Kuala Lumpur|03/01/2021|00:00|Approved|AstraZeneca|A0001|FirstDose

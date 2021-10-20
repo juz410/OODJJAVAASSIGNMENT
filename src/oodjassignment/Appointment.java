@@ -26,10 +26,10 @@ import javax.swing.JOptionPane;
 
 public class Appointment 
 {
-    String aptID,userID,centerID, state, date, time, vacType, vacID, vacDose;
-    AppStatus aptStatus;
-    File file = new File("Appointment.txt");
-    boolean pass = false;
+    private String aptID,userID,centerID, state, date, time, vacType, vacID, vacDose;
+    private AppStatus aptStatus;
+    private File file = new File("Appointment.txt");
+    private boolean pass = false;
     
     public Appointment()
     {
@@ -60,6 +60,7 @@ public class Appointment
     public void setTime(String time){this.time = time;}
     public void setAptStatus(String aptStatus){this.aptStatus = AppStatus.valueOf(aptStatus);}
     public void setVacType(String vacType){this.vacType = vacType;}
+    public void setVacID(String vacID){this.vacID = vacID;}
     public void setVacDose(String vacDose){this.vacDose = vacDose;}
     //get method
     public String getAptID(){return this.aptID;}
@@ -70,6 +71,7 @@ public class Appointment
     public String getTime(){return this.time;}
     public String getAptStatus(){return this.aptStatus.toString();}
     public String getVacType(){return this.vacType;}
+    public String getVacID(){return this.vacID;}
     public String getVacDose(){return this.vacDose;}
     
     public boolean appointmentRegister(String aptStatus)
@@ -290,6 +292,12 @@ public class Appointment
     }
      
      
+     public void AppointmentTimeModify()
+     {
+         String [] aptArr = this.returnFileLine();
+         this.fileCleaning();
+         this.changingData(aptArr, this.aptStatus.toString());
+     }
      public void DoneAppointment()
      {
          VCenter vc = new VCenter(this.centerID);
@@ -306,6 +314,20 @@ public class Appointment
          
      }
      
+     public void cancelUserAppointment()
+     {
+         VCenter vc = new VCenter(this.centerID);
+         vc.setVacType(VType.valueOf(this.vacType));
+         vc.AssignVaccine(VStatus.Booked, VStatus.InStock);
+         this.vacID = "NULL";
+         String previousStats = AppStatus.Approved.toString();
+         this.aptStatus = AppStatus.Canceled;
+         String [] aptArr = this.returnFileLine();
+         this.fileCleaning();
+         this.changingData(aptArr, previousStats);
+         
+         JOptionPane.showMessageDialog(null, "Appointment Canceled");
+     }
      public void RejectUserAppRequest()
      {
         String previousStats = AppStatus.Requesting.toString();
@@ -393,6 +415,9 @@ public class Appointment
                     
                     list[6] = this.aptStatus.toString();
                     list[8] = this.vacID;
+                    list[4] = this.date;
+                    list[5] = this.time;
+                    
                     
                     
                     
