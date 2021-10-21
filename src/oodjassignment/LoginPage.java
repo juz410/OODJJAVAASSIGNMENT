@@ -163,19 +163,24 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        
+       boolean pass;
        Users user = new Users(); //Creating new user object
        user.setUserID(txtUserID.getText());
        user.setPassword(txtPassword.getText());
        if (user.getUserID().startsWith("Admin")) //IF EQUAL THEN GOING TO ADMIN LOGIN
        {
-           user.adminLogin();
-           this.setVisible(false);
+           pass = user.adminLogin();
+           
+           
+       }else //normal user login;
+       {
+           pass = user.userLogin();
+           
+           
        }
-       else //normal user login;
+       if(pass == true)
        {
            this.setVisible(false);
-           user.userLogin();
        }
                 
     }//GEN-LAST:event_btnLoginActionPerformed

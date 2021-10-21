@@ -25,7 +25,6 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
      */
     public AdminSearchUserPage() {
         initComponents();
-       
         ((DefaultTableModel)tblUser.getModel()).setNumRows(0);
         DefaultTableModel model =(DefaultTableModel)tblUser.getModel();
         Users user = new Users();
@@ -270,9 +269,6 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         }else
         {
             int nRow =tblUser.getSelectedRow();
-    //        int nRow = model.getRowCount(); int nCol = model.getColumnCount();
-    //        String selectedString = model.getValueAt(nRow, 0).toString();
-    //        JOptionPane.showMessageDialog(null, selectedString);
             int col = 11;
             String [][] tb = new String[1][11];
 

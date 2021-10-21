@@ -5,17 +5,30 @@
  */
 package oodjassignment;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
  */
 public class AdminAppointmentModifyPage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AdminAppointmentModifyPage
-     */
-    public AdminAppointmentModifyPage() {
+    private void showAppDetails()
+    {
+       lblAptID.setText(app.getAptID());
+       lblCenterID.setText(app.getCenterID());
+       lblDate.setText(app.getDate());
+       lblTime.setText(app.getTime());
+       lblUserID.setText(app.getUserID());
+       lblVacID.setText(app.getVacID());
+       lblDose.setText(app.getVacDose());
+       lblVacType.setText(app.getVacType());
+    }
+    private static Appointment app;
+    public AdminAppointmentModifyPage(Appointment a) {
         initComponents();
+        app = a;
+        this.showAppDetails();
     }
 
     /**
@@ -28,120 +41,65 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
     private void initComponents() {
 
         lblAdminName6 = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
-        txtAddress19 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtAddress20 = new javax.swing.JTextField();
-        txtIC = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
-        txtAddress21 = new javax.swing.JTextField();
-        txtAddress22 = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
-        txtEmail4 = new javax.swing.JTextField();
-        jLabel40 = new javax.swing.JLabel();
-        txtIC7 = new javax.swing.JTextField();
-        txtAddress23 = new javax.swing.JTextField();
-        txtPhone4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         lblAdminName7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        lblAptID = new javax.swing.JLabel();
+        lblUserID = new javax.swing.JLabel();
+        lblCenterID = new javax.swing.JLabel();
+        lblVacType = new javax.swing.JLabel();
+        lblVacID = new javax.swing.JLabel();
+        lblDose = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        cbDay = new javax.swing.JComboBox<>();
+        cbMonth = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        cbYear = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        cbHour = new javax.swing.JComboBox<>();
+        cbMinute = new javax.swing.JComboBox<>();
+        btnCancel = new javax.swing.JButton();
+        lblTime = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblAdminName6.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
         lblAdminName6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAdminName6.setText("Appointment");
-
-        txtAddress.setBorder(null);
-        txtAddress.setCaretColor(java.awt.Color.darkGray);
-        txtAddress.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        txtAddress19.setBorder(null);
-        txtAddress19.setCaretColor(java.awt.Color.darkGray);
-        txtAddress19.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtAddress19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddress19ActionPerformed(evt);
-            }
-        });
+        lblAdminName6.setText("Appointment Time Modify");
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("User ID:");
-
-        txtAddress20.setBorder(null);
-        txtAddress20.setCaretColor(java.awt.Color.darkGray);
-        txtAddress20.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtAddress20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddress20ActionPerformed(evt);
-            }
-        });
-
-        txtIC.setBorder(null);
-        txtIC.setCaretColor(java.awt.Color.darkGray);
-        txtIC.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel38.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel38.setText("Vaccine ID:");
 
         btnConfirm.setText("Confirm");
         btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        txtAddress21.setBorder(null);
-        txtAddress21.setCaretColor(java.awt.Color.darkGray);
-        txtAddress21.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtAddress21.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddress21ActionPerformed(evt);
-            }
-        });
-
-        txtAddress22.setBorder(null);
-        txtAddress22.setCaretColor(java.awt.Color.darkGray);
-        txtAddress22.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtAddress22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddress22ActionPerformed(evt);
+                btnConfirmActionPerformed(evt);
             }
         });
 
         jLabel39.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel39.setText("Vaccine Type:");
 
-        txtEmail4.setBorder(null);
-        txtEmail4.setCaretColor(java.awt.Color.darkGray);
-        txtEmail4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        jLabel40.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel40.setText("Appoint Status:");
-
-        txtIC7.setBorder(null);
-        txtIC7.setCaretColor(java.awt.Color.darkGray);
-        txtIC7.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        txtAddress23.setBorder(null);
-        txtAddress23.setCaretColor(java.awt.Color.darkGray);
-        txtAddress23.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtAddress23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddress23ActionPerformed(evt);
-            }
-        });
-
-        txtPhone4.setBorder(null);
-        txtPhone4.setCaretColor(java.awt.Color.darkGray);
-        txtPhone4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel5.setText("Time:");
+        jLabel5.setText("Current Time:");
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel6.setText("Date:");
+        jLabel6.setText("Current Date:");
 
         jLabel41.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel41.setText("Dose:");
@@ -149,143 +107,229 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Appointment ID:");
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setText("Address:");
-
         lblAdminName7.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
         lblAdminName7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAdminName7.setText("Modify");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Center ID:");
+
+        lblAptID.setText("NULL");
+
+        lblUserID.setText("NULL");
+
+        lblCenterID.setText("NULL");
+
+        lblVacType.setText("NULL");
+
+        lblVacID.setText("NULL");
+
+        lblDose.setText("NULL");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel1.setText(":");
+
+        jLabel10.setText("/");
+
+        jLabel11.setText("/");
+
+        cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+        cbDay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        cbMonth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel12.setText("New Time");
+
+        cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2022", "2023", " " }));
+        cbYear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel13.setText("New Date");
+
+        cbHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        cbHour.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        cbMinute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+        cbMinute.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        lblTime.setText("NULL");
+
+        lblDate.setText("NULL");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel7))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel41)
-                                    .addComponent(jLabel38)
-                                    .addComponent(jLabel39)
-                                    .addComponent(jLabel40))))
-                        .addGap(68, 68, 68)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel13))
+                                .addGap(16, 16, 16)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(cbHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(9, 9, 9)
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cbMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbYear, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAddress19, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAddress20, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAddress21, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAddress22, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtAddress23)
-                                    .addComponent(txtEmail4)
-                                    .addComponent(txtIC7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtPhone4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnConfirm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(89, 89, 89)
+                                        .addComponent(lblAdminName7))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel41)
+                                                .addComponent(jLabel38)
+                                                .addComponent(jLabel39))
+                                            .addGap(32, 32, 32)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblVacType)
+                                                .addComponent(lblVacID)
+                                                .addComponent(lblDose)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel2)
+                                                .addComponent(jLabel3)
+                                                .addComponent(jLabel7)
+                                                .addComponent(jLabel6)
+                                                .addComponent(jLabel5))
+                                            .addGap(32, 32, 32)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblUserID)
+                                                .addComponent(lblAptID)
+                                                .addComponent(lblCenterID)
+                                                .addComponent(lblDate)
+                                                .addComponent(lblTime)))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(lblAdminName7))
-                            .addComponent(lblAdminName6))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addComponent(lblAdminName6)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblAdminName7)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblAdminName6)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtAddress19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAptID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtAddress20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblUserID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtAddress21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(lblCenterID))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(jLabel9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel39)
+                            .addComponent(lblVacType))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel38)
+                            .addComponent(lblVacID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel41)
+                            .addComponent(lblDose))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(lblDate))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(lblTime))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(cbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(cbHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(cbMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtAddress22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel40)
-                    .addComponent(txtPhone4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel39)
-                    .addComponent(txtEmail4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel38)
-                    .addComponent(txtAddress23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel41)
-                    .addComponent(txtIC7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAddress19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddress19ActionPerformed
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        
+        
+        String date = String.valueOf(cbDay.getSelectedItem()) + "/" + 
+                String.valueOf(cbMonth.getSelectedItem()) + "/" +
+                String.valueOf(cbYear.getSelectedItem());
+        String time = String.valueOf(cbHour.getSelectedItem() + ":" +
+                String.valueOf(cbMinute.getSelectedItem()));
+        int dialogButton = JOptionPane.showConfirmDialog(null, "Are you sure want to change \nNew Date: "+date +"\nNew Time: " + time,"Modifying Date and Time",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if(dialogButton == JOptionPane.YES_OPTION)
+        {
+            app.setDate(date);
+            app.setTime(time);
+            app.AppointmentTimeModify();
+        }
+       
+        
+    }//GEN-LAST:event_btnConfirmActionPerformed
 
-    private void txtAddress20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddress20ActionPerformed
-
-    private void txtAddress21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddress21ActionPerformed
-
-    private void txtAddress22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddress22ActionPerformed
-
-    private void txtAddress23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddress23ActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+       this.hide();
+       this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,106 +361,42 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminAppointmentModifyPage().setVisible(true);
+                new AdminAppointmentModifyPage(app).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnConfirm;
-    private javax.swing.JButton btnConfirm1;
-    private javax.swing.JButton btnConfirm2;
-    private javax.swing.JButton btnConfirm3;
+    private javax.swing.JComboBox<String> cbDay;
+    private javax.swing.JComboBox<String> cbHour;
+    private javax.swing.JComboBox<String> cbMinute;
+    private javax.swing.JComboBox<String> cbMonth;
+    private javax.swing.JComboBox<String> cbYear;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel lblAdminName;
-    private javax.swing.JLabel lblAdminName1;
-    private javax.swing.JLabel lblAdminName2;
-    private javax.swing.JLabel lblAdminName3;
-    private javax.swing.JLabel lblAdminName4;
-    private javax.swing.JLabel lblAdminName5;
     private javax.swing.JLabel lblAdminName6;
     private javax.swing.JLabel lblAdminName7;
-    private javax.swing.JPanel plModify;
-    private javax.swing.JPanel plModify1;
-    private javax.swing.JPanel plModify2;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtAddress1;
-    private javax.swing.JTextField txtAddress10;
-    private javax.swing.JTextField txtAddress11;
-    private javax.swing.JTextField txtAddress12;
-    private javax.swing.JTextField txtAddress13;
-    private javax.swing.JTextField txtAddress14;
-    private javax.swing.JTextField txtAddress15;
-    private javax.swing.JTextField txtAddress16;
-    private javax.swing.JTextField txtAddress17;
-    private javax.swing.JTextField txtAddress18;
-    private javax.swing.JTextField txtAddress19;
-    private javax.swing.JTextField txtAddress2;
-    private javax.swing.JTextField txtAddress20;
-    private javax.swing.JTextField txtAddress21;
-    private javax.swing.JTextField txtAddress22;
-    private javax.swing.JTextField txtAddress23;
-    private javax.swing.JTextField txtAddress3;
-    private javax.swing.JTextField txtAddress4;
-    private javax.swing.JTextField txtAddress5;
-    private javax.swing.JTextField txtAddress6;
-    private javax.swing.JTextField txtAddress7;
-    private javax.swing.JTextField txtAddress8;
-    private javax.swing.JTextField txtAddress9;
-    private javax.swing.JTextField txtEmail1;
-    private javax.swing.JTextField txtEmail2;
-    private javax.swing.JTextField txtEmail3;
-    private javax.swing.JTextField txtEmail4;
-    private javax.swing.JTextField txtIC;
-    private javax.swing.JTextField txtIC1;
-    private javax.swing.JTextField txtIC2;
-    private javax.swing.JTextField txtIC3;
-    private javax.swing.JTextField txtIC4;
-    private javax.swing.JTextField txtIC5;
-    private javax.swing.JTextField txtIC6;
-    private javax.swing.JTextField txtIC7;
-    private javax.swing.JTextField txtPhone1;
-    private javax.swing.JTextField txtPhone2;
-    private javax.swing.JTextField txtPhone3;
-    private javax.swing.JTextField txtPhone4;
+    private javax.swing.JLabel lblAptID;
+    private javax.swing.JLabel lblCenterID;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDose;
+    private javax.swing.JLabel lblTime;
+    private javax.swing.JLabel lblUserID;
+    private javax.swing.JLabel lblVacID;
+    private javax.swing.JLabel lblVacType;
     // End of variables declaration//GEN-END:variables
 }

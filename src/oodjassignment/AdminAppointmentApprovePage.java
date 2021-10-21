@@ -5,17 +5,45 @@
  */
 package oodjassignment;
 
+import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author user
  */
 public class AdminAppointmentApprovePage extends javax.swing.JFrame {
 
+    
+    private void showTableData()
+    {
+        ((DefaultTableModel)tblRequestedAppTable.getModel()).setNumRows(0);
+        DefaultTableModel model =(DefaultTableModel)tblRequestedAppTable.getModel();
+        
+        String [] Arr = Appointment.AppointmentViewAll(AppStatus.Requesting);
+        model.setColumnIdentifiers(Arr[0].split("\\|"));
+        model.setColumnCount(10);
+        for (int i =0; i < Arr.length ; i ++)
+        {
+            if(i > 0)
+            {
+                
+              String temp = Arr[i];
+              
+              String [] temp2 = temp.split("\\|");  
+              model.addRow(temp2);  
+            }
+        }
+    }
     /**
      * Creates new form AdminAppointmentPage
      */
     public AdminAppointmentApprovePage() {
         initComponents();
+        showTableData();
     }
 
     /**
@@ -53,17 +81,14 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         plAppointment = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lsAppointment = new javax.swing.JList<>();
         lblTitle = new javax.swing.JLabel();
-        cbSearch = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         btnApprove = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
-        btnModify = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
-        btnRemove = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblRequestedAppTable = new javax.swing.JTable();
+        btnBack = new javax.swing.JButton();
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Date:");
@@ -295,101 +320,100 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lsAppointment.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(lsAppointment);
-
         lblTitle.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Appointment");
+        lblTitle.setText("Appointment Approve Page");
 
-        cbSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.setText("Serach Here:");
 
-        jLabel1.setText("Search by:");
-
-        txtSearch.setText("jTextField1");
-
-        btnApprove.setText("Approve");
-        btnApprove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        btnReject.setText("Reject");
-        btnReject.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        btnModify.setText("Modify");
-        btnModify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnModify.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModifyActionPerformed(evt);
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
             }
         });
 
-        btnSearch.setText("Search");
-        btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnApprove.setText("Approve");
+        btnApprove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnApprove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApproveActionPerformed(evt);
+            }
+        });
 
-        btnRemove.setText("Remove");
-        btnRemove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReject.setText("Reject");
+        btnReject.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
+            }
+        });
+
+        tblRequestedAppTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblRequestedAppTable);
+
+        btnBack.setText("To previous Page");
+        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout plAppointmentLayout = new javax.swing.GroupLayout(plAppointment);
         plAppointment.setLayout(plAppointmentLayout);
         plAppointmentLayout.setHorizontalGroup(
             plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plAppointmentLayout.createSequentialGroup()
-                .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 37, Short.MAX_VALUE)
+                .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 847, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(plAppointmentLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
                         .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(plAppointmentLayout.createSequentialGroup()
-                                .addGap(241, 241, 241)
-                                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(plAppointmentLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(cbSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 290, Short.MAX_VALUE))
-                    .addGroup(plAppointmentLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
+                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(plAppointmentLayout.createSequentialGroup()
-                                .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(47, 47, 47)
                                 .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)))))
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(plAppointmentLayout.createSequentialGroup()
+                .addGap(194, 194, 194)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         plAppointmentLayout.setVerticalGroup(
             plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plAppointmentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(109, 109, 109)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addComponent(jLabel1))
+                .addGap(27, 27, 27)
+                .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -397,23 +421,20 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(plAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(23, 23, 23)
+                .addComponent(plAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(plAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnModifyActionPerformed
 
     private void txtAddress5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress5ActionPerformed
         // TODO add your handling code here:
@@ -434,6 +455,67 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
     private void txtAddress1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddress1ActionPerformed
+
+    private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
+       DefaultTableModel model = (DefaultTableModel)tblRequestedAppTable.getModel();
+        if(tblRequestedAppTable.getSelectionModel().isSelectionEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "please selected properly");
+        }else
+        {
+            int nRow =tblRequestedAppTable.getSelectedRow();
+            int col = 10;
+            String [][] tb = new String[1][10];
+
+            for(int i = 0; i < col; i ++)
+            {
+                tb[0][i] = model.getValueAt(nRow, i).toString();
+
+            }
+            
+            
+            Appointment app = new Appointment(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9]);
+            app.ApproveUserAppRequest();
+            this.showTableData();
+            
+        }
+    }//GEN-LAST:event_btnApproveActionPerformed
+
+    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+        DefaultTableModel model = (DefaultTableModel)tblRequestedAppTable.getModel();
+        if(tblRequestedAppTable.getSelectionModel().isSelectionEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "please selected properly");
+        }else
+        {
+            int nRow =tblRequestedAppTable.getSelectedRow();
+            int col = 10;
+            String [][] tb = new String[1][10];
+
+            for(int i = 0; i < col; i ++)
+            {
+                tb[0][i] = model.getValueAt(nRow, i).toString();
+
+            }
+            
+            
+            Appointment app = new Appointment(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9]);
+            app.RejectUserAppRequest();
+            this.showTableData();
+        }
+    }//GEN-LAST:event_btnRejectActionPerformed
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        DefaultTableModel model =(DefaultTableModel)tblRequestedAppTable.getModel();
+        TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblRequestedAppTable.getModel());
+        tblRequestedAppTable.setRowSorter(rowSorter);
+        rowSorter.setRowFilter(RowFilter.regexFilter(txtSearch.getText().trim()));
+    }//GEN-LAST:event_txtSearchKeyReleased
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        this.hide();
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -473,12 +555,9 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApprove;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
-    private javax.swing.JButton btnModify;
     private javax.swing.JButton btnReject;
-    private javax.swing.JButton btnRemove;
-    private javax.swing.JButton btnSearch;
-    private javax.swing.JComboBox<String> cbSearch;
     private javax.swing.JDialog dlgModify;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -491,13 +570,13 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAdminName;
     private javax.swing.JLabel lblAdminName1;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JList<String> lsAppointment;
     private javax.swing.JPanel plAppointment;
     private javax.swing.JPanel plModify;
+    private javax.swing.JTable tblRequestedAppTable;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAddress1;
     private javax.swing.JTextField txtAddress2;

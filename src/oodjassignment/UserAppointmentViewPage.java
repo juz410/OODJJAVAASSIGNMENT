@@ -35,7 +35,7 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
             lblTime.setText(appointment.getTime());
             lblStatus.setText(appointment.getAptStatus());
             lblVaccineType.setText(appointment.getVacType());
-            lblDose.setText(appointment.aptID);
+            lblDose.setText(appointment.getAptID());
             if ("Cancelled".equals(appointment.getAptStatus()) || 
                     "Request Cancellation".equals(appointment.getAptStatus()))
             {

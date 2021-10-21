@@ -1,0 +1,49 @@
+CenterID|State|Address
+J01|Johor|Dewan Raya Putra
+J02|Johor|Temenggong Seri Maharaja Tun Ibrahim Hospital
+J03|Johor|Dewan Raya Taman Universiti
+KL01|Kuala Lumpur|Desa Tasik Sports Complex
+KL02|Kuala Lumpur|Titiwangsa Stadium
+KL03|Kuala Lumpur|Kompleks Komuniti Muhibbah
+KDH01|Kedah|Dewan Bandaran Kulim Kedah
+KDH02|Kedah|Kulim Hospital
+KDH03|Kedah|Baling Hospital
+KLT01|Kelantan|Sekolah Menengah Kebangsaan Dabong
+KLT02|Kelantan|Hospital Pakar Kuala Krai
+KLT03|Kelantan|Dewan Sri Guchil
+L01|Labuan|Kuala Penyu Hospital
+L02|Labuan|Kompleks Darul Kifayah MAIWP Labuan
+L03|Labuan|Dewan Serbaguna Perbadanan Labuan
+M01|Malacca|Dewan Tun Ali
+M02|Malacca|Melaka Hospital
+M03|Malacca|Hang Tuah Hall
+NS01|Negeri Sembilan|Gemas Health Clinic
+NS02|Negeri Sembilan|Palong 4, 5 & 6 Health Clinic
+NS03|Negeri Sembilan|Klinik Kesihatan Jelai
+PAH01|Pahang|Muadzam Shah Hospital
+PAH02|Pahang|Convention Hall Sultan Haji Ahmad Shah
+PAH03|Pahang|Pekan Hospital
+PEN01|Penang|Hospital Pulau Pinang
+PEN02|Penang|Balik Pulau Hospital
+PEN03|Penang|Seberang Perai Arena Convention Centre
+PK01|Perak|Slim River Hospital
+PK02|Perak|Dewan Merdeka Tapah
+PK03|Perak|Tapah Hospital
+PS01|Perlis|Dewan 2020
+PS02|Perlis|Kangar Hospital
+PS03|Perlis|Dewan Tunku Anum
+PJ01|Putrajaya|Dewan Seri Seroja
+PJ02|Putrajaya|National Cancer Institute
+PJ03|Putrajaya|Putrajaya Hospital
+SBH01|Sabah|Kuala Penyu Hospital
+SBH02|Sabah|Beaufort Hospital
+SBH03|Sabah|Tenom Hospital
+SRK01|Sarawak|Puskesmas Sajingan Besar
+SRK02|Sarawak|Dewan Masyarakat Lundu
+SRK03|Sarawak|Lundu Hospital
+SLG01|Selangor|Johol Health Clinic
+SLG02|Selangor|Klinik Kesihatan Senaling
+SLG03|Selangor|Astana Raja Health Clinic
+T01|Terengganu|Dungun Hospital
+T02|Terengganu|Dewan Aspirasi UiTM Dungun
+T03|Terengganu|Hulu Terengganu Hospital

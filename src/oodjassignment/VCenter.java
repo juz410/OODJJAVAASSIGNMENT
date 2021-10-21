@@ -24,8 +24,6 @@ public class VCenter extends Vaccines {
     private String CenterID;
     private String State;
     private String Address;
-    private File vCenterFile = new File("VCenter.txt");
-    private File vaccineFile = new File("Vaccines.txt");
     
     public VCenter(){}
     
@@ -67,6 +65,21 @@ public class VCenter extends Vaccines {
         return this.Address;
     }
    
+    
+    public String AssignVaccine(VStatus preStats, VStatus newStat)
+    {
+        String previousStats = preStats.toString();
+        this.VacStatus = newStat;
+        this.VCenterID = this.CenterID;
+        String[] vacArr = this.returnFileLine();
+        this.fileCleaning();
+        this.requestedQuantity = 1;
+        this.changingData(vacArr, this.requestedQuantity,previousStats,this.VCenterID);
+        return this.VacID;
+       
+    }
+    
+    
     public void RemoveVaccine()
     {
         String previousStats = VStatus.InStock.toString();
@@ -110,11 +123,12 @@ public class VCenter extends Vaccines {
     }
     
      
-    public int calCenterVacQuantity(VType type,String CID) //calculate the quantity of specific center that are in stock
+    public static int calCenterVacQuantity(VType type,String CID) //calculate the quantity of specific center that are in stock
     {
         int VacQuantity = 0;
+        File file = new File("Vaccines.txt");
         try {
-            Scanner myReader = new Scanner(vaccineFile);
+            Scanner myReader = new Scanner(file);
             while(myReader.hasNext())
             {
                 String[] list = myReader.nextLine().split("\\|");
@@ -135,8 +149,9 @@ public class VCenter extends Vaccines {
     protected int calVacQuantity(VType type, String status) //to Return the specifc vaccines quantity available in the Werehouse
     {
         int VacQuantity = 0;
+        File file = new File("Vaccines.txt");
         try {
-            Scanner myReader = new Scanner(vaccineFile);
+            Scanner myReader = new Scanner(file);
             while(myReader.hasNext())
             {
                 String[] list = myReader.nextLine().split("\\|");
@@ -156,10 +171,10 @@ public class VCenter extends Vaccines {
     private String[] returnFileLine()
     {
         String [] Arr = new String[0];
-        
+        File file = new File("Vaccines.txt");
         //////To take out all data from the txt file
         try {
-            Scanner myReader = new Scanner(vaccineFile);
+            Scanner myReader = new Scanner(file);
             while(myReader.hasNextLine())
             {
                 Arr = Arrays.copyOf(Arr, Arr.length + 1);
@@ -175,8 +190,9 @@ public class VCenter extends Vaccines {
     private void fileCleaning()
     {
         FileWriter fw;
+        File file = new File("Vaccines.txt");
         try {
-            fw = new FileWriter(vaccineFile,false);
+            fw = new FileWriter(file,false);
             PrintWriter pw = new PrintWriter(fw,false);
             pw.flush();
             pw.close();
@@ -203,7 +219,7 @@ public class VCenter extends Vaccines {
                     
                     list[2] = this.VacStatus.toString();
                     list[3] = nCID;
-                    
+                    this.VacID = list[0];
                     count ++;
                     
                 }else
@@ -217,8 +233,9 @@ public class VCenter extends Vaccines {
             Arr[i] = String.join("|", list);
         }
         FileWriter fw;
+        File file = new File("Vaccines.txt");
         try {
-            fw = new FileWriter(vaccineFile,true);
+            fw = new FileWriter(file,true);
             PrintWriter pw = new PrintWriter(fw,true);
             for (int i = 0; i < Arr.length;i++)
             {
@@ -228,7 +245,7 @@ public class VCenter extends Vaccines {
             }
             
             fw.close();
-            if(this.VacStatus.equals(VStatus.InStock))
+            if(this.VacStatus.equals(VStatus.InStock) && previousStats.equals(VStatus.Available.toString()))
             {
                 JOptionPane.showMessageDialog(null,  "Succesfully insert " + Quantity + " of " + this.VacType.toString());
             }else if(this.VacStatus.equals(VStatus.Available))
@@ -295,79 +312,6 @@ public class VCenter extends Vaccines {
         return lineArray;
     }
 }
-//////for easy use 
-//        String newline = "";
-//        String [] userArr = new String[0];
-//        File file = new File("User.txt");
-//        
-//        //////To take out all data from the txt file
-//        try {
-//            Scanner myReader = new Scanner(file);
-//            while(myReader.hasNextLine())
-//            {
-//                userArr = Arrays.copyOf(userArr, userArr.length + 1);
-//                userArr[userArr.length - 1] = myReader.nextLine();
-//                
-//            }
-//            myReader.close();
-//        } catch (FileNotFoundException ex) {
-//            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        //Empty the txtFile
-//         FileWriter fw;
-//        try {
-//            fw = new FileWriter(file,false);
-//            PrintWriter pw = new PrintWriter(fw,false);
-//            pw.flush();
-//            pw.close();
-//            fw.close();
-//            
-//        } catch (IOException ex) {
-//            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        
-//        for (int i = 0; i < userArr.length; i ++)
-//        {
-//            String [] list = userArr[i].split("\\|");
-//            if(list[0].equals(this.userID))
-//            {
-//                list[1] = this.Name;
-//                list[2] = this.Password;
-//                list[3] = this.Gender;
-//                list[4] = this.PhoneNo;
-//                list[5] = this.Email;
-//                list[6] = this.Address;
-//                list[7] = this.IC;
-//                list[8] = this.State;
-//                list[9] = this.Country;
-//                list[10] = this.VacStatus;
-//            }
-//            userArr[i] = String.join("|", list);
-//            
-//        }
-//        
-//        
-//        
-//        
-//        try {
-//            fw = new FileWriter(file,true);
-//            for (int i = 0; i < userArr.length;i++)
-//            {
-//                if(i != 0)
-//                {
-//                   newline = "\n";
-//                }
-//                fw.write(newline + userArr[i]);
-//                
-//            }
-//            
-//            fw.close();
-//            JOptionPane.showMessageDialog(null, "Modified Succesful!!!");
-//        } catch (IOException ex) {
-//            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
-//        }
 
 
 

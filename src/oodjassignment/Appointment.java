@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,9 +24,10 @@ import javax.swing.JOptionPane;
 
 public class Appointment 
 {
-    String aptID,userID,centerID, address, date, time, aptStatus, vacType, vacID, vacDose;
-    File file = new File("Appointment.txt");
-    boolean pass = false;
+    private String aptID,userID,centerID, address, date, time, vacType, vacID, vacDose;
+    private File file = new File("Appointment.txt");
+    private boolean pass = false;
+    private AppStatus aptStatus;
     
     public Appointment()
     {
@@ -39,7 +43,7 @@ public class Appointment
         this.address = address;
         this.date = date;
         this.time = time;
-        this.aptStatus = aptStatus;
+        this.aptStatus = AppStatus.valueOf(aptStatus);
         this.vacType = vacType;
         this.vacID = vacID;
         this.vacDose = vacDose;
@@ -52,10 +56,10 @@ public class Appointment
     public void setAddress(String address){this.address = address;}
     public void setDate(String date){this.date = date;}
     public void setTime(String time){this.time = time;}
-    public void setAptStatus(String aptStatus){this.aptStatus = aptStatus;}
+    public void setAptStatus(String aptStatus){this.aptStatus = AppStatus.valueOf(aptStatus);}
     public void setVacType(String vacType){this.vacType = vacType;}
-    public void setVacDose(String vacDose){this.vacDose = vacDose;}
     public void setVacID(String vacID){this.vacID = vacID;}
+    public void setVacDose(String vacDose){this.vacDose = vacDose;}
     //get method
     public String getAptID(){return this.aptID;}
     public String getUserID(){return this.userID;}
@@ -63,15 +67,16 @@ public class Appointment
     public String getAddress(){return this.address;}
     public String getDate(){return this.date;}
     public String getTime(){return this.time;}
-    public String getAptStatus(){return this.aptStatus;}
+    public String getAptStatus(){return this.aptStatus.toString();}
     public String getVacType(){return this.vacType;}
+    public String getVacID(){return this.vacID;}
     public String getVacDose(){return this.vacDose;}
-    public String getVacID() {return this.vacID;}
     
     public boolean appointmentRegister()
     {
         String aptStatus = "Requesting";
         String vacID = "NULL";
+        this.aptStatus = AppStatus.valueOf(aptStatus);
         int aptNum = 1;
         try 
         {
@@ -149,6 +154,15 @@ public class Appointment
                 String[] appointmentArray= appointmentReader.nextLine().split("\\|"); 
                 if(appointmentArray[1].equals(userID) && !"Done".equals(appointmentArray[6]))
                 {
+                    this.aptID = appointmentArray[0];
+                    this.userID = appointmentArray[1];
+                    this.centerID = appointmentArray[2];
+                    this.address = appointmentArray[3];
+                    this.date = appointmentArray[4];
+                    this.time = appointmentArray[5];
+                    this.aptStatus = AppStatus.valueOf(appointmentArray[6]);
+                    this.vacType = appointmentArray[7];
+                    this.vacDose = appointmentArray[8];
                     pass = true;
                 }
                 else
@@ -162,7 +176,7 @@ public class Appointment
                 this.address = appointmentArray[3];
                 this.date = appointmentArray[4];
                 this.time = appointmentArray[5];
-                this.aptStatus = appointmentArray[6];
+                this.aptStatus = AppStatus.valueOf(appointmentArray[6]);
                 this.vacType = appointmentArray[7];
                 this.vacDose = appointmentArray[8];
                 this.vacID = appointmentArray[9];
@@ -211,7 +225,7 @@ public class Appointment
             String [] list = appointmentArr[i].split("\\|");
             if(list[1].equals(this.userID))
             {
-                list[6] = this.aptStatus;
+                list[6] = this.aptStatus.toString();
             }
             appointmentArr[i] = String.join("|", list);
             
@@ -271,4 +285,207 @@ public class Appointment
         }
     }
     
+     public static String[] AppointmentViewAll(AppStatus aptStatus)  //Returning all requesting appointments to the tblRequestedAppTable in AdminVaccinePage (KF)
+    {
+        File file = new File("Appointment.txt");
+        int count = 0;
+        String [] lineArray = new String[0];
+        try {
+            Scanner myReader = new Scanner(file);
+            while(myReader.hasNextLine())
+            {
+                String line = myReader.nextLine(); 
+                String[] checkArr = line.split("\\|");
+                if(checkArr[6].equals(aptStatus.toString()) || count == 0)
+                {
+                    lineArray = Arrays.copyOf(lineArray, count + 1);
+                    lineArray[count] = line;
+                    count += 1;
+                }else
+                {
+                    continue;
+                }
+                
+                
+                
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lineArray;
+    }
+     
+     
+     public void AppointmentTimeModify()
+     {
+         String [] aptArr = this.returnFileLine();
+         this.fileCleaning();
+         this.changingData(aptArr, this.aptStatus.toString());
+     }
+     public void DoneAppointment()
+     {
+         VCenter vc = new VCenter(this.centerID);
+         vc.setVacType(VType.valueOf(this.vacType));
+         this.aptStatus = AppStatus.Done; // NEW APP STATS
+         String previousStats = AppStatus.Approved.toString();
+         this.vacID = vc.AssignVaccine(VStatus.Booked, VStatus.Used); //prestats and new stats of vaccines
+         String[] aptArr = this.returnFileLine();
+         this.fileCleaning();
+         this.changingData(aptArr, previousStats);
+         Users user = new Users();
+         user.setUserID(this.userID);
+         user.userDoneVaccine(this.vacDose);
+         
+     }
+     
+     public void cancelUserAppointment()
+     {
+         VCenter vc = new VCenter(this.centerID);
+         vc.setVacType(VType.valueOf(this.vacType));
+         vc.AssignVaccine(VStatus.Booked, VStatus.InStock);
+         this.vacID = "NULL";
+         String previousStats = AppStatus.Approved.toString();
+         this.aptStatus = AppStatus.Canceled;
+         String [] aptArr = this.returnFileLine();
+         this.fileCleaning();
+         this.changingData(aptArr, previousStats);
+         
+         JOptionPane.showMessageDialog(null, "Appointment Canceled");
+     }
+     public void RejectUserAppRequest()
+     {
+        String previousStats = AppStatus.Requesting.toString();
+        this.aptStatus = AppStatus.Rejected;
+        String[] aptArr = this.returnFileLine();
+        this.fileCleaning();
+        this.changingData(aptArr, previousStats);
+        JOptionPane.showMessageDialog(null, "Appointment Rejected");
+     }
+     public void ApproveUserAppRequest() //KF
+     {
+         VCenter vc = new VCenter(this.centerID);
+         vc.setVacType(VType.valueOf(this.vacType));
+         
+         int VCenterVacQuantity = VCenter.calCenterVacQuantity(VType.valueOf(this.vacType), this.centerID);
+         if (VCenterVacQuantity > 0)
+         {
+           
+            String previousStats = AppStatus.Requesting.toString();
+            this.vacID =vc.AssignVaccine(VStatus.InStock,VStatus.Booked); //Previous Stats and New Stats
+             this.aptStatus = AppStatus.Approved;
+            String[] aptArr = this.returnFileLine();
+            this.fileCleaning();
+            this.changingData(aptArr, previousStats);
+            JOptionPane.showMessageDialog(null, "Appointment Scheduled");
+             
+         }else
+         {
+             JOptionPane.showMessageDialog(null, "NOT Enough Vaccine for "+this.vacType+", Please check the stock");
+         }
+         
+     }
+     private String[] returnFileLine()
+    {
+        String [] Arr = new String[0];
+        File file = new File("Appointment.txt");
+        
+        //////To take out all data from the txt file
+        try {
+            Scanner myReader = new Scanner(file);
+            while(myReader.hasNextLine())
+            {
+                Arr = Arrays.copyOf(Arr, Arr.length + 1);
+                Arr[Arr.length - 1] = myReader.nextLine();
+                
+            }
+            myReader.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return Arr;
+    }
+    private void fileCleaning() //KF
+    {
+        File file = new File("Appointment.txt");
+        FileWriter fw;
+        try {
+            fw = new FileWriter(file,false);
+            PrintWriter pw = new PrintWriter(fw,false);
+            pw.flush();
+            pw.close();
+            fw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void changingData(String [] Arr,String previousStats)  //KF
+    {
+      
+        File file = new File("Appointment.txt");
+        
+        
+        
+        for (int i = 0; i < Arr.length; i ++)
+        {
+            
+            
+            String [] list = Arr[i].split("\\|");
+            
+            {
+                if(list[6].equals(previousStats) && list[0].equals(this.aptID))
+                {
+                    
+                    list[6] = this.aptStatus.toString();
+                    list[8] = this.vacID;
+                    list[4] = this.date;
+                    list[5] = this.time;
+                    
+                    
+                    
+                    
+                }else
+                {
+                    
+                    continue;
+                }
+                
+            }
+            
+            Arr[i] = String.join("|", list);
+            
+        }
+        FileWriter fw;
+        try {
+            fw = new FileWriter(file,true);
+            PrintWriter pw = new PrintWriter(fw,true);
+            for (int i = 0; i < Arr.length;i++)
+            {
+                
+                pw.println(Arr[i]);
+                
+            }
+            
+            fw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+     
+     
+     
+}
+enum AppStatus
+{
+    Requesting,
+    Approved,
+    Canceled,
+    RequestingCancel,
+    Rejected,
+    Done;
 }

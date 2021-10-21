@@ -110,14 +110,16 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
         txtRemoveQuantity = new javax.swing.JTextField();
         cbRemoveVaccine = new javax.swing.JComboBox<>();
         btnRemove = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         lblAddress = new javax.swing.JLabel();
         lblState = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVCenter = new javax.swing.JTable();
+        btnToVaccinePage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cbCenter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13", "C14", "C15", "C16" }));
+        cbCenter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "J01", "J02", "J03", "KL01", "KL02", "KL03", "KDH01", "KDH02", "KDH03", "KLT01", "KLT02", "KLT03", "L01", "L02", "L03", "M01", "M02", "M03", "NS01", "NS02", "NS03", "PAH01", "PAH02", "PAH03", "PEN01", "PEN02", "PEN03", "PK01", "PK02", "PK03", "PS01", "PS02", "PS03", "PJ01", "PJ02", "PJ03", "SBH01", "SBH02", "SBH03", "SRK01", "SRK02", "SRK03", "SLG01", "SLG02", "SLG03", "T01", "T02", "T03" }));
         cbCenter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbCenter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +183,13 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setText("To Previous Page");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelforAddingVaccineToCenterLayout = new javax.swing.GroupLayout(panelforAddingVaccineToCenter);
         panelforAddingVaccineToCenter.setLayout(panelforAddingVaccineToCenterLayout);
         panelforAddingVaccineToCenterLayout.setHorizontalGroup(
@@ -200,10 +209,6 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelforAddingVaccineToCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelforAddingVaccineToCenterLayout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(183, 183, 183)
-                                .addComponent(btnRemove))
-                            .addGroup(panelforAddingVaccineToCenterLayout.createSequentialGroup()
                                 .addGroup(panelforAddingVaccineToCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(panelforAddingVaccineToCenterLayout.createSequentialGroup()
                                         .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,8 +221,14 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panelforAddingVaccineToCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cbRemoveVaccine, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtRemoveQuantity))))))
-                .addContainerGap(170, Short.MAX_VALUE))
+                                    .addComponent(txtRemoveQuantity)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelforAddingVaccineToCenterLayout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(183, 183, 183)
+                                .addComponent(btnRemove)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                                .addComponent(btnBack)))))
+                .addGap(30, 30, 30))
         );
         panelforAddingVaccineToCenterLayout.setVerticalGroup(
             panelforAddingVaccineToCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,12 +255,14 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
                 .addGroup(panelforAddingVaccineToCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(btnRemove))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBack)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         lblAddress.setText("NULL");
 
-        lblState.setText("jLabel2");
+        lblState.setText("NULL");
 
         tblVCenter.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -263,6 +276,13 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(tblVCenter);
+
+        btnToVaccinePage.setText("To Vaccine Page");
+        btnToVaccinePage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToVaccinePageActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -285,12 +305,16 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
                                     .addComponent(jLabel22)
                                     .addComponent(jLabel21))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblAddress)
+                                        .addGap(77, 77, 77)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(lblState)
-                                        .addGap(66, 66, 66)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblAddress)))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnToVaccinePage)
+                                        .addGap(16, 16, 16))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,37 +335,42 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel22)
-                    .addComponent(lblAddress))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbCenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel22)
                             .addComponent(lblState))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(lblPhizerQuantity))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(lblSinovacQuantity))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(lblAZQuantity))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(lblTotalQuantity))
-                        .addGap(67, 67, 67)
-                        .addComponent(panelforAddingVaccineToCenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cbCenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel21)
+                                    .addComponent(lblAddress))
+                                .addGap(28, 28, 28)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17)
+                                    .addComponent(lblPhizerQuantity))
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel18)
+                                    .addComponent(lblSinovacQuantity))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel19)
+                                    .addComponent(lblAZQuantity))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel20)
+                                    .addComponent(lblTotalQuantity))
+                                .addGap(67, 67, 67)
+                                .addComponent(panelforAddingVaccineToCenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(btnToVaccinePage)))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
 
@@ -410,6 +439,17 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cbCenterActionPerformed
 
+    private void btnToVaccinePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToVaccinePageActionPerformed
+        AdminVaccinePage AVP = new AdminVaccinePage();
+        AVP.setVisible(true);
+        
+    }//GEN-LAST:event_btnToVaccinePageActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+         this.hide();
+         this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -447,7 +487,9 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnToVaccinePage;
     private javax.swing.JComboBox<String> cbCenter;
     private javax.swing.JComboBox<String> cbRemoveVaccine;
     private javax.swing.JComboBox<String> cbVaccineType;

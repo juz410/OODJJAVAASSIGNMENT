@@ -30,7 +30,8 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class Users {
-    private String userID, Password,Name,IC,PhoneNo,Email,Address,State,Country,VacStatus;
+    private String userID, Password,Name,IC,PhoneNo,Email,Address,State,Country;
+    private UVacStatus VacStatus;
     private String confirmPassword;
     private String Gender;
     private File file = new File("User.txt");
@@ -57,7 +58,7 @@ public class Users {
         this.Address = Ad;
         this.State = state;
         this.Country = count; //IF the country is MALAYSIA then = LOCAL Citizen, ELSE Non-Citizen
-        this.VacStatus = VacSta;
+        this.VacStatus = UVacStatus.valueOf(VacSta);
     }
     
     public void setUserID(String UID)
@@ -144,11 +145,11 @@ public class Users {
     }
     public void setVacStatus(String VS)
     {
-        this.VacStatus = VS;
+        this.VacStatus = UVacStatus.valueOf(VS);
     }
     public String getVacStatus()
     {
-        return this.VacStatus;
+        return this.VacStatus.toString();
     }
     
     public void setCPassword(String CP)
@@ -159,7 +160,7 @@ public class Users {
     {
         return this.confirmPassword;
     }
-    public void adminLogin()
+    public boolean adminLogin()
     {
         Boolean access = false;
         try {
@@ -190,6 +191,7 @@ public class Users {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return access;
     }
     
     private boolean Succesful = false;
@@ -198,9 +200,9 @@ public class Users {
     }
      
     
-    public void userLogin()
+    public boolean userLogin()
     {
-        Boolean access = false;
+        boolean access = false;
         try {
             Scanner myReader = new Scanner(file);
             while(myReader.hasNextLine())
@@ -223,11 +225,12 @@ public class Users {
                 JOptionPane.showMessageDialog(null,"Wrong UserID or Password", "Unable to login",JOptionPane.WARNING_MESSAGE);
             }
             
+            
 //        new AdminMainPage().setVisible(true);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        return access;
     }
     
     public boolean adminRegister()
@@ -320,7 +323,7 @@ public class Users {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        String VaccineStatus = "NULL";
+        String VaccineStatus = UVacStatus.NoDose.toString();
         
         
         if (validation.confirmPassword(this.Password, this.confirmPassword))
@@ -455,7 +458,7 @@ public class Users {
                     this.IC = userArray[7];
                     this.State = userArray[8];
                     this.Country = userArray[9];
-                    this.VacStatus = userArray[10];
+                    this.VacStatus = UVacStatus.valueOf(userArray[10]);
                 }
             }
             myReader.close();
@@ -476,7 +479,7 @@ public class Users {
         } 
         catch (IOException ex) 
         {
-            Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         
         try 
@@ -522,7 +525,7 @@ public class Users {
     {
         String newline = "";
         String [] userArr = new String[0];
-        File file = new File("User.txt");
+        
         
         //////To take out all data from the txt file
         try {
@@ -565,7 +568,7 @@ public class Users {
                 list[7] = this.IC;
                 list[8] = this.State;
                 list[9] = this.Country;
-                list[10] = this.VacStatus;
+                list[10] = this.VacStatus.toString();
             }
             userArr[i] = String.join("|", list);
             
@@ -590,6 +593,100 @@ public class Users {
         }
         
     }
+    public void userDoneVaccine(String newDose)
+    {
+        String [] Arr = this.returnFileLine();
+        this.fileCleaning();
+        this.VacStatus = UVacStatus.valueOf(newDose);
+        this.changingUserVacStatus(Arr);
+        
+        
+        
+        
+    }
+    
+     private String[] returnFileLine()
+    {
+        String [] Arr = new String[0];
+        
+        
+        //////To take out all data from the txt file
+        try {
+            Scanner myReader = new Scanner(file);
+            while(myReader.hasNextLine())
+            {
+                Arr = Arrays.copyOf(Arr, Arr.length + 1);
+                Arr[Arr.length - 1] = myReader.nextLine();
+                
+            }
+            myReader.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return Arr;
+    }
+    private void fileCleaning()
+    {
+        
+        FileWriter fw;
+        try {
+            fw = new FileWriter(file,false);
+            PrintWriter pw = new PrintWriter(fw,false);
+            pw.flush();
+            pw.close();
+            fw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void changingUserVacStatus(String[] Arr)
+    {
+        
+        
+        for (int i = 0; i < Arr.length; i ++)
+        {
+            
+            String [] list = Arr[i].split("\\|");
+            if(list[0].equals(this.userID))
+            {
+                
+                list[10] = this.VacStatus.toString();
+            }
+            
+            Arr[i] = String.join("|", list);
+            
+        }
+        FileWriter fw;
+        try {
+            fw = new FileWriter(file,true);
+            PrintWriter pw = new PrintWriter(fw,true);
+            for (int i = 0; i < Arr.length;i++)
+            {
+                
+                pw.println(Arr[i]);
+                
+            }
+            
+            fw.close();
+          
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    
+    
+}
+
+enum UVacStatus
+{
+    NoDose,
+    FirstDose,
+    SecondDose;
 }
     
         

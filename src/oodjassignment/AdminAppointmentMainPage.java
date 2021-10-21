@@ -32,6 +32,7 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
         btnApprovePage = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         btnUserAcc3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btnUserAcc3.setText("User Account");
@@ -70,11 +71,18 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Admin");
 
+        btnBack.setText("Back to Main Menu");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(113, 113, 113))
@@ -89,6 +97,10 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
                             .addComponent(btnApprovePage)
                             .addComponent(btnViewPage, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 33, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(btnBack)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,14 +113,17 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
                 .addComponent(btnViewPage, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnApprovePage, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPageActionPerformed
-        // TODO add your handling code here:
+       AdminAppointmentViewPage AAVP = new AdminAppointmentViewPage();
+       AAVP.setVisible(true);
     }//GEN-LAST:event_btnViewPageActionPerformed
 
     private void btnUserAcc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserAcc3ActionPerformed
@@ -116,8 +131,14 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUserAcc3ActionPerformed
 
     private void btnApprovePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApprovePageActionPerformed
-        // TODO add your handling code here:
+       AdminAppointmentApprovePage AAAP = new AdminAppointmentApprovePage();
+       AAAP.setVisible(true);
     }//GEN-LAST:event_btnApprovePageActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        this.hide();
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,6 +177,7 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApprovePage;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnUserAcc3;
     private javax.swing.JButton btnViewPage;
     private javax.swing.JLabel lblTitle1;

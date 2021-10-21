@@ -1,0 +1,9 @@
+UserID|Name|Password|Gender|Phone Number|Email|Address|IC or Passport Number|State|Country|VacStatus
+A01|ADMIN|abcd1234| | | | | | | | 
+011452640|Bob123|Bob1234!|MALE|bob@gmail.com|23, Jalna Bob|001122-66-5522|011452640|Johor|Malaysia|NULL
+012341234|Dog|Cat1234!|MALE|cat@gmail.com|14, Jalan Cat|212131-13-1424|012341234|Johor|Malaysia|NULL
+019328471|Dony|Dony123!|MALE|019328471|dony@gmail.com|41, Jalan Dony|012432-41-2343|Kuala Lumpur|Malaysia|NULL
+017312449|Ellen|Ellen123!|FEMALE|017312449|ellen@gmail.com|431, Jalna Ellen|123928-14-4231|Johor|Malaysia|NULL
+019783631|Foon|Foon123!|MALE|019783631|foon@gmail.com|234, Jalan Foon|892340-14-2434|Johor|Malaysia|NULL|NULL
+01823418592|Gong|Gong123!|MALE|01823418592|gong@gmail.com|84, Jalan Gong|981343-43-6589|Selangor|Malaysia|NULL
+01914425|Hoock|Hoock123!|FEMALE|01914425|hoock@gmail.com|829, Jalan Hoock|902341-24-2341|Perlis|Malaysia|NULL
