@@ -21,7 +21,6 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
     {
         ((DefaultTableModel)tblVCenter.getModel()).setNumRows(0);
         DefaultTableModel model =(DefaultTableModel)tblVCenter.getModel();
-        
         String [] Array = VCenter.VCenterViewAll();
         model.setColumnIdentifiers(Array[0].split("\\|"));
         model.setColumnCount(3);

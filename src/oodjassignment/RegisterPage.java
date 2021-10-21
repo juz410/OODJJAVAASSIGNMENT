@@ -76,7 +76,6 @@ public class RegisterPage extends javax.swing.JFrame {
         txtCPassword = new javax.swing.JPasswordField();
         txtName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
-        lblRole = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         lblTime = new javax.swing.JLabel();
 
@@ -164,8 +163,6 @@ public class RegisterPage extends javax.swing.JFrame {
 
         txtPassword.setBorder(null);
 
-        lblRole.setText("testing");
-
         btnBack.setText("Back to Previous Page");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,8 +210,6 @@ public class RegisterPage extends javax.swing.JFrame {
                     .addGroup(plUserRegisterLayout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRole)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblTime))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, plUserRegisterLayout.createSequentialGroup()
@@ -253,9 +248,7 @@ public class RegisterPage extends javax.swing.JFrame {
                     .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(plUserRegisterLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblRole)
-                            .addComponent(lblTime))))
+                        .addComponent(lblTime)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
@@ -492,7 +485,6 @@ public class RegisterPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPhone;
-    private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblState;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTitle;

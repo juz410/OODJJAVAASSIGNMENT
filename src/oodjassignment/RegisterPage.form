@@ -92,8 +92,6 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
                           <Component id="lblTitle" min="-2" pref="167" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblRole" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="lblTime" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -144,10 +142,7 @@
                       <Component id="lblTitle" min="-2" pref="58" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblRole" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblTime" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -642,11 +637,6 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblRole">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="testing"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnBack">
