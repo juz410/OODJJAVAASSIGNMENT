@@ -25,7 +25,6 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
      */
     public AdminSearchUserPage() {
         initComponents();
-       
         ((DefaultTableModel)tblUser.getModel()).setNumRows(0);
         DefaultTableModel model =(DefaultTableModel)tblUser.getModel();
         Users user = new Users();

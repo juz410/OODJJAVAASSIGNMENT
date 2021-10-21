@@ -184,7 +184,8 @@ public class AdminMainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnAppointment2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointment2ActionPerformed
-        // TODO add your handling code here:
+        AdminVaccineCenterPage AVCP = new AdminVaccineCenterPage();
+        AVCP.setVisible(true);
     }//GEN-LAST:event_btnAppointment2ActionPerformed
 
     /**

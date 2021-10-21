@@ -59,7 +59,7 @@ S0027|Sinovac|Available|NULL
 S0028|Sinovac|Available|NULL
 S0029|Sinovac|Available|NULL
 S0030|Sinovac|Available|NULL
-A0001|AstraZeneca|Booked|KL01
+A0001|AstraZeneca|InStock|KL01
 A0002|AstraZeneca|InStock|KL01
 A0003|AstraZeneca|InStock|KL01
 A0004|AstraZeneca|InStock|KL01

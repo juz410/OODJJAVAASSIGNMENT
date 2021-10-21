@@ -166,10 +166,10 @@ public class Vaccines {
 
 enum VStatus
 {
-Available,
-InStock,
-Booked,
-Used;
+    Available,
+    InStock,
+    Booked,
+    Used;
 }
 
 enum VType 

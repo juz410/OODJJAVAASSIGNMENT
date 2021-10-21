@@ -641,15 +641,15 @@ public class Users {
     
     private void changingUserVacStatus(String[] Arr)
     {
-        JOptionPane.showMessageDialog(null, "1");
+        
         
         for (int i = 0; i < Arr.length; i ++)
         {
-            JOptionPane.showMessageDialog(null, "2");
+            
             String [] list = Arr[i].split("\\|");
             if(list[0].equals(this.userID))
             {
-                JOptionPane.showMessageDialog(null, "3");
+                
                 list[10] = this.VacStatus.toString();
             }
             
