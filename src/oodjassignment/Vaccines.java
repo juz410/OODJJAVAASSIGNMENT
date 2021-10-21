@@ -110,10 +110,6 @@ public class Vaccines {
                 Logger.getLogger(Vaccines.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        
-        
-        
     } 
     protected int calVacQuantity(VType type) //to Return the specifc vaccines quantity 
     {
@@ -160,10 +156,7 @@ public class Vaccines {
     }
                 
 }
-
-   
     
-
 enum VStatus
 {
 Available,
@@ -177,7 +170,6 @@ enum VType
     Phizer,
     AstraZeneca,
     Sinovac;
-    
 }
 enum VCenterID
 {

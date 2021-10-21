@@ -4,8 +4,13 @@
  * and open the template in the editor.
  */
 package oodjassignment;
+import java.awt.BorderLayout;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -73,6 +78,67 @@ public class Validation
         else
         {
             pass = false;
+        }
+        return pass;
+    }
+    
+    public boolean validationAdmin()
+    {
+        JTextField txt = new JTextField(10);
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(new JLabel("Please authorize yourself:"), BorderLayout.NORTH);
+        panel.add(txt);
+        int n = JOptionPane.showOptionDialog(null, panel, "Validation", 
+                JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,null,null);
+        switch (n)
+        {
+            case 0:
+                String passwordValidation = txt.getText();
+                {
+                    if ("abc123".equals(passwordValidation))
+                    {
+                        pass = true;
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"<html> Wrong Code!"
+                        + "<br> You cannot register as admin! <html>", "WrongPasscode", JOptionPane.WARNING_MESSAGE);
+                    }
+                }
+                break;
+            case 1:
+                break;
+        }
+        return pass;
+    }
+    
+    public boolean validationUserModify(String userID)
+    {
+        Users user = new Users();
+        user.userProfile(userID);
+        JTextField txt = new JTextField(20);
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(new JLabel("Please enter your password:"), BorderLayout.NORTH);
+        panel.add(txt);
+        int n = JOptionPane.showOptionDialog(null, panel, "Validation", 
+                JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,null,null);
+        switch (n)
+        {
+            case 0:
+                String passwordValidation = txt.getText();
+                {
+                    if (passwordValidation.equals(user.getPassword()))
+                    {
+                        pass = true;
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Wrong Password, Try Again!", "Check", JOptionPane.WARNING_MESSAGE);
+                    }
+                }
+                break;
+            case 1:
+                break;
         }
         return pass;
     }

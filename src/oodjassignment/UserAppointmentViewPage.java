@@ -6,17 +6,6 @@
 package oodjassignment;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,21 +20,27 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
     
     String userID;
     File file = new File("Appointment.txt");
+    CurrentDateTime currentDateTime = new CurrentDateTime();
     public UserAppointmentViewPage(String userID) 
     {
         initComponents();
         this.userID = userID;
-        Appointment appointment = new Appointment();;
+        Appointment appointment = new Appointment();
         if (appointment.viewAppointment(userID))
         {
             lblAppointmentID.setText(appointment.getAptID());
             lblCenterID.setText(appointment.getCenterID());
-            lblState.setText(appointment.getState());
+            lblState.setText(appointment.getAddress());
             lblDate.setText(appointment.getDate());
             lblTime.setText(appointment.getTime());
             lblStatus.setText(appointment.getAptStatus());
             lblVaccineType.setText(appointment.getVacType());
             lblDose.setText(appointment.aptID);
+            if ("Cancelled".equals(appointment.getAptStatus()) || 
+                    "Request Cancellation".equals(appointment.getAptStatus()))
+            {
+                btnCancel.setVisible(false);
+            }
         }
         else
         {
@@ -59,6 +54,10 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
             lblVaccineType.setText("NULL");
             lblDose.setText("NULL");
         }
+        
+        lblCurrentTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
+                currentDateTime.currentWeek() + "<br>" +
+                currentDateTime.currentTime() + "<html>");
     }
 
     /**
@@ -91,6 +90,7 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
         lblDose = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        lblCurrentTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -189,6 +189,8 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
             }
         });
 
+        lblCurrentTime.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -234,18 +236,25 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
                                 .addComponent(btnCancel))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(94, 94, 94)
-                                .addComponent(lblAdminName1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(145, 145, 145)
-                                .addComponent(lblAdminName)))
-                        .addGap(0, 54, Short.MAX_VALUE)))
+                                .addComponent(lblAdminName1)))
+                        .addGap(0, 54, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(lblAdminName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblCurrentTime)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblAdminName)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lblAdminName))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblCurrentTime)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAdminName1)
                 .addGap(18, 18, 18)
@@ -318,17 +327,45 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-        String aptStatus = "Request Cancellation";
         Appointment appointment = new Appointment();
-        appointment.viewAppointment(this.userID);
-        appointment.modifyAppointment(this.userID);
-        if (appointment.appointmentRegister(aptStatus))
+        int n = JOptionPane.showOptionDialog(null, "Are you sure you want to cancel the appointment?", "Check",
+                JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,null,null,null);
+        if (appointment.viewAppointment(this.userID))
         {
-            UserAppointmentMainPage userAppointmentMainPage = new UserAppointmentMainPage(this.userID);
-            userAppointmentMainPage.setVisible(true);
-            this.setVisible(false);
-            this.dispose();
+            if ("Requesting".equals(appointment.getAptStatus())) //if requesting, cancel directly
+            {
+                appointment.setAptStatus("Cancelled");
+                switch (n)
+                {
+                    case 0:
+                        appointment.appointmentModify();
+                        JOptionPane.showMessageDialog(null, "Your appointment has been cancelled!");
+                        break;
+                    case 1:
+                        break;
+                }
+            }
+            else if ("Approved".equals(appointment.getAptStatus())) //if approved, send request to admin
+            {
+                appointment.setAptStatus("Request Cancellation");
+                switch (n)
+                {
+                    case 0:
+                        appointment.appointmentModify();
+                        JOptionPane.showMessageDialog(null, "<html> Your cancellation request has been sent to the administrator!"
+                                + " <br> You can't book any appointments until approved by the administrator!","Confirmation",
+                                JOptionPane.WARNING_MESSAGE);
+                        break;
+                    case 1:
+                        break;
+                }   
+            }
         }
+        this.setVisible(false);
+        this.dispose();
+        UserAppointmentMainPage userAppointmentMainPage = new UserAppointmentMainPage(this.userID);
+        userAppointmentMainPage.setVisible(true);
+        
     }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
@@ -382,6 +419,7 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblAdminName1;
     private javax.swing.JLabel lblAppointmentID;
     private javax.swing.JLabel lblCenterID;
+    private javax.swing.JLabel lblCurrentTime;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblDose;
     private javax.swing.JLabel lblState;

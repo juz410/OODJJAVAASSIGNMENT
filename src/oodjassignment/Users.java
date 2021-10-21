@@ -15,6 +15,7 @@ import java.io.FileReader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,6 +34,7 @@ public class Users {
     private String confirmPassword;
     private String Gender;
     private File file = new File("User.txt");
+    private boolean pass = false;
     private Validation validation = new Validation();
     
     public Users(){}
@@ -228,7 +230,7 @@ public class Users {
         
     }
     
-    public void adminRegister()
+    public boolean adminRegister()
     {
         int adminNum = 1;
         try 
@@ -239,7 +241,7 @@ public class Users {
                 while((readline = adminIDCheck.readLine())!= null)
                 {
                     String [] adminArray = readline.split("\\|");
-                    if(adminArray[0].startsWith("A"))
+                    if(adminArray[0].startsWith("Admin"))
                     {
                         adminNum ++;
                     }
@@ -255,7 +257,10 @@ public class Users {
         {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String adminID = "A0" + String.valueOf(adminNum);
+        DecimalFormat formatter = new DecimalFormat("00");
+        String adminNumID = formatter.format(adminNum);
+
+        String adminID = "Admin" + adminNumID;
         
         if(validation.confirmPassword(this.Password, this.confirmPassword ))
         {
@@ -272,6 +277,7 @@ public class Users {
                         userPrintWriter.println("\n" + adminID + this.Name+"|"+ this.Password + "|" + "|" + "|" 
                             + "|" + "|" + "|" + "|" + "|");
                         JOptionPane.showMessageDialog(null, "Registration Success!");
+                        pass = true;
                     case 1:
                         break;
                 }
@@ -284,12 +290,12 @@ public class Users {
                 e.printStackTrace();
             }
         }
+        return pass;
     }
     
     public boolean userRegister()
     {
         boolean exist = false;
-        boolean pass = false;
         try 
         {
             BufferedReader userExistCheck = new BufferedReader(new FileReader(file));
@@ -545,7 +551,6 @@ public class Users {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
         for (int i = 0; i < userArr.length; i ++)
         {
             String [] list = userArr[i].split("\\|");
@@ -565,9 +570,6 @@ public class Users {
             userArr[i] = String.join("|", list);
             
         }
-        
-        
-        
         
         try {
             fw = new FileWriter(file,true);

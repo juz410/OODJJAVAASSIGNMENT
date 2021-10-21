@@ -16,6 +16,7 @@ public class UserProfilePage extends javax.swing.JFrame {
      */
     
     String userID;
+    CurrentDateTime currentDateTime = new CurrentDateTime();
     public UserProfilePage(String userID) {
         initComponents();
         this.userID = userID;
@@ -29,6 +30,9 @@ public class UserProfilePage extends javax.swing.JFrame {
         lblAddress.setText(user.getAddress());
         lblIC.setText(user.getIC());
         lblStatus.setText(user.getVacStatus());
+        lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
+                currentDateTime.currentWeek() + "<br>" +
+                currentDateTime.currentTime() + "<html>");
     }
 
     /**
@@ -57,6 +61,7 @@ public class UserProfilePage extends javax.swing.JFrame {
         lblUserID = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblIC = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,6 +141,8 @@ public class UserProfilePage extends javax.swing.JFrame {
         lblIC.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblIC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        lblTime.setText("jLabel8");
+
         javax.swing.GroupLayout plUserProfileLayout = new javax.swing.GroupLayout(plUserProfile);
         plUserProfile.setLayout(plUserProfileLayout);
         plUserProfileLayout.setHorizontalGroup(
@@ -177,13 +184,16 @@ public class UserProfilePage extends javax.swing.JFrame {
                                         .addComponent(lblIC, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(btnBack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 40, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTime))
         );
         plUserProfileLayout.setVerticalGroup(
             plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plUserProfileLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTime))
                 .addGap(18, 18, 18)
                 .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUserID)
@@ -224,7 +234,7 @@ public class UserProfilePage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(plUserProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,6 +303,7 @@ public class UserProfilePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblIC;
     private javax.swing.JLabel lblPhone;
     private javax.swing.JLabel lblStatus;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserID;
     private javax.swing.JPanel plUserProfile;

@@ -14,8 +14,13 @@ public class AdminUMainPage extends javax.swing.JFrame {
     /**
      * Creates new form AdminUMainPage
      */
+    
+    CurrentDateTime currentDateTime = new CurrentDateTime();
     public AdminUMainPage() {
         initComponents();
+        lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
+                currentDateTime.currentWeek() + "<br>" +
+                currentDateTime.currentTime() + "<html>");
     }
 
     /**
@@ -37,6 +42,7 @@ public class AdminUMainPage extends javax.swing.JFrame {
         btnRegister = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        lblTime = new javax.swing.JLabel();
 
         jLabel5.setText("Search/View User Account");
 
@@ -81,6 +87,8 @@ public class AdminUMainPage extends javax.swing.JFrame {
             }
         });
 
+        lblTime.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -111,11 +119,17 @@ public class AdminUMainPage extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnBack)
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTime)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap()
+                .addComponent(lblTime)
+                .addGap(4, 4, 4)
                 .addComponent(lblTitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTitle)
@@ -212,6 +226,7 @@ public class AdminUMainPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
     // End of variables declaration//GEN-END:variables

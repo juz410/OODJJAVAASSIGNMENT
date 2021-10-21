@@ -24,11 +24,10 @@ public class VCenter extends Vaccines {
     private String CenterID;
     private String State;
     private String Address;
+    private File vCenterFile = new File("VCenter.txt");
+    private File vaccineFile = new File("Vaccines.txt");
     
     public VCenter(){}
-    
-    
-    
     
     public VCenter(String CID, String State, String ADD)
     {
@@ -114,9 +113,8 @@ public class VCenter extends Vaccines {
     public int calCenterVacQuantity(VType type,String CID) //calculate the quantity of specific center that are in stock
     {
         int VacQuantity = 0;
-        File file = new File("Vaccines.txt");
         try {
-            Scanner myReader = new Scanner(file);
+            Scanner myReader = new Scanner(vaccineFile);
             while(myReader.hasNext())
             {
                 String[] list = myReader.nextLine().split("\\|");
@@ -137,9 +135,8 @@ public class VCenter extends Vaccines {
     protected int calVacQuantity(VType type, String status) //to Return the specifc vaccines quantity available in the Werehouse
     {
         int VacQuantity = 0;
-        File file = new File("Vaccines.txt");
         try {
-            Scanner myReader = new Scanner(file);
+            Scanner myReader = new Scanner(vaccineFile);
             while(myReader.hasNext())
             {
                 String[] list = myReader.nextLine().split("\\|");
@@ -159,11 +156,10 @@ public class VCenter extends Vaccines {
     private String[] returnFileLine()
     {
         String [] Arr = new String[0];
-        File file = new File("Vaccines.txt");
         
         //////To take out all data from the txt file
         try {
-            Scanner myReader = new Scanner(file);
+            Scanner myReader = new Scanner(vaccineFile);
             while(myReader.hasNextLine())
             {
                 Arr = Arrays.copyOf(Arr, Arr.length + 1);
@@ -178,10 +174,9 @@ public class VCenter extends Vaccines {
     }
     private void fileCleaning()
     {
-        File file = new File("Vaccines.txt");
         FileWriter fw;
         try {
-            fw = new FileWriter(file,false);
+            fw = new FileWriter(vaccineFile,false);
             PrintWriter pw = new PrintWriter(fw,false);
             pw.flush();
             pw.close();
@@ -194,10 +189,6 @@ public class VCenter extends Vaccines {
     
     private void changingData(String [] Arr, int Quantity, String previousStats, String nCID)
     {
-        
-        File file = new File("Vaccines.txt");
-        
-        
         int count = 0;
         for (int i = 0; i < Arr.length; i ++)
         {
@@ -224,11 +215,10 @@ public class VCenter extends Vaccines {
             }
             
             Arr[i] = String.join("|", list);
-            
         }
         FileWriter fw;
         try {
-            fw = new FileWriter(file,true);
+            fw = new FileWriter(vaccineFile,true);
             PrintWriter pw = new PrintWriter(fw,true);
             for (int i = 0; i < Arr.length;i++)
             {
@@ -282,10 +272,11 @@ public class VCenter extends Vaccines {
     
     public static String[] VCenterViewAll()
     {
-        File file = new File("VCenter.txt");
         int count = 0;
         String [] lineArray = new String[0];
-        try {
+        try 
+        {
+            File file = new File("VCenter.txt");
             Scanner myReader = new Scanner(file);
             while(myReader.hasNextLine())
             {
@@ -296,14 +287,13 @@ public class VCenter extends Vaccines {
                 count += 1;
             }
             
-        } catch (FileNotFoundException ex) {
+        } 
+        catch (FileNotFoundException ex) 
+        {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lineArray;
     }
-    
-    
-    
 }
 //////for easy use 
 //        String newline = "";

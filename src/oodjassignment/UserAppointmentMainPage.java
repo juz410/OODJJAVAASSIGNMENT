@@ -5,6 +5,8 @@
  */
 package oodjassignment;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author user
@@ -15,9 +17,14 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
      * Creates new form UserAppointmentMainPage
      */
     String userID;
+    CurrentDateTime currentDateTime = new CurrentDateTime();
     public UserAppointmentMainPage(String userID) {
         initComponents();
         this.userID = userID;
+        
+        lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
+                currentDateTime.currentWeek() + "<br>" +
+                currentDateTime.currentTime() + "<html>");
     }
 
     /**
@@ -36,6 +43,7 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        lblTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +80,8 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
             }
         });
 
+        lblTime.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -98,12 +108,17 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel4))
-                        .addGap(82, 82, 82))))
+                        .addGap(82, 82, 82))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblTime)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(4, 4, 4)
+                .addComponent(lblTime)
+                .addGap(18, 18, 18)
                 .addComponent(lblTitle)
                 .addGap(41, 41, 41)
                 .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,10 +163,30 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-        UserAppointmentRegisterPage userAppointmentRegisterPage = new UserAppointmentRegisterPage(this.userID);
-        userAppointmentRegisterPage.setVisible(true);
-        this.setVisible(false);
-        this.dispose();
+        Appointment appointment = new Appointment();
+        if (appointment.viewAppointment(this.userID))
+        {
+            if ( ("FirstDose".equals(appointment.getVacDose()) || "SecondDose".equals(appointment.getVacDose())) && 
+                    "Requesting".equals(appointment.getAptStatus()) || "Approved".equals(appointment.getAptStatus()) ||
+                    "Request Cancellation".equals(appointment.getAptStatus()))
+            {
+                JOptionPane.showMessageDialog(null, "You already have an appointment!");
+            }
+            else
+            {
+                UserAppointmentRegisterPage userAppointmentRegisterPage = new UserAppointmentRegisterPage(this.userID);
+                userAppointmentRegisterPage.setVisible(true);
+                this.setVisible(false);
+                this.dispose();   
+            }
+        }
+        else
+        {
+            UserAppointmentRegisterPage userAppointmentRegisterPage = new UserAppointmentRegisterPage(this.userID);
+            userAppointmentRegisterPage.setVisible(true);
+            this.setVisible(false);
+            this.dispose();   
+        }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -204,6 +239,7 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 }

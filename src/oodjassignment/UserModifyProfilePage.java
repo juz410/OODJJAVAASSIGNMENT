@@ -17,6 +17,7 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
     
     String userID;
     Users user = new Users();
+    CurrentDateTime currentDateTime = new CurrentDateTime();
     public UserModifyProfilePage(String userID) {
         initComponents();
         this.userID = userID;
@@ -29,6 +30,9 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         txtIC.setText(user.getIC());
         cbState.setSelectedItem(user.getState());
         cbCountry.setSelectedItem(user.getCountry());
+        lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
+                currentDateTime.currentWeek() + "<br>" +
+                currentDateTime.currentTime() + "<html>");
     }
 
     /**
@@ -66,6 +70,7 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         lblCPassword = new javax.swing.JLabel();
         cbGender = new javax.swing.JComboBox<>();
         btnBack = new javax.swing.JButton();
+        lblTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,7 +119,7 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         txtAddress.setCaretColor(java.awt.Color.darkGray);
 
         lblPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        lblPassword.setText("Password:");
+        lblPassword.setText("New Password:");
 
         lblAddress.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblAddress.setText("Current Address:");
@@ -154,15 +159,14 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
             }
         });
 
+        lblTime.setText("jLabel1");
+
         javax.swing.GroupLayout plModifyUserAccLayout = new javax.swing.GroupLayout(plModifyUserAcc);
         plModifyUserAcc.setLayout(plModifyUserAccLayout);
         plModifyUserAccLayout.setHorizontalGroup(
             plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plModifyUserAccLayout.createSequentialGroup()
                 .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(plModifyUserAccLayout.createSequentialGroup()
                         .addGap(77, 77, 77)
                         .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -191,20 +195,26 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
                                     .addComponent(txtIC)
                                     .addComponent(cbState, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cbCountry, 0, 178, Short.MAX_VALUE)))
-                            .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblCPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblName, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                                        .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cbShowPassword)))))))
+                            .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(plModifyUserAccLayout.createSequentialGroup()
+                                    .addGap(28, 28, 28)
+                                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblTime))
+                                .addGroup(plModifyUserAccLayout.createSequentialGroup()
+                                    .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblCPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblName, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(plModifyUserAccLayout.createSequentialGroup()
+                                            .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(cbShowPassword))))))))
                 .addContainerGap(34, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plModifyUserAccLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -215,7 +225,9 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
             plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plModifyUserAccLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitle)
+                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitle)
+                    .addComponent(lblTime))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -381,6 +393,7 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPhone;
     private javax.swing.JLabel lblState;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JPanel plModifyUserAcc;

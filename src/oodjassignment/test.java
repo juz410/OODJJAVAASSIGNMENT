@@ -49,7 +49,8 @@ public class test extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        cb1 = new javax.swing.JComboBox<>();
+        cbCenterID = new javax.swing.JComboBox<>();
+        lblAddress = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,27 +61,44 @@ public class test extends javax.swing.JFrame {
             }
         });
 
-        cb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbCenterID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbCenterID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCenterIDActionPerformed(evt);
+            }
+        });
+
+        lblAddress.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(cbCenterID, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(59, 61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(125, 125, 125)
                 .addComponent(jButton1)
-                .addGap(42, 42, 42)
-                .addComponent(cb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(cbCenterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101))))
         );
 
         pack();
@@ -88,39 +106,31 @@ public class test extends javax.swing.JFrame {
     String aptID,userID,centerID, state, date, time, aptStatus, vacType, vacID, vacDose;
     File file = new File("Appointment.txt");
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try 
+       Users user = new Users();
+       user.userProfile("001122-66-5522");
+        switch (user.getState()) //change the centerID and set the center address
         {
-            Scanner appointmentReader = new Scanner(file);
-            while(appointmentReader.hasNextLine())
-            {
-                String[] appointmentArray= appointmentReader.nextLine().split("\\|"); 
-                System.out.println(appointmentArray[1]);
-            }
-//                if(appointmentArray[0].equals("019328471"))
-//                {
-//                    this.aptID = appointmentArray[0];
-//                    this.userID = appointmentArray[1];
-//                    this.centerID = appointmentArray[2];
-//                    this.state = appointmentArray[3];
-//                    this.date = appointmentArray[4];
-//                    this.time = appointmentArray[5];
-//                    this.aptStatus = appointmentArray[6];
-//                    this.vacType = appointmentArray[7];
-//                    this.vacID = appointmentArray[8];
-//                    this.vacDose = appointmentArray[9];
-//                }
-//                else 
-//                {
-//                    System
-//                }
-//            }
-//            appointmentReader.close();
-        } 
-        catch (FileNotFoundException ex) 
-        {
-            ex.printStackTrace();
+            case "Johor":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("J01");
+                cbCenterID.addItem("J02");
+                cbCenterID.addItem("J03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Dewan Raya Putra");
+                    case 1:
+                        lblAddress.setText("Temenggong Seri Maharaja Tun Ibrahim Hospital");
+                    case 2:
+                        lblAddress.setText("Dewan Raya Taman Universiti");
+                }
+                break;
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cbCenterIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCenterIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCenterIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,7 +168,8 @@ public class test extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cb1;
+    private javax.swing.JComboBox<String> cbCenterID;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel lblAddress;
     // End of variables declaration//GEN-END:variables
 }

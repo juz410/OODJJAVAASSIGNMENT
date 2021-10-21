@@ -16,124 +16,27 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
      */
     
     String userID;
-    String state;
+    CurrentDateTime currentDateTime = new CurrentDateTime();
+    Users user = new Users();
     public UserAppointmentRegisterPage(String userID) 
     {
         initComponents();
         this.userID = userID;
+        
         Users user = new Users();
         user.userProfile(userID);
-        lblState.setText(user.getState());
-        this.state = user.getState();
+        
+        lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
+                currentDateTime.currentWeek() + "<br>" +
+                currentDateTime.currentTime() + "<html>");
         
         if("NULL".equals(user.getVacStatus()))
         {
-            lblDose.setText("First Dose");
+            lblDose.setText("FirstDose");
         }
         else if ("First Dose".equals(user.getVacStatus()))
         {
-            lblDose.setText("Second Dose");
-        }
-
-        switch (lblState.getText()) //change the centerID
-        {
-            case "Johor":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("J01");
-                cbCenterID.addItem("J02");
-                cbCenterID.addItem("J03");
-                break;
-            case "Kuala Lumpur":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("KL01");
-                cbCenterID.addItem("KL02");
-                cbCenterID.addItem("KL03");
-                break;
-            case "Kedah":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("KDH01");
-                cbCenterID.addItem("KDH02");
-                cbCenterID.addItem("KDH03");
-                break;
-            case "Kelantan":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("KLT01");
-                cbCenterID.addItem("KLT02");
-                cbCenterID.addItem("KLT03");
-                break;
-            case "Labuan":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("L01");
-                cbCenterID.addItem("L02");
-                cbCenterID.addItem("L03");
-                break;
-            case "Malacca":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("M01");
-                cbCenterID.addItem("M02");
-                cbCenterID.addItem("M03");
-                break;
-            case "Negeri Sembilan":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("NS01");
-                cbCenterID.addItem("NS02");
-                cbCenterID.addItem("NS03");
-                break;
-            case "Pahang":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("PAH01");
-                cbCenterID.addItem("PAH02");
-                cbCenterID.addItem("PAH03");
-                break;
-            case "Penang":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("PEN01");
-                cbCenterID.addItem("PEN02");
-                cbCenterID.addItem("PEN03");
-                break;
-            case "Perak":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("PK01");
-                cbCenterID.addItem("PK02");
-                cbCenterID.addItem("PK03");
-                break;
-            case "Perlis":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("PS01");
-                cbCenterID.addItem("PS02");
-                cbCenterID.addItem("PS03");
-                break;
-            case "Putrajaya":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("PJ01");
-                cbCenterID.addItem("PJ02");
-                cbCenterID.addItem("PJ03");
-                break;
-            case "Sabah":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("SBH01");
-                cbCenterID.addItem("SBH02");
-                cbCenterID.addItem("SBH03");
-                break;
-            case "Sarawak":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("SRK01");
-                cbCenterID.addItem("SRK02");
-                cbCenterID.addItem("SRK03");
-                break;
-            case "Selangor":
-                cbCenterID.removeAllItems();
-                cbCenterID.addItem("SLG01");
-                cbCenterID.addItem("SLG02");
-                cbCenterID.addItem("SLG03");
-                break;
-            case "Terengganu":
-                cbCenterID.removeAll();
-                cbCenterID.addItem("T01");
-                cbCenterID.addItem("T02");
-                cbCenterID.addItem("T03");
-            default:
-                break;
+            lblDose.setText("SecondDose");
         }
 //        
     }
@@ -169,7 +72,8 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         cbCenterID = new javax.swing.JComboBox<>();
         lblDose = new javax.swing.JLabel();
-        lblState = new javax.swing.JLabel();
+        lblAddress = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -194,7 +98,7 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
         jLabel11.setText("Dose:");
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setText("State");
+        jLabel4.setText("Address:");
 
         lblAdminName.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
         lblAdminName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -252,85 +156,91 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
         lblDose.setText("jLabel8");
         lblDose.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblState.setBackground(new java.awt.Color(0, 0, 0));
-        lblState.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblState.setText("jLabel9");
-        lblState.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblState.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblAddress.setBackground(new java.awt.Color(0, 0, 0));
+        lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddress.setText("jLabel9");
+        lblAddress.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblAddress.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        lblTime.setText("jLabel8");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(172, 172, 172)
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addGap(43, 43, 43)
-                            .addComponent(jLabel11)
-                            .addGap(18, 18, 18)
-                            .addComponent(lblDose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel9)
-                            .addGap(18, 18, 18)
-                            .addComponent(cbVaccineType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(46, 46, 46)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel6))
-                                    .addGap(16, 16, 16))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4))
-                                    .addGap(18, 18, 18)))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbCenterID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                            .addComponent(cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel2)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(cbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                            .addComponent(cbHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(9, 9, 9)
-                                            .addComponent(jLabel1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(cbMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cbYear, 0, 85, Short.MAX_VALUE)
-                                    .addGap(2, 2, 2))
-                                .addComponent(lblState, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap())
+                        .addGap(114, 114, 114)
+                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(lblAdminName))
+                            .addComponent(lblAdminName1)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                    .addGap(43, 43, 43)
+                                    .addComponent(jLabel11)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lblDose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cbVaccineType, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(46, 46, 46)
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel5)
+                                                    .addComponent(jLabel6))
+                                                .addGap(16, 16, 16))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel3)
+                                                    .addComponent(jLabel4))
+                                                .addGap(18, 18, 18)))
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                                        .addComponent(cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(jLabel2)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(cbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                                        .addComponent(cbHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(9, 9, 9)
+                                                        .addComponent(jLabel1)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(cbMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cbYear, 0, 97, Short.MAX_VALUE))
+                                            .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cbCenterID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
+                .addContainerGap(34, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(lblAdminName))
-                    .addComponent(lblAdminName1))
-                .addGap(78, 78, 78))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblTime)
+                .addGap(23, 23, 23))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
+                .addComponent(lblTime)
+                .addGap(2, 2, 2)
                 .addComponent(lblAdminName)
                 .addGap(5, 5, 5)
                 .addComponent(lblAdminName1)
@@ -341,7 +251,7 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(lblState))
+                    .addComponent(lblAddress))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -377,8 +287,8 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,11 +311,255 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
 
     private void cbCenterIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCenterIDActionPerformed
         // TODO add your handling code here:
+        user.userProfile(this.userID);
+        switch (user.getState()) //change the centerID and set the center address
+        {
+            case "Johor":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("J01");
+                cbCenterID.addItem("J02");
+                cbCenterID.addItem("J03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Dewan Raya Putra");
+                    case 1:
+                        lblAddress.setText("Temenggong Seri Maharaja Tun Ibrahim Hospital");
+                    case 2:
+                        lblAddress.setText("Dewan Raya Taman Universiti");
+                }
+                break;
+            case "Kuala Lumpur":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("KL01");
+                cbCenterID.addItem("KL02");
+                cbCenterID.addItem("KL03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Desa Tasik Sports Complex");
+                    case 1:
+                        lblAddress.setText("Titiwangsa Stadium");
+                    case 2:
+                        lblAddress.setText("Kompleks Komuniti Muhibbah");
+                }
+                break;
+            case "Kedah":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("KDH01");
+                cbCenterID.addItem("KDH02");
+                cbCenterID.addItem("KDH03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Dewan Bandaran Kulim Kedah");
+                    case 1:
+                        lblAddress.setText("Kulim Hospital");
+                    case 2:
+                        lblAddress.setText("Baling Hospital");
+                }
+                break;
+            case "Kelantan":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("KLT01");
+                cbCenterID.addItem("KLT02");
+                cbCenterID.addItem("KLT03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Sekolah Menengah Kebangsaan Dabong");
+                    case 1:
+                        lblAddress.setText("Hospital Pakar Kuala Krai");
+                    case 2:
+                        lblAddress.setText("Dewan Sri Guchil");
+                }
+                break;
+            case "Labuan":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("L01");
+                cbCenterID.addItem("L02");
+                cbCenterID.addItem("L03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Kuala Penyu Hospital");
+                    case 1:
+                        lblAddress.setText("Kompleks Darul Kifayah MAIWP Labuan");
+                    case 2:
+                        lblAddress.setText("Dewan Serbaguna Perbadanan Labuan");
+                }
+                break;
+            case "Malacca":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("M01");
+                cbCenterID.addItem("M02");
+                cbCenterID.addItem("M03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Dewan Tun Ali");
+                    case 1:
+                        lblAddress.setText("Melaka Hospital");
+                    case 2:
+                        lblAddress.setText("Hang Tuah Hall");
+                }
+                break;
+            case "Negeri Sembilan":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("NS01");
+                cbCenterID.addItem("NS02");
+                cbCenterID.addItem("NS03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Gemas Health Clinic");
+                    case 1:
+                        lblAddress.setText("Palong 4, 5 & 6 Health Clinic");
+                    case 2:
+                        lblAddress.setText("Klinik Kesihatan Jelai");
+                }
+                break;
+            case "Pahang":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("PAH01");
+                cbCenterID.addItem("PAH02");
+                cbCenterID.addItem("PAH03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Muadzam Shah Hospital");
+                    case 1:
+                        lblAddress.setText("Convention Hall Sultan Haji Ahmad Shah");
+                    case 2:
+                        lblAddress.setText("Pekan Hospital");
+                }
+                break;
+            case "Penang":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("PEN01");
+                cbCenterID.addItem("PEN02");
+                cbCenterID.addItem("PEN03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Hospital Pulau Pinang");
+                    case 1:
+                        lblAddress.setText("Balik Pulau Hospital");
+                    case 2:
+                        lblAddress.setText("Seberang Perai Arena Convention Centre");
+                }
+                break;
+            case "Perak":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("PK01");
+                cbCenterID.addItem("PK02");
+                cbCenterID.addItem("PK03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Slim River Hospital");
+                    case 1:
+                        lblAddress.setText("Dewan Merdeka Tapah");
+                    case 2:
+                        lblAddress.setText("Tapah Hospital");
+                }
+                break;
+            case "Perlis":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("PS01");
+                cbCenterID.addItem("PS02");
+                cbCenterID.addItem("PS03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Dewan 2020");
+                    case 1:
+                        lblAddress.setText("Kangar Hospital");
+                    case 2:
+                        lblAddress.setText("Dewan Tunku Anum");
+                }
+                break;
+            case "Putrajaya":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("PJ01");
+                cbCenterID.addItem("PJ02");
+                cbCenterID.addItem("PJ03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Dewan Seri Seroja");
+                    case 1:
+                        lblAddress.setText("National Cancer Institute");
+                    case 2:
+                        lblAddress.setText("Putrajaya Hospital");
+                }
+                break;
+            case "Sabah":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("SBH01");
+                cbCenterID.addItem("SBH02");
+                cbCenterID.addItem("SBH03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Kuala Penyu Hospital");
+                    case 1:
+                        lblAddress.setText("Beaufort Hospital");
+                    case 2:
+                        lblAddress.setText("Tenom Hospital");
+                }
+                break;
+            case "Sarawak":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("SRK01");
+                cbCenterID.addItem("SRK02");
+                cbCenterID.addItem("SRK03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Puskesmas Sajingan Besar");
+                    case 1:
+                        lblAddress.setText("Dewan Masyarakat Lundu");
+                    case 2:
+                        lblAddress.setText("Lundu Hospital");
+                }
+                break;
+            case "Selangor":
+                cbCenterID.removeAllItems();
+                cbCenterID.addItem("SLG01");
+                cbCenterID.addItem("SLG02");
+                cbCenterID.addItem("SLG03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Johol Health Clinic");
+                    case 1:
+                        lblAddress.setText("Klinik Kesihatan Senaling");
+                    case 2:
+                        lblAddress.setText("Astana Raja Health Clinic");
+                }
+                break;
+            case "Terengganu":
+                cbCenterID.removeAll();
+                cbCenterID.addItem("T01");
+                cbCenterID.addItem("T02");
+                cbCenterID.addItem("T03");
+                switch (cbCenterID.getSelectedIndex())
+                {
+                    case 0:
+                        lblAddress.setText("Dungun Hospital");
+                    case 1:
+                        lblAddress.setText("Dewan Aspirasi UiTM Dungun");
+                    case 2:
+                        lblAddress.setText("Hulu Terengganu Hospital");
+                }
+            default:
+                break;
+        }
     }//GEN-LAST:event_cbCenterIDActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-        String aptStatus = "Requesting";
         String date = String.valueOf(cbDay.getSelectedItem()) + "/" + 
                 String.valueOf(cbMonth.getSelectedItem()) + "/" +
                 String.valueOf(cbYear.getSelectedItem());
@@ -413,14 +567,14 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
                 String.valueOf(cbMinute.getSelectedItem()));
         Appointment appointment = new Appointment();
         appointment.setUserID(this.userID);
-        appointment.setState(state);
+        appointment.setAddress(lblAddress.getText());
         appointment.setCenterID(String.valueOf(cbCenterID.getSelectedItem()));
         appointment.setDate(date);
         appointment.setTime(time);
         appointment.setVacType(String.valueOf(cbVaccineType.getSelectedItem()));
         appointment.setVacDose(String.valueOf(lblDose.getText()));
         
-        if (appointment.appointmentRegister(aptStatus))
+        if (appointment.appointmentRegister())
         {
             this.setVisible(false);
             this.dispose();
@@ -484,9 +638,10 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAdminName;
     private javax.swing.JLabel lblAdminName1;
     private javax.swing.JLabel lblDose;
-    private javax.swing.JLabel lblState;
+    private javax.swing.JLabel lblTime;
     // End of variables declaration//GEN-END:variables
 }
