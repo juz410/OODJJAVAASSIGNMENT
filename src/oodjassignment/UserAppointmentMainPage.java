@@ -167,8 +167,8 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
         if (appointment.viewAppointment(this.userID))
         {
             if ( ("FirstDose".equals(appointment.getVacDose()) || "SecondDose".equals(appointment.getVacDose())) && 
-                    "Requesting".equals(appointment.getAptStatus()) || "Approved".equals(appointment.getAptStatus()) ||
-                    "Request Cancellation".equals(appointment.getAptStatus()))
+                    "Requesting".equals(appointment.getAptStatus().toString()) || "Approved".equals(appointment.getAptStatus().toString()) ||
+                    "Request Cancellation".equals(appointment.getAptStatus().toString()))
             {
                 JOptionPane.showMessageDialog(null, "You already have an appointment!");
             }

@@ -1,3 +1,3 @@
 ApptID|UserID|CenterID|Address|Date|TIME|AppStatus|VacType|VacID|VacDose
 APT00000001|012432-41-2343|KL01|Desa Tasik Sports Complex|01/01/2021|00:00|Done|AstraZeneca|A0001|FirstDose
-APT00000002|012432-41-2343|KL01|Kompleks Komuniti Muhibbah|01/01/2021|00:00|Done|AstraZeneca|NULL|SecondDose
+APT00000002|012432-41-2343|KL01|Kompleks Komuniti Muhibbah|13/09/2021|07:29|Canceled|AstraZeneca|NULL|SecondDose

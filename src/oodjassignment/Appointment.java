@@ -147,39 +147,46 @@ public class Appointment
     
     public boolean viewAppointment(String userID)
     {
+        int count = 0;
         try {
             Scanner appointmentReader = new Scanner(file);
             while(appointmentReader.hasNextLine())
             {
                 String[] appointmentArray= appointmentReader.nextLine().split("\\|"); 
-                if(appointmentArray[1].equals(userID) && !"Done".equals(appointmentArray[6]))
+                if(count > 0)
                 {
-                    this.aptID = appointmentArray[0];
-                    this.userID = appointmentArray[1];
-                    this.centerID = appointmentArray[2];
-                    this.address = appointmentArray[3];
-                    this.date = appointmentArray[4];
-                    this.time = appointmentArray[5];
-                    this.aptStatus = AppStatus.valueOf(appointmentArray[6]);
-                    this.vacType = appointmentArray[7];
-                    this.vacDose = appointmentArray[8];
-                    pass = true;
+                    
+                    if(appointmentArray[1].equals(userID) && !"Done".equals(appointmentArray[6]))
+                    {
+                        this.aptID = appointmentArray[0];
+                        this.userID = appointmentArray[1];
+                        this.centerID = appointmentArray[2];
+                        this.address = appointmentArray[3];
+                        this.date = appointmentArray[4];
+                        this.time = appointmentArray[5];
+                        this.aptStatus = AppStatus.valueOf(appointmentArray[6]);
+                        this.vacType = appointmentArray[7];
+                        this.vacDose = appointmentArray[8];
+                        pass = true;
+                    }
+                    else
+                    {
+                        pass = false;
+                    }
+
+                        this.aptID = appointmentArray[0];
+                        this.userID = appointmentArray[1];
+                        this.centerID = appointmentArray[2];
+                        this.address = appointmentArray[3];
+                        this.date = appointmentArray[4];
+                        this.time = appointmentArray[5];
+                        this.aptStatus = AppStatus.valueOf(appointmentArray[6]);
+                        this.vacType = appointmentArray[7];
+                        this.vacDose = appointmentArray[8];
+                        this.vacID = appointmentArray[9];
                 }
-                else
-                {
-                    pass = false;
-                }
+                count += 1;
                 
-                this.aptID = appointmentArray[0];
-                this.userID = appointmentArray[1];
-                this.centerID = appointmentArray[2];
-                this.address = appointmentArray[3];
-                this.date = appointmentArray[4];
-                this.time = appointmentArray[5];
-                this.aptStatus = AppStatus.valueOf(appointmentArray[6]);
-                this.vacType = appointmentArray[7];
-                this.vacDose = appointmentArray[8];
-                this.vacID = appointmentArray[9];
             }
             appointmentReader.close();
         } 
@@ -285,7 +292,7 @@ public class Appointment
         }
     }
     
-     public static String[] AppointmentViewAll(AppStatus aptStatus)  //Returning all requesting appointments to the tblRequestedAppTable in AdminVaccinePage (KF)
+     public static String[] AppointmentViewAll(AppStatus aptStatus,AppStatus aptStatus2)  //Returning all requesting appointments to the tblRequestedAppTable in AdminVaccinePage (KF)
     {
         File file = new File("Appointment.txt");
         int count = 0;
@@ -296,7 +303,7 @@ public class Appointment
             {
                 String line = myReader.nextLine(); 
                 String[] checkArr = line.split("\\|");
-                if(checkArr[6].equals(aptStatus.toString()) || count == 0)
+                if(checkArr[6].equals(aptStatus.toString()) || count == 0 || checkArr[6].equals(aptStatus2.toString()))
                 {
                     lineArray = Arrays.copyOf(lineArray, count + 1);
                     lineArray[count] = line;
@@ -339,13 +346,13 @@ public class Appointment
          
      }
      
-     public void cancelUserAppointment()
+     public void cancelUserAppointment(AppStatus preStats)
      {
          VCenter vc = new VCenter(this.centerID);
          vc.setVacType(VType.valueOf(this.vacType));
          vc.AssignVaccine(VStatus.Booked, VStatus.InStock);
          this.vacID = "NULL";
-         String previousStats = AppStatus.Approved.toString();
+         String previousStats = preStats.toString();
          this.aptStatus = AppStatus.Canceled;
          String [] aptArr = this.returnFileLine();
          this.fileCleaning();
@@ -487,5 +494,6 @@ enum AppStatus
     Canceled,
     RequestingCancel,
     Rejected,
-    Done;
+    Done,
+    AppStatus;
 }

@@ -23,7 +23,7 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         ((DefaultTableModel)tblRequestedAppTable.getModel()).setNumRows(0);
         DefaultTableModel model =(DefaultTableModel)tblRequestedAppTable.getModel();
         
-        String [] Arr = Appointment.AppointmentViewAll(AppStatus.Requesting);
+        String [] Arr = Appointment.AppointmentViewAll(AppStatus.Requesting,AppStatus.RequestingCancel);
         model.setColumnIdentifiers(Arr[0].split("\\|"));
         model.setColumnCount(10);
         for (int i =0; i < Arr.length ; i ++)
@@ -475,7 +475,15 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
             
             
             Appointment app = new Appointment(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9]);
-            app.ApproveUserAppRequest();
+            if(app.getAptStatus().equals(AppStatus.Requesting.toString()))
+            {
+                app.ApproveUserAppRequest();
+            }else if(app.getAptStatus().equals(AppStatus.RequestingCancel.toString()))
+            {
+                app.cancelUserAppointment(AppStatus.RequestingCancel);
+                
+            }
+            
             this.showTableData();
             
         }
