@@ -25,6 +25,8 @@ public class AdminVaccinePage extends javax.swing.JFrame {
     {
         ((DefaultTableModel)tblVaccine.getModel()).setNumRows(0);
         DefaultTableModel model =(DefaultTableModel)tblVaccine.getModel();
+        TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblVaccine.getModel());
+        tblVaccine.setRowSorter(rowSorter);
         Vaccines vac = new Vaccines();
         String [] vacArray = vac.VaccineViewAll();
         model.setColumnIdentifiers(vacArray[0].split("\\|"));

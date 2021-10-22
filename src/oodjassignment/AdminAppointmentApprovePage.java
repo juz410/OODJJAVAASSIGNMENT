@@ -22,7 +22,8 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
     {
         ((DefaultTableModel)tblRequestedAppTable.getModel()).setNumRows(0);
         DefaultTableModel model =(DefaultTableModel)tblRequestedAppTable.getModel();
-        
+        TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblRequestedAppTable.getModel());
+        tblRequestedAppTable.setRowSorter(rowSorter);
         String [] Arr = Appointment.AppointmentViewAll(AppStatus.Requesting,AppStatus.RequestingCancel);
         model.setColumnIdentifiers(Arr[0].split("\\|"));
         model.setColumnCount(10);

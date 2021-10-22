@@ -7,6 +7,8 @@ package oodjassignment;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -21,6 +23,8 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
     {
         ((DefaultTableModel)tblVCenter.getModel()).setNumRows(0);
         DefaultTableModel model =(DefaultTableModel)tblVCenter.getModel();
+        TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblVCenter.getModel());
+        tblVCenter.setRowSorter(rowSorter);
         String [] Array = VCenter.VCenterViewAll();
         model.setColumnIdentifiers(Array[0].split("\\|"));
         model.setColumnCount(3);
