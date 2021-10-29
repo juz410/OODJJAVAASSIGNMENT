@@ -14,9 +14,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,13 +22,25 @@ import javax.swing.JOptionPane;
 public class Appointment 
 {
     private String aptID,userID,centerID, address, date, time, vacType, vacID, vacDose;
-    private File file = new File("Appointment.txt");
+    private final File file = new File("Appointment.txt");
     private boolean pass = false;
     private AppStatus aptStatus;
     
     public Appointment()
     {
         
+    }
+    
+    public Appointment(String userID, String address, String centerID, String date,
+            String time,String vacType, String vacDose)
+    {
+        this.userID = userID;
+        this.address = address;
+        this.centerID = centerID;
+        this.date = date;
+        this.time = time;
+        this.vacType = vacType;
+        this.vacDose = vacDose;
     }
     
     public Appointment(String aptID, String userID, String centerID, String address, String date,
@@ -119,7 +128,7 @@ public class Appointment
             switch (n)
             {
                 case 0:
-                    appointmentPWriter.println(this.aptID + "|" + 
+                    appointmentPWriter.print("\n" + this.aptID + "|" + 
                             this.userID + "|" +
                             this.centerID + "|" + 
                             this.address + "|" + 
@@ -155,7 +164,6 @@ public class Appointment
                 String[] appointmentArray= appointmentReader.nextLine().split("\\|"); 
                 if(count > 0)
                 {
-                    
                     if(appointmentArray[1].equals(userID) && !"Done".equals(appointmentArray[6]))
                     {
                         this.aptID = appointmentArray[0];
@@ -166,27 +174,16 @@ public class Appointment
                         this.time = appointmentArray[5];
                         this.aptStatus = AppStatus.valueOf(appointmentArray[6]);
                         this.vacType = appointmentArray[7];
-                        this.vacDose = appointmentArray[8];
+                        this.vacDose = appointmentArray[9];
+                        this.vacID = appointmentArray[8];
                         pass = true;
                     }
                     else
                     {
                         pass = false;
                     }
-
-                        this.aptID = appointmentArray[0];
-                        this.userID = appointmentArray[1];
-                        this.centerID = appointmentArray[2];
-                        this.address = appointmentArray[3];
-                        this.date = appointmentArray[4];
-                        this.time = appointmentArray[5];
-                        this.aptStatus = AppStatus.valueOf(appointmentArray[6]);
-                        this.vacType = appointmentArray[7];
-                        this.vacDose = appointmentArray[8];
-                        this.vacID = appointmentArray[9];
                 }
                 count += 1;
-                
             }
             appointmentReader.close();
         } 
@@ -258,7 +255,7 @@ public class Appointment
         }
     }
     
-    public void digitalCertificate(String userID, String dose)
+    public boolean digitalCertificate(String userID, String dose)
     {
         try 
         {
@@ -267,12 +264,13 @@ public class Appointment
             {
                 String[] appointmentArray= appointmentReader.nextLine().split("\\|"); 
                 if(appointmentArray[1].equals(userID) && "Done".equals(appointmentArray[6]) && 
-                        appointmentArray[8].equals(dose))
+                        appointmentArray[9].equals(dose))
                 {
                     this.centerID = appointmentArray[2];
                     this.date = appointmentArray[4];
                     this.vacType = appointmentArray[7];
-                    this.vacID = appointmentArray[9];
+                    this.vacID = appointmentArray[8];
+                    pass = true;
                     break;
                 }
                 else
@@ -290,6 +288,7 @@ public class Appointment
         {
             ex.printStackTrace();
         }
+        return pass;
     }
     
      public static String[] AppointmentViewAll(AppStatus aptStatus,AppStatus aptStatus2)  //Returning all requesting appointments to the tblRequestedAppTable in AdminVaccinePage (KF)
@@ -312,9 +311,6 @@ public class Appointment
                 {
                     continue;
                 }
-                
-                
-                
             }
             
         } catch (FileNotFoundException ex) {
@@ -353,7 +349,7 @@ public class Appointment
          vc.AssignVaccine(VStatus.Booked, VStatus.InStock);
          this.vacID = "NULL";
          String previousStats = preStats.toString();
-         this.aptStatus = AppStatus.Canceled;
+         this.aptStatus = AppStatus.Cancelled;
          String [] aptArr = this.returnFileLine();
          this.fileCleaning();
          this.changingData(aptArr, previousStats);
@@ -480,18 +476,87 @@ public class Appointment
         } catch (IOException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
     }
      
+     public int checkRow(String centerID, String date)
+    {
+        int count = 0;
+        try 
+        {
+            Scanner appointmentReader = new Scanner(file);
+            while(appointmentReader.hasNextLine())
+            {
+                String[] appointmentArray= appointmentReader.nextLine().split("\\|"); 
+                if(appointmentArray[2].equals(centerID) && appointmentArray[4].equals(date) && 
+                        "Approved".equals(appointmentArray[6]))
+                {
+                    count +=1;
+                }
+            }
+            appointmentReader.close();
+        } 
+        catch (FileNotFoundException ex) 
+        {
+            ex.printStackTrace();
+        }
+        return count;
+    }
      
+     public String getAddress(String centerID)
+     {
+         try //set the label address same as the database address
+        {
+            File file = new File("VCenter.txt");
+            Scanner myReader = new Scanner(file);
+            while (myReader.hasNextLine()) 
+            {
+                String[] arr = myReader.nextLine().split("\\|"); 
+                if (centerID.equals(arr[0]))
+                {
+                    this.address = arr[2];
+                }
+            }
+            myReader.close();
+          } 
+        catch (FileNotFoundException e) 
+        {
+            e.printStackTrace();
+        }
+         return this.address;
+     }
+     
+     public boolean firstDoseDone(String userID)
+    {
+        try 
+        {
+            Scanner appointmentReader = new Scanner(file);
+            while(appointmentReader.hasNextLine())
+            {
+                String[] appointmentArray= appointmentReader.nextLine().split("\\|"); 
+                {
+                    if(appointmentArray[1].equals(userID) && "Done".equals(appointmentArray[6]) &&
+                            appointmentArray[9].equals("FirstDose"))
+                    {
+                        this.date = appointmentArray[4];
+                        pass = true;
+                    }
+                }
+            }
+            appointmentReader.close();
+        } 
+        catch (FileNotFoundException ex) 
+        {
+            ex.printStackTrace();
+        }
+        return pass;
+    }
      
 }
 enum AppStatus
 {
     Requesting,
     Approved,
-    Canceled,
+    Cancelled,
     RequestingCancel,
     Rejected,
     Done,

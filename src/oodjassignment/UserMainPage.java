@@ -5,36 +5,28 @@
  */
 package oodjassignment;
 
-import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 /**
  *
  * @author user
  */
-public class UserMainPage extends javax.swing.JFrame {
-
-    
-    private String userID = "012432-41-2343";
-//    private String userID;
+public class UserMainPage extends javax.swing.JFrame 
+{
+    private String userID;
     Users user = new Users();
     CurrentDateTime currentDateTime = new CurrentDateTime();
     public UserMainPage(String userID) 
     {
         initComponents();
-//        this.userID = userID;
-        userID = "012432-41-2343";
+        this.userID = userID;
         this.userID = userID;
         Appointment appointment = new Appointment();
         user.userProfile(this.userID);
         lblTitle.setText(user.getName());
-        lblVacStatus.setText("<html><u>Vaccination Status</u>:  " + user.getVacStatus() + " <html>");
+        lblVacStatus.setText("<html><b><u>Vaccination Status</u><b><html>");
         lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
                 currentDateTime.currentWeek() + "<br>" +
                 currentDateTime.currentTime() + "<html>");
@@ -48,7 +40,7 @@ public class UserMainPage extends javax.swing.JFrame {
         lblCenterID1.setText(appointment.getCenterID());
         lblVaccineID1.setText(appointment.getVacID());
         lblVaccineType1.setText(appointment.getVacType());
-        //////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
         appointment.digitalCertificate(this.userID,"SecondDose");
         lblDate2.setText(appointment.getDate());
         lblCenterID2.setText(appointment.getCenterID());

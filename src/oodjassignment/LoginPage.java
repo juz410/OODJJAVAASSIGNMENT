@@ -7,7 +7,6 @@ package oodjassignment;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +20,7 @@ public class LoginPage extends javax.swing.JFrame {
     CurrentDateTime currentDateTime = new CurrentDateTime();
     public LoginPage() {
         initComponents();
-        lblRegister.setText("<html><u> Register</u><html>");
+        lblRegister.setText("<html><u>Register</u></html>");
         lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
                 currentDateTime.currentWeek() + "<br>" +
                 currentDateTime.currentTime() + "<html>");
@@ -56,7 +55,6 @@ public class LoginPage extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(500, 500));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 500));
 
@@ -170,13 +168,9 @@ public class LoginPage extends javax.swing.JFrame {
        if (user.getUserID().startsWith("Admin")) //IF EQUAL THEN GOING TO ADMIN LOGIN
        {
            pass = user.adminLogin();
-           
-           
        }else //normal user login;
        {
            pass = user.userLogin();
-           
-           
        }
        if(pass == true)
        {

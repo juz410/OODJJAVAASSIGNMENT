@@ -34,9 +34,9 @@ public class Users {
     private UVacStatus VacStatus;
     private String confirmPassword;
     private String Gender;
-    private File file = new File("User.txt");
+    private final File file = new File("User.txt");
     private boolean pass = false;
-    private Validation validation = new Validation();
+    private final Validation validation = new Validation();
     
     public Users(){}
     public Users(String UID, String P, String N) //Constructor for admin 
@@ -60,106 +60,33 @@ public class Users {
         this.Country = count; //IF the country is MALAYSIA then = LOCAL Citizen, ELSE Non-Citizen
         this.VacStatus = UVacStatus.valueOf(VacSta);
     }
+    //set method
+    public void setUserID(String UID){this.userID = UID;}
+    public void setPassword(String P){this.Password = P;}
+    public void setName(String N){this.Name = N;}
+    public void setGender(String G){this.Gender = G;}
+    public void setIC(String IC){this.IC = IC;}
+    public void setPhoneNo(String PN){this.PhoneNo = PN;}
+    public void setEmail(String E){this.Email = E;}
+    public void setAddress(String Add){this.Address = Add;}
+    public void setState(String S){this.State = S;}
+    public void setCountry(String C){this.Country = C;}
+    public void setVacStatus(String VS){this.VacStatus = UVacStatus.valueOf(VS);}
+    public void setCPassword(String CP){this.confirmPassword = CP;}
+    //get method
+    public String getUserID(){return this.userID;}
+    public String getPassword(){return this.Password;}
+    public String getName(){return this.Name;}
+    public String getGender(){return this.Gender;}
+    public String getIC(){return this.IC;}
+    public String getPhoneNo(){return this.PhoneNo;}
+    public String getEmail(){return this.Email;}
+    public String getAddress(){return this.Address;}
+    public String getState(){return this.State;}
+    public String getCountry(){return this.Country;}
+    public String getVacStatus(){return this.VacStatus.toString();}
+    public String getCPassword(){return this.confirmPassword;}
     
-    public void setUserID(String UID)
-    {
-        this.userID = UID;
-    }
-    public String getUserID()
-    {
-        return this.userID;
-    }
-    public void setPassword(String P)
-    {
-        this.Password = P;
-    }
-    public String getPassword()
-    {
-        return this.Password;
-    }
-//    private String userID, Password,Name,IC,PhoneNo,Email,Address,State,Country,VacStatus;
-//    private char Gender;
-    public void setName(String N)
-    {
-        this.Name = N;
-    }
-    public String getName()
-    {
-        return this.Name;
-    }
-    public void setGender(String G)
-    {
-        this.Gender = G;
-    }
-    public String getGender()
-    {
-        return this.Gender;
-    }
-    public void setIC(String IC)
-    {
-        this.IC = IC;
-    }
-    public String getIC()
-    {
-        return this.IC;
-    }
-    public void setPhoneNo(String PN)
-    {
-        this.PhoneNo = PN;
-    }
-    public String getPhoneNo()
-    {
-        return this.PhoneNo;
-    }
-    public void setEmail(String E)
-    {
-        this.Email = E;
-    }
-    public String getEmail()
-    {
-        return this.Email;
-    }
-    public void setAddress(String Add)
-    {
-        this.Address = Add;
-    }
-    public String getAddress()
-    {
-        return this.Address;
-    }
-    public void setState(String S)
-    {
-        this.State = S;
-    }
-    public String getState()
-    {
-        return this.State;
-    }
-    public void setCountry(String C)
-    {
-        this.Country = C;
-    }
-    public String getCountry()
-    {
-        return this.Country;
-    }
-    public void setVacStatus(String VS)
-    {
-        this.VacStatus = UVacStatus.valueOf(VS);
-    }
-    public String getVacStatus()
-    {
-        return this.VacStatus.toString();
-    }
-    
-    public void setCPassword(String CP)
-    {
-        this.confirmPassword = CP;
-    }
-    public String getCPassword()
-    {
-        return this.confirmPassword;
-    }
     public boolean adminLogin()
     {
         Boolean access = false;
@@ -199,7 +126,6 @@ public class Users {
         return this.Succesful;
     }
      
-    
     public boolean userLogin()
     {
         boolean access = false;
@@ -298,33 +224,7 @@ public class Users {
     
     public boolean userRegister()
     {
-        boolean exist = false;
-        try 
-        {
-            BufferedReader userExistCheck = new BufferedReader(new FileReader(file));
-            String readline;
-            String [] userArray;
-            try {
-                while((readline = userExistCheck.readLine())!= null)
-                {
-                    userArray = readline.split("\\|");
-                    if(this.userID.equals(userArray[0]))
-                    {
-                        exist = true;
-                        break;
-                    }
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } 
-        catch (FileNotFoundException ex) 
-        {
-            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
         String VaccineStatus = UVacStatus.NoDose.toString();
-        
         
         if (validation.confirmPassword(this.Password, this.confirmPassword))
         {
@@ -336,7 +236,7 @@ public class Users {
                     {
                         if (validation.icValid(this.IC))
                         {
-                            if(exist == false) //avoid userID duplicate
+                            if(validation.icDuplicateValid(this.userID)) //avoid userID duplicate
                             {
                                 try 
                                 {
@@ -349,7 +249,7 @@ public class Users {
                                         "<br> Phone: " + this.PhoneNo + "<br> Email: " +this.Email+
                                         "<br> Address" +this.Address + "<br> IC/Passport: " + this.IC +
                                         "<br> State: " +this.State +
-                                        "<br> Country: " +this.Country + " <html>", "Check",
+                                        "<br> Country: " +this.Country + " <html>", "Comfirmation",
                                         JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,null,null,null);
                                     switch (n)
                                     {
@@ -383,8 +283,7 @@ public class Users {
                             }
                             else //phone number exist
                             {
-                                JOptionPane.showMessageDialog(null,"<html> Phone Number Already Used! <br> "
-                            + "Please insert a NEW Phone Number! <html>","Duplicated Phone Number",
+                                JOptionPane.showMessageDialog(null,"You are already registered! ","Duplicated IC Number",
                             JOptionPane.WARNING_MESSAGE);
                             }
                         }
@@ -677,6 +576,10 @@ public class Users {
         }
         
         
+    }
+
+    String getstate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
