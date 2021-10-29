@@ -5,6 +5,14 @@
  */
 package oodjassignment;
 import java.awt.BorderLayout;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import javax.swing.JLabel;
@@ -18,8 +26,39 @@ import javax.swing.JTextField;
  */
 public class Validation
 {
-    boolean pass;
-    public static boolean passwordValid(String password) 
+    boolean pass ;
+    
+    public boolean icDuplicateValid(String ic)
+    {
+        File file = new File("User.txt");
+        pass = true;
+        try 
+        {
+            BufferedReader userExistCheck = new BufferedReader(new FileReader(file));
+            String readline;
+            String [] userArray;
+            try {
+                while((readline = userExistCheck.readLine())!= null)
+                {
+                    userArray = readline.split("\\|");
+                    if(ic.equals(userArray[0]))
+                    {
+                        pass = false;
+                        break;
+                    }
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        } 
+        catch (FileNotFoundException ex) 
+        {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return pass;
+    }
+    
+    public boolean passwordValid(String password) 
     {   
         String passwordPattern =
                 "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
@@ -139,6 +178,27 @@ public class Validation
                 break;
             case 1:
                 break;
+        }
+        return pass;
+    }
+    
+    public boolean validationDate(int year, int month, int day,String check)
+    {
+        LocalDate userDate = LocalDate.of(year,month,day); //convert user input Date into localdate type
+        LocalDate currentDate = LocalDate.now(); //current date
+        LocalDate currentDateAdd1Month = currentDate.plusMonths(1); //make sure user can make 2nd dose appointment after finish 1st dose 1 month
+        LocalDate currentDateAdd7Days =  currentDate.plusDays(7); //make a conditions that don't let user make appointment before 7 days
+        if (!userDate.isBefore(currentDateAdd7Days) && "r".equals(check))
+        {
+            pass = true;
+        }
+        else if (userDate.isAfter(currentDate) && "c".equals(check))
+        {
+            pass = true;
+        }
+        else if (userDate.isAfter(currentDateAdd1Month) && "30M".equals(check))
+        {
+            pass = true;
         }
         return pass;
     }

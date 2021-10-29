@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package oodjassignment;
-import javax.swing.JOptionPane;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,8 +24,6 @@ public class Vaccines {
     protected String VCenterID;
     protected int requestedQuantity;
     
-    
-    
     public Vaccines(){}
     
     public Vaccines (String VID,VType VT,VStatus VS)
@@ -35,58 +32,25 @@ public class Vaccines {
         this.VacType = VT;
         this.VacStatus = VS;
     }
+    
     public Vaccines (String VID)
     {
         this.VacID = VID;
     }
     
-    public void setVaccineID(String VID)
-    {
-        this.VacID = VID;
-    }
-    public String getVaccineID()
-    {
-        return this.VacID;
-    }
-    public void setVacType(VType VT)
-    {
-        this.VacType = VT;
-    }
-    
-    public String getVacType()
-    {
-        return this.VacType.toString();
-    }
-    public void setVacStatus(VStatus VS)
-    {
-        this.VacStatus = VS;
-    }
-    public String getVacStatus()
-    {
-        return this.VacStatus.toString();
-       
-    }
-    public void setVCenterID(String CID)
-    {
-        this.VCenterID = CID;
-    }
-    public String getVCenterID()
-    {
-        return this.VCenterID;
-    }
-    public void setRequestQuantity(int RQ)
-    {
-        this.requestedQuantity = RQ;
-    }
-    public int getRequestQuantity()
-    {
-        return this.requestedQuantity;
-    }
-    
+    public void setVaccineID(String VID){this.VacID = VID;}
+    public void setVacType(VType VT){this.VacType = VT;}
+    public void setVacStatus(VStatus VS){this.VacStatus = VS;}
+    public void setVCenterID(String CID){this.VCenterID = CID;}
+    public void setRequestQuantity(int RQ){this.requestedQuantity = RQ;}
+    public int getRequestQuantity(){return this.requestedQuantity;}
+    public String getVCenterID(){return this.VCenterID;}
+    public String getVacStatus(){return this.VacStatus.toString();}
+    public String getVaccineID(){return this.VacID;}
+    public String getVacType(){return this.VacType.toString();}
     
     public void VaccineInsertion() //Inserting new vaccine to the warehouse
     {
-        
         this.VCenterID = "NULL";
         this.VacStatus = VStatus.Available;
         
@@ -111,6 +75,7 @@ public class Vaccines {
             }
         }
     } 
+    
     protected int calVacQuantity(VType type) //to Return the specifc vaccines quantity 
     {
         int VacQuantity = 0;
@@ -125,8 +90,6 @@ public class Vaccines {
                     VacQuantity ++;
                 }
             }
-            
-            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Vaccines.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -148,13 +111,11 @@ public class Vaccines {
                 
                 count += 1;
             }
-            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lineArray;
     }
-                
 }
     
 enum VStatus

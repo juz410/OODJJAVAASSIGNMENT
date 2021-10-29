@@ -6,4 +6,5 @@ Admin01|ADMIN|abcd1234| | | | | | | |
 123928-14-4231|Ellen|Ellen123!|FEMALE|017312449|ellen@gmail.com|431, Jalna Ellen|123928-14-4231|Johor|Malaysia|NoDose
 892340-14-2434|Foon|Foon123!|MALE|019783631|foon@gmail.com|234, Jalan Foon|892340-14-2434|Johor|Malaysia|NoDose
 981343-43-6589|Gong|Gong123!|MALE|01823418592|gong@gmail.com|84, Jalan Gong|981343-43-6589|Selangor|Malaysia|NoDose
-902341-24-2341|Hoock|Hoock123!|FEMALE|01914425|hoock@gmail.com|829, Jalan Hoock|902341-24-2341|Perlis|Malaysia|NoDose
+902341-24-2341|Hoock|Hoock123!|FEMALE|01914425|hoock@gmail.com|829, Jalan Hoock|902341-24-2341|Pahang|Malaysia|NoDose
+010203-04-0506|Irene|Irene123!|FEMALE|0167798594|irene@gmail.com|432, Jalan Irene|010203-04-0506|Pahang|Malaysia|NoDose

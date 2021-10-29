@@ -93,14 +93,9 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(22, 22, 22))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(126, 126, 126))))
+                                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(126, 126, 126))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(95, 95, 95)))
@@ -111,7 +106,10 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
                         .addGap(82, 82, 82))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lblTime)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,9 +126,9 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
                 .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,16 +136,16 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(31, 31, 31)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -164,23 +162,45 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
         Appointment appointment = new Appointment();
-        if (appointment.viewAppointment(this.userID))
+        Validation validation = new Validation();
+        boolean pass = false;
+        
+        if (appointment.firstDoseDone(userID))//checking first dose done or not
         {
-            if ( ("FirstDose".equals(appointment.getVacDose()) || "SecondDose".equals(appointment.getVacDose())) && 
-                    "Requesting".equals(appointment.getAptStatus()) || "Approved".equals(appointment.getAptStatus()) ||
-                    "Request Cancellation".equals(appointment.getAptStatus()))
+            String[] bookDate = appointment.getDate().split("/");
+            if (validation.validationDate(Integer.valueOf(bookDate[2]), Integer.valueOf(bookDate[1]),
+                    Integer.valueOf(bookDate[0]), "30M")) //Check if the first dose has been 1 month later
             {
-                JOptionPane.showMessageDialog(null, "You already have an appointment!");
+                pass = true;
             }
             else
             {
-                UserAppointmentRegisterPage userAppointmentRegisterPage = new UserAppointmentRegisterPage(this.userID);
-                userAppointmentRegisterPage.setVisible(true);
-                this.setVisible(false);
-                this.dispose();   
+                JOptionPane.showMessageDialog(null, "<html>Your 1st Dose is at: " + appointment.getDate() +
+                        "<br> Please make appointment after <b>1</b> month! <html>");
             }
         }
         else
+        {
+            if (appointment.viewAppointment(userID))//Check if the user has an appointment before
+            {
+                if ( ("FirstDose".equals(appointment.getVacDose()) || "SecondDose".equals(appointment.getVacDose())) && 
+                        ("Requesting".equals(appointment.getAptStatus()) || "Approved".equals(appointment.getAptStatus()) ||
+                        "Request Cancellation".equals(appointment.getAptStatus()))) //Check if the user has an appointment
+                {
+                    JOptionPane.showMessageDialog(null, "You already have an appointment!");
+                }
+                else
+                {
+                    pass = true;
+                }
+            }
+            else
+            {
+                pass = true;
+            }
+        }
+        
+        if (pass)
         {
             UserAppointmentRegisterPage userAppointmentRegisterPage = new UserAppointmentRegisterPage(this.userID);
             userAppointmentRegisterPage.setVisible(true);

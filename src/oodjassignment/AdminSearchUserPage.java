@@ -26,7 +26,9 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
     public AdminSearchUserPage() {
         initComponents();
         ((DefaultTableModel)tblUser.getModel()).setNumRows(0);
+        TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblUser.getModel());
         DefaultTableModel model =(DefaultTableModel)tblUser.getModel();
+        tblUser.setRowSorter(rowSorter);
         Users user = new Users();
         String [] userArray = user.userViewAll();
         model.setColumnIdentifiers(userArray[0].split("\\|"));

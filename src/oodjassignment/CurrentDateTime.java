@@ -15,9 +15,10 @@ import java.util.Date;
 public class CurrentDateTime 
 {
     Date currentDate = new Date();
+    
     public String currentTime()
     {
-        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
         return timeFormat.format(currentDate);
     }
     
@@ -29,8 +30,7 @@ public class CurrentDateTime
     
     public String currentWeek()
     {
-        SimpleDateFormat weekFormat = new SimpleDateFormat("EEEE");
-        return weekFormat.format(currentDate);
+        SimpleDateFormat dayOfTheWeekFormat = new SimpleDateFormat("EEEE");
+        return dayOfTheWeekFormat.format(currentDate);
     }
-
 }

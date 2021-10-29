@@ -39,31 +39,14 @@ public class VCenter extends Vaccines {
         this.CenterID = CID;
         
     }
-    
-    public void setCenterID(String CID)
-    {
-        this.CenterID  = CID;
-    }
-    public String getCenterID()
-    {
-        return this.CenterID;
-    }
-    public void setState(String State)
-    {
-        this.State = State;
-    }
-    public String getState()
-    {
-        return this.State;
-    }
-    public void setAddress(String ADD)
-    {
-        this.Address = ADD;
-    }
-    public String getAddress()
-    {
-        return this.Address;
-    }
+    //set method
+    public void setCenterID(String CID){this.CenterID  = CID;}
+    public void setState(String State){this.State = State;}
+    public void setAddress(String ADD){this.Address = ADD;}
+    //get method
+    public String getCenterID(){return this.CenterID;}
+    public String getState(){return this.State;}
+    public String getAddress(){return this.Address;}
    
     
     public String AssignVaccine(VStatus preStats, VStatus newStat)
@@ -76,7 +59,6 @@ public class VCenter extends Vaccines {
         this.requestedQuantity = 1;
         this.changingData(vacArr, this.requestedQuantity,previousStats,this.VCenterID);
         return this.VacID;
-       
     }
     
     
@@ -104,14 +86,12 @@ public class VCenter extends Vaccines {
         String previousStats = VStatus.Available.toString();
        
         this.VacStatus = VStatus.InStock;
-        
         this.VCenterID = this.CenterID;
         this.CenterID = "NULL"; //FOR PREVIOUS MATCHING
         int availableQuantity = this.calVacQuantity(this.VacType, previousStats);
         
         if(availableQuantity - this.requestedQuantity >= 0)
         {
-            
             String[] vacArr = this.returnFileLine();
             this.fileCleaning();
             this.changingData(vacArr, this.requestedQuantity,previousStats,this.VCenterID);
@@ -119,10 +99,8 @@ public class VCenter extends Vaccines {
         {
             JOptionPane.showMessageDialog(null, "You have choose more vaccines than available in werehouse","OUTNUMBERED",JOptionPane.WARNING_MESSAGE);
         }
-        
     }
     
-     
     public static int calCenterVacQuantity(VType type,String CID) //calculate the quantity of specific center that are in stock
     {
         int VacQuantity = 0;
@@ -137,14 +115,11 @@ public class VCenter extends Vaccines {
                     VacQuantity ++;
                 }
             }
-            
-            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Vaccines.class.getName()).log(Level.SEVERE, null, ex);
         }
         return VacQuantity;
     }
-    
     
     protected int calVacQuantity(VType type, String status) //to Return the specifc vaccines quantity available in the Werehouse
     {
@@ -160,8 +135,6 @@ public class VCenter extends Vaccines {
                     VacQuantity ++;
                 }
             }
-            
-            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Vaccines.class.getName()).log(Level.SEVERE, null, ex);
         }

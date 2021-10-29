@@ -5,15 +5,6 @@
  */
 package oodjassignment;
 
-import javax.swing.JOptionPane;
-import oodjassignment.AdminUMainPage;
-import oodjassignment.CurrentDateTime;
-import oodjassignment.LoginPage;
-import oodjassignment.Users;
-import oodjassignment.Validation;
-
-
-
 /**
  *
  * @author user
@@ -367,6 +358,7 @@ public class RegisterPage extends javax.swing.JFrame {
     private void cbRegisterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRegisterAdminActionPerformed
         // TODO add your handling code here:
         Validation validation = new Validation();
+        //get name and passowrod only for admin register
         if (cbRegisterAdmin.isSelected())
         {
             if (validation.validationAdmin())
