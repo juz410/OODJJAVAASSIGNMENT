@@ -73,6 +73,7 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
     Users admin = new Users();
     public AdminVaccineCenterPage(String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
         admin.setUserID(adminID);
         showQuantityofVaccines();
         showTableData();

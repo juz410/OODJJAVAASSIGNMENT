@@ -82,6 +82,7 @@ public class AdminModifyTrackingPage extends javax.swing.JFrame {
     Users admin = new Users();
     public AdminModifyTrackingPage(String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
         admin.setUserID(adminID);
 //        showsAppointTracking();
         showsVCenterTracking();

@@ -44,6 +44,7 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
      */
     public AdminAppointmentApprovePage(String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
         admin.setUserID(adminID);
         showTableData();
     }

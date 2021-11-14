@@ -5,6 +5,9 @@
  */
 package oodjassignment;
 
+import java.awt.Dimension;
+import java.awt.GraphicsEnvironment;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -20,6 +23,7 @@ public class LoginPage extends javax.swing.JFrame {
     CurrentDateTime currentDateTime = new CurrentDateTime();
     public LoginPage() {
         initComponents();
+        this.setLocationRelativeTo(null);
         lblRegister.setText("<html><u>Register</u></html>");
         lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
                 currentDateTime.currentWeek() + "<br>" +
@@ -234,7 +238,9 @@ public class LoginPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+               
                 new LoginPage().setVisible(true);
+                
             }
         });
     }

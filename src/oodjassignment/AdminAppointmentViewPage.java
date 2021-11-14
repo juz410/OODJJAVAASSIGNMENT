@@ -76,6 +76,7 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
     }
     public AdminAppointmentViewPage(String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
         admin.setUserID(adminID);
         this.showTableData();   
     }

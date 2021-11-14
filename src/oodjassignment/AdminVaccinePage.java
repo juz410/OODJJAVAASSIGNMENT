@@ -45,6 +45,7 @@ public class AdminVaccinePage extends javax.swing.JFrame {
     }
     public AdminVaccinePage() {
         initComponents();
+        this.setLocationRelativeTo(null);
         showTableData();
         
     }

@@ -18,6 +18,7 @@ public class AdminUMainPage extends javax.swing.JFrame {
     CurrentDateTime currentDateTime = new CurrentDateTime();
     public AdminUMainPage(String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
         admin.setUserID(adminID);
         lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
                 currentDateTime.currentWeek() + "<br>" +

@@ -17,6 +17,7 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
      */
     public AdminAppointmentMainPage(String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
        admin.setUserID(adminID);
     }
 

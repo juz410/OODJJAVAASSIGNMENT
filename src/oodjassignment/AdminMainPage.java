@@ -12,6 +12,7 @@ public class AdminMainPage extends javax.swing.JFrame {
     String adminID;
     public AdminMainPage(String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.adminID = adminID;
     }
 

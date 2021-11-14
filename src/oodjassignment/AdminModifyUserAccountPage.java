@@ -22,6 +22,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
     Users admin = new Users();
     public AdminModifyUserAccountPage(Users u,String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
         admin.setUserID(adminID);
         user = u;
         txtName.setEditable(false);

@@ -29,6 +29,7 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
     
     public AdminAppointmentModifyPage(Appointment a, String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
         admin.setUserID(adminID);
         app = a;
         this.showAppDetails();
