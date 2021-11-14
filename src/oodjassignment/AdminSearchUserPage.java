@@ -23,8 +23,10 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
     /**
      * Creates new form AdminSearchUserPage
      */
-    public AdminSearchUserPage() {
+    Users admin = new Users();
+    public AdminSearchUserPage(String adminID) {
         initComponents();
+        admin.setUserID(adminID);
         ((DefaultTableModel)tblUser.getModel()).setNumRows(0);
         TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblUser.getModel());
         DefaultTableModel model =(DefaultTableModel)tblUser.getModel();
@@ -282,7 +284,7 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
             
             
             Users user = new Users(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9],tb[0][10]);
-            AdminModifyUserAccountPage ASUP = new AdminModifyUserAccountPage(user);
+            AdminModifyUserAccountPage ASUP = new AdminModifyUserAccountPage(user,admin.getUserID());
             ASUP.setVisible(true);
         }
     }//GEN-LAST:event_btnModifyActionPerformed
@@ -317,7 +319,7 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminSearchUserPage().setVisible(true);
+                new AdminSearchUserPage("").setVisible(true);
             }
         });
     }

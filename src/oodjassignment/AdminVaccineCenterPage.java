@@ -70,8 +70,10 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
         lblAZQuantity.setText(String.valueOf(AQuantity));
         lblTotalQuantity.setText(String.valueOf(PQuantity + SQuantity + AQuantity));
     }
-    public AdminVaccineCenterPage() {
+    Users admin = new Users();
+    public AdminVaccineCenterPage(String adminID) {
         initComponents();
+        admin.setUserID(adminID);
         showQuantityofVaccines();
         showTableData();
         
@@ -106,7 +108,7 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
         cbVaccineType = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnAddVaccines = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -164,10 +166,10 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
 
         jLabel23.setText("Quantity:");
 
-        jButton1.setText("Add Vaccines");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddVaccines.setText("Add Vaccines");
+        btnAddVaccines.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddVaccinesActionPerformed(evt);
             }
         });
 
@@ -226,7 +228,7 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
                                     .addComponent(cbRemoveVaccine, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtRemoveQuantity)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelforAddingVaccineToCenterLayout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnAddVaccines)
                                 .addGap(183, 183, 183)
                                 .addComponent(btnRemove)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
@@ -256,7 +258,7 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
                     .addComponent(txtRemoveQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelforAddingVaccineToCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnAddVaccines)
                     .addComponent(btnRemove))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBack)
@@ -397,6 +399,7 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
         if(!cbCenter.getSelectedItem().toString().equals("All"))
         {
             VCenter vc = new VCenter(cbCenter.getSelectedItem().toString());
+            vc.setAdminID(admin.getUserID());
             vc.setVacType(VType.valueOf(cbRemoveVaccine.getSelectedItem().toString()));
             try
             {
@@ -414,11 +417,12 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnRemoveActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddVaccinesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVaccinesActionPerformed
         if(!cbCenter.getSelectedItem().toString().equals("All"))
         {
+            
             VCenter vc = new VCenter(cbCenter.getSelectedItem().toString());
-
+            vc.setAdminID(admin.getUserID());
             vc.setVacType(VType.valueOf(cbVaccineType.getSelectedItem().toString()));
             try
             {
@@ -434,7 +438,7 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please select a center");
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddVaccinesActionPerformed
 
     private void cbCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCenterActionPerformed
         showCenterAddresses();
@@ -484,19 +488,19 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminVaccineCenterPage().setVisible(true);
+                new AdminVaccineCenterPage("").setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddVaccines;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnToVaccinePage;
     private javax.swing.JComboBox<String> cbCenter;
     private javax.swing.JComboBox<String> cbRemoveVaccine;
     private javax.swing.JComboBox<String> cbVaccineType;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

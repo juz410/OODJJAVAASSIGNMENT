@@ -17,7 +17,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class AdminAppointmentViewPage extends javax.swing.JFrame {
 
-    
+    Users admin = new Users();
     private Appointment returnSelectedRow()
     {
         Appointment app = new Appointment();
@@ -74,8 +74,9 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
             }
         }
     }
-    public AdminAppointmentViewPage() {
+    public AdminAppointmentViewPage(String adminID) {
         initComponents();
+        admin.setUserID(adminID);
         this.showTableData();   
     }
 
@@ -228,6 +229,7 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
             Appointment app = this.returnSelectedRow();
             if (!app.getAptID().equals("NULL"))
             {
+                app.setAdminID(admin.getUserID());
                 app.DoneAppointment();
                 this.showTableData();
             }
@@ -238,6 +240,7 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         Appointment app = this.returnSelectedRow();
             if (!app.getAptID().equals("NULL"))
             {
+                app.setAdminID(admin.getUserID());
                 app.cancelUserAppointment(AppStatus.Approved);
                 this.showTableData();
             }
@@ -254,7 +257,8 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         Appointment app = this.returnSelectedRow();
             if (!app.getAptID().equals("NULL"))
             {
-                AdminAppointmentModifyPage APMP = new AdminAppointmentModifyPage(app);
+                app.setAdminID(admin.getUserID());
+                AdminAppointmentModifyPage APMP = new AdminAppointmentModifyPage(app,admin.getUserID());
                 APMP.setVisible(true);
             }
     }//GEN-LAST:event_btnModifyActionPerformed
@@ -298,7 +302,7 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminAppointmentViewPage().setVisible(true);
+                new AdminAppointmentViewPage("").setVisible(true);
             }
         });
     }

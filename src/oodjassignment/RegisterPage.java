@@ -16,9 +16,11 @@ public class RegisterPage extends javax.swing.JFrame {
     private String role;
     CurrentDateTime currentDateTime = new CurrentDateTime();
     Users user = new Users();
-    public RegisterPage(String R) 
+    Users admin = new Users();
+    public RegisterPage(String R, String adminID) 
     {
         initComponents();
+        admin.setUserID(adminID);
         role = R;
         if (role.equals("Admin"))
         {
@@ -411,7 +413,7 @@ public class RegisterPage extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
        if(role.equals("Admin"))
        {
-           AdminUMainPage AUMP = new AdminUMainPage();
+           AdminUMainPage AUMP = new AdminUMainPage(admin.getUserID());
            AUMP.setVisible(true);
        }else
        {
@@ -455,7 +457,7 @@ public class RegisterPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegisterPage("").setVisible(true);
+                new RegisterPage("","").setVisible(true);
             }
         });
     }

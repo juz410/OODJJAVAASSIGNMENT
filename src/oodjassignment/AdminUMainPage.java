@@ -14,10 +14,11 @@ public class AdminUMainPage extends javax.swing.JFrame {
     /**
      * Creates new form AdminUMainPage
      */
-    
+    Users admin = new Users();
     CurrentDateTime currentDateTime = new CurrentDateTime();
-    public AdminUMainPage() {
+    public AdminUMainPage(String adminID) {
         initComponents();
+        admin.setUserID(adminID);
         lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
                 currentDateTime.currentWeek() + "<br>" +
                 currentDateTime.currentTime() + "<html>");
@@ -167,13 +168,13 @@ public class AdminUMainPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        RegisterPage rPage = new RegisterPage("Admin");
+        RegisterPage rPage = new RegisterPage("Admin",admin.getUserID());
         rPage.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        AdminSearchUserPage ASUP = new AdminSearchUserPage();
+        AdminSearchUserPage ASUP = new AdminSearchUserPage(admin.getUserID());
         ASUP.setVisible(true);
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -212,7 +213,7 @@ public class AdminUMainPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminUMainPage().setVisible(true);
+                new AdminUMainPage("").setVisible(true);
             }
         });
     }

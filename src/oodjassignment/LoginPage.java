@@ -168,14 +168,22 @@ public class LoginPage extends javax.swing.JFrame {
        if (user.getUserID().startsWith("Admin")) //IF EQUAL THEN GOING TO ADMIN LOGIN
        {
            pass = user.adminLogin();
+           if(pass)
+           {
+               AdminMainPage adm  =new AdminMainPage(user.getUserID());
+               adm.setVisible(true);
+               this.setVisible(false);
+           }
        }else //normal user login;
        {
            pass = user.userLogin();
+           
+           if(pass == true)
+            {
+                this.setVisible(false);
+            }
        }
-       if(pass == true)
-       {
-           this.setVisible(false);
-       }
+       
                 
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -189,7 +197,7 @@ public class LoginPage extends javax.swing.JFrame {
         {
             public void mouseClicked(MouseEvent e)
             {
-                RegisterPage registerPage = new RegisterPage("U");
+                RegisterPage registerPage = new RegisterPage("U","");
                 registerPage.setVisible(true);
                 dispose();
             }

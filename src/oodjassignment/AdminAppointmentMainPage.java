@@ -10,12 +10,14 @@ package oodjassignment;
  * @author User
  */
 public class AdminAppointmentMainPage extends javax.swing.JFrame {
-
+    Users admin = new Users();
+    
     /**
      * Creates new form AdminAppointmentMainPage
      */
-    public AdminAppointmentMainPage() {
+    public AdminAppointmentMainPage(String adminID) {
         initComponents();
+       admin.setUserID(adminID);
     }
 
     /**
@@ -122,7 +124,7 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPageActionPerformed
-       AdminAppointmentViewPage AAVP = new AdminAppointmentViewPage();
+       AdminAppointmentViewPage AAVP = new AdminAppointmentViewPage(admin.getUserID());
        AAVP.setVisible(true);
     }//GEN-LAST:event_btnViewPageActionPerformed
 
@@ -131,7 +133,7 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUserAcc3ActionPerformed
 
     private void btnApprovePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApprovePageActionPerformed
-       AdminAppointmentApprovePage AAAP = new AdminAppointmentApprovePage();
+       AdminAppointmentApprovePage AAAP = new AdminAppointmentApprovePage(admin.getUserID());
        AAAP.setVisible(true);
     }//GEN-LAST:event_btnApprovePageActionPerformed
 
@@ -170,7 +172,7 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminAppointmentMainPage().setVisible(true);
+                new AdminAppointmentMainPage("").setVisible(true);
             }
         });
     }

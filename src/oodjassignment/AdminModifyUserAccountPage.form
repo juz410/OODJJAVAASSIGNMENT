@@ -612,9 +612,9 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
-                <StringItem index="0" value="NULL"/>
-                <StringItem index="1" value="FIRST DOSE"/>
-                <StringItem index="2" value="FULLY VACCINATED"/>
+                <StringItem index="0" value="NoDose"/>
+                <StringItem index="1" value="FirstDose"/>
+                <StringItem index="2" value="SecondDose"/>
               </StringArray>
             </Property>
           </Properties>

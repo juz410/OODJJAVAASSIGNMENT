@@ -19,8 +19,10 @@ import javax.swing.JOptionPane;
 public class AdminModifyUserAccountPage extends javax.swing.JFrame {
 
     public static Users user = new Users();
-    public AdminModifyUserAccountPage(Users u) {
+    Users admin = new Users();
+    public AdminModifyUserAccountPage(Users u,String adminID) {
         initComponents();
+        admin.setUserID(adminID);
         user = u;
         txtName.setEditable(false);
         txtPassword.setEditable(false);
@@ -31,6 +33,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         txtIC.setEditable(false);
         cbState.setEnabled(false);
         cbCountry.setEnabled(false);
+        btnSave.setEnabled(false);
         lblUID.setText(user.getUserID());
         txtName.setText(user.getName());
         txtPassword.setText(user.getPassword());
@@ -153,7 +156,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
 
         jLabel2.setText("Vaccine Status:");
 
-        cbVaccine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NULL", "FIRST DOSE", "FULLY VACCINATED" }));
+        cbVaccine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NoDose", "FirstDose", "SecondDose" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -304,6 +307,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
             txtIC.setEditable(true);
             cbState.setEnabled(true);
             cbCountry.setEnabled(true);
+            btnSave.setEnabled(true);
         }else
         {
             txtName.setEditable(false);
@@ -315,6 +319,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
             txtIC.setEditable(false);
             cbState.setEnabled(false);
             cbCountry.setEnabled(false);
+            btnSave.setEnabled(false);
         }
     }//GEN-LAST:event_chkModifyActionPerformed
 
@@ -329,7 +334,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         user.setState(cbState.getSelectedItem().toString());
         user.setCountry(cbCountry.getSelectedItem().toString());
         user.setVacStatus(cbVaccine.getSelectedItem().toString());
-        user.AdminUserModify();
+        user.AdminUserModify(admin.getUserID());
 
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -363,7 +368,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminModifyUserAccountPage(user).setVisible(true);
+                new AdminModifyUserAccountPage(user,"").setVisible(true);
             }
         });
     }

@@ -25,8 +25,11 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
        lblVacType.setText(app.getVacType());
     }
     private static Appointment app;
-    public AdminAppointmentModifyPage(Appointment a) {
+    Users admin = new Users();
+    
+    public AdminAppointmentModifyPage(Appointment a, String adminID) {
         initComponents();
+        admin.setUserID(adminID);
         app = a;
         this.showAppDetails();
     }
@@ -320,6 +323,7 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         {
             app.setDate(date);
             app.setTime(time);
+            app.setAdminID(admin.getUserID());
             app.AppointmentTimeModify();
         }
        
@@ -361,7 +365,7 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminAppointmentModifyPage(app).setVisible(true);
+                new AdminAppointmentModifyPage(app,"").setVisible(true);
             }
         });
     }

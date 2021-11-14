@@ -16,7 +16,7 @@ import javax.swing.table.TableRowSorter;
  * @author user
  */
 public class AdminAppointmentApprovePage extends javax.swing.JFrame {
-
+    Users admin = new Users();
     
     private void showTableData()
     {
@@ -42,8 +42,9 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
     /**
      * Creates new form AdminAppointmentPage
      */
-    public AdminAppointmentApprovePage() {
+    public AdminAppointmentApprovePage(String adminID) {
         initComponents();
+        admin.setUserID(adminID);
         showTableData();
     }
 
@@ -327,6 +328,11 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
 
         jLabel1.setText("Serach Here:");
 
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchKeyReleased(evt);
@@ -476,6 +482,8 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
             
             
             Appointment app = new Appointment(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9]);
+            app.setAdminID(admin.getUserID());
+          
             if(app.getAptStatus().equals(AppStatus.Requesting.toString()))
             {
                 app.ApproveUserAppRequest();
@@ -509,6 +517,7 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
             
             
             Appointment app = new Appointment(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9]);
+            app.setAdminID(admin.getUserID());
             app.RejectUserAppRequest();
             this.showTableData();
         }
@@ -525,6 +534,10 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         this.hide();
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -557,7 +570,7 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminAppointmentApprovePage().setVisible(true);
+                new AdminAppointmentApprovePage("").setVisible(true);
             }
         });
     }
