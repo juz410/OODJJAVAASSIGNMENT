@@ -5,9 +5,13 @@
  */
 package oodjassignment;
 
+import java.awt.Component;
 import java.util.ArrayList;
+import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -36,6 +40,7 @@ public class AdminModifyTrackingPage extends javax.swing.JFrame {
             model.addRow(temp);
         }
         
+        resizeColumnWidth(tblAppointModifyTracking);
     }
     
     public void showsVCenterTracking()
@@ -56,6 +61,9 @@ public class AdminModifyTrackingPage extends javax.swing.JFrame {
             String[] temp = MTrackArr.get(i).toString().split("\\|");
             model.addRow(temp);
         }
+        resizeColumnWidth(tblAppointModifyTracking);
+        
+        
         
     }
     
@@ -77,7 +85,33 @@ public class AdminModifyTrackingPage extends javax.swing.JFrame {
             String[] temp = MTrackArr.get(i).toString().split("\\|");
             model.addRow(temp);
         }
+        resizeColumnWidth(tblAppointModifyTracking);
     }
+    
+    public void resizeColumnWidth(JTable Table)
+    {
+        TableColumnModel modelcol = Table.getColumnModel();
+        TableModel model = Table.getModel();
+        int col = modelcol.getColumnCount();
+        for(int i = 0 ; i < col ; i ++)
+        {
+            int widthmin = 0;
+            int row = model.getRowCount();
+            for(int j = 0 ; j < row; j ++ )
+            {
+                if(model.getValueAt(j, i) != null)
+                {
+                    int width = model.getValueAt(j, i).toString().length() * 7 ;
+                    if(width > widthmin)
+                    {
+                        widthmin = width;
+                    }
+                }modelcol.getColumn(i).setPreferredWidth(widthmin);
+            }
+                
+        }
+    }
+    
     
     Users admin = new Users();
     public AdminModifyTrackingPage(String adminID) {
