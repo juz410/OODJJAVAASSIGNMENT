@@ -145,6 +145,7 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
         if (appointment.firstDoseDone(userID))//checking first dose done or not
         {
             String[] bookDate = appointment.getDate().split("/");
+            System.out.print(bookDate[0]+"/"+bookDate[1]+"/"+bookDate[2]);
             if (validation.validationDate(Integer.valueOf(bookDate[2]), Integer.valueOf(bookDate[1]),
                     Integer.valueOf(bookDate[0]), "30M")) //Check if the first dose has been 1 month later
             {

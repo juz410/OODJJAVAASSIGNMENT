@@ -78,7 +78,7 @@ public class RegisterPage extends javax.swing.JFrame {
         lbl4 = new javax.swing.JLabel();
         cbShowPassword = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
-        txtName1 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         txtPhone = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtIC = new javax.swing.JTextField();
@@ -98,7 +98,7 @@ public class RegisterPage extends javax.swing.JFrame {
         plUserRegister.add(lblTitle);
         lblTitle.setBounds(120, 10, 167, 58);
 
-        btnRegister.setBackground(new java.awt.Color(51, 51, 51));
+        btnRegister.setBackground(new java.awt.Color(102, 102, 102));
         btnRegister.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnRegister.setText("Register");
         btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -287,12 +287,12 @@ public class RegisterPage extends javax.swing.JFrame {
         plUserRegister.add(jLabel1);
         jLabel1.setBounds(360, 140, 40, 20);
 
-        txtName1.setBackground(new java.awt.Color(102, 102, 102));
-        txtName1.setForeground(new java.awt.Color(255, 255, 255));
-        txtName1.setBorder(null);
-        txtName1.setCaretColor(new java.awt.Color(255, 255, 255));
-        plUserRegister.add(txtName1);
-        txtName1.setBounds(130, 80, 176, 14);
+        txtName.setBackground(new java.awt.Color(102, 102, 102));
+        txtName.setForeground(new java.awt.Color(255, 255, 255));
+        txtName.setBorder(null);
+        txtName.setCaretColor(new java.awt.Color(255, 255, 255));
+        plUserRegister.add(txtName);
+        txtName.setBounds(130, 80, 176, 14);
 
         txtPhone.setBackground(new java.awt.Color(102, 102, 102));
         txtPhone.setForeground(new java.awt.Color(255, 255, 255));
@@ -332,7 +332,7 @@ public class RegisterPage extends javax.swing.JFrame {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
         user.setUserID(txtIC.getText());
-        user.setName(txtAddress.getText());
+        user.setName(txtName.getText());
         user.setPassword(txtPassword.getText());
         user.setCPassword(txtCPassword.getText());
         user.setEmail(txtEmail.getText());
@@ -345,27 +345,12 @@ public class RegisterPage extends javax.swing.JFrame {
         boolean pass = false;
         if (cbRegisterAdmin.isSelected())
         {
-            if (user.adminRegister())
-            {
-                pass = true;
-            }
+            user.adminRegister();
         }
         else
         {
-           if (user.userRegister())
-           {
-                pass = true;
-           }
+           user.userRegister();
         }
-        
-        if (pass == true)
-        {
-            LoginPage loginPage = new LoginPage();
-                loginPage.setVisible(true);
-                this.setVisible(false);
-                this.dispose();
-        }
-        
 //        if(user.Succesful())
 //        {
 //            //Clean txtBox overhere
@@ -514,7 +499,7 @@ public class RegisterPage extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtCPassword;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIC;
-    private javax.swing.JTextField txtName1;
+    private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables

@@ -133,7 +133,7 @@ public class Appointment
             switch (n)
             {
                 case 0:
-                    appointmentPWriter.print("\n" + this.aptID + "|" + 
+                    appointmentPWriter.println(this.aptID + "|" + 
                             this.userID + "|" +
                             this.centerID + "|" + 
                             this.address + "|" + 

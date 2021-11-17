@@ -116,9 +116,9 @@ public class testing extends javax.swing.JFrame {
         {
             System.out.print("ok");
         }
-        else
+        else  
         {
-            JOptionPane.showMessageDialog(null, "<html>Your 1st Dose is at: " + appointment.getDate() +
+          JOptionPane.showMessageDialog(null, "<html>Your 1st Dose is at: " + appointment.getDate() +
                 "<br> Please make appointment after <b>1</b> month! <html>");
         }
         

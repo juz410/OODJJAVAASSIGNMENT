@@ -341,7 +341,7 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
         user.setName(txtName.getText());
-        user.setUserID(txtPhone.getText());
+        user.setUserID(txtIC.getText());
         user.setName(txtName.getText());
         user.setPassword(txtPassword.getText());
         user.setCPassword(txtCPassword.getText());

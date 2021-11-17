@@ -1,10 +1,6 @@
-UserID|Name|Password|Gender|Phone Number|Email|Address|IC or Passport Number|State|Country|VacStatus|VacID
-Admin01|ADMIN|abcd1234| | | | | | | | 
-001122-66-5522|Bob123|Bob1234!|MALE|bob@gmail.com|23, Jalna Bob|001122-66-5522|011452640|Johor|Malaysia|NoDose
-212131-13-1424|Dog|Cat1234!|MALE|cat@gmail.com|14, Jalan Cat|212131-13-1424|012341234|Johor|Malaysia|NoDose
-012432-41-2343|Dony|Dony123!|MALE|019328471|dony@gmail.com|41, Jalan Dony|012432-41-2343|Kuala Lumpur|Malaysia|FirstDose
-123928-14-4231|Ellen|Ellen123!|FEMALE|NEWEMAIL@gmail.com|431, Jalna Ellen|123928-14-4231|017312449|Johor|Malaysia|NoDose
-892340-14-2434|Foon|Foon123!|MALE|019783631|foon@gmail.com|234, Jalan Foon|892340-14-2434|Johor|Malaysia|NoDose
-981343-43-6589|Gong|Gong123!|MALE|01823418592|gong@gmail.com|84, Jalan Gong|981343-43-6589|Selangor|Malaysia|NoDose
-902341-24-2341|Hoock|Hoock123!|FEMALE|01914425|hoock@gmail.com|829, Jalan Hoock|902341-24-2341|Pahang|Malaysia|FirstDose
-010203-04-0506|Irene|Irene123!|FEMALE|0167798594|irene@gmail.com|432, Jalan Irene|010203-04-0506|Pahang|Malaysia|FirstDose
+UserID|Name|Password|Gender|Phone Number|Email|Address|IC or Passport Number|State|Country|VacStatus
+Admin01|ADMIN|abcd1234| | | | | | | 
+010203-04-0506|Alice|Alice123!|MALE|0123456789|alice@gmail.com|123,Jalan Alice|010203-04-0506|Johor|Malaysia|NoDose
+010203-04-0508|Bob|Bob12345!!|MALE|0123456789|bob@gmail.com|123, Jalan Bob|010203-04-0508|Johor|Malaysia|FirstDose
+010203-04-0001|Coco|Coco1234!|MALE|0123456789|coco@gmail.com|123,Jalan Coco|010203-04-0001|Johor|Malaysia|NoDose
+Admin02|Chua|123||||||||

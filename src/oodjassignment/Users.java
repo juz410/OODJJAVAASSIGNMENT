@@ -46,7 +46,7 @@ public class Users {
         this.Name = N;
     }
     
-    public Users(String UID, String N, String P,String G, String IC, String pNo, String Email, String Ad, String state,String count, String VacSta)//Constructor for normal user
+    public Users(String UID, String N, String P,String G, String pNo, String Email, String Ad, String IC, String state,String count, String VacSta)//Constructor for normal user
     {
         this.userID = UID;
         this.Password = P;
@@ -197,12 +197,12 @@ public class Users {
                 FileWriter userFileWriter = new FileWriter("User.txt",true);
                 PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
                 int n = JOptionPane.showOptionDialog(null,
-                    "<html> UserID: "+ this.userID + "<br> Name: " + this.Name+ " <html>", "check",
+                    "<html> UserID: "+ adminID + "<br> Name: " + this.Name+ " <html>", "check",
                     JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,null,null,null);
                 switch (n)
                 {
                     case 0:
-                        userPrintWriter.println("\n" + adminID + this.Name+"|"+ this.Password + "|" + "|" + "|" 
+                        userPrintWriter.println(adminID + "|"+ this.Name+"|"+ this.Password + "|" + "|" + "|" 
                             + "|" + "|" + "|" + "|" + "|");
                         JOptionPane.showMessageDialog(null, "Registration Success!");
                         pass = true;
@@ -217,6 +217,10 @@ public class Users {
                 JOptionPane.showMessageDialog(null,"An error occurred.");
                 e.printStackTrace();
             }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Password doesn't match!");
         }
         return pass;
     }
