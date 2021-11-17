@@ -19,8 +19,11 @@ import javax.swing.JOptionPane;
 public class AdminModifyUserAccountPage extends javax.swing.JFrame {
 
     public static Users user = new Users();
-    public AdminModifyUserAccountPage(Users u) {
+    Users admin = new Users();
+    public AdminModifyUserAccountPage(Users u,String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        admin.setUserID(adminID);
         user = u;
         txtName.setEditable(false);
         txtPassword.setEditable(false);
@@ -31,6 +34,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         txtIC.setEditable(false);
         cbState.setEnabled(false);
         cbCountry.setEnabled(false);
+        btnSave.setEnabled(false);
         lblUID.setText(user.getUserID());
         txtName.setText(user.getName());
         txtPassword.setText(user.getPassword());
@@ -78,215 +82,246 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         btnSave = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         cbVaccine = new javax.swing.JComboBox<>();
+        lblAddress1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblCountry.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setLayout(null);
+
+        lblCountry.setBackground(new java.awt.Color(102, 102, 102));
+        lblCountry.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblCountry.setForeground(new java.awt.Color(255, 255, 255));
         lblCountry.setText("Country:");
+        jPanel1.add(lblCountry);
+        lblCountry.setBounds(50, 320, 50, 17);
 
+        cbState.setBackground(new java.awt.Color(102, 102, 102));
+        cbState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Kuala Lumpur", "Kedah", "Kelantan", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Penang", "Perak", "Perlis", "Putrajaya", "Sabah", "Sarawak", "Selangor", "Terengganu" }));
+        jPanel1.add(cbState);
+        cbState.setBounds(120, 290, 176, 21);
 
+        cbCountry.setBackground(new java.awt.Color(102, 102, 102));
+        cbCountry.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         cbCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua & Deps", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Rep", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Congo {Democratic Rep}", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland {Republic}", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea North", "Korea South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar, {Burma}", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russian Federation", "Rwanda", "St Kitts & Nevis", "St Lucia", "Saint Vincent & the Grenadines", "Samoa", "San Marino", "Sao Tome & Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe" }));
+        jPanel1.add(cbCountry);
+        cbCountry.setBounds(120, 320, 174, 21);
 
+        txtEmail.setBackground(new java.awt.Color(102, 102, 102));
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.setBorder(null);
-        txtEmail.setCaretColor(java.awt.Color.darkGray);
+        txtEmail.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtEmail);
+        txtEmail.setBounds(119, 206, 180, 14);
 
-        lblIC.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblIC.setBackground(new java.awt.Color(102, 102, 102));
+        lblIC.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblIC.setForeground(new java.awt.Color(255, 255, 255));
         lblIC.setText("IC/Passport:");
+        jPanel1.add(lblIC);
+        lblIC.setBounds(38, 260, 70, 17);
 
+        txtAddress.setBackground(new java.awt.Color(102, 102, 102));
+        txtAddress.setForeground(new java.awt.Color(255, 255, 255));
         txtAddress.setBorder(null);
-        txtAddress.setCaretColor(java.awt.Color.darkGray);
+        txtAddress.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtAddress);
+        txtAddress.setBounds(120, 230, 180, 14);
 
-        lblPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblPassword.setBackground(new java.awt.Color(102, 102, 102));
+        lblPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password:");
+        jPanel1.add(lblPassword);
+        lblPassword.setBounds(47, 125, 50, 17);
 
-        lblAddress.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblAddress.setBackground(new java.awt.Color(102, 102, 102));
+        lblAddress.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress.setText("Current Address:");
+        jPanel1.add(lblAddress);
+        lblAddress.setBounds(20, 230, 90, 17);
 
+        txtIC.setBackground(new java.awt.Color(102, 102, 102));
+        txtIC.setForeground(new java.awt.Color(255, 255, 255));
         txtIC.setBorder(null);
-        txtIC.setCaretColor(java.awt.Color.darkGray);
+        txtIC.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtIC);
+        txtIC.setBounds(120, 260, 180, 14);
 
-        lblName.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblName.setBackground(new java.awt.Color(102, 102, 102));
+        lblName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Name:");
+        jPanel1.add(lblName);
+        lblName.setBounds(64, 100, 40, 17);
 
-        lblGender.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblGender.setBackground(new java.awt.Color(102, 102, 102));
+        lblGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblGender.setForeground(new java.awt.Color(255, 255, 255));
         lblGender.setText("Gender:");
+        jPanel1.add(lblGender);
+        lblGender.setBounds(57, 153, 40, 17);
 
-        lblPhone.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblPhone.setBackground(new java.awt.Color(102, 102, 102));
+        lblPhone.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblPhone.setForeground(new java.awt.Color(255, 255, 255));
         lblPhone.setText("Phone:");
+        jPanel1.add(lblPhone);
+        lblPhone.setBounds(60, 181, 40, 17);
 
+        cbGender.setBackground(new java.awt.Color(102, 102, 102));
+        cbGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         cbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE" }));
+        jPanel1.add(cbGender);
+        cbGender.setBounds(119, 150, 180, 21);
 
+        txtPhone.setBackground(new java.awt.Color(102, 102, 102));
+        txtPhone.setForeground(new java.awt.Color(255, 255, 255));
         txtPhone.setBorder(null);
-        txtPhone.setCaretColor(java.awt.Color.darkGray);
+        txtPhone.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtPhone);
+        txtPhone.setBounds(119, 181, 180, 14);
 
-        lblTitle.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        lblTitle.setBackground(new java.awt.Color(102, 102, 102));
+        lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Admin Modifiy User");
+        jPanel1.add(lblTitle);
+        lblTitle.setBounds(70, 20, 220, 50);
 
+        txtName.setBackground(new java.awt.Color(102, 102, 102));
+        txtName.setForeground(new java.awt.Color(255, 255, 255));
         txtName.setBorder(null);
-        txtName.setCaretColor(java.awt.Color.darkGray);
+        txtName.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtName);
+        txtName.setBounds(123, 100, 180, 14);
 
+        txtPassword.setBackground(new java.awt.Color(102, 102, 102));
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.setBorder(null);
+        txtPassword.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtPassword);
+        txtPassword.setBounds(123, 125, 180, 14);
 
         lblEmail.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblEmail.setText("Email:");
+        jPanel1.add(lblEmail);
+        lblEmail.setBounds(161, 206, 33, 14);
 
-        lblState.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblState.setBackground(new java.awt.Color(102, 102, 102));
+        lblState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblState.setForeground(new java.awt.Color(255, 255, 255));
         lblState.setText("Current State:");
+        jPanel1.add(lblState);
+        lblState.setBounds(30, 290, 75, 17);
 
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("UserID:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(60, 80, 40, 17);
+        jPanel1.add(lblUID);
+        lblUID.setBounds(123, 80, 0, 0);
 
+        chkModify.setBackground(new java.awt.Color(102, 102, 102));
+        chkModify.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        chkModify.setForeground(new java.awt.Color(255, 255, 255));
         chkModify.setText("Modify Mode");
         chkModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkModifyActionPerformed(evt);
             }
         });
+        jPanel1.add(chkModify);
+        chkModify.setBounds(230, 370, 100, 23);
 
+        btnSave.setBackground(new java.awt.Color(51, 51, 51));
+        btnSave.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
+        jPanel1.add(btnSave);
+        btnSave.setBounds(130, 410, 100, 40);
 
+        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Vaccine Status:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(20, 350, 80, 17);
 
-        cbVaccine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NULL", "FIRST DOSE", "FULLY VACCINATED" }));
+        cbVaccine.setBackground(new java.awt.Color(102, 102, 102));
+        cbVaccine.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbVaccine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NoDose", "FirstDose", "SecondDose" }));
+        jPanel1.add(cbVaccine);
+        cbVaccine.setBounds(120, 350, 85, 21);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblName)
-                            .addComponent(lblPassword)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblUID)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(59, 59, 59)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblGender)
-                                        .addComponent(lblPhone)))
-                                .addComponent(lblIC, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(lblState, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblCountry, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbGender, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbVaccine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(82, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblEmail)
-                            .addComponent(lblAddress))
-                        .addGap(292, 292, 292))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnSave)
-                        .addGap(18, 18, 18)
-                        .addComponent(chkModify)
-                        .addGap(129, 129, 129))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblUID))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblName)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPassword))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblGender)
-                            .addComponent(cbGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPhone)
-                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEmail))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAddress))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblIC))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblState)
-                            .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCountry))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(cbVaccine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(80, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSave)
-                            .addComponent(chkModify))
-                        .addGap(40, 40, 40))))
-        );
+        lblAddress1.setBackground(new java.awt.Color(102, 102, 102));
+        lblAddress1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblAddress1.setForeground(new java.awt.Color(255, 255, 255));
+        lblAddress1.setText("Email:");
+        jPanel1.add(lblAddress1);
+        lblAddress1.setBounds(60, 197, 40, 30);
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("——————————————————");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(120, 130, 230, 20);
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("——————————————————");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(120, 110, 230, 14);
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("——————————————————");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(120, 190, 230, 10);
+
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("——————————————————");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(120, 216, 230, 14);
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("——————————————————");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(120, 240, 230, 14);
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("——————————————————");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(120, 270, 230, 14);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
         );
 
         pack();
@@ -304,6 +339,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
             txtIC.setEditable(true);
             cbState.setEnabled(true);
             cbCountry.setEnabled(true);
+            btnSave.setEnabled(true);
         }else
         {
             txtName.setEditable(false);
@@ -315,6 +351,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
             txtIC.setEditable(false);
             cbState.setEnabled(false);
             cbCountry.setEnabled(false);
+            btnSave.setEnabled(false);
         }
     }//GEN-LAST:event_chkModifyActionPerformed
 
@@ -329,9 +366,13 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         user.setState(cbState.getSelectedItem().toString());
         user.setCountry(cbCountry.getSelectedItem().toString());
         user.setVacStatus(cbVaccine.getSelectedItem().toString());
-        user.AdminUserModify();
+        user.AdminUserModify(admin.getUserID());
 
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,7 +404,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminModifyUserAccountPage(user).setVisible(true);
+                new AdminModifyUserAccountPage(user,"").setVisible(true);
             }
         });
     }
@@ -377,8 +418,15 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkModify;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblAddress1;
     private javax.swing.JLabel lblCountry;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblGender;

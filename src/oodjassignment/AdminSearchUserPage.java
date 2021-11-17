@@ -23,8 +23,11 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
     /**
      * Creates new form AdminSearchUserPage
      */
-    public AdminSearchUserPage() {
+    Users admin = new Users();
+    public AdminSearchUserPage(String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        admin.setUserID(adminID);
         ((DefaultTableModel)tblUser.getModel()).setNumRows(0);
         TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblUser.getModel());
         DefaultTableModel model =(DefaultTableModel)tblUser.getModel();
@@ -68,6 +71,7 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         tblUser = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,16 +88,36 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblTitle.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setLayout(null);
+
+        lblTitle.setBackground(new java.awt.Color(102, 102, 102));
+        lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 48)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Search");
+        jPanel1.add(lblTitle);
+        lblTitle.setBounds(590, 20, 230, 37);
 
-        lblTitle1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        lblTitle1.setBackground(new java.awt.Color(102, 102, 102));
+        lblTitle1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 48)); // NOI18N
+        lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("User");
+        jPanel1.add(lblTitle1);
+        lblTitle1.setBounds(590, 60, 230, 33);
 
-        jLabel1.setText("Citizen or Non Citizen");
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Citizen or Non Citizen:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(18, 114, 150, 19);
 
+        cbTypeofUser.setBackground(new java.awt.Color(102, 102, 102));
+        cbTypeofUser.setEditable(true);
+        cbTypeofUser.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbTypeofUser.setForeground(new java.awt.Color(255, 255, 255));
         cbTypeofUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Citizen", "Non-Citizen" }));
         cbTypeofUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbTypeofUser.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,13 +130,29 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
                 cbTypeofUserActionPerformed(evt);
             }
         });
+        jPanel1.add(cbTypeofUser);
+        cbTypeofUser.setBounds(170, 110, 110, 21);
 
+        txtSearch.setBackground(new java.awt.Color(102, 102, 102));
+        txtSearch.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        txtSearch.setForeground(new java.awt.Color(255, 255, 255));
+        txtSearch.setBorder(null);
+        txtSearch.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchKeyReleased(evt);
             }
         });
+        jPanel1.add(txtSearch);
+        txtSearch.setBounds(90, 310, 170, 20);
 
+        btnModify.setBackground(new java.awt.Color(51, 51, 51));
+        btnModify.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnModify.setText("Modify");
         btnModify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnModify.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +160,13 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
                 btnModifyActionPerformed(evt);
             }
         });
+        jPanel1.add(btnModify);
+        btnModify.setBounds(290, 310, 110, 30);
 
+        tblUser.setBackground(new java.awt.Color(102, 102, 102));
+        tblUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblUser.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        tblUser.setForeground(new java.awt.Color(255, 255, 255));
         tblUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -133,85 +179,41 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tblUser);
 
-        jLabel2.setText("Search here: ");
+        jPanel1.add(jScrollPane3);
+        jScrollPane3.setBounds(10, 150, 1396, 145);
 
+        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Search here: ");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(10, 310, 80, 19);
+
+        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnBack.setText("Back to Previous Page");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        jPanel1.add(btnBack);
+        btnBack.setBounds(1160, 390, 220, 20);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(506, 506, 506)
-                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                            .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cbTypeofUser, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1396, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(105, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTitle1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbTypeofUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2))
-                    .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
-                .addComponent(btnBack)
-                .addContainerGap(480, Short.MAX_VALUE))
-        );
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("—————————————————");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(90, 320, 190, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1429, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -282,10 +284,14 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
             
             
             Users user = new Users(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9],tb[0][10]);
-            AdminModifyUserAccountPage ASUP = new AdminModifyUserAccountPage(user);
+            AdminModifyUserAccountPage ASUP = new AdminModifyUserAccountPage(user,admin.getUserID());
             ASUP.setVisible(true);
         }
     }//GEN-LAST:event_btnModifyActionPerformed
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
                  
     /**
      * @param args the command line arguments
@@ -317,7 +323,7 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminSearchUserPage().setVisible(true);
+                new AdminSearchUserPage("").setVisible(true);
             }
         });
     }
@@ -328,6 +334,7 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbTypeofUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

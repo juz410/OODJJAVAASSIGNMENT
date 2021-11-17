@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -24,7 +25,7 @@ public class VCenter extends Vaccines {
     private String CenterID;
     private String State;
     private String Address;
-    
+    private String adminID;
     public VCenter(){}
     
     public VCenter(String CID, String State, String ADD)
@@ -43,10 +44,12 @@ public class VCenter extends Vaccines {
     public void setCenterID(String CID){this.CenterID  = CID;}
     public void setState(String State){this.State = State;}
     public void setAddress(String ADD){this.Address = ADD;}
+    public void setAdminID(String adminID){this.adminID = adminID;}
     //get method
     public String getCenterID(){return this.CenterID;}
     public String getState(){return this.State;}
     public String getAddress(){return this.Address;}
+    public String getAdminID(){return this.adminID;}
    
     
     public String AssignVaccine(VStatus preStats, VStatus newStat)
@@ -68,13 +71,28 @@ public class VCenter extends Vaccines {
         this.VacStatus = VStatus.Available;
         this.VCenterID = this.CenterID;
         int availableQuantity = this.calCenterVacQuantity(this.VacType, this.CenterID);
-        
+         /////TRACKING RECORD/////
+        ArrayList<AModifyVaccinesTracking> MTrackArr = new ArrayList<>();
+        CurrentDateTime cdt = new CurrentDateTime();
+        AModifyVaccinesTracking MTrack = new 
+                 AModifyVaccinesTracking("",this.adminID,this.VCenterID,ActionType.Remove,TargetType.VCenter,cdt.currentDate(),cdt.currentTime(),"");
+         MTrackArr = MTrack.FileRead();
+         String trackingID = MTrack.setTrackingIDAuto(MTrackArr.size());
+         MTrack.setTrackingID(trackingID);
+         String remark = "Remove "+this.requestedQuantity + " of " +this.VacType;
+         MTrack.setRemark(remark);
+         /////////////////////////////////////////////////
         if(availableQuantity - this.requestedQuantity >= 0)
         {
             
             String[] vacArr = this.returnFileLine();
             this.fileCleaning();
             this.changingData(vacArr, this.requestedQuantity,previousStats,"NULL");
+             //////////////////Writing Tracking record/////////////////////////
+            MTrack.setRemark(remark);
+            MTrackArr.add(MTrack);
+            MTrack.FileWrite(MTrackArr);
+            ////////////////////////////////////////////
         }else
         {
             JOptionPane.showMessageDialog(null, "You have choose more vaccines than available in-stock","OUTNUMBERED",JOptionPane.WARNING_MESSAGE);
@@ -89,12 +107,30 @@ public class VCenter extends Vaccines {
         this.VCenterID = this.CenterID;
         this.CenterID = "NULL"; //FOR PREVIOUS MATCHING
         int availableQuantity = this.calVacQuantity(this.VacType, previousStats);
+         /////TRACKING RECORD/////
+        ArrayList<AModifyVaccinesTracking> MTrackArr = new ArrayList<>();
+        CurrentDateTime cdt = new CurrentDateTime();
+        AModifyVaccinesTracking MTrack = new 
+                 AModifyVaccinesTracking("",this.adminID,this.VCenterID,ActionType.Add,TargetType.VCenter,cdt.currentDate(),cdt.currentTime(),"");
+         MTrackArr = MTrack.FileRead();
+         String trackingID = MTrack.setTrackingIDAuto(MTrackArr.size());
+         MTrack.setTrackingID(trackingID);
+         String remark = "Add "+this.requestedQuantity + " of " +this.VacType;
+         MTrack.setRemark(remark);
+         /////////////////////////////////////////////////
         
         if(availableQuantity - this.requestedQuantity >= 0)
         {
+            
             String[] vacArr = this.returnFileLine();
             this.fileCleaning();
             this.changingData(vacArr, this.requestedQuantity,previousStats,this.VCenterID);
+            //////////////////Writing Tracking record/////////////////////////
+            MTrack.setRemark(remark);
+            MTrackArr.add(MTrack);
+            MTrack.FileWrite(MTrackArr);
+            ////////////////////////////////////////////
+           
         }else
         {
             JOptionPane.showMessageDialog(null, "You have choose more vaccines than available in werehouse","OUTNUMBERED",JOptionPane.WARNING_MESSAGE);

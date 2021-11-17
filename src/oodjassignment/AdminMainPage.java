@@ -5,17 +5,15 @@
  */
 package oodjassignment;
 
-/**
- *
- * @author user
- */
+
+    
 public class AdminMainPage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AdminMainPage
-     */
-    public AdminMainPage() {
+    String adminID;
+    public AdminMainPage(String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.adminID = adminID;
     }
 
     /**
@@ -34,13 +32,19 @@ public class AdminMainPage extends javax.swing.JFrame {
         lblTitle1 = new javax.swing.JLabel();
         lblAdminName = new javax.swing.JLabel();
         btnUserAcc = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnAppointment2 = new javax.swing.JButton();
+        btnAppointment3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnAppointment.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setLayout(null);
+
+        btnAppointment.setBackground(new java.awt.Color(51, 51, 51));
+        btnAppointment.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnAppointment.setText("Appointment");
         btnAppointment.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -48,20 +52,41 @@ public class AdminMainPage extends javax.swing.JFrame {
                 btnAppointmentActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAppointment);
+        btnAppointment.setBounds(120, 200, 140, 48);
 
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Manage User Account");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(210, 160, 120, 15);
 
+        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Manage Appointment");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(210, 250, 120, 15);
 
-        lblTitle1.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        lblTitle1.setBackground(new java.awt.Color(102, 102, 102));
+        lblTitle1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Welcome Back");
+        jPanel1.add(lblTitle1);
+        lblTitle1.setBounds(110, 30, 170, 33);
 
-        lblAdminName.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
+        lblAdminName.setBackground(new java.awt.Color(102, 102, 102));
+        lblAdminName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblAdminName.setForeground(new java.awt.Color(255, 255, 255));
         lblAdminName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAdminName.setText("Admin");
+        jPanel1.add(lblAdminName);
+        lblAdminName.setBounds(150, 60, 101, 33);
 
-        btnUserAcc.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        btnUserAcc.setBackground(new java.awt.Color(51, 51, 51));
+        btnUserAcc.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnUserAcc.setText("User Account");
         btnUserAcc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUserAcc.addActionListener(new java.awt.event.ActionListener() {
@@ -69,19 +94,18 @@ public class AdminMainPage extends javax.swing.JFrame {
                 btnUserAccActionPerformed(evt);
             }
         });
+        jPanel1.add(btnUserAcc);
+        btnUserAcc.setBounds(120, 113, 140, 50);
 
-        btnLogout.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        btnLogout.setText("Log Out");
-        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-
+        jLabel3.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel3.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Manage Vaccine");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(220, 340, 100, 15);
 
-        btnAppointment2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        btnAppointment2.setBackground(new java.awt.Color(51, 51, 51));
+        btnAppointment2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnAppointment2.setText("Vaccine");
         btnAppointment2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAppointment2.addActionListener(new java.awt.event.ActionListener() {
@@ -89,90 +113,62 @@ public class AdminMainPage extends javax.swing.JFrame {
                 btnAppointment2ActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAppointment2);
+        btnAppointment2.setBounds(120, 288, 140, 50);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(72, 72, 72)
-                                    .addComponent(jLabel1))
-                                .addComponent(btnUserAcc)
-                                .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnAppointment2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(17, 17, 17))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lblAdminName))
-                            .addComponent(lblTitle1))))
-                .addContainerGap(71, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(lblTitle1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAdminName)
-                .addGap(30, 30, 30)
-                .addComponent(btnUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(btnAppointment2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        btnAppointment3.setBackground(new java.awt.Color(51, 51, 51));
+        btnAppointment3.setFont(new java.awt.Font("Tempus Sans ITC", 0, 15)); // NOI18N
+        btnAppointment3.setText("Modify Track");
+        btnAppointment3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAppointment3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointment3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAppointment3);
+        btnAppointment3.setBounds(120, 368, 140, 50);
+
+        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel4.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("To Track Modify");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(220, 420, 90, 14);
+
+        btnLogout.setBackground(new java.awt.Color(51, 51, 51));
+        btnLogout.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnLogout.setText("Log Out");
+        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLogout);
+        btnLogout.setBounds(280, 470, 120, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUserAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserAccActionPerformed
-        AdminUMainPage userPage = new AdminUMainPage();
+        AdminUMainPage userPage = new AdminUMainPage(this.adminID);
         userPage.setVisible(true);
         
     }//GEN-LAST:event_btnUserAccActionPerformed
 
     private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
-        AdminAppointmentMainPage AAMP = new AdminAppointmentMainPage();
+        AdminAppointmentMainPage AAMP = new AdminAppointmentMainPage(this.adminID);
         AAMP.setVisible(true);
     }//GEN-LAST:event_btnAppointmentActionPerformed
 
@@ -184,9 +180,14 @@ public class AdminMainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnAppointment2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointment2ActionPerformed
-        AdminVaccineCenterPage AVCP = new AdminVaccineCenterPage();
+        AdminVaccineCenterPage AVCP = new AdminVaccineCenterPage(this.adminID);
         AVCP.setVisible(true);
     }//GEN-LAST:event_btnAppointment2ActionPerformed
+
+    private void btnAppointment3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointment3ActionPerformed
+        AdminModifyTrackingPage AMTP = new AdminModifyTrackingPage(this.adminID);
+        AMTP.setVisible(true);
+    }//GEN-LAST:event_btnAppointment3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,7 +219,7 @@ public class AdminMainPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminMainPage().setVisible(true);
+                new AdminMainPage("").setVisible(true);
             }
         });
     }
@@ -226,11 +227,13 @@ public class AdminMainPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAppointment;
     private javax.swing.JButton btnAppointment2;
+    private javax.swing.JButton btnAppointment3;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnUserAcc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAdminName;
     private javax.swing.JLabel lblTitle1;

@@ -23,7 +23,7 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         this.userID = userID;
         user.userProfile(this.userID);
         txtName.setText(user.getName());
-        cbGender.setSelectedItem(user.getGender());
+        cbGender1.setSelectedItem(user.getGender());
         txtPhone.setText(user.getPhoneNo());
         txtEmail.setText(user.getEmail());
         txtAddress.setText(user.getAddress());
@@ -49,7 +49,6 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
-        cbShowPassword = new javax.swing.JCheckBox();
         txtCPassword = new javax.swing.JPasswordField();
         txtName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
@@ -68,12 +67,27 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         lblCountry = new javax.swing.JLabel();
         cbState = new javax.swing.JComboBox<>();
         lblCPassword = new javax.swing.JLabel();
-        cbGender = new javax.swing.JComboBox<>();
+        cbGender1 = new javax.swing.JComboBox<>();
         btnBack = new javax.swing.JButton();
         lblTime = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lbl2 = new javax.swing.JLabel();
+        lbl1 = new javax.swing.JLabel();
+        lbl3 = new javax.swing.JLabel();
+        lbl4 = new javax.swing.JLabel();
+        cbShowPassword = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        plModifyUserAcc.setBackground(new java.awt.Color(102, 102, 102));
+        plModifyUserAcc.setLayout(null);
+
+        btnConfirm.setBackground(new java.awt.Color(51, 51, 51));
+        btnConfirm.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnConfirm.setForeground(new java.awt.Color(51, 51, 51));
         btnConfirm.setText("Confirm");
         btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -81,237 +95,248 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
                 btnConfirmActionPerformed(evt);
             }
         });
+        plModifyUserAcc.add(btnConfirm);
+        btnConfirm.setBounds(150, 420, 130, 40);
 
-        lblTitle.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        lblTitle.setBackground(new java.awt.Color(102, 102, 102));
+        lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("User Account");
+        plModifyUserAcc.add(lblTitle);
+        lblTitle.setBounds(60, 10, 300, 33);
 
-        lblTitle1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        lblTitle1.setBackground(new java.awt.Color(102, 102, 102));
+        lblTitle1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Modify");
+        plModifyUserAcc.add(lblTitle1);
+        lblTitle1.setBounds(80, 50, 270, 28);
 
+        txtPhone.setBackground(new java.awt.Color(102, 102, 102));
+        txtPhone.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         txtPhone.setBorder(null);
         txtPhone.setCaretColor(java.awt.Color.darkGray);
+        plModifyUserAcc.add(txtPhone);
+        txtPhone.setBounds(150, 210, 180, 15);
 
-        cbShowPassword.setText("jCheckBox1");
-        cbShowPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbShowPasswordActionPerformed(evt);
-            }
-        });
-
+        txtCPassword.setBackground(new java.awt.Color(102, 102, 102));
+        txtCPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         txtCPassword.setBorder(null);
+        plModifyUserAcc.add(txtCPassword);
+        txtCPassword.setBounds(150, 150, 180, 15);
 
+        txtName.setBackground(new java.awt.Color(102, 102, 102));
+        txtName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         txtName.setBorder(null);
         txtName.setCaretColor(java.awt.Color.darkGray);
+        plModifyUserAcc.add(txtName);
+        txtName.setBounds(150, 90, 176, 15);
 
+        txtPassword.setBackground(new java.awt.Color(102, 102, 102));
+        txtPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         txtPassword.setBorder(null);
+        plModifyUserAcc.add(txtPassword);
+        txtPassword.setBounds(150, 120, 176, 15);
 
+        cbCountry.setBackground(new java.awt.Color(51, 51, 51));
+        cbCountry.setEditable(true);
+        cbCountry.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbCountry.setForeground(new java.awt.Color(255, 255, 255));
         cbCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua & Deps", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Rep", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Congo {Democratic Rep}", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland {Republic}", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea North", "Korea South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar, {Burma}", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russian Federation", "Rwanda", "St Kitts & Nevis", "St Lucia", "Saint Vincent & the Grenadines", "Samoa", "San Marino", "Sao Tome & Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe" }));
+        plModifyUserAcc.add(cbCountry);
+        cbCountry.setBounds(150, 360, 178, 21);
 
+        txtEmail.setBackground(new java.awt.Color(102, 102, 102));
+        txtEmail.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         txtEmail.setBorder(null);
         txtEmail.setCaretColor(java.awt.Color.darkGray);
+        plModifyUserAcc.add(txtEmail);
+        txtEmail.setBounds(150, 240, 178, 15);
 
-        lblIC.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblIC.setBackground(new java.awt.Color(102, 102, 102));
+        lblIC.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblIC.setForeground(new java.awt.Color(255, 255, 255));
         lblIC.setText("IC/Passport:");
+        plModifyUserAcc.add(lblIC);
+        lblIC.setBounds(70, 270, 68, 17);
 
+        txtAddress.setBackground(new java.awt.Color(102, 102, 102));
+        txtAddress.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         txtAddress.setBorder(null);
         txtAddress.setCaretColor(java.awt.Color.darkGray);
+        plModifyUserAcc.add(txtAddress);
+        txtAddress.setBounds(150, 300, 178, 15);
 
-        lblPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblPassword.setBackground(new java.awt.Color(102, 102, 102));
+        lblPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("New Password:");
+        plModifyUserAcc.add(lblPassword);
+        lblPassword.setBounds(60, 120, 87, 17);
 
-        lblAddress.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblAddress.setBackground(new java.awt.Color(102, 102, 102));
+        lblAddress.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress.setText("Current Address:");
+        plModifyUserAcc.add(lblAddress);
+        lblAddress.setBounds(40, 300, 93, 17);
 
+        txtIC.setBackground(new java.awt.Color(102, 102, 102));
+        txtIC.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         txtIC.setBorder(null);
         txtIC.setCaretColor(java.awt.Color.darkGray);
+        plModifyUserAcc.add(txtIC);
+        txtIC.setBounds(150, 270, 178, 15);
 
-        lblName.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblName.setBackground(new java.awt.Color(102, 102, 102));
+        lblName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Name:");
+        plModifyUserAcc.add(lblName);
+        lblName.setBounds(93, 90, 40, 17);
 
-        lblGender.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblGender.setBackground(new java.awt.Color(102, 102, 102));
+        lblGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblGender.setForeground(new java.awt.Color(255, 255, 255));
         lblGender.setText("Gender:");
+        plModifyUserAcc.add(lblGender);
+        lblGender.setBounds(100, 180, 44, 17);
 
-        lblPhone.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblPhone.setBackground(new java.awt.Color(102, 102, 102));
+        lblPhone.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblPhone.setForeground(new java.awt.Color(255, 255, 255));
         lblPhone.setText("Phone:");
+        plModifyUserAcc.add(lblPhone);
+        lblPhone.setBounds(100, 210, 39, 17);
 
-        lblEmail.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblEmail.setBackground(new java.awt.Color(102, 102, 102));
+        lblEmail.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail.setText("Email:");
+        plModifyUserAcc.add(lblEmail);
+        lblEmail.setBounds(100, 240, 35, 17);
 
-        lblState.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblState.setBackground(new java.awt.Color(102, 102, 102));
+        lblState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblState.setForeground(new java.awt.Color(255, 255, 255));
         lblState.setText("Current State:");
+        plModifyUserAcc.add(lblState);
+        lblState.setBounds(60, 330, 80, 20);
 
-        lblCountry.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblCountry.setBackground(new java.awt.Color(102, 102, 102));
+        lblCountry.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblCountry.setForeground(new java.awt.Color(255, 255, 255));
         lblCountry.setText("Country:");
+        plModifyUserAcc.add(lblCountry);
+        lblCountry.setBounds(90, 360, 50, 20);
 
+        cbState.setBackground(new java.awt.Color(51, 51, 51));
+        cbState.setEditable(true);
+        cbState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbState.setForeground(new java.awt.Color(255, 255, 255));
         cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Kuala Lumpur", "Kedah", "Kelantan", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Penang", "Perak", "Perlis", "Putrajaya", "Sabah", "Sarawak", "Selangor", "Terengganu" }));
+        plModifyUserAcc.add(cbState);
+        cbState.setBounds(150, 330, 178, 20);
 
-        lblCPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblCPassword.setBackground(new java.awt.Color(102, 102, 102));
+        lblCPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblCPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblCPassword.setText("Confirm Password:");
+        plModifyUserAcc.add(lblCPassword);
+        lblCPassword.setBounds(40, 150, 106, 17);
 
-        cbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE" }));
+        cbGender1.setBackground(new java.awt.Color(51, 51, 51));
+        cbGender1.setEditable(true);
+        cbGender1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbGender1.setForeground(new java.awt.Color(255, 255, 255));
+        cbGender1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE" }));
+        plModifyUserAcc.add(cbGender1);
+        cbGender1.setBounds(150, 180, 178, 21);
 
+        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        plModifyUserAcc.add(btnBack);
+        btnBack.setBounds(330, 490, 95, 32);
 
+        lblTime.setBackground(new java.awt.Color(102, 102, 102));
+        lblTime.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("jLabel1");
+        plModifyUserAcc.add(lblTime);
+        lblTime.setBounds(360, 10, 100, 110);
 
-        javax.swing.GroupLayout plModifyUserAccLayout = new javax.swing.GroupLayout(plModifyUserAcc);
-        plModifyUserAcc.setLayout(plModifyUserAccLayout);
-        plModifyUserAccLayout.setHorizontalGroup(
-            plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCountry, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblState, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblAddress, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblPhone, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblGender, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblIC, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtPhone)
-                                    .addComponent(txtEmail)
-                                    .addComponent(txtAddress)
-                                    .addComponent(txtIC)
-                                    .addComponent(cbState, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cbCountry, 0, 178, Short.MAX_VALUE)))
-                            .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                                    .addGap(28, 28, 28)
-                                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblTime))
-                                .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                                    .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblCPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblName, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                                            .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(cbShowPassword))))))))
-                .addContainerGap(34, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plModifyUserAccLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
-        );
-        plModifyUserAccLayout.setVerticalGroup(
-            plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitle)
-                    .addComponent(lblTime))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblCPassword)
-                        .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cbShowPassword))
-                    .addGroup(plModifyUserAccLayout.createSequentialGroup()
-                        .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblName))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPassword))
-                        .addGap(20, 20, 20)))
-                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblGender))
-                .addGap(7, 7, 7)
-                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPhone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEmail))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAddress))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIC))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblState))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plModifyUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCountry))
-                .addGap(18, 18, 18)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
-        );
+        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("—————————————————");
+        plModifyUserAcc.add(jLabel4);
+        jLabel4.setBounds(150, 100, 217, 10);
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("—————————————————");
+        plModifyUserAcc.add(jLabel5);
+        jLabel5.setBounds(150, 130, 221, 10);
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("—————————————————");
+        plModifyUserAcc.add(jLabel10);
+        jLabel10.setBounds(150, 160, 240, 10);
+
+        lbl2.setForeground(new java.awt.Color(255, 255, 255));
+        lbl2.setText("—————————————————");
+        plModifyUserAcc.add(lbl2);
+        lbl2.setBounds(150, 250, 221, 10);
+
+        lbl1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl1.setText("—————————————————");
+        plModifyUserAcc.add(lbl1);
+        lbl1.setBounds(150, 220, 221, 14);
+
+        lbl3.setBackground(new java.awt.Color(102, 102, 102));
+        lbl3.setForeground(new java.awt.Color(255, 255, 255));
+        lbl3.setText("—————————————————");
+        plModifyUserAcc.add(lbl3);
+        lbl3.setBounds(150, 310, 221, 10);
+
+        lbl4.setForeground(new java.awt.Color(255, 255, 255));
+        lbl4.setText("—————————————————");
+        plModifyUserAcc.add(lbl4);
+        lbl4.setBounds(150, 280, 221, 10);
+
+        cbShowPassword.setBackground(new java.awt.Color(102, 102, 102));
+        cbShowPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbShowPasswordActionPerformed(evt);
+            }
+        });
+        plModifyUserAcc.add(cbShowPassword);
+        cbShowPassword.setBounds(380, 140, 21, 30);
+
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\481-4810872_hide-password-hide-show-password-icon-png-transparent.png")); // NOI18N
+        plModifyUserAcc.add(jLabel1);
+        jLabel1.setBounds(400, 140, 40, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plModifyUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+            .addComponent(plModifyUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plModifyUserAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(plModifyUserAcc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cbShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowPasswordActionPerformed
-        // TODO add your handling code here:
-        if (cbShowPassword.isSelected())
-        {
-            txtPassword.setEchoChar((char)0);
-            txtCPassword.setEchoChar((char)0);
-        }
-        else
-        {
-            txtPassword.setEchoChar('*');
-            txtCPassword.setEchoChar('*');
-        }
-    }//GEN-LAST:event_cbShowPasswordActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
@@ -324,7 +349,7 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         user.setIC(txtIC.getText());
         user.setPhoneNo(txtPhone.getText());
         user.setAddress(txtAddress.getText());
-        user.setGender(cbGender.getSelectedItem().toString());
+        user.setGender(cbGender1.getSelectedItem().toString());
         user.setCountry(cbCountry.getSelectedItem().toString());
         user.setState(cbState.getSelectedItem().toString());
         if (user.userRegister())
@@ -340,6 +365,19 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void cbShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowPasswordActionPerformed
+        if (cbShowPassword.isSelected())
+        {
+            txtPassword.setEchoChar((char)0);
+            txtCPassword.setEchoChar((char)0);
+        }
+        else
+        {
+            txtPassword.setEchoChar('*');
+            txtCPassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_cbShowPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,9 +418,17 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JComboBox<String> cbCountry;
-    private javax.swing.JComboBox<String> cbGender;
+    private javax.swing.JComboBox<String> cbGender1;
     private javax.swing.JCheckBox cbShowPassword;
     private javax.swing.JComboBox<String> cbState;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lbl1;
+    private javax.swing.JLabel lbl2;
+    private javax.swing.JLabel lbl3;
+    private javax.swing.JLabel lbl4;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCPassword;
     private javax.swing.JLabel lblCountry;

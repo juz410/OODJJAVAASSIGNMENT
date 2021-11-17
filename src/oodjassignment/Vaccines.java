@@ -58,7 +58,7 @@ public class Vaccines {
         {
             int VacQuantity = calVacQuantity(this.VacType) + 1;
             String [] firstWord = this.VacType.toString().split("");
-            this.VacID = firstWord[0] + String.format("%04d", VacQuantity);
+            this.VacID = firstWord[0] + String.format("%09d", VacQuantity);
             File file = new File("Vaccines.txt");
             try {
                 FileWriter fw = new FileWriter(file,true);

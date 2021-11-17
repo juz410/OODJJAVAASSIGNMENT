@@ -17,7 +17,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class AdminAppointmentViewPage extends javax.swing.JFrame {
 
-    
+    Users admin = new Users();
     private Appointment returnSelectedRow()
     {
         Appointment app = new Appointment();
@@ -74,8 +74,10 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
             }
         }
     }
-    public AdminAppointmentViewPage() {
+    public AdminAppointmentViewPage(String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        admin.setUserID(adminID);
         this.showTableData();   
     }
 
@@ -88,6 +90,10 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        btnModify = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAppointment = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -96,12 +102,50 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         txtSearch = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
-        btnModify = new javax.swing.JButton();
-        btnRefresh = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setLayout(null);
+
+        btnModify.setBackground(new java.awt.Color(51, 51, 51));
+        btnModify.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnModify.setText("Modify Time");
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModify);
+        btnModify.setBounds(340, 210, 170, 33);
+
+        btnRefresh.setBackground(new java.awt.Color(51, 51, 51));
+        btnRefresh.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRefresh);
+        btnRefresh.setBounds(1180, 30, 120, 20);
+
+        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnBack.setText("Back to previous page");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBack);
+        btnBack.setBounds(1100, 280, 220, 30);
+
+        tblAppointment.setBackground(new java.awt.Color(102, 102, 102));
+        tblAppointment.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblAppointment.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        tblAppointment.setForeground(new java.awt.Color(255, 255, 255));
         tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -115,109 +159,81 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblAppointment);
 
-        jLabel1.setText("Scheduled Appointments:");
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 61, 1298, 93);
 
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Scheduled Appointments");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(410, 10, 500, 40);
+
+        btnDone.setBackground(new java.awt.Color(51, 51, 51));
+        btnDone.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnDone.setText("Done");
         btnDone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDoneActionPerformed(evt);
             }
         });
+        jPanel1.add(btnDone);
+        btnDone.setBounds(10, 210, 80, 30);
 
+        btnRemove.setBackground(new java.awt.Color(51, 51, 51));
+        btnRemove.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnRemove.setText("Remove Appointment");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRemove);
+        btnRemove.setBounds(110, 210, 210, 33);
 
+        txtSearch.setBackground(new java.awt.Color(102, 102, 102));
+        txtSearch.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        txtSearch.setForeground(new java.awt.Color(255, 255, 255));
+        txtSearch.setBorder(null);
+        txtSearch.setCaretColor(new java.awt.Color(255, 255, 255));
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchKeyReleased(evt);
             }
         });
+        jPanel1.add(txtSearch);
+        txtSearch.setBounds(80, 170, 170, 15);
 
+        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Search here: ");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(10, 170, 90, 20);
 
+        jCheckBox1.setBackground(new java.awt.Color(102, 102, 102));
+        jCheckBox1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("jCheckBox1");
+        jPanel1.add(jCheckBox1);
+        jCheckBox1.setBounds(260, 170, 130, 25);
 
-        btnModify.setText("Modify Time");
-        btnModify.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModifyActionPerformed(evt);
-            }
-        });
-
-        btnRefresh.setText("Refresh");
-        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshActionPerformed(evt);
-            }
-        });
-
-        btnBack.setText("Back to previous page");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("————————————————");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(80, 180, 200, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1298, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnDone)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRemove)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnModify)
-                                .addGap(422, 422, 422)
-                                .addComponent(btnBack))
-                            .addComponent(jCheckBox1))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnRefresh)
-                .addGap(473, 473, 473))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1336, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnRefresh)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRemove)
-                    .addComponent(btnDone)
-                    .addComponent(btnModify)
-                    .addComponent(btnBack))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox1)
-                .addGap(84, 84, 84))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
         );
 
         pack();
@@ -228,6 +244,7 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
             Appointment app = this.returnSelectedRow();
             if (!app.getAptID().equals("NULL"))
             {
+                app.setAdminID(admin.getUserID());
                 app.DoneAppointment();
                 this.showTableData();
             }
@@ -238,6 +255,7 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         Appointment app = this.returnSelectedRow();
             if (!app.getAptID().equals("NULL"))
             {
+                app.setAdminID(admin.getUserID());
                 app.cancelUserAppointment(AppStatus.Approved);
                 this.showTableData();
             }
@@ -254,7 +272,8 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         Appointment app = this.returnSelectedRow();
             if (!app.getAptID().equals("NULL"))
             {
-                AdminAppointmentModifyPage APMP = new AdminAppointmentModifyPage(app);
+                app.setAdminID(admin.getUserID());
+                AdminAppointmentModifyPage APMP = new AdminAppointmentModifyPage(app,admin.getUserID());
                 APMP.setVisible(true);
             }
     }//GEN-LAST:event_btnModifyActionPerformed
@@ -298,7 +317,7 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminAppointmentViewPage().setVisible(true);
+                new AdminAppointmentViewPage("").setVisible(true);
             }
         });
     }
@@ -312,6 +331,8 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblAppointment;
     private javax.swing.JTextField txtSearch;

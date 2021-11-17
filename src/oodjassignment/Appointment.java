@@ -13,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -25,6 +26,8 @@ public class Appointment
     private final File file = new File("Appointment.txt");
     private boolean pass = false;
     private AppStatus aptStatus;
+    private String adminID;
+     
     
     public Appointment()
     {
@@ -69,6 +72,7 @@ public class Appointment
     public void setVacType(String vacType){this.vacType = vacType;}
     public void setVacID(String vacID){this.vacID = vacID;}
     public void setVacDose(String vacDose){this.vacDose = vacDose;}
+    public void setAdminID(String adminID){this.adminID = adminID;}
     //get method
     public String getAptID(){return this.aptID;}
     public String getUserID(){return this.userID;}
@@ -80,6 +84,7 @@ public class Appointment
     public String getVacType(){return this.vacType;}
     public String getVacID(){return this.vacID;}
     public String getVacDose(){return this.vacDose;}
+    public String getAdminID(){return this.adminID;}
     
     public boolean appointmentRegister()
     {
@@ -323,11 +328,36 @@ public class Appointment
      public void AppointmentTimeModify()
      {
          String [] aptArr = this.returnFileLine();
+         /////TRACKING RECORD/////
+        ArrayList<AModifyAppointmentTracking> MTrackArr= new ArrayList<>();
+        CurrentDateTime cdt = new CurrentDateTime();
+        AModifyAppointmentTracking MTrack = new 
+                 AModifyAppointmentTracking("",this.adminID,this.aptID,ActionType.Modify,TargetType.Appointment,cdt.currentDate(),cdt.currentTime(),"");
+         MTrackArr = MTrack.FileRead();
+         String trackingID = MTrack.setTrackingIDAuto(MTrackArr.size());
+         MTrack.setTrackingID(trackingID);
+         /////////////////////////////////////////////////
          this.fileCleaning();
          this.changingData(aptArr, this.aptStatus.toString());
+          //////////////////Writing Tracking record/////////////////////////
+            String remark = "Date: " + this.date + "Time: " + this.time; 
+            MTrack.setRemark(remark);
+            MTrackArr.add(MTrack);
+            MTrack.FileWrite(MTrackArr);
+            ////////////////////////////////////////////
+         JOptionPane.showMessageDialog(null, "Appointment Modified succesful!!!");
      }
      public void DoneAppointment()
      {
+         /////TRACKING RECORD/////
+        ArrayList<AModifyAppointmentTracking> MTrackArr= new ArrayList<>();
+        CurrentDateTime cdt = new CurrentDateTime();
+        AModifyAppointmentTracking MTrack = new 
+                 AModifyAppointmentTracking("",this.adminID,this.aptID,ActionType.CompleteApp,TargetType.Appointment,cdt.currentDate(),cdt.currentTime(),"");
+         MTrackArr = MTrack.FileRead();
+         String trackingID = MTrack.setTrackingIDAuto(MTrackArr.size());
+         MTrack.setTrackingID(trackingID);
+         /////////////////////////////////////////////////
          VCenter vc = new VCenter(this.centerID);
          vc.setVacType(VType.valueOf(this.vacType));
          this.aptStatus = AppStatus.Done; // NEW APP STATS
@@ -336,6 +366,12 @@ public class Appointment
          String[] aptArr = this.returnFileLine();
          this.fileCleaning();
          this.changingData(aptArr, previousStats);
+          //////////////////Writing Tracking record/////////////////////////
+            String remark = JOptionPane.showInputDialog("Please insert your remark here admin");
+            MTrack.setRemark(remark);
+            MTrackArr.add(MTrack);
+            MTrack.FileWrite(MTrackArr);
+            ////////////////////////////////////////////
          Users user = new Users();
          user.setUserID(this.userID);
          user.userDoneVaccine(this.vacDose);
@@ -344,6 +380,16 @@ public class Appointment
      
      public void cancelUserAppointment(AppStatus preStats)
      {
+         
+         /////TRACKING RECORD/////
+        ArrayList<AModifyAppointmentTracking> MTrackArr= new ArrayList<>();
+        CurrentDateTime cdt = new CurrentDateTime();
+        AModifyAppointmentTracking MTrack = new 
+                 AModifyAppointmentTracking("",this.adminID,this.aptID,ActionType.Remove,TargetType.Appointment,cdt.currentDate(),cdt.currentTime(),"");
+         MTrackArr = MTrack.FileRead();
+         String trackingID = MTrack.setTrackingIDAuto(MTrackArr.size());
+         MTrack.setTrackingID(trackingID);
+         /////////////////////////////////////////////////
          VCenter vc = new VCenter(this.centerID);
          vc.setVacType(VType.valueOf(this.vacType));
          vc.AssignVaccine(VStatus.Booked, VStatus.InStock);
@@ -353,16 +399,36 @@ public class Appointment
          String [] aptArr = this.returnFileLine();
          this.fileCleaning();
          this.changingData(aptArr, previousStats);
-         
+         //////////////////Writing Tracking record/////////////////////////
+            String remark = JOptionPane.showInputDialog("Please insert your remark here admin");
+            MTrack.setRemark(remark);
+            MTrackArr.add(MTrack);
+            MTrack.FileWrite(MTrackArr);
+            ////////////////////////////////////////////
          JOptionPane.showMessageDialog(null, "Appointment Canceled");
      }
      public void RejectUserAppRequest()
      {
+        /////TRACKING RECORD/////
+        ArrayList<AModifyAppointmentTracking> MTrackArr= new ArrayList<>();
+        CurrentDateTime cdt = new CurrentDateTime();
+        AModifyAppointmentTracking MTrack = new 
+                 AModifyAppointmentTracking("",this.adminID,this.aptID,ActionType.Reject,TargetType.Appointment,cdt.currentDate(),cdt.currentTime(),"");
+         MTrackArr = MTrack.FileRead();
+         String trackingID = MTrack.setTrackingIDAuto(MTrackArr.size());
+         MTrack.setTrackingID(trackingID);
+         /////////////////////////////////////////////////
         String previousStats = AppStatus.Requesting.toString();
         this.aptStatus = AppStatus.Rejected;
         String[] aptArr = this.returnFileLine();
         this.fileCleaning();
         this.changingData(aptArr, previousStats);
+         //////////////////Writing Tracking record/////////////////////////
+            String remark = JOptionPane.showInputDialog("Please insert your remark here admin");
+            MTrack.setRemark(remark);
+            MTrackArr.add(MTrack);
+            MTrack.FileWrite(MTrackArr);
+            ////////////////////////////////////////////
         JOptionPane.showMessageDialog(null, "Appointment Rejected");
      }
      public void ApproveUserAppRequest() //KF
@@ -370,6 +436,16 @@ public class Appointment
          VCenter vc = new VCenter(this.centerID);
          vc.setVacType(VType.valueOf(this.vacType));
          
+         
+        /////TRACKING RECORD/////
+        ArrayList<AModifyAppointmentTracking> MTrackArr= new ArrayList<>();
+        CurrentDateTime cdt = new CurrentDateTime();
+         AModifyAppointmentTracking MTrack = new 
+                 AModifyAppointmentTracking("",this.adminID,this.aptID,ActionType.Approve,TargetType.Appointment,cdt.currentDate(),cdt.currentTime(),"");
+         MTrackArr = MTrack.FileRead();
+         String trackingID = MTrack.setTrackingIDAuto(MTrackArr.size());
+         MTrack.setTrackingID(trackingID);
+         /////////////////////////////////////////////////
          int VCenterVacQuantity = VCenter.calCenterVacQuantity(VType.valueOf(this.vacType), this.centerID);
          if (VCenterVacQuantity > 0)
          {
@@ -380,6 +456,12 @@ public class Appointment
             String[] aptArr = this.returnFileLine();
             this.fileCleaning();
             this.changingData(aptArr, previousStats);
+            //////////////////Writing Tracking record/////////////////////////
+            String remark = JOptionPane.showInputDialog("Please insert your remark here admin");
+            MTrack.setRemark(remark);
+            MTrackArr.add(MTrack);
+            MTrack.FileWrite(MTrackArr);
+            ////////////////////////////////////////////
             JOptionPane.showMessageDialog(null, "Appointment Scheduled");
              
          }else

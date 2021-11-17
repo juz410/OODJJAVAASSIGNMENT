@@ -328,15 +328,27 @@ public class UserMainPage extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblTitle1.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        plUserMain.setBackground(new java.awt.Color(102, 102, 102));
+        plUserMain.setLayout(null);
+
+        lblTitle1.setBackground(new java.awt.Color(102, 102, 102));
+        lblTitle1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
+        lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Welcome Back");
+        plUserMain.add(lblTitle1);
+        lblTitle1.setBounds(50, 40, 260, 50);
 
-        lblTitle.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
+        lblTitle.setBackground(new java.awt.Color(102, 102, 102));
+        lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("User Name");
+        plUserMain.add(lblTitle);
+        lblTitle.setBounds(30, 70, 300, 50);
 
-        btnProfile.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        btnProfile.setBackground(new java.awt.Color(51, 51, 51));
+        btnProfile.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnProfile.setText("Profile");
         btnProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -344,8 +356,11 @@ public class UserMainPage extends javax.swing.JFrame
                 btnProfileActionPerformed(evt);
             }
         });
+        plUserMain.add(btnProfile);
+        btnProfile.setBounds(110, 130, 120, 48);
 
-        btnAppointment.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        btnAppointment.setBackground(new java.awt.Color(51, 51, 51));
+        btnAppointment.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         btnAppointment.setText("Appointment");
         btnAppointment.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -353,14 +368,32 @@ public class UserMainPage extends javax.swing.JFrame
                 btnAppointmentActionPerformed(evt);
             }
         });
+        plUserMain.add(btnAppointment);
+        btnAppointment.setBounds(110, 300, 120, 48);
 
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("View Profile");
+        plUserMain.add(jLabel1);
+        jLabel1.setBounds(200, 180, 69, 14);
 
+        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("View Appointment");
+        plUserMain.add(jLabel2);
+        jLabel2.setBounds(190, 350, 100, 15);
 
+        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel4.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("ModifyProfile");
+        plUserMain.add(jLabel4);
+        jLabel4.setBounds(200, 260, 69, 15);
 
-        btnModify.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        btnModify.setBackground(new java.awt.Color(51, 51, 51));
+        btnModify.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnModify.setText("Modify");
         btnModify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnModify.addActionListener(new java.awt.event.ActionListener() {
@@ -368,7 +401,12 @@ public class UserMainPage extends javax.swing.JFrame
                 btnModifyActionPerformed(evt);
             }
         });
+        plUserMain.add(btnModify);
+        btnModify.setBounds(110, 210, 120, 48);
 
+        lblVacStatus.setBackground(new java.awt.Color(102, 102, 102));
+        lblVacStatus.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblVacStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblVacStatus.setText("Vaccination Status:");
         lblVacStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblVacStatus.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -376,82 +414,25 @@ public class UserMainPage extends javax.swing.JFrame
                 lblVacStatusMouseClicked(evt);
             }
         });
+        plUserMain.add(lblVacStatus);
+        lblVacStatus.setBounds(10, 390, 202, 15);
 
+        lblTime.setBackground(new java.awt.Color(102, 102, 102));
+        lblTime.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("jLabel5");
-
-        javax.swing.GroupLayout plUserMainLayout = new javax.swing.GroupLayout(plUserMain);
-        plUserMain.setLayout(plUserMainLayout);
-        plUserMainLayout.setHorizontalGroup(
-            plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plUserMainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserMainLayout.createSequentialGroup()
-                        .addGap(0, 117, Short.MAX_VALUE)
-                        .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(plUserMainLayout.createSequentialGroup()
-                                .addComponent(lblTitle1)
-                                .addGap(56, 56, 56))
-                            .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserMainLayout.createSequentialGroup()
-                                        .addGap(68, 68, 68)
-                                        .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(40, 40, 40)
-                        .addComponent(lblTime))
-                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(plUserMainLayout.createSequentialGroup()
-                        .addComponent(lblVacStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        plUserMainLayout.setVerticalGroup(
-            plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plUserMainLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(plUserMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitle1)
-                    .addComponent(lblTime))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(43, 43, 43)
-                .addComponent(lblVacStatus)
-                .addGap(65, 65, 65))
-        );
+        plUserMain.add(lblTime);
+        lblTime.setBounds(310, 0, 70, 80);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plUserMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+            .addComponent(plUserMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plUserMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(plUserMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
         );
 
         pack();

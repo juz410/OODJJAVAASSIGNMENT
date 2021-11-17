@@ -5,6 +5,7 @@
  */
 package oodjassignment;
 
+
 /**
  *
  * @author user
@@ -16,9 +17,11 @@ public class RegisterPage extends javax.swing.JFrame {
     private String role;
     CurrentDateTime currentDateTime = new CurrentDateTime();
     Users user = new Users();
-    public RegisterPage(String R) 
+    Users admin = new Users();
+    public RegisterPage(String R, String adminID) 
     {
         initComponents();
+        admin.setUserID(adminID);
         role = R;
         if (role.equals("Admin"))
         {
@@ -42,6 +45,8 @@ public class RegisterPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSlider1 = new javax.swing.JSlider();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         plUserRegister = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnRegister = new javax.swing.JButton();
@@ -51,31 +56,50 @@ public class RegisterPage extends javax.swing.JFrame {
         lblCountry = new javax.swing.JLabel();
         cbState = new javax.swing.JComboBox<>();
         cbCountry = new javax.swing.JComboBox<>();
-        txtEmail = new javax.swing.JTextField();
         lblIC = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
         lblAddress = new javax.swing.JLabel();
-        txtIC = new javax.swing.JTextField();
         lblName = new javax.swing.JLabel();
         lblGender = new javax.swing.JLabel();
         lblPhone = new javax.swing.JLabel();
         lblCPassword = new javax.swing.JLabel();
         cbGender = new javax.swing.JComboBox<>();
-        txtPhone = new javax.swing.JTextField();
-        cbShowPassword = new javax.swing.JCheckBox();
-        txtCPassword = new javax.swing.JPasswordField();
-        txtName = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         btnBack = new javax.swing.JButton();
         lblTime = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtCPassword = new javax.swing.JPasswordField();
+        lbl2 = new javax.swing.JLabel();
+        lbl1 = new javax.swing.JLabel();
+        lbl3 = new javax.swing.JLabel();
+        lbl4 = new javax.swing.JLabel();
+        cbShowPassword = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        txtName1 = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtIC = new javax.swing.JTextField();
+
+        jFormattedTextField1.setText("jFormattedTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblTitle.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        plUserRegister.setBackground(new java.awt.Color(102, 102, 102));
+        plUserRegister.setPreferredSize(new java.awt.Dimension(500, 520));
+        plUserRegister.setLayout(null);
+
+        lblTitle.setFont(new java.awt.Font("Bernard MT Condensed", 0, 32)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Register");
+        plUserRegister.add(lblTitle);
+        lblTitle.setBounds(120, 10, 167, 58);
 
+        btnRegister.setBackground(new java.awt.Color(51, 51, 51));
+        btnRegister.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnRegister.setText("Register");
         btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +107,12 @@ public class RegisterPage extends javax.swing.JFrame {
                 btnRegisterActionPerformed(evt);
             }
         });
+        plUserRegister.add(btnRegister);
+        btnRegister.setBounds(140, 410, 109, 40);
 
+        cbRegisterAdmin.setBackground(new java.awt.Color(102, 102, 102));
+        cbRegisterAdmin.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbRegisterAdmin.setForeground(new java.awt.Color(255, 255, 255));
         cbRegisterAdmin.setText("Register Admin");
         cbRegisterAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbRegisterAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -91,220 +120,210 @@ public class RegisterPage extends javax.swing.JFrame {
                 cbRegisterAdminActionPerformed(evt);
             }
         });
+        plUserRegister.add(cbRegisterAdmin);
+        cbRegisterAdmin.setBounds(280, 380, 99, 23);
 
-        lblEmail.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblEmail.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail.setText("Email:");
+        plUserRegister.add(lblEmail);
+        lblEmail.setBounds(70, 230, 40, 17);
 
-        lblState.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblState.setForeground(new java.awt.Color(255, 255, 255));
         lblState.setText("Current State:");
+        plUserRegister.add(lblState);
+        lblState.setBounds(40, 320, 80, 17);
 
-        lblCountry.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblCountry.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblCountry.setForeground(new java.awt.Color(255, 255, 255));
         lblCountry.setText("Country:");
+        plUserRegister.add(lblCountry);
+        lblCountry.setBounds(70, 350, 60, 17);
 
+        cbState.setBackground(new java.awt.Color(51, 51, 51));
+        cbState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Kuala Lumpur", "Kedah", "Kelantan", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Penang", "Perak", "Perlis", "Putrajaya", "Sabah", "Sarawak", "Selangor", "Terengganu" }));
+        plUserRegister.add(cbState);
+        cbState.setBounds(130, 320, 210, 21);
 
+        cbCountry.setBackground(new java.awt.Color(51, 51, 51));
+        cbCountry.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         cbCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua & Deps", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Rep", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Congo {Democratic Rep}", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland {Republic}", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea North", "Korea South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar, {Burma}", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russian Federation", "Rwanda", "St Kitts & Nevis", "St Lucia", "Saint Vincent & the Grenadines", "Samoa", "San Marino", "Sao Tome & Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe" }));
+        plUserRegister.add(cbCountry);
+        cbCountry.setBounds(130, 350, 210, 21);
 
-        txtEmail.setBorder(null);
-        txtEmail.setCaretColor(java.awt.Color.darkGray);
-
-        lblIC.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblIC.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblIC.setForeground(new java.awt.Color(255, 255, 255));
         lblIC.setText("IC/Passport:");
+        plUserRegister.add(lblIC);
+        lblIC.setBounds(50, 260, 70, 17);
 
-        txtAddress.setBorder(null);
-        txtAddress.setCaretColor(java.awt.Color.darkGray);
-
-        lblPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password:");
+        plUserRegister.add(lblPassword);
+        lblPassword.setBounds(70, 110, 60, 17);
 
-        lblAddress.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblAddress.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress.setText("Current Address:");
+        plUserRegister.add(lblAddress);
+        lblAddress.setBounds(30, 290, 90, 17);
 
-        txtIC.setBorder(null);
-        txtIC.setCaretColor(java.awt.Color.darkGray);
-
-        lblName.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Name:");
+        plUserRegister.add(lblName);
+        lblName.setBounds(80, 80, 50, 17);
 
-        lblGender.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblGender.setForeground(new java.awt.Color(255, 255, 255));
         lblGender.setText("Gender:");
+        plUserRegister.add(lblGender);
+        lblGender.setBounds(70, 170, 50, 17);
 
-        lblPhone.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblPhone.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblPhone.setForeground(new java.awt.Color(255, 255, 255));
         lblPhone.setText("Phone:");
+        plUserRegister.add(lblPhone);
+        lblPhone.setBounds(70, 200, 36, 17);
 
-        lblCPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblCPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblCPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblCPassword.setText("Confirm Password:");
+        plUserRegister.add(lblCPassword);
+        lblCPassword.setBounds(20, 140, 100, 20);
 
+        cbGender.setBackground(new java.awt.Color(51, 51, 51));
+        cbGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         cbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE" }));
+        plUserRegister.add(cbGender);
+        cbGender.setBounds(130, 170, 210, 21);
 
-        txtPhone.setBorder(null);
-        txtPhone.setCaretColor(java.awt.Color.darkGray);
+        txtAddress.setBackground(new java.awt.Color(102, 102, 102));
+        txtAddress.setForeground(new java.awt.Color(255, 255, 255));
+        txtAddress.setBorder(null);
+        txtAddress.setCaretColor(new java.awt.Color(255, 255, 255));
+        plUserRegister.add(txtAddress);
+        txtAddress.setBounds(130, 290, 176, 14);
 
-        cbShowPassword.setText("jCheckBox1");
-        cbShowPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbShowPasswordActionPerformed(evt);
-            }
-        });
-
-        txtCPassword.setBorder(null);
-
-        txtName.setBorder(null);
-        txtName.setCaretColor(java.awt.Color.darkGray);
-
+        txtPassword.setBackground(new java.awt.Color(102, 102, 102));
         txtPassword.setBorder(null);
+        plUserRegister.add(txtPassword);
+        txtPassword.setBounds(130, 110, 176, 14);
 
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
+        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         btnBack.setText("Back to Previous Page");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        plUserRegister.add(btnBack);
+        btnBack.setBounds(280, 460, 139, 23);
 
+        lblTime.setBackground(new java.awt.Color(102, 102, 102));
+        lblTime.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("jLabel1");
+        plUserRegister.add(lblTime);
+        lblTime.setBounds(350, 10, 60, 60);
 
-        javax.swing.GroupLayout plUserRegisterLayout = new javax.swing.GroupLayout(plUserRegister);
-        plUserRegister.setLayout(plUserRegisterLayout);
-        plUserRegisterLayout.setHorizontalGroup(
-            plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserRegisterLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserRegisterLayout.createSequentialGroup()
-                        .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblEmail)
-                            .addComponent(lblAddress))
-                        .addGap(321, 321, 321))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserRegisterLayout.createSequentialGroup()
-                        .addComponent(cbRegisterAdmin)
-                        .addGap(82, 82, 82))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserRegisterLayout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addContainerGap())))
-            .addGroup(plUserRegisterLayout.createSequentialGroup()
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(plUserRegisterLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblName)
-                            .addComponent(lblPassword))
-                        .addGap(18, 18, 18)
-                        .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(plUserRegisterLayout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(plUserRegisterLayout.createSequentialGroup()
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(plUserRegisterLayout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTime))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, plUserRegisterLayout.createSequentialGroup()
-                        .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(plUserRegisterLayout.createSequentialGroup()
-                                    .addGap(69, 69, 69)
-                                    .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblGender)
-                                        .addComponent(lblPhone)))
-                                .addComponent(lblIC, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGroup(plUserRegisterLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblCPassword))
-                            .addComponent(lblState, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblCountry, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(plUserRegisterLayout.createSequentialGroup()
-                                .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(cbShowPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cbGender, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        plUserRegisterLayout.setVerticalGroup(
-            plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plUserRegisterLayout.createSequentialGroup()
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(plUserRegisterLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblTime)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblName)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPassword))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbShowPassword)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtCPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCPassword)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGender)
-                    .addComponent(cbGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPhone)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEmail))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAddress))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIC))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblState)
-                    .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plUserRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCountry))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbRegisterAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(btnBack))
-        );
+        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("—————————————————");
+        plUserRegister.add(jLabel4);
+        jLabel4.setBounds(130, 90, 217, 10);
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("—————————————————");
+        plUserRegister.add(jLabel5);
+        jLabel5.setBounds(130, 120, 221, 9);
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("—————————————————");
+        plUserRegister.add(jLabel10);
+        jLabel10.setBounds(130, 150, 210, 10);
+
+        txtCPassword.setBackground(new java.awt.Color(102, 102, 102));
+        txtCPassword.setBorder(null);
+        plUserRegister.add(txtCPassword);
+        txtCPassword.setBounds(130, 140, 176, 14);
+
+        lbl2.setForeground(new java.awt.Color(255, 255, 255));
+        lbl2.setText("—————————————————");
+        plUserRegister.add(lbl2);
+        lbl2.setBounds(130, 240, 221, 10);
+
+        lbl1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl1.setText("—————————————————");
+        plUserRegister.add(lbl1);
+        lbl1.setBounds(130, 210, 221, 14);
+
+        lbl3.setBackground(new java.awt.Color(102, 102, 102));
+        lbl3.setForeground(new java.awt.Color(255, 255, 255));
+        lbl3.setText("—————————————————");
+        plUserRegister.add(lbl3);
+        lbl3.setBounds(130, 270, 221, 10);
+
+        lbl4.setForeground(new java.awt.Color(255, 255, 255));
+        lbl4.setText("—————————————————");
+        plUserRegister.add(lbl4);
+        lbl4.setBounds(130, 300, 221, 9);
+
+        cbShowPassword.setBackground(new java.awt.Color(102, 102, 102));
+        cbShowPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbShowPasswordActionPerformed(evt);
+            }
+        });
+        plUserRegister.add(cbShowPassword);
+        cbShowPassword.setBounds(340, 140, 21, 20);
+
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\481-4810872_hide-password-hide-show-password-icon-png-transparent.png")); // NOI18N
+        plUserRegister.add(jLabel1);
+        jLabel1.setBounds(360, 140, 40, 20);
+
+        txtName1.setBackground(new java.awt.Color(102, 102, 102));
+        txtName1.setForeground(new java.awt.Color(255, 255, 255));
+        txtName1.setBorder(null);
+        txtName1.setCaretColor(new java.awt.Color(255, 255, 255));
+        plUserRegister.add(txtName1);
+        txtName1.setBounds(130, 80, 176, 14);
+
+        txtPhone.setBackground(new java.awt.Color(102, 102, 102));
+        txtPhone.setForeground(new java.awt.Color(255, 255, 255));
+        txtPhone.setBorder(null);
+        txtPhone.setCaretColor(new java.awt.Color(255, 255, 255));
+        plUserRegister.add(txtPhone);
+        txtPhone.setBounds(130, 200, 176, 14);
+
+        txtEmail.setBackground(new java.awt.Color(102, 102, 102));
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.setBorder(null);
+        txtEmail.setCaretColor(new java.awt.Color(255, 255, 255));
+        plUserRegister.add(txtEmail);
+        txtEmail.setBounds(130, 230, 176, 14);
+
+        txtIC.setBackground(new java.awt.Color(102, 102, 102));
+        txtIC.setForeground(new java.awt.Color(255, 255, 255));
+        txtIC.setBorder(null);
+        txtIC.setCaretColor(new java.awt.Color(255, 255, 255));
+        plUserRegister.add(txtIC);
+        txtIC.setBounds(130, 260, 176, 14);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(plUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+            .addComponent(plUserRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -313,7 +332,7 @@ public class RegisterPage extends javax.swing.JFrame {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
         user.setUserID(txtIC.getText());
-        user.setName(txtName.getText());
+        user.setName(txtAddress.getText());
         user.setPassword(txtPassword.getText());
         user.setCPassword(txtCPassword.getText());
         user.setEmail(txtEmail.getText());
@@ -363,7 +382,7 @@ public class RegisterPage extends javax.swing.JFrame {
         {
             if (validation.validationAdmin())
             {
-                txtName.setVisible(true); lblName.setVisible(true);
+                txtAddress.setVisible(true); lblName.setVisible(true);
                 txtPassword.setVisible(true); lblPassword.setVisible(true);
                 txtCPassword.setVisible(true); lblCPassword.setVisible(true);
                 cbGender.setVisible(false); lblGender.setVisible(false);
@@ -373,6 +392,7 @@ public class RegisterPage extends javax.swing.JFrame {
                 txtIC.setVisible(false); lblIC.setVisible(false);
                 cbState.setVisible(false); lblState.setVisible(false); 
                 cbCountry.setVisible(false); lblCountry.setVisible(false);
+                lbl1.setVisible(false);lbl2.setVisible(false);lbl3.setVisible(false);lbl4.setVisible(false);
             }
             else
             {
@@ -381,7 +401,7 @@ public class RegisterPage extends javax.swing.JFrame {
         }
         else
         {
-            txtName.setVisible(true); lblName.setVisible(true);
+            txtAddress.setVisible(true); lblName.setVisible(true);
             txtPassword.setVisible(true); lblPassword.setVisible(true);
             txtCPassword.setVisible(true); lblCPassword.setVisible(true);
             cbGender.setVisible(true); lblGender.setVisible(true);
@@ -394,24 +414,10 @@ public class RegisterPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbRegisterAdminActionPerformed
 
-    private void cbShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowPasswordActionPerformed
-        // TODO add your handling code here:
-        if (cbShowPassword.isSelected())
-        {
-            txtPassword.setEchoChar((char)0);
-            txtCPassword.setEchoChar((char)0);
-        }
-        else
-        {
-            txtPassword.setEchoChar('*');
-            txtCPassword.setEchoChar('*');
-        }
-    }//GEN-LAST:event_cbShowPasswordActionPerformed
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
        if(role.equals("Admin"))
        {
-           AdminUMainPage AUMP = new AdminUMainPage();
+           AdminUMainPage AUMP = new AdminUMainPage(admin.getUserID());
            AUMP.setVisible(true);
        }else
        {
@@ -423,6 +429,19 @@ public class RegisterPage extends javax.swing.JFrame {
        this.dispose();
        
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void cbShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowPasswordActionPerformed
+        if (cbShowPassword.isSelected())
+        {
+            txtPassword.setEchoChar((char)0);
+            txtCPassword.setEchoChar((char)0);
+        }
+        else
+        {
+            txtPassword.setEchoChar('*');
+            txtCPassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_cbShowPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -455,7 +474,7 @@ public class RegisterPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegisterPage("").setVisible(true);
+                new RegisterPage("","").setVisible(true);
             }
         });
     }
@@ -468,6 +487,16 @@ public class RegisterPage extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbRegisterAdmin;
     private javax.swing.JCheckBox cbShowPassword;
     private javax.swing.JComboBox<String> cbState;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JSlider jSlider1;
+    private javax.swing.JLabel lbl1;
+    private javax.swing.JLabel lbl2;
+    private javax.swing.JLabel lbl3;
+    private javax.swing.JLabel lbl4;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCPassword;
     private javax.swing.JLabel lblCountry;
@@ -485,7 +514,7 @@ public class RegisterPage extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtCPassword;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIC;
-    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtName1;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables

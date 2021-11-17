@@ -1,0 +1,336 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package oodjassignment;
+
+import java.awt.Component;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+
+/**
+ *
+ * @author User
+ */
+public class AdminModifyTrackingPage extends javax.swing.JFrame {
+
+    public void showsAppointTracking()
+    {
+         ((DefaultTableModel)tblAppointModifyTracking.getModel()).setNumRows(0);
+        DefaultTableModel model =(DefaultTableModel)tblAppointModifyTracking.getModel();
+        TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblAppointModifyTracking.getModel());
+        tblAppointModifyTracking.setRowSorter(rowSorter);
+        AModifyAppointmentTracking MTrack = new AModifyAppointmentTracking();
+        
+        String[] Heading = new String[]{"Tracking ID","Admin ID","Appointment ID","Action","Target Data","Date","Time","Remark"};
+        model.setColumnIdentifiers(Heading);
+        model.setColumnCount(8);
+        ArrayList<AModifyAppointmentTracking> MTrackArr = new ArrayList<>();
+        MTrackArr = MTrack.FileRead();
+        for(int i = 0 ; i < MTrackArr.size(); i ++)
+        {
+            String[] temp = MTrackArr.get(i).toString().split("\\|");
+            model.addRow(temp);
+        }
+        
+        resizeColumnWidth(tblAppointModifyTracking);
+    }
+    
+    public void showsVCenterTracking()
+    {
+         ((DefaultTableModel)tblAppointModifyTracking.getModel()).setNumRows(0);
+        DefaultTableModel model =(DefaultTableModel)tblAppointModifyTracking.getModel();
+        TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblAppointModifyTracking.getModel());
+        tblAppointModifyTracking.setRowSorter(rowSorter);
+        AModifyVaccinesTracking MTrack = new AModifyVaccinesTracking();
+        
+        String[] Heading = new String[]{"Tracking ID","Admin ID","VCenter ID","Action","Target Data","Date","Time","Remark"};
+        model.setColumnIdentifiers(Heading);
+        model.setColumnCount(8);
+        ArrayList<AModifyVaccinesTracking> MTrackArr = new ArrayList<>();
+        MTrackArr = MTrack.FileRead();
+        for(int i = 0 ; i < MTrackArr.size(); i ++)
+        {
+            String[] temp = MTrackArr.get(i).toString().split("\\|");
+            model.addRow(temp);
+        }
+        resizeColumnWidth(tblAppointModifyTracking);
+        
+        
+        
+    }
+    
+    public void showsUserModifyTracking()
+    {
+        ((DefaultTableModel)tblAppointModifyTracking.getModel()).setNumRows(0);
+        DefaultTableModel model =(DefaultTableModel)tblAppointModifyTracking.getModel();
+        TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblAppointModifyTracking.getModel());
+        tblAppointModifyTracking.setRowSorter(rowSorter);
+        AModifyUserTracking MTrack = new AModifyUserTracking();
+        
+        String[] Heading = new String[]{"Tracking ID","Admin ID","User ID","Action","Target Data","Date","Time","Remark"};
+        model.setColumnIdentifiers(Heading);
+        model.setColumnCount(8);
+        ArrayList<AModifyUserTracking> MTrackArr = new ArrayList<>();
+        MTrackArr = MTrack.FileRead();
+        for(int i = 0 ; i < MTrackArr.size(); i ++)
+        {
+            String[] temp = MTrackArr.get(i).toString().split("\\|");
+            model.addRow(temp);
+        }
+        resizeColumnWidth(tblAppointModifyTracking);
+    }
+    
+    public void resizeColumnWidth(JTable Table)
+    {
+        TableColumnModel modelcol = Table.getColumnModel();
+        TableModel model = Table.getModel();
+        int col = modelcol.getColumnCount();
+        for(int i = 0 ; i < col ; i ++)
+        {
+            int widthmin = 0;
+            int row = model.getRowCount();
+            for(int j = 0 ; j < row; j ++ )
+            {
+                if(model.getValueAt(j, i) != null)
+                {
+                    int width = model.getValueAt(j, i).toString().length() * 7 ;
+                    if(width > widthmin)
+                    {
+                        widthmin = width;
+                    }
+                }modelcol.getColumn(i).setPreferredWidth(widthmin);
+            }
+                
+        }
+    }
+    
+    
+    Users admin = new Users();
+    public AdminModifyTrackingPage(String adminID) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        admin.setUserID(adminID);
+//        showsAppointTracking();
+        showsVCenterTracking();
+//          showsUserModifyTracking();
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        btnVaccine = new javax.swing.JButton();
+        btnApp = new javax.swing.JButton();
+        btnUser = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtSearch = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAppointModifyTracking = new javax.swing.JTable();
+        btnBack = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setLayout(null);
+
+        btnVaccine.setBackground(new java.awt.Color(51, 51, 51));
+        btnVaccine.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnVaccine.setText("VCenter");
+        btnVaccine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVaccineActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVaccine);
+        btnVaccine.setBounds(10, 81, 105, 21);
+
+        btnApp.setBackground(new java.awt.Color(51, 51, 51));
+        btnApp.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnApp.setText("Appointment");
+        btnApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnApp);
+        btnApp.setBounds(125, 79, 151, 24);
+
+        btnUser.setBackground(new java.awt.Color(51, 51, 51));
+        btnUser.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnUser.setText("User");
+        btnUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnUser);
+        btnUser.setBounds(282, 80, 90, 23);
+
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Track Modify");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(330, 11, 280, 50);
+
+        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Search Here:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(10, 250, 70, 17);
+
+        txtSearch.setBackground(new java.awt.Color(102, 102, 102));
+        txtSearch.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        txtSearch.setForeground(new java.awt.Color(255, 255, 255));
+        txtSearch.setBorder(null);
+        txtSearch.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
+        jPanel1.add(txtSearch);
+        txtSearch.setBounds(76, 248, 190, 20);
+
+        tblAppointModifyTracking.setBackground(new java.awt.Color(102, 102, 102));
+        tblAppointModifyTracking.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblAppointModifyTracking.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        tblAppointModifyTracking.setForeground(new java.awt.Color(255, 255, 255));
+        tblAppointModifyTracking.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblAppointModifyTracking);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 112, 840, 108);
+
+        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnBack.setText("Back to Main Menu");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBack);
+        btnBack.setBounds(660, 296, 190, 20);
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("——————————————————");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(80, 260, 200, 20);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        AdminMainPage AMP = new AdminMainPage(admin.getUserID());
+        AMP.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnVaccineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVaccineActionPerformed
+        this.showsVCenterTracking();
+    }//GEN-LAST:event_btnVaccineActionPerformed
+
+    private void btnAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppActionPerformed
+        this.showsAppointTracking();
+    }//GEN-LAST:event_btnAppActionPerformed
+
+    private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
+        this.showsUserModifyTracking();
+    }//GEN-LAST:event_btnUserActionPerformed
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        DefaultTableModel model =(DefaultTableModel)tblAppointModifyTracking.getModel();
+        TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tblAppointModifyTracking.getModel());
+        tblAppointModifyTracking.setRowSorter(rowSorter);
+        rowSorter.setRowFilter(RowFilter.regexFilter(txtSearch.getText().trim()));
+    }//GEN-LAST:event_txtSearchKeyReleased
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdminModifyTrackingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AdminModifyTrackingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AdminModifyTrackingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AdminModifyTrackingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdminModifyTrackingPage("").setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnApp;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnUser;
+    private javax.swing.JButton btnVaccine;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblAppointModifyTracking;
+    private javax.swing.JTextField txtSearch;
+    // End of variables declaration//GEN-END:variables
+}

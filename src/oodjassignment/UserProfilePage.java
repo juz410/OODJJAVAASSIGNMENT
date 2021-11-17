@@ -65,182 +65,162 @@ public class UserProfilePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblPhone.setBackground(new java.awt.Color(0, 0, 0));
+        plUserProfile.setBackground(new java.awt.Color(102, 102, 102));
+        plUserProfile.setLayout(null);
+
+        lblPhone.setBackground(new java.awt.Color(102, 102, 102));
+        lblPhone.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblPhone.setForeground(new java.awt.Color(255, 255, 255));
         lblPhone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPhone.setText("jLabel9");
         lblPhone.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblPhone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        plUserProfile.add(lblPhone);
+        lblPhone.setBounds(89, 141, 193, 21);
 
-        lblEmail.setBackground(new java.awt.Color(0, 0, 0));
+        lblEmail.setBackground(new java.awt.Color(102, 102, 102));
+        lblEmail.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmail.setText("jLabel9");
         lblEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        plUserProfile.add(lblEmail);
+        lblEmail.setBounds(89, 172, 193, 21);
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel7.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("User ID:");
+        plUserProfile.add(jLabel7);
+        jLabel7.setBounds(30, 87, 40, 17);
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel4.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email:");
+        plUserProfile.add(jLabel4);
+        jLabel4.setBounds(35, 172, 32, 17);
 
-        lblGender.setBackground(new java.awt.Color(0, 0, 0));
+        lblGender.setBackground(new java.awt.Color(102, 102, 102));
+        lblGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblGender.setForeground(new java.awt.Color(255, 255, 255));
         lblGender.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGender.setText("jLabel9");
         lblGender.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblGender.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        plUserProfile.add(lblGender);
+        lblGender.setBounds(89, 111, 193, 21);
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Gender:");
+        plUserProfile.add(jLabel2);
+        jLabel2.setBounds(31, 113, 40, 17);
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel5.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel5.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("IC/Passport:");
+        plUserProfile.add(jLabel5);
+        jLabel5.setBounds(9, 250, 62, 17);
 
+        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        plUserProfile.add(btnBack);
+        btnBack.setBounds(140, 390, 110, 40);
 
-        lblTitle.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
+        lblTitle.setBackground(new java.awt.Color(102, 102, 102));
+        lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 20)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("User Name");
+        plUserProfile.add(lblTitle);
+        lblTitle.setBounds(100, 20, 173, 46);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Status:");
+        plUserProfile.add(jLabel1);
+        jLabel1.setBounds(38, 282, 32, 17);
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel6.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Address:");
+        plUserProfile.add(jLabel6);
+        jLabel6.setBounds(29, 212, 42, 17);
 
-        lblStatus.setBackground(new java.awt.Color(0, 0, 0));
-        lblStatus.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblStatus.setForeground(new java.awt.Color(255, 0, 51));
+        lblStatus.setBackground(new java.awt.Color(102, 102, 102));
+        lblStatus.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblStatus.setText("jLabel8");
         lblStatus.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        plUserProfile.add(lblStatus);
+        lblStatus.setBounds(88, 282, 118, 90);
 
-        lblAddress.setBackground(new java.awt.Color(0, 0, 0));
+        lblAddress.setBackground(new java.awt.Color(102, 102, 102));
+        lblAddress.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAddress.setText("jLabel9");
         lblAddress.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblAddress.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        plUserProfile.add(lblAddress);
+        lblAddress.setBounds(89, 210, 193, 21);
 
-        lblUserID.setBackground(new java.awt.Color(0, 0, 0));
+        lblUserID.setBackground(new java.awt.Color(102, 102, 102));
+        lblUserID.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblUserID.setForeground(new java.awt.Color(255, 255, 255));
         lblUserID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUserID.setText("jLabel9");
         lblUserID.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblUserID.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        plUserProfile.add(lblUserID);
+        lblUserID.setBounds(89, 85, 193, 21);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel3.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Phone:");
+        plUserProfile.add(jLabel3);
+        jLabel3.setBounds(35, 141, 36, 17);
 
-        lblIC.setBackground(new java.awt.Color(0, 0, 0));
+        lblIC.setBackground(new java.awt.Color(102, 102, 102));
+        lblIC.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblIC.setForeground(new java.awt.Color(255, 255, 255));
         lblIC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblIC.setText("jLabel9");
         lblIC.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblIC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        plUserProfile.add(lblIC);
+        lblIC.setBounds(89, 248, 193, 21);
 
+        lblTime.setBackground(new java.awt.Color(102, 102, 102));
+        lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("jLabel8");
-
-        javax.swing.GroupLayout plUserProfileLayout = new javax.swing.GroupLayout(plUserProfile);
-        plUserProfile.setLayout(plUserProfileLayout);
-        plUserProfileLayout.setHorizontalGroup(
-            plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plUserProfileLayout.createSequentialGroup()
-                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(plUserProfileLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(plUserProfileLayout.createSequentialGroup()
-                        .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(plUserProfileLayout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6)
-                                    .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4))
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
-                                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(lblPhone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                                    .addComponent(lblUserID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblAddress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(plUserProfileLayout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserProfileLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plUserProfileLayout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblIC, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnBack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 40, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTime))
-        );
-        plUserProfileLayout.setVerticalGroup(
-            plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plUserProfileLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTime))
-                .addGap(18, 18, 18)
-                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUserID)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblGender))
-                .addGap(10, 10, 10)
-                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPhone)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(lblEmail))
-                .addGap(18, 18, 18)
-                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAddress)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(lblIC))
-                .addGap(14, 14, 14)
-                .addGroup(plUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
-        );
+        plUserProfile.add(lblTime);
+        lblTime.setBounds(280, 0, 90, 90);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plUserProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(plUserProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plUserProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(plUserProfile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
         );
 
         pack();

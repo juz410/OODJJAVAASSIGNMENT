@@ -103,8 +103,7 @@ public class Users {
                 {
                     
                     access = true;
-                    AdminMainPage adm  =new AdminMainPage();
-                    adm.setVisible(true);
+                    
                     break;
                 }
                 
@@ -420,7 +419,7 @@ public class Users {
             e.printStackTrace();
           }
     }
-    public void AdminUserModify()
+    public void AdminUserModify(String adminID)
     {
         String newline = "";
         String [] userArr = new String[0];
@@ -486,6 +485,22 @@ public class Users {
             }
             
             fw.close();
+            /////TRACKING RECORD/////
+        ArrayList<AModifyUserTracking> MTrackArr= new ArrayList<>();
+        CurrentDateTime cdt = new CurrentDateTime();
+        AModifyUserTracking MTrack = new 
+                 AModifyUserTracking("",adminID,this.userID,ActionType.Modify,TargetType.User,cdt.currentDate(),cdt.currentTime(),"");
+         MTrackArr = MTrack.FileRead();
+         String trackingID = MTrack.setTrackingIDAuto(MTrackArr.size());
+         MTrack.setTrackingID(trackingID);
+         /////////////////////////////////////////////////
+         
+          //////////////////Writing Tracking record/////////////////////////
+            String remark = JOptionPane.showInputDialog("Please insert your remark here admin");
+            MTrack.setRemark(remark);
+            MTrackArr.add(MTrack);
+            MTrack.FileWrite(MTrackArr);
+            ////////////////////////////////////////////
             JOptionPane.showMessageDialog(null, "Modified Succesful!!!");
         } catch (IOException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);

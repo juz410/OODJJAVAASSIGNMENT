@@ -16,7 +16,7 @@ import javax.swing.table.TableRowSorter;
  * @author user
  */
 public class AdminAppointmentApprovePage extends javax.swing.JFrame {
-
+    Users admin = new Users();
     
     private void showTableData()
     {
@@ -42,8 +42,10 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
     /**
      * Creates new form AdminAppointmentPage
      */
-    public AdminAppointmentApprovePage() {
+    public AdminAppointmentApprovePage(String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        admin.setUserID(adminID);
         showTableData();
     }
 
@@ -90,6 +92,7 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblRequestedAppTable = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Date:");
@@ -321,18 +324,43 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblTitle.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
+        plAppointment.setBackground(new java.awt.Color(102, 102, 102));
+        plAppointment.setLayout(null);
+
+        lblTitle.setBackground(new java.awt.Color(102, 102, 102));
+        lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 48)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Appointment Approve Page");
+        lblTitle.setText("Appointment Approve ");
+        plAppointment.add(lblTitle);
+        lblTitle.setBounds(170, 10, 520, 80);
 
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Serach Here:");
+        plAppointment.add(jLabel1);
+        jLabel1.setBounds(30, 260, 90, 19);
 
+        txtSearch.setBackground(new java.awt.Color(102, 102, 102));
+        txtSearch.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        txtSearch.setForeground(new java.awt.Color(255, 255, 255));
+        txtSearch.setBorder(null);
+        txtSearch.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchKeyReleased(evt);
             }
         });
+        plAppointment.add(txtSearch);
+        txtSearch.setBounds(110, 260, 175, 19);
 
+        btnApprove.setBackground(new java.awt.Color(51, 51, 51));
+        btnApprove.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnApprove.setText("Approve");
         btnApprove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnApprove.addActionListener(new java.awt.event.ActionListener() {
@@ -340,7 +368,11 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
                 btnApproveActionPerformed(evt);
             }
         });
+        plAppointment.add(btnApprove);
+        btnApprove.setBounds(20, 310, 115, 33);
 
+        btnReject.setBackground(new java.awt.Color(51, 51, 51));
+        btnReject.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnReject.setText("Reject");
         btnReject.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReject.addActionListener(new java.awt.event.ActionListener() {
@@ -348,7 +380,13 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
                 btnRejectActionPerformed(evt);
             }
         });
+        plAppointment.add(btnReject);
+        btnReject.setBounds(190, 310, 112, 33);
 
+        tblRequestedAppTable.setBackground(new java.awt.Color(102, 102, 102));
+        tblRequestedAppTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblRequestedAppTable.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        tblRequestedAppTable.setForeground(new java.awt.Color(255, 255, 255));
         tblRequestedAppTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -362,76 +400,35 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblRequestedAppTable);
 
-        btnBack.setText("To previous Page");
+        plAppointment.add(jScrollPane2);
+        jScrollPane2.setBounds(20, 90, 847, 167);
+
+        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnBack.setText("Back To previous Page");
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        plAppointment.add(btnBack);
+        btnBack.setBounds(670, 380, 226, 23);
 
-        javax.swing.GroupLayout plAppointmentLayout = new javax.swing.GroupLayout(plAppointment);
-        plAppointment.setLayout(plAppointmentLayout);
-        plAppointmentLayout.setHorizontalGroup(
-            plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plAppointmentLayout.createSequentialGroup()
-                .addGap(0, 37, Short.MAX_VALUE)
-                .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 847, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(plAppointmentLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(plAppointmentLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(plAppointmentLayout.createSequentialGroup()
-                                .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)
-                                .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)))))
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(plAppointmentLayout.createSequentialGroup()
-                .addGap(194, 194, 194)
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        plAppointmentLayout.setVerticalGroup(
-            plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plAppointmentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(27, 27, 27)
-                .addGroup(plAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("—————————————————");
+        plAppointment.add(jLabel12);
+        jLabel12.setBounds(110, 270, 200, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(plAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+            .addComponent(plAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(plAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(plAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
         );
 
         pack();
@@ -476,6 +473,8 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
             
             
             Appointment app = new Appointment(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9]);
+            app.setAdminID(admin.getUserID());
+          
             if(app.getAptStatus().equals(AppStatus.Requesting.toString()))
             {
                 app.ApproveUserAppRequest();
@@ -509,6 +508,7 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
             
             
             Appointment app = new Appointment(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9]);
+            app.setAdminID(admin.getUserID());
             app.RejectUserAppRequest();
             this.showTableData();
         }
@@ -525,6 +525,10 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         this.hide();
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -557,7 +561,7 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminAppointmentApprovePage().setVisible(true);
+                new AdminAppointmentApprovePage("").setVisible(true);
             }
         });
     }
@@ -571,6 +575,7 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

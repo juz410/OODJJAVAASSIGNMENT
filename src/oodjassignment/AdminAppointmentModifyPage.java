@@ -25,8 +25,12 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
        lblVacType.setText(app.getVacType());
     }
     private static Appointment app;
-    public AdminAppointmentModifyPage(Appointment a) {
+    Users admin = new Users();
+    
+    public AdminAppointmentModifyPage(Appointment a, String adminID) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        admin.setUserID(adminID);
         app = a;
         this.showAppDetails();
     }
@@ -40,50 +44,164 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblAdminName6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        btnConfirm = new javax.swing.JButton();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         lblAdminName7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        lblAptID = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblAdminName6 = new javax.swing.JLabel();
         lblUserID = new javax.swing.JLabel();
         lblCenterID = new javax.swing.JLabel();
         lblVacType = new javax.swing.JLabel();
         lblVacID = new javax.swing.JLabel();
         lblDose = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         cbDay = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
         cbMonth = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
         cbYear = new javax.swing.JComboBox<>();
+        btnConfirm = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
         cbHour = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
         cbMinute = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
         btnCancel = new javax.swing.JButton();
+        jLabel41 = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblAptID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        lblAdminName6.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
+        lblAdminName7.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
+        lblAdminName7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lblAdminName7);
+        lblAdminName7.setBounds(462, 461, 0, 0);
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(462, 726, 0, 0);
+
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setLayout(null);
+
+        lblAdminName6.setBackground(new java.awt.Color(102, 102, 102));
+        lblAdminName6.setFont(new java.awt.Font("Tempus Sans ITC", 0, 30)); // NOI18N
+        lblAdminName6.setForeground(new java.awt.Color(255, 255, 255));
         lblAdminName6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAdminName6.setText("Appointment Time Modify");
+        jPanel1.add(lblAdminName6);
+        lblAdminName6.setBounds(20, 20, 360, 50);
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblUserID.setBackground(new java.awt.Color(102, 102, 102));
+        lblUserID.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblUserID.setForeground(new java.awt.Color(255, 255, 255));
+        lblUserID.setText("NULL");
+        lblUserID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(lblUserID);
+        lblUserID.setBounds(190, 90, 80, 21);
+
+        lblCenterID.setBackground(new java.awt.Color(102, 102, 102));
+        lblCenterID.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblCenterID.setForeground(new java.awt.Color(255, 255, 255));
+        lblCenterID.setText("NULL");
+        lblCenterID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(lblCenterID);
+        lblCenterID.setBounds(190, 110, 60, 21);
+
+        lblVacType.setBackground(new java.awt.Color(102, 102, 102));
+        lblVacType.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblVacType.setForeground(new java.awt.Color(255, 255, 255));
+        lblVacType.setText("NULL");
+        lblVacType.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(lblVacType);
+        lblVacType.setBounds(190, 130, 60, 21);
+
+        lblVacID.setBackground(new java.awt.Color(102, 102, 102));
+        lblVacID.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblVacID.setForeground(new java.awt.Color(255, 255, 255));
+        lblVacID.setText("NULL");
+        lblVacID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(lblVacID);
+        lblVacID.setBounds(190, 150, 70, 21);
+
+        lblDose.setBackground(new java.awt.Color(102, 102, 102));
+        lblDose.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblDose.setForeground(new java.awt.Color(255, 255, 255));
+        lblDose.setText("NULL");
+        lblDose.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(lblDose);
+        lblDose.setBounds(190, 170, 80, 20);
+
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText(":");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(240, 270, 10, 20);
+
+        jLabel10.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel10.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("/");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(240, 220, 30, 60);
+
+        jLabel11.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel11.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("/");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(300, 230, 30, 40);
+
+        cbDay.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+        cbDay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(cbDay);
+        cbDay.setBounds(190, 240, 40, 20);
+
+        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("User ID:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(130, 90, 45, 17);
 
-        jLabel38.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cbMonth.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        cbMonth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(cbMonth);
+        cbMonth.setBounds(250, 240, 40, 21);
+
+        jLabel12.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel12.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("New Time:");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(110, 270, 56, 17);
+
+        jLabel38.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel38.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
         jLabel38.setText("Vaccine ID:");
+        jPanel1.add(jLabel38);
+        jLabel38.setBounds(110, 150, 61, 17);
 
+        cbYear.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2022", "2023", " " }));
+        cbYear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(cbYear);
+        cbYear.setBounds(310, 240, 61, 21);
+
+        btnConfirm.setBackground(new java.awt.Color(51, 51, 51));
+        btnConfirm.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnConfirm.setText("Confirm");
         btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -91,218 +209,107 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
                 btnConfirmActionPerformed(evt);
             }
         });
+        jPanel1.add(btnConfirm);
+        btnConfirm.setBounds(250, 320, 97, 30);
 
-        jLabel39.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel13.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel13.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("New Date:");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(110, 240, 54, 17);
+
+        jLabel39.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel39.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
         jLabel39.setText("Vaccine Type:");
+        jPanel1.add(jLabel39);
+        jLabel39.setBounds(100, 130, 75, 17);
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel5.setText("Current Time:");
-
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel6.setText("Current Date:");
-
-        jLabel41.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel41.setText("Dose:");
-
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel7.setText("Appointment ID:");
-
-        lblAdminName7.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
-        lblAdminName7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel3.setText("Center ID:");
-
-        lblAptID.setText("NULL");
-
-        lblUserID.setText("NULL");
-
-        lblCenterID.setText("NULL");
-
-        lblVacType.setText("NULL");
-
-        lblVacID.setText("NULL");
-
-        lblDose.setText("NULL");
-
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        jLabel1.setText(":");
-
-        jLabel10.setText("/");
-
-        jLabel11.setText("/");
-
-        cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
-        cbDay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        cbMonth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel12.setText("New Time");
-
-        cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2022", "2023", " " }));
-        cbYear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel13.setText("New Date");
-
+        cbHour.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         cbHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
         cbHour.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(cbHour);
+        cbHour.setBounds(190, 270, 40, 21);
 
+        jLabel5.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel5.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Current Time:");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(100, 210, 75, 17);
+
+        cbMinute.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         cbMinute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
         cbMinute.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(cbMinute);
+        cbMinute.setBounds(250, 270, 40, 21);
 
+        jLabel6.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel6.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Current Date:");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(100, 190, 73, 17);
+
+        btnCancel.setBackground(new java.awt.Color(51, 51, 51));
+        btnCancel.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCancel);
+        btnCancel.setBounds(70, 320, 100, 30);
 
+        jLabel41.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel41.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setText("Dose:");
+        jPanel1.add(jLabel41);
+        jLabel41.setBounds(140, 160, 40, 30);
+
+        lblTime.setBackground(new java.awt.Color(102, 102, 102));
+        lblTime.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("NULL");
+        lblTime.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(lblTime);
+        lblTime.setBounds(190, 210, 70, 20);
 
+        jLabel7.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel7.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Appointment ID:");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(80, 70, 90, 17);
+
+        lblDate.setBackground(new java.awt.Color(102, 102, 102));
+        lblDate.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblDate.setForeground(new java.awt.Color(255, 255, 255));
         lblDate.setText("NULL");
+        lblDate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(lblDate);
+        lblDate.setBounds(190, 190, 80, 21);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13))
-                                .addGap(16, 16, 16)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(cbHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(9, 9, 9)
-                                        .addComponent(jLabel1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cbMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel10)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbYear, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(89, 89, 89)
-                                        .addComponent(lblAdminName7))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel41)
-                                                .addComponent(jLabel38)
-                                                .addComponent(jLabel39))
-                                            .addGap(32, 32, 32)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblVacType)
-                                                .addComponent(lblVacID)
-                                                .addComponent(lblDose)))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel2)
-                                                .addComponent(jLabel3)
-                                                .addComponent(jLabel7)
-                                                .addComponent(jLabel6)
-                                                .addComponent(jLabel5))
-                                            .addGap(32, 32, 32)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblUserID)
-                                                .addComponent(lblAptID)
-                                                .addComponent(lblCenterID)
-                                                .addComponent(lblDate)
-                                                .addComponent(lblTime)))))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(lblAdminName6)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblAdminName7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblAdminName6)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(lblAptID))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblUserID))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblCenterID))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(jLabel9))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel39)
-                            .addComponent(lblVacType))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel38)
-                            .addComponent(lblVacID))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel41)
-                            .addComponent(lblDose))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(lblDate))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(lblTime))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(cbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(cbHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(cbMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        jLabel3.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel3.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Center ID:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(120, 110, 55, 17);
+
+        lblAptID.setBackground(new java.awt.Color(102, 102, 102));
+        lblAptID.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        lblAptID.setForeground(new java.awt.Color(255, 255, 255));
+        lblAptID.setText("NULL");
+        lblAptID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(lblAptID);
+        lblAptID.setBounds(190, 70, 80, 21);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 510, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -320,6 +327,7 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         {
             app.setDate(date);
             app.setTime(time);
+            app.setAdminID(admin.getUserID());
             app.AppointmentTimeModify();
         }
        
@@ -361,7 +369,7 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminAppointmentModifyPage(app).setVisible(true);
+                new AdminAppointmentModifyPage(app,"").setVisible(true);
             }
         });
     }
@@ -388,6 +396,7 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAdminName6;
     private javax.swing.JLabel lblAdminName7;
     private javax.swing.JLabel lblAptID;
