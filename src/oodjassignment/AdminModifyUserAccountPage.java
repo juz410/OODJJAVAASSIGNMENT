@@ -90,6 +90,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -227,7 +228,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         lblEmail.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblEmail.setText("Email:");
         jPanel1.add(lblEmail);
-        lblEmail.setBounds(161, 206, 33, 14);
+        lblEmail.setBounds(161, 206, 34, 14);
 
         lblState.setBackground(new java.awt.Color(102, 102, 102));
         lblState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -267,7 +268,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSave);
-        btnSave.setBounds(130, 410, 100, 40);
+        btnSave.setBounds(140, 420, 100, 40);
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -318,6 +319,17 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         jLabel6.setText("——————————————————");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(120, 270, 230, 14);
+
+        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBack);
+        btnBack.setBounds(290, 430, 70, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -384,6 +396,12 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        this.hide();
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -420,6 +438,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cbCountry;
     private javax.swing.JComboBox<String> cbGender;

@@ -38,7 +38,7 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         model.setColumnCount(11);
         for (int i =0; i < userArray.length ; i ++)
         {
-            if(i > 1)
+            if(i > 1 && !userArray[i].startsWith("Admin"))
             {
                 
               String temp = userArray[i];
