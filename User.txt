@@ -1,6 +1,7 @@
 UserID|Name|Password|Gender|Phone Number|Email|Address|IC or Passport Number|State|Country|VacStatus
 Admin01|ADMIN|abcd1234| | | | | | | 
-010203-04-0506|Alice|Alice123!|MALE|0123456789|alice@gmail.com|123,Jalan Alice|010203-04-0506|Johor|Malaysia|NoDose
 010203-04-0508|Bob|Bob12345!!|MALE|0123456789|bob@gmail.com|123, Jalan Bob|010203-04-0508|Johor|Malaysia|FirstDose
 010203-04-0001|Coco|Coco1234!|MALE|0123456789|coco@gmail.com|123,Jalan Coco|010203-04-0001|Johor|Malaysia|NoDose
 Admin02|Chua|123||||||||
+010203-04-0506|Alice|Alice123!|FEMALE|0123456789|alice@gmail.com|123,Jalan Alice|010203-04-0506|Johor|Malaysia|FirstDose
+010203-04-0500|Dack|Dack123!|MALE|0123456789|dack@gmail.com|123,Jalan Dack|010203040500|Johor|Malaysia|NoDose

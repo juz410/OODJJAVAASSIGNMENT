@@ -128,10 +128,11 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(550, 550));
+        setMinimumSize(new java.awt.Dimension(725, 550));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setMinimumSize(new java.awt.Dimension(710, 720));
         jPanel1.setLayout(null);
 
         cbCenter.setBackground(new java.awt.Color(102, 102, 102));
@@ -215,6 +216,7 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
 
         btnAddVaccines.setBackground(new java.awt.Color(102, 102, 102));
         btnAddVaccines.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnAddVaccines.setForeground(new java.awt.Color(255, 255, 255));
         btnAddVaccines.setText("Add Vaccines");
         btnAddVaccines.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,6 +268,7 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
 
         btnRemove.setBackground(new java.awt.Color(102, 102, 102));
         btnRemove.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(255, 255, 255));
         btnRemove.setText("Remove Vaccines");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -327,8 +330,9 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(160, 140, 500, 148);
 
-        btnToVaccinePage.setBackground(new java.awt.Color(51, 51, 51));
+        btnToVaccinePage.setBackground(new java.awt.Color(102, 102, 102));
         btnToVaccinePage.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnToVaccinePage.setForeground(new java.awt.Color(255, 255, 255));
         btnToVaccinePage.setText("To Vaccine Page");
         btnToVaccinePage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -425,8 +429,9 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(30, 150, 120, 130);
 
-        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("To Previous Page");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -101,7 +101,6 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         btnRemove = new javax.swing.JButton();
         txtSearch = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,8 +108,9 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setLayout(null);
 
-        btnModify.setBackground(new java.awt.Color(51, 51, 51));
+        btnModify.setBackground(new java.awt.Color(102, 102, 102));
         btnModify.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnModify.setForeground(new java.awt.Color(255, 255, 255));
         btnModify.setText("Modify Time");
         btnModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,8 +120,9 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         jPanel1.add(btnModify);
         btnModify.setBounds(340, 210, 170, 33);
 
-        btnRefresh.setBackground(new java.awt.Color(51, 51, 51));
+        btnRefresh.setBackground(new java.awt.Color(102, 102, 102));
         btnRefresh.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,8 +132,9 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         jPanel1.add(btnRefresh);
         btnRefresh.setBounds(1180, 30, 120, 20);
 
-        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back to previous page");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,8 +171,9 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(410, 10, 500, 40);
 
-        btnDone.setBackground(new java.awt.Color(51, 51, 51));
+        btnDone.setBackground(new java.awt.Color(102, 102, 102));
         btnDone.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnDone.setForeground(new java.awt.Color(255, 255, 255));
         btnDone.setText("Done");
         btnDone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,8 +183,9 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
         jPanel1.add(btnDone);
         btnDone.setBounds(10, 210, 80, 30);
 
-        btnRemove.setBackground(new java.awt.Color(51, 51, 51));
+        btnRemove.setBackground(new java.awt.Color(102, 102, 102));
         btnRemove.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(255, 255, 255));
         btnRemove.setText("Remove Appointment");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,26 +206,19 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtSearch);
-        txtSearch.setBounds(80, 170, 170, 15);
+        txtSearch.setBounds(90, 170, 170, 15);
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Search here: ");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 170, 90, 20);
-
-        jCheckBox1.setBackground(new java.awt.Color(102, 102, 102));
-        jCheckBox1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("jCheckBox1");
-        jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(260, 170, 130, 25);
+        jLabel2.setBounds(0, 170, 90, 20);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("————————————————");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(80, 180, 200, 20);
+        jLabel3.setBounds(90, 170, 400, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -328,7 +325,6 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
     private javax.swing.JButton btnModify;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnRemove;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

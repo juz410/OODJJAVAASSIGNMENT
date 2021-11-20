@@ -1,5 +1,5 @@
 ApptID|UserID|CenterID|Address|Date|TIME|AppStatus|VacType|VacID|VacDose
-APT00000001|010203-04-0506|PAH02|Convention Hall Sultan Haji Ahmad Shah|28/12/2021|17:00|Requesting|Sinovac|S0026|FirstDose
+APT00000001|010203-04-0506|PAH02|Convention Hall Sultan Haji Ahmad Shah|28/12/2021|17:00|Cancelled|Sinovac|S0026|FirstDose
 APT00000002|902341-24-2341|PAH02|Convention Hall Sultan Haji Ahmad Shah|18/12/2021|16:00|Cancelled|AstraZeneca|NULL|FirstDose
 APT00000003|902341-24-2341|PAH03|Pekan Hospital|01/12/2021|18:00|Cancelled|Pfizer|NULL|FirstDose
 APT00000004|902341-24-2341|PAH01|Muadzam Shah Hospital|01/12/2021|00:00|Cancelled|Sinovac|NULL|FirstDose
@@ -9,3 +9,9 @@ APT00000007|902341-24-2341|PAH03|Pekan Hospital|29/7/2021|15:00|Done|AstraZeneca
 APT00000008|001122-66-5522|J02|Temenggong Seri Maharaja Tun Ibrahim Hospital|03/12/2021|08:03|Rejected|AstraZeneca|NULL|FirstDose
 APT00000009|010203-04-0508|J02|Temenggong Seri Maharaja Tun Ibrahim Hospital|03/12/2021|12:00|Cancelled|AstraZeneca|NULL|FirstDose
 APT00000010|010203-04-0508|J01|Dewan Raya Putra|01/12/2021|11:00|Done|AstraZeneca|A000000031|FirstDose
+APT00000011|010203-04-0506|J01|Dewan Raya Putra|02/12/2021|09:04|Cancelled|Sinovac|NULL|FirstDose
+APT00000012|010203-04-0506|J03|Dewan Raya Taman Universiti|01/12/2021|14:00|Cancelled|AstraZeneca|NULL|FirstDose
+APT00000013|010203-04-0506|J01|Dewan Raya Putra|01/12/2021|14:00|Cancelled|AstraZeneca|NULL|FirstDose
+APT00000014|010203-04-0506|J03|Dewan Raya Taman Universiti|01/12/2021|11:00|Cancelled|Pfizer|NULL|FirstDose
+APT00000015|010203-04-0506|J03|Dewan Raya Taman Universiti|18/10/2021|19:00|Done|AstraZeneca|NULL|FirstDose
+APT00000016|010203-04-0506|J03|Dewan Raya Taman Universiti|01/03/2022|11:00|Requesting|Pfizer|NULL|SecondDose

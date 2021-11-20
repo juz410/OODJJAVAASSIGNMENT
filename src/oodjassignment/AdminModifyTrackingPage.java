@@ -149,8 +149,9 @@ public class AdminModifyTrackingPage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setLayout(null);
 
-        btnVaccine.setBackground(new java.awt.Color(51, 51, 51));
+        btnVaccine.setBackground(new java.awt.Color(102, 102, 102));
         btnVaccine.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnVaccine.setForeground(new java.awt.Color(255, 255, 255));
         btnVaccine.setText("VCenter");
         btnVaccine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,8 +161,9 @@ public class AdminModifyTrackingPage extends javax.swing.JFrame {
         jPanel1.add(btnVaccine);
         btnVaccine.setBounds(10, 81, 105, 21);
 
-        btnApp.setBackground(new java.awt.Color(51, 51, 51));
+        btnApp.setBackground(new java.awt.Color(102, 102, 102));
         btnApp.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnApp.setForeground(new java.awt.Color(255, 255, 255));
         btnApp.setText("Appointment");
         btnApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,8 +173,9 @@ public class AdminModifyTrackingPage extends javax.swing.JFrame {
         jPanel1.add(btnApp);
         btnApp.setBounds(125, 79, 151, 24);
 
-        btnUser.setBackground(new java.awt.Color(51, 51, 51));
+        btnUser.setBackground(new java.awt.Color(102, 102, 102));
         btnUser.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnUser.setForeground(new java.awt.Color(255, 255, 255));
         btnUser.setText("User");
         btnUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,8 +232,9 @@ public class AdminModifyTrackingPage extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(10, 112, 840, 108);
 
-        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back to Main Menu");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,7 +247,7 @@ public class AdminModifyTrackingPage extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("——————————————————");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(80, 260, 200, 20);
+        jLabel3.setBounds(80, 260, 370, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

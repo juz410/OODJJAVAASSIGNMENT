@@ -5,9 +5,6 @@
  */
 package oodjassignment;
 
-import java.awt.Dimension;
-import java.awt.GraphicsEnvironment;
-import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -77,11 +74,11 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(60, 190, 70, 19);
+        jLabel2.setBounds(60, 180, 70, 19);
 
-        btnLogin.setBackground(new java.awt.Color(51, 51, 51));
+        btnLogin.setBackground(new java.awt.Color(102, 102, 102));
         btnLogin.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(102, 102, 102));
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
         btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -91,7 +88,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnLogin);
-        btnLogin.setBounds(110, 270, 90, 40);
+        btnLogin.setBounds(110, 260, 90, 40);
 
         txtUserID.setBackground(new java.awt.Color(102, 102, 102));
         txtUserID.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,7 +110,7 @@ public class LoginPage extends javax.swing.JFrame {
         txtPassword.setBorder(null);
         txtPassword.setCaretColor(null);
         jPanel1.add(txtPassword);
-        txtPassword.setBounds(60, 210, 165, 15);
+        txtPassword.setBounds(60, 200, 165, 15);
 
         lblRegister.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblRegister.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,7 +122,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblRegister);
-        lblRegister.setBounds(200, 230, 60, 17);
+        lblRegister.setBounds(210, 220, 60, 17);
 
         lblTime.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         lblTime.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,12 +133,12 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("————————————————");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(60, 220, 200, 10);
+        jLabel3.setBounds(60, 210, 200, 10);
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("————————————————");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(60, 160, 220, 10);
+        jLabel4.setBounds(60, 150, 220, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

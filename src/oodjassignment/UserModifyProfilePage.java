@@ -15,11 +15,12 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
      * Creates new form UserModifyProfilePage
      */
     
-    String userID;
-    Users user = new Users();
-    CurrentDateTime currentDateTime = new CurrentDateTime();
+    private String userID;
+    private Users user = new Users();
+    private CurrentDateTime currentDateTime = new CurrentDateTime();
     public UserModifyProfilePage(String userID) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.userID = userID;
         user.userProfile(this.userID);
         txtName.setText(user.getName());
@@ -27,7 +28,6 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         txtPhone.setText(user.getPhoneNo());
         txtEmail.setText(user.getEmail());
         txtAddress.setText(user.getAddress());
-        txtIC.setText(user.getIC());
         cbState.setSelectedItem(user.getState());
         cbCountry.setSelectedItem(user.getCountry());
         lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
@@ -54,11 +54,9 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         cbCountry = new javax.swing.JComboBox<>();
         txtEmail = new javax.swing.JTextField();
-        lblIC = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
         lblAddress = new javax.swing.JLabel();
-        txtIC = new javax.swing.JTextField();
         lblName = new javax.swing.JLabel();
         lblGender = new javax.swing.JLabel();
         lblPhone = new javax.swing.JLabel();
@@ -76,7 +74,6 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         lbl2 = new javax.swing.JLabel();
         lbl1 = new javax.swing.JLabel();
         lbl3 = new javax.swing.JLabel();
-        lbl4 = new javax.swing.JLabel();
         cbShowPassword = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
 
@@ -85,9 +82,9 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         plModifyUserAcc.setBackground(new java.awt.Color(102, 102, 102));
         plModifyUserAcc.setLayout(null);
 
-        btnConfirm.setBackground(new java.awt.Color(51, 51, 51));
+        btnConfirm.setBackground(new java.awt.Color(102, 102, 102));
         btnConfirm.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
-        btnConfirm.setForeground(new java.awt.Color(51, 51, 51));
+        btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirm.setText("Confirm");
         btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +93,7 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
             }
         });
         plModifyUserAcc.add(btnConfirm);
-        btnConfirm.setBounds(150, 420, 130, 40);
+        btnConfirm.setBounds(140, 410, 130, 40);
 
         lblTitle.setBackground(new java.awt.Color(102, 102, 102));
         lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
@@ -115,30 +112,36 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         lblTitle1.setBounds(80, 50, 270, 28);
 
         txtPhone.setBackground(new java.awt.Color(102, 102, 102));
-        txtPhone.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        txtPhone.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        txtPhone.setForeground(new java.awt.Color(255, 255, 255));
         txtPhone.setBorder(null);
-        txtPhone.setCaretColor(java.awt.Color.darkGray);
+        txtPhone.setCaretColor(null);
         plModifyUserAcc.add(txtPhone);
-        txtPhone.setBounds(150, 210, 180, 15);
+        txtPhone.setBounds(150, 230, 180, 17);
 
         txtCPassword.setBackground(new java.awt.Color(102, 102, 102));
-        txtCPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        txtCPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        txtCPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtCPassword.setBorder(null);
+        txtCPassword.setCaretColor(null);
         plModifyUserAcc.add(txtCPassword);
-        txtCPassword.setBounds(150, 150, 180, 15);
+        txtCPassword.setBounds(150, 170, 180, 17);
 
         txtName.setBackground(new java.awt.Color(102, 102, 102));
-        txtName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        txtName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        txtName.setForeground(new java.awt.Color(255, 255, 255));
         txtName.setBorder(null);
-        txtName.setCaretColor(java.awt.Color.darkGray);
+        txtName.setCaretColor(null);
         plModifyUserAcc.add(txtName);
-        txtName.setBounds(150, 90, 176, 15);
+        txtName.setBounds(150, 110, 176, 17);
 
         txtPassword.setBackground(new java.awt.Color(102, 102, 102));
-        txtPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.setBorder(null);
+        txtPassword.setCaretColor(null);
         plModifyUserAcc.add(txtPassword);
-        txtPassword.setBounds(150, 120, 176, 15);
+        txtPassword.setBounds(150, 140, 176, 17);
 
         cbCountry.setBackground(new java.awt.Color(51, 51, 51));
         cbCountry.setEditable(true);
@@ -146,91 +149,79 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         cbCountry.setForeground(new java.awt.Color(255, 255, 255));
         cbCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua & Deps", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Rep", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Congo {Democratic Rep}", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland {Republic}", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea North", "Korea South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar, {Burma}", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russian Federation", "Rwanda", "St Kitts & Nevis", "St Lucia", "Saint Vincent & the Grenadines", "Samoa", "San Marino", "Sao Tome & Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe" }));
         plModifyUserAcc.add(cbCountry);
-        cbCountry.setBounds(150, 360, 178, 21);
+        cbCountry.setBounds(150, 350, 210, 21);
 
         txtEmail.setBackground(new java.awt.Color(102, 102, 102));
-        txtEmail.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.setBorder(null);
-        txtEmail.setCaretColor(java.awt.Color.darkGray);
+        txtEmail.setCaretColor(null);
         plModifyUserAcc.add(txtEmail);
-        txtEmail.setBounds(150, 240, 178, 15);
-
-        lblIC.setBackground(new java.awt.Color(102, 102, 102));
-        lblIC.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
-        lblIC.setForeground(new java.awt.Color(255, 255, 255));
-        lblIC.setText("IC/Passport:");
-        plModifyUserAcc.add(lblIC);
-        lblIC.setBounds(70, 270, 68, 17);
+        txtEmail.setBounds(150, 260, 178, 17);
 
         txtAddress.setBackground(new java.awt.Color(102, 102, 102));
-        txtAddress.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        txtAddress.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        txtAddress.setForeground(new java.awt.Color(255, 255, 255));
         txtAddress.setBorder(null);
-        txtAddress.setCaretColor(java.awt.Color.darkGray);
+        txtAddress.setCaretColor(null);
         plModifyUserAcc.add(txtAddress);
-        txtAddress.setBounds(150, 300, 178, 15);
+        txtAddress.setBounds(150, 290, 178, 17);
 
         lblPassword.setBackground(new java.awt.Color(102, 102, 102));
         lblPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("New Password:");
         plModifyUserAcc.add(lblPassword);
-        lblPassword.setBounds(60, 120, 87, 17);
+        lblPassword.setBounds(60, 140, 87, 17);
 
         lblAddress.setBackground(new java.awt.Color(102, 102, 102));
         lblAddress.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress.setText("Current Address:");
         plModifyUserAcc.add(lblAddress);
-        lblAddress.setBounds(40, 300, 93, 17);
-
-        txtIC.setBackground(new java.awt.Color(102, 102, 102));
-        txtIC.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
-        txtIC.setBorder(null);
-        txtIC.setCaretColor(java.awt.Color.darkGray);
-        plModifyUserAcc.add(txtIC);
-        txtIC.setBounds(150, 270, 178, 15);
+        lblAddress.setBounds(50, 290, 93, 17);
 
         lblName.setBackground(new java.awt.Color(102, 102, 102));
         lblName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Name:");
         plModifyUserAcc.add(lblName);
-        lblName.setBounds(93, 90, 40, 17);
+        lblName.setBounds(100, 110, 40, 17);
 
         lblGender.setBackground(new java.awt.Color(102, 102, 102));
         lblGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblGender.setForeground(new java.awt.Color(255, 255, 255));
         lblGender.setText("Gender:");
         plModifyUserAcc.add(lblGender);
-        lblGender.setBounds(100, 180, 44, 17);
+        lblGender.setBounds(100, 200, 44, 17);
 
         lblPhone.setBackground(new java.awt.Color(102, 102, 102));
         lblPhone.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblPhone.setForeground(new java.awt.Color(255, 255, 255));
         lblPhone.setText("Phone:");
         plModifyUserAcc.add(lblPhone);
-        lblPhone.setBounds(100, 210, 39, 17);
+        lblPhone.setBounds(100, 230, 39, 17);
 
         lblEmail.setBackground(new java.awt.Color(102, 102, 102));
         lblEmail.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail.setText("Email:");
         plModifyUserAcc.add(lblEmail);
-        lblEmail.setBounds(100, 240, 35, 17);
+        lblEmail.setBounds(100, 260, 35, 17);
 
         lblState.setBackground(new java.awt.Color(102, 102, 102));
         lblState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblState.setForeground(new java.awt.Color(255, 255, 255));
         lblState.setText("Current State:");
         plModifyUserAcc.add(lblState);
-        lblState.setBounds(60, 330, 80, 20);
+        lblState.setBounds(60, 320, 90, 20);
 
         lblCountry.setBackground(new java.awt.Color(102, 102, 102));
         lblCountry.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblCountry.setForeground(new java.awt.Color(255, 255, 255));
         lblCountry.setText("Country:");
         plModifyUserAcc.add(lblCountry);
-        lblCountry.setBounds(90, 360, 50, 20);
+        lblCountry.setBounds(80, 350, 70, 20);
 
         cbState.setBackground(new java.awt.Color(51, 51, 51));
         cbState.setEditable(true);
@@ -238,14 +229,14 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         cbState.setForeground(new java.awt.Color(255, 255, 255));
         cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Kuala Lumpur", "Kedah", "Kelantan", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Penang", "Perak", "Perlis", "Putrajaya", "Sabah", "Sarawak", "Selangor", "Terengganu" }));
         plModifyUserAcc.add(cbState);
-        cbState.setBounds(150, 330, 178, 20);
+        cbState.setBounds(150, 320, 210, 20);
 
         lblCPassword.setBackground(new java.awt.Color(102, 102, 102));
         lblCPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblCPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblCPassword.setText("Confirm Password:");
         plModifyUserAcc.add(lblCPassword);
-        lblCPassword.setBounds(40, 150, 106, 17);
+        lblCPassword.setBounds(40, 170, 106, 17);
 
         cbGender1.setBackground(new java.awt.Color(51, 51, 51));
         cbGender1.setEditable(true);
@@ -253,10 +244,11 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
         cbGender1.setForeground(new java.awt.Color(255, 255, 255));
         cbGender1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE" }));
         plModifyUserAcc.add(cbGender1);
-        cbGender1.setBounds(150, 180, 178, 21);
+        cbGender1.setBounds(150, 200, 90, 21);
 
-        btnBack.setBackground(new java.awt.Color(51, 51, 51));
-        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
+        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,51 +256,46 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
             }
         });
         plModifyUserAcc.add(btnBack);
-        btnBack.setBounds(330, 490, 95, 32);
+        btnBack.setBounds(370, 490, 100, 27);
 
         lblTime.setBackground(new java.awt.Color(102, 102, 102));
         lblTime.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("jLabel1");
         plModifyUserAcc.add(lblTime);
-        lblTime.setBounds(360, 10, 100, 110);
+        lblTime.setBounds(430, 0, 60, 70);
 
         jLabel4.setBackground(new java.awt.Color(102, 102, 102));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("—————————————————");
         plModifyUserAcc.add(jLabel4);
-        jLabel4.setBounds(150, 100, 217, 10);
+        jLabel4.setBounds(150, 120, 217, 10);
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("—————————————————");
         plModifyUserAcc.add(jLabel5);
-        jLabel5.setBounds(150, 130, 221, 10);
+        jLabel5.setBounds(150, 150, 221, 10);
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("—————————————————");
         plModifyUserAcc.add(jLabel10);
-        jLabel10.setBounds(150, 160, 240, 10);
+        jLabel10.setBounds(150, 180, 240, 10);
 
         lbl2.setForeground(new java.awt.Color(255, 255, 255));
         lbl2.setText("—————————————————");
         plModifyUserAcc.add(lbl2);
-        lbl2.setBounds(150, 250, 221, 10);
+        lbl2.setBounds(150, 270, 221, 10);
 
         lbl1.setForeground(new java.awt.Color(255, 255, 255));
         lbl1.setText("—————————————————");
         plModifyUserAcc.add(lbl1);
-        lbl1.setBounds(150, 220, 221, 14);
+        lbl1.setBounds(150, 240, 221, 14);
 
         lbl3.setBackground(new java.awt.Color(102, 102, 102));
         lbl3.setForeground(new java.awt.Color(255, 255, 255));
         lbl3.setText("—————————————————");
         plModifyUserAcc.add(lbl3);
-        lbl3.setBounds(150, 310, 221, 10);
-
-        lbl4.setForeground(new java.awt.Color(255, 255, 255));
-        lbl4.setText("—————————————————");
-        plModifyUserAcc.add(lbl4);
-        lbl4.setBounds(150, 280, 221, 10);
+        lbl3.setBounds(160, 300, 221, 10);
 
         cbShowPassword.setBackground(new java.awt.Color(102, 102, 102));
         cbShowPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -317,12 +304,12 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
             }
         });
         plModifyUserAcc.add(cbShowPassword);
-        cbShowPassword.setBounds(380, 140, 21, 30);
+        cbShowPassword.setBounds(380, 160, 21, 30);
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\481-4810872_hide-password-hide-show-password-icon-png-transparent.png")); // NOI18N
         plModifyUserAcc.add(jLabel1);
-        jLabel1.setBounds(400, 140, 40, 30);
+        jLabel1.setBounds(400, 160, 40, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -341,20 +328,22 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
         user.setName(txtName.getText());
-        user.setUserID(txtIC.getText());
+        user.setUserID(this.userID);
         user.setName(txtName.getText());
         user.setPassword(txtPassword.getText());
         user.setCPassword(txtCPassword.getText());
         user.setEmail(txtEmail.getText());
-        user.setIC(txtIC.getText());
         user.setPhoneNo(txtPhone.getText());
         user.setAddress(txtAddress.getText());
         user.setGender(cbGender1.getSelectedItem().toString());
         user.setCountry(cbCountry.getSelectedItem().toString());
         user.setState(cbState.getSelectedItem().toString());
-        if (user.userRegister())
+        if (user.userModifyProfile())
         {
             user.userModify(this.userID);
+            this.dispose();
+            UserMainPage userMainPage = new UserMainPage(this.userID);
+            userMainPage.setVisible(true);
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
@@ -428,13 +417,11 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lbl3;
-    private javax.swing.JLabel lbl4;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCPassword;
     private javax.swing.JLabel lblCountry;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblGender;
-    private javax.swing.JLabel lblIC;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPhone;
@@ -446,7 +433,6 @@ public class UserModifyProfilePage extends javax.swing.JFrame {
     private javax.swing.JTextField txtAddress;
     private javax.swing.JPasswordField txtCPassword;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtIC;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhone;

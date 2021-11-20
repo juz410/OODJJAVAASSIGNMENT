@@ -16,10 +16,11 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
     /**
      * Creates new form UserAppointmentMainPage
      */
-    String userID;
-    CurrentDateTime currentDateTime = new CurrentDateTime();
+    private String userID;
+    private CurrentDateTime currentDateTime = new CurrentDateTime();
     public UserAppointmentMainPage(String userID) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.userID = userID;
         
         lblTime.setText("<html>" + currentDateTime.currentDate() + " <br> " +
@@ -50,8 +51,9 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setLayout(null);
 
-        btnRegister.setBackground(new java.awt.Color(51, 51, 51));
+        btnRegister.setBackground(new java.awt.Color(102, 102, 102));
         btnRegister.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Register");
         btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -69,8 +71,9 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(190, 290, 100, 17);
 
-        btnView.setBackground(new java.awt.Color(51, 51, 51));
+        btnView.setBackground(new java.awt.Color(102, 102, 102));
         btnView.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnView.setForeground(new java.awt.Color(255, 255, 255));
         btnView.setText("View");
         btnView.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnView.addActionListener(new java.awt.event.ActionListener() {
@@ -96,8 +99,9 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
         jPanel1.add(lblTitle);
         lblTitle.setBounds(70, 50, 210, 70);
 
-        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +116,7 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
         lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("jLabel2");
         jPanel1.add(lblTime);
-        lblTime.setBounds(280, 0, 80, 90);
+        lblTime.setBounds(300, 0, 70, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

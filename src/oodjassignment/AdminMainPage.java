@@ -43,8 +43,9 @@ public class AdminMainPage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setLayout(null);
 
-        btnAppointment.setBackground(new java.awt.Color(51, 51, 51));
+        btnAppointment.setBackground(new java.awt.Color(102, 102, 102));
         btnAppointment.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnAppointment.setForeground(new java.awt.Color(255, 255, 255));
         btnAppointment.setText("Appointment");
         btnAppointment.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -60,33 +61,34 @@ public class AdminMainPage extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Manage User Account");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(210, 160, 120, 15);
+        jLabel1.setBounds(220, 160, 120, 15);
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Manage Appointment");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(210, 250, 120, 15);
+        jLabel2.setBounds(220, 250, 120, 15);
 
         lblTitle1.setBackground(new java.awt.Color(102, 102, 102));
-        lblTitle1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblTitle1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Welcome Back");
         jPanel1.add(lblTitle1);
-        lblTitle1.setBounds(110, 30, 170, 33);
+        lblTitle1.setBounds(60, 20, 270, 48);
 
         lblAdminName.setBackground(new java.awt.Color(102, 102, 102));
-        lblAdminName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblAdminName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
         lblAdminName.setForeground(new java.awt.Color(255, 255, 255));
         lblAdminName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAdminName.setText("Admin");
         jPanel1.add(lblAdminName);
-        lblAdminName.setBounds(150, 60, 101, 33);
+        lblAdminName.setBounds(100, 60, 200, 48);
 
-        btnUserAcc.setBackground(new java.awt.Color(51, 51, 51));
+        btnUserAcc.setBackground(new java.awt.Color(102, 102, 102));
         btnUserAcc.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnUserAcc.setForeground(new java.awt.Color(255, 255, 255));
         btnUserAcc.setText("User Account");
         btnUserAcc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUserAcc.addActionListener(new java.awt.event.ActionListener() {
@@ -104,8 +106,9 @@ public class AdminMainPage extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(220, 340, 100, 15);
 
-        btnAppointment2.setBackground(new java.awt.Color(51, 51, 51));
+        btnAppointment2.setBackground(new java.awt.Color(102, 102, 102));
         btnAppointment2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnAppointment2.setForeground(new java.awt.Color(255, 255, 255));
         btnAppointment2.setText("Vaccine");
         btnAppointment2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAppointment2.addActionListener(new java.awt.event.ActionListener() {
@@ -116,8 +119,9 @@ public class AdminMainPage extends javax.swing.JFrame {
         jPanel1.add(btnAppointment2);
         btnAppointment2.setBounds(120, 288, 140, 50);
 
-        btnAppointment3.setBackground(new java.awt.Color(51, 51, 51));
+        btnAppointment3.setBackground(new java.awt.Color(102, 102, 102));
         btnAppointment3.setFont(new java.awt.Font("Tempus Sans ITC", 0, 15)); // NOI18N
+        btnAppointment3.setForeground(new java.awt.Color(255, 255, 255));
         btnAppointment3.setText("Modify Track");
         btnAppointment3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAppointment3.addActionListener(new java.awt.event.ActionListener() {
@@ -135,8 +139,9 @@ public class AdminMainPage extends javax.swing.JFrame {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(220, 420, 90, 14);
 
-        btnLogout.setBackground(new java.awt.Color(51, 51, 51));
+        btnLogout.setBackground(new java.awt.Color(102, 102, 102));
         btnLogout.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Log Out");
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +156,7 @@ public class AdminMainPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

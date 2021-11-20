@@ -186,7 +186,7 @@ public class Validation
     {
         LocalDate userDate = LocalDate.of(year,month,day); //convert user input Date into localdate type
         LocalDate currentDate = LocalDate.now(); //current date
-        LocalDate currentDateAdd1Month = currentDate.plusMonths(1); //make sure user can make 2nd dose appointment after finish 1st dose 1 month
+        LocalDate userDateAdd1Month = userDate.plusMonths(1); //make sure user can make 2nd dose appointment after finish 1st dose 1 month
         LocalDate currentDateAdd7Days =  currentDate.plusDays(7); //make a conditions that don't let user make appointment before 7 days
         if (!userDate.isBefore(currentDateAdd7Days) && "r".equals(check))
         {
@@ -196,7 +196,7 @@ public class Validation
         {
             pass = true;
         }
-        else if (userDate.isAfter(currentDateAdd1Month) && "30M".equals(check))
+        else if (userDateAdd1Month.isAfter(currentDate) && "30M".equals(check))
         {
             pass = true;
         }

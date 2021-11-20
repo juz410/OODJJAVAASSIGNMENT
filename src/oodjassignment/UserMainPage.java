@@ -16,11 +16,13 @@ import javax.swing.JOptionPane;
 public class UserMainPage extends javax.swing.JFrame 
 {
     private String userID;
-    Users user = new Users();
-    CurrentDateTime currentDateTime = new CurrentDateTime();
+    private Users user = new Users();
+    private CurrentDateTime currentDateTime = new CurrentDateTime();
     public UserMainPage(String userID) 
     {
         initComponents();
+        this.setLocationRelativeTo(null);
+        dlgDoseStatus.setLocationRelativeTo(null);
         this.userID = userID;
         this.userID = userID;
         Appointment appointment = new Appointment();
@@ -97,48 +99,74 @@ public class UserMainPage extends javax.swing.JFrame
         btnModify = new javax.swing.JButton();
         lblVacStatus = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         dlgDoseStatus.setMinimumSize(new java.awt.Dimension(665, 580));
 
         plDoseStatus.setBackground(new java.awt.Color(255, 204, 102));
+        plDoseStatus.setLayout(null);
 
-        lblTitle2.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        lblTitle2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
         lblTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle2.setText("Digital Certificate");
+        plDoseStatus.add(lblTitle2);
+        lblTitle2.setBounds(180, 80, 220, 40);
 
-        lblTITLE.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        lblTITLE.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
         lblTITLE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTITLE.setText("Covid-19 Vaccination");
+        plDoseStatus.add(lblTITLE);
+        lblTITLE.setBounds(110, 30, 370, 50);
 
-        jLabel3.setText("———————————————————————————————————————————————————————————————");
+        jLabel3.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("—————————————————————————————————————————————");
+        plDoseStatus.add(jLabel3);
+        jLabel3.setBounds(10, 120, 570, 15);
 
-        lblIC.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        lblIC.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
         lblIC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblIC.setText("IC");
+        plDoseStatus.add(lblIC);
+        lblIC.setBounds(30, 180, 520, 33);
 
-        lblUsernameDG.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        lblUsernameDG.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
         lblUsernameDG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsernameDG.setText("UserName");
+        plDoseStatus.add(lblUsernameDG);
+        lblUsernameDG.setBounds(10, 140, 560, 48);
 
         plDose1.setBackground(new java.awt.Color(255, 204, 204));
 
-        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
         jLabel7.setText("Dose 1:");
 
+        jLabel9.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         jLabel9.setText("Date:");
 
+        jLabel10.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         jLabel10.setText("CenterID:");
 
+        jLabel11.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         jLabel11.setText("Vaccine Type:");
 
+        jLabel12.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         jLabel12.setText("Vaccine ID:");
 
+        lblVaccineID1.setBackground(new java.awt.Color(255, 255, 255));
+        lblVaccineID1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         lblVaccineID1.setText("                                      ");
 
+        lblDate1.setBackground(new java.awt.Color(255, 255, 255));
+        lblDate1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         lblDate1.setText("                                      ");
 
+        lblCenterID1.setBackground(new java.awt.Color(255, 255, 255));
+        lblCenterID1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         lblCenterID1.setText("                                      ");
 
+        lblVaccineType1.setBackground(new java.awt.Color(255, 255, 255));
+        lblVaccineType1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         lblVaccineType1.setText("                                  ");
 
         javax.swing.GroupLayout plDose1Layout = new javax.swing.GroupLayout(plDose1);
@@ -148,68 +176,76 @@ public class UserMainPage extends javax.swing.JFrame
             .addGroup(plDose1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9)
                     .addComponent(jLabel12)
                     .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addGroup(plDose1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)))
-                        .addComponent(jLabel11)))
+                        .addGroup(plDose1Layout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addComponent(jLabel7))
+                        .addComponent(jLabel11))
+                    .addComponent(jLabel10))
                 .addGap(18, 18, 18)
                 .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblCenterID1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblVaccineType1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblDate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblVaccineID1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
         plDose1Layout.setVerticalGroup(
             plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plDose1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(plDose1Layout.createSequentialGroup()
-                        .addComponent(lblDate1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCenterID1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblVaccineID1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblVaccineType1))
-                    .addGroup(plDose1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(lblDate1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(lblCenterID1))
+                .addGap(11, 11, 11)
+                .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(lblVaccineID1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plDose1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(lblVaccineType1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        plDoseStatus.add(plDose1);
+        plDose1.setBounds(40, 220, 500, 149);
 
         plDose2.setBackground(new java.awt.Color(255, 204, 204));
 
-        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
         jLabel8.setText("Dose 2:");
 
+        jLabel13.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         jLabel13.setText("Date:");
 
+        jLabel14.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         jLabel14.setText("CenterID:");
 
+        jLabel15.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         jLabel15.setText("Vaccine Type:");
 
+        jLabel16.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         jLabel16.setText("Vaccine ID:");
 
+        lblVaccineID2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         lblVaccineID2.setText("                                            ");
 
+        lblDate2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         lblDate2.setText("                                     ");
 
+        lblCenterID2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         lblCenterID2.setText("                                           ");
 
+        lblVaccineType2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         lblVaccineType2.setText("                                             ");
 
         javax.swing.GroupLayout plDose2Layout = new javax.swing.GroupLayout(plDose2);
@@ -218,112 +254,58 @@ public class UserMainPage extends javax.swing.JFrame
             plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plDose2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel16)
-                    .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel14)
-                            .addGroup(plDose2Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)))
-                        .addComponent(jLabel15)))
+                .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel15))
+                        .addComponent(jLabel13))
+                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblCenterID2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblVaccineType2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblDate2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblVaccineID2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         plDose2Layout.setVerticalGroup(
             plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plDose2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(plDose2Layout.createSequentialGroup()
-                        .addComponent(lblDate2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCenterID2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblVaccineID2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblVaccineType2))
-                    .addGroup(plDose2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel15)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(lblDate2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(lblCenterID2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(lblVaccineID2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plDose2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(lblVaccineType2))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout plDoseStatusLayout = new javax.swing.GroupLayout(plDoseStatus);
-        plDoseStatus.setLayout(plDoseStatusLayout);
-        plDoseStatusLayout.setHorizontalGroup(
-            plDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plDoseStatusLayout.createSequentialGroup()
-                .addGroup(plDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(plDoseStatusLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(plDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(plDose1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 500, Short.MAX_VALUE)
-                            .addComponent(plDose2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(plDoseStatusLayout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addGroup(plDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTITLE)
-                            .addGroup(plDoseStatusLayout.createSequentialGroup()
-                                .addGap(82, 82, 82)
-                                .addComponent(lblTitle2))))
-                    .addGroup(plDoseStatusLayout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(lblUsernameDG, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(plDoseStatusLayout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(lblIC, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(59, Short.MAX_VALUE))
-        );
-        plDoseStatusLayout.setVerticalGroup(
-            plDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plDoseStatusLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblTITLE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTitle2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addGap(1, 1, 1)
-                .addComponent(lblUsernameDG)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblIC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(plDose1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(plDose2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        plDoseStatus.add(plDose2);
+        plDose2.setBounds(40, 380, 500, 144);
 
         javax.swing.GroupLayout dlgDoseStatusLayout = new javax.swing.GroupLayout(dlgDoseStatus.getContentPane());
         dlgDoseStatus.getContentPane().setLayout(dlgDoseStatusLayout);
         dlgDoseStatusLayout.setHorizontalGroup(
             dlgDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dlgDoseStatusLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(plDoseStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+            .addComponent(plDoseStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
         );
         dlgDoseStatusLayout.setVerticalGroup(
             dlgDoseStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgDoseStatusLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(plDoseStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(plDoseStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -347,8 +329,9 @@ public class UserMainPage extends javax.swing.JFrame
         plUserMain.add(lblTitle);
         lblTitle.setBounds(30, 70, 300, 50);
 
-        btnProfile.setBackground(new java.awt.Color(51, 51, 51));
+        btnProfile.setBackground(new java.awt.Color(102, 102, 102));
         btnProfile.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnProfile.setForeground(new java.awt.Color(255, 255, 255));
         btnProfile.setText("Profile");
         btnProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -357,10 +340,11 @@ public class UserMainPage extends javax.swing.JFrame
             }
         });
         plUserMain.add(btnProfile);
-        btnProfile.setBounds(110, 130, 120, 48);
+        btnProfile.setBounds(110, 128, 130, 50);
 
-        btnAppointment.setBackground(new java.awt.Color(51, 51, 51));
-        btnAppointment.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnAppointment.setBackground(new java.awt.Color(102, 102, 102));
+        btnAppointment.setFont(new java.awt.Font("Tempus Sans ITC", 0, 16)); // NOI18N
+        btnAppointment.setForeground(new java.awt.Color(255, 255, 255));
         btnAppointment.setText("Appointment");
         btnAppointment.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -369,31 +353,32 @@ public class UserMainPage extends javax.swing.JFrame
             }
         });
         plUserMain.add(btnAppointment);
-        btnAppointment.setBounds(110, 300, 120, 48);
+        btnAppointment.setBounds(110, 290, 130, 50);
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("View Profile");
         plUserMain.add(jLabel1);
-        jLabel1.setBounds(200, 180, 69, 14);
+        jLabel1.setBounds(210, 180, 69, 14);
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("View Appointment");
         plUserMain.add(jLabel2);
-        jLabel2.setBounds(190, 350, 100, 15);
+        jLabel2.setBounds(210, 340, 100, 15);
 
         jLabel4.setBackground(new java.awt.Color(102, 102, 102));
         jLabel4.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("ModifyProfile");
         plUserMain.add(jLabel4);
-        jLabel4.setBounds(200, 260, 69, 15);
+        jLabel4.setBounds(210, 260, 69, 15);
 
-        btnModify.setBackground(new java.awt.Color(51, 51, 51));
+        btnModify.setBackground(new java.awt.Color(102, 102, 102));
         btnModify.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnModify.setForeground(new java.awt.Color(255, 255, 255));
         btnModify.setText("Modify");
         btnModify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnModify.addActionListener(new java.awt.event.ActionListener() {
@@ -402,10 +387,10 @@ public class UserMainPage extends javax.swing.JFrame
             }
         });
         plUserMain.add(btnModify);
-        btnModify.setBounds(110, 210, 120, 48);
+        btnModify.setBounds(110, 210, 130, 48);
 
         lblVacStatus.setBackground(new java.awt.Color(102, 102, 102));
-        lblVacStatus.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblVacStatus.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblVacStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblVacStatus.setText("Vaccination Status:");
         lblVacStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -415,14 +400,26 @@ public class UserMainPage extends javax.swing.JFrame
             }
         });
         plUserMain.add(lblVacStatus);
-        lblVacStatus.setBounds(10, 390, 202, 15);
+        lblVacStatus.setBounds(10, 380, 130, 17);
 
         lblTime.setBackground(new java.awt.Color(102, 102, 102));
         lblTime.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("jLabel5");
         plUserMain.add(lblTime);
-        lblTime.setBounds(310, 0, 70, 80);
+        lblTime.setBounds(320, 0, 60, 70);
+
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Log out");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        plUserMain.add(jButton1);
+        jButton1.setBounds(250, 410, 110, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -484,6 +481,13 @@ public class UserMainPage extends javax.swing.JFrame
         }); 
     }//GEN-LAST:event_lblVacStatusMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        LoginPage loginPage = new LoginPage();
+        loginPage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -524,6 +528,7 @@ public class UserMainPage extends javax.swing.JFrame
     private javax.swing.JButton btnModify;
     private javax.swing.JButton btnProfile;
     private javax.swing.JDialog dlgDoseStatus;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

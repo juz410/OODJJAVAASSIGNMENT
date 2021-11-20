@@ -56,23 +56,24 @@ public class AdminUMainPage extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         lblTitle.setBackground(new java.awt.Color(102, 102, 102));
-        lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 32)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("User Account");
         jPanel1.add(lblTitle);
-        lblTitle.setBounds(70, 100, 163, 29);
+        lblTitle.setBounds(50, 100, 200, 42);
 
         lblTitle1.setBackground(new java.awt.Color(102, 102, 102));
-        lblTitle1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblTitle1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 32)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Managing");
         jPanel1.add(lblTitle1);
-        lblTitle1.setBounds(70, 70, 167, 29);
+        lblTitle1.setBounds(50, 70, 200, 42);
 
-        btnSearch.setBackground(new java.awt.Color(51, 51, 51));
+        btnSearch.setBackground(new java.awt.Color(102, 102, 102));
         btnSearch.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Search");
         btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -90,8 +91,9 @@ public class AdminUMainPage extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(160, 220, 120, 15);
 
-        btnRegister.setBackground(new java.awt.Color(51, 51, 51));
+        btnRegister.setBackground(new java.awt.Color(102, 102, 102));
         btnRegister.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Register");
         btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -109,8 +111,9 @@ public class AdminUMainPage extends javax.swing.JFrame {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(160, 300, 140, 15);
 
-        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back ");
         btnBack.setActionCommand("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -119,14 +122,14 @@ public class AdminUMainPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnBack);
-        btnBack.setBounds(230, 360, 90, 30);
+        btnBack.setBounds(230, 370, 90, 30);
 
         lblTime.setBackground(new java.awt.Color(102, 102, 102));
         lblTime.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
         lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("jLabel2");
         jPanel1.add(lblTime);
-        lblTime.setBounds(250, 0, 80, 109);
+        lblTime.setBounds(260, 0, 70, 80);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

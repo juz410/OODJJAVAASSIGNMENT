@@ -151,8 +151,9 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         jPanel1.add(txtSearch);
         txtSearch.setBounds(90, 310, 170, 20);
 
-        btnModify.setBackground(new java.awt.Color(51, 51, 51));
+        btnModify.setBackground(new java.awt.Color(102, 102, 102));
         btnModify.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnModify.setForeground(new java.awt.Color(255, 255, 255));
         btnModify.setText("Modify");
         btnModify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnModify.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +162,7 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnModify);
-        btnModify.setBounds(290, 310, 110, 30);
+        btnModify.setBounds(310, 310, 110, 30);
 
         tblUser.setBackground(new java.awt.Color(102, 102, 102));
         tblUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -189,8 +190,9 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(10, 310, 80, 19);
 
-        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back to Previous Page");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,7 +205,7 @@ public class AdminSearchUserPage extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("—————————————————");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(90, 320, 190, 20);
+        jLabel3.setBounds(90, 320, 450, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

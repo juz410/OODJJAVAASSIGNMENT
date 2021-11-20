@@ -109,8 +109,9 @@ public class AdminVaccinePage extends javax.swing.JFrame {
         jPanel1.add(txtQuantity);
         txtQuantity.setBounds(100, 90, 100, 17);
 
-        btnInsertNewVaccine.setBackground(new java.awt.Color(51, 51, 51));
+        btnInsertNewVaccine.setBackground(new java.awt.Color(102, 102, 102));
         btnInsertNewVaccine.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnInsertNewVaccine.setForeground(new java.awt.Color(255, 255, 255));
         btnInsertNewVaccine.setText("New Vaccine to Werehouse");
         btnInsertNewVaccine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,10 +119,11 @@ public class AdminVaccinePage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnInsertNewVaccine);
-        btnInsertNewVaccine.setBounds(220, 90, 220, 30);
+        btnInsertNewVaccine.setBounds(250, 90, 220, 30);
 
-        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back to previous Page");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +163,7 @@ public class AdminVaccinePage extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("——————————");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(100, 100, 110, 20);
+        jLabel6.setBounds(100, 100, 200, 20);
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setLayout(null);

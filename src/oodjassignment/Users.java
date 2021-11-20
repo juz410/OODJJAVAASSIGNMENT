@@ -250,7 +250,7 @@ public class Users {
                                         "<html> UserID: "+ this.userID + "<br> Name: " + this.Name+
                                         "<br> Gender: " + this.Gender +
                                         "<br> Phone: " + this.PhoneNo + "<br> Email: " +this.Email+
-                                        "<br> Address" +this.Address + "<br> IC/Passport: " + this.IC +
+                                        "<br> Address: " +this.Address + "<br> IC/Passport: " + this.IC +
                                         "<br> State: " +this.State +
                                         "<br> Country: " +this.Country + " <html>", "Comfirmation",
                                         JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,null,null,null);
@@ -419,9 +419,8 @@ public class Users {
         } 
         catch (IOException e) 
         {
-            System.out.println("An error occurred.");
             e.printStackTrace();
-          }
+        }
     }
     public void AdminUserModify(String adminID)
     {
@@ -518,9 +517,6 @@ public class Users {
         this.VacStatus = UVacStatus.valueOf(newDose);
         this.changingUserVacStatus(Arr);
         
-        
-        
-        
     }
     
      private String[] returnFileLine()
@@ -601,7 +597,92 @@ public class Users {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
+    public boolean userModifyProfile()
+    {
+        String VaccineStatus = UVacStatus.NoDose.toString();
+        
+        if (validation.confirmPassword(this.Password, this.confirmPassword))
+        {
+            if(validation.passwordValid(this.Password))
+            {
+                if (validation.phoneValid(this.PhoneNo))
+                {
+                    if (validation.emailValid(this.Email))
+                    {
+                        if (validation.icValid(this.IC))
+                        {
+                            try 
+                            {
+                                FileWriter userFileWriter = new FileWriter(file,true);
+                                PrintWriter userPrintWriter = new PrintWriter(userFileWriter);
+
+                                int n = JOptionPane.showOptionDialog(null,
+                                    "<html> UserID: "+ this.userID + "<br> Name: " + this.Name+
+                                    "<br> Gender: " + this.Gender +
+                                    "<br> Phone: " + this.PhoneNo + "<br> Email: " +this.Email+
+                                    "<br> Address: " +this.Address + "<br> IC/Passport: " + this.IC +
+                                    "<br> State: " +this.State +
+                                    "<br> Country: " +this.Country + " <html>", "Comfirmation",
+                                    JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,null,null,null);
+                                switch (n)
+                                {
+                                    case 0:
+                                        userPrintWriter.println(this.userID +"|"+ 
+                                        this.Name+"|"+
+                                        this.Password+ "|" +
+                                        this.Gender+ "|"+
+                                        this.PhoneNo+ "|"+
+                                        this.Email+ "|"+
+                                        this.Address+ "|"+
+                                        this.IC+ "|"+
+                                        this.State+ "|"+
+                                        this.Country + "|"+ VaccineStatus);
+
+                                        JOptionPane.showMessageDialog(null, "Successfully Modified!");
+                                        pass = true;
+                                        break;
+                                    case 1:
+                                    break;
+                                }
+                                userFileWriter.close();
+                                userPrintWriter.close();
+                                return pass;
+                            }
+                            catch (IOException e) 
+                            {
+                                JOptionPane.showMessageDialog(null,"An error occurred.");
+                                e.printStackTrace();
+                            }
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "<html> Please enter valid IC/passport! <br> "
+                                    + "[format: xxxxxx-xx-xxxx] <html>");
+                        }
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Please enter valid email!");
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Please enter valid phone number!");
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"<html> Please choose a stronger password!"
+                        + " <br> Try a mix of letters, numbers, and symbols. "
+                        + " <br< [format: Abcd123@] </html>");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"<html> Those passwords didn’t match! <br> Try again. </html>");
+        }
+        return pass;
+    }
 }
 
 enum UVacStatus

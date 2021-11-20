@@ -145,7 +145,7 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText(":");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(240, 270, 10, 20);
+        jLabel1.setBounds(260, 270, 20, 20);
 
         jLabel10.setBackground(new java.awt.Color(102, 102, 102));
         jLabel10.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
@@ -161,7 +161,8 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         jPanel1.add(jLabel11);
         jLabel11.setBounds(300, 230, 30, 40);
 
-        cbDay.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbDay.setBackground(new java.awt.Color(102, 102, 102));
+        cbDay.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
         cbDay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(cbDay);
@@ -174,11 +175,12 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(130, 90, 45, 17);
 
-        cbMonth.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbMonth.setBackground(new java.awt.Color(102, 102, 102));
+        cbMonth.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         cbMonth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(cbMonth);
-        cbMonth.setBounds(250, 240, 40, 21);
+        cbMonth.setBounds(250, 240, 40, 23);
 
         jLabel12.setBackground(new java.awt.Color(102, 102, 102));
         jLabel12.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -194,14 +196,16 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         jPanel1.add(jLabel38);
         jLabel38.setBounds(110, 150, 61, 17);
 
-        cbYear.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbYear.setBackground(new java.awt.Color(102, 102, 102));
+        cbYear.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2022", "2023", " " }));
         cbYear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(cbYear);
-        cbYear.setBounds(310, 240, 61, 21);
+        cbYear.setBounds(310, 240, 61, 23);
 
-        btnConfirm.setBackground(new java.awt.Color(51, 51, 51));
+        btnConfirm.setBackground(new java.awt.Color(102, 102, 102));
         btnConfirm.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirm.setText("Confirm");
         btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -210,7 +214,7 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnConfirm);
-        btnConfirm.setBounds(250, 320, 97, 30);
+        btnConfirm.setBounds(250, 320, 100, 30);
 
         jLabel13.setBackground(new java.awt.Color(102, 102, 102));
         jLabel13.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -226,11 +230,12 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         jPanel1.add(jLabel39);
         jLabel39.setBounds(100, 130, 75, 17);
 
-        cbHour.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbHour.setBackground(new java.awt.Color(102, 102, 102));
+        cbHour.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
         cbHour.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(cbHour);
-        cbHour.setBounds(190, 270, 40, 21);
+        cbHour.setBounds(190, 270, 60, 23);
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
         jLabel5.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -239,11 +244,12 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(100, 210, 75, 17);
 
-        cbMinute.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbMinute.setBackground(new java.awt.Color(102, 102, 102));
+        cbMinute.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbMinute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
         cbMinute.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(cbMinute);
-        cbMinute.setBounds(250, 270, 40, 21);
+        cbMinute.setBounds(280, 270, 60, 21);
 
         jLabel6.setBackground(new java.awt.Color(102, 102, 102));
         jLabel6.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -252,8 +258,9 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(100, 190, 73, 17);
 
-        btnCancel.setBackground(new java.awt.Color(51, 51, 51));
+        btnCancel.setBackground(new java.awt.Color(102, 102, 102));
         btnCancel.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,7 +268,7 @@ public class AdminAppointmentModifyPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnCancel);
-        btnCancel.setBounds(70, 320, 100, 30);
+        btnCancel.setBounds(70, 320, 110, 33);
 
         jLabel41.setBackground(new java.awt.Color(102, 102, 102));
         jLabel41.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N

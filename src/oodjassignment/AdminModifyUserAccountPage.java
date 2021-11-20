@@ -34,6 +34,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         txtIC.setEditable(false);
         cbState.setEnabled(false);
         cbCountry.setEnabled(false);
+        cbVaccine.setEnabled(false);
         btnSave.setEnabled(false);
         lblUID.setText(user.getUserID());
         txtName.setText(user.getName());
@@ -103,23 +104,24 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         lblCountry.setBounds(50, 320, 50, 17);
 
         cbState.setBackground(new java.awt.Color(102, 102, 102));
-        cbState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Kuala Lumpur", "Kedah", "Kelantan", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Penang", "Perak", "Perlis", "Putrajaya", "Sabah", "Sarawak", "Selangor", "Terengganu" }));
         jPanel1.add(cbState);
-        cbState.setBounds(120, 290, 176, 21);
+        cbState.setBounds(120, 290, 176, 23);
 
         cbCountry.setBackground(new java.awt.Color(102, 102, 102));
-        cbCountry.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbCountry.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua & Deps", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Rep", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Congo {Democratic Rep}", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland {Republic}", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea North", "Korea South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar, {Burma}", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russian Federation", "Rwanda", "St Kitts & Nevis", "St Lucia", "Saint Vincent & the Grenadines", "Samoa", "San Marino", "Sao Tome & Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe" }));
         jPanel1.add(cbCountry);
-        cbCountry.setBounds(120, 320, 174, 21);
+        cbCountry.setBounds(120, 320, 174, 23);
 
         txtEmail.setBackground(new java.awt.Color(102, 102, 102));
+        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.setBorder(null);
         txtEmail.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtEmail);
-        txtEmail.setBounds(119, 206, 180, 14);
+        txtEmail.setBounds(119, 206, 180, 15);
 
         lblIC.setBackground(new java.awt.Color(102, 102, 102));
         lblIC.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -129,11 +131,12 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         lblIC.setBounds(38, 260, 70, 17);
 
         txtAddress.setBackground(new java.awt.Color(102, 102, 102));
+        txtAddress.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(255, 255, 255));
         txtAddress.setBorder(null);
         txtAddress.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtAddress);
-        txtAddress.setBounds(120, 230, 180, 14);
+        txtAddress.setBounds(120, 230, 180, 15);
 
         lblPassword.setBackground(new java.awt.Color(102, 102, 102));
         lblPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -150,11 +153,12 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         lblAddress.setBounds(20, 230, 90, 17);
 
         txtIC.setBackground(new java.awt.Color(102, 102, 102));
+        txtIC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtIC.setForeground(new java.awt.Color(255, 255, 255));
         txtIC.setBorder(null);
         txtIC.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtIC);
-        txtIC.setBounds(120, 260, 180, 14);
+        txtIC.setBounds(120, 260, 180, 15);
 
         lblName.setBackground(new java.awt.Color(102, 102, 102));
         lblName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -178,27 +182,29 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         lblPhone.setBounds(60, 181, 40, 17);
 
         cbGender.setBackground(new java.awt.Color(102, 102, 102));
-        cbGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE" }));
         jPanel1.add(cbGender);
-        cbGender.setBounds(119, 150, 180, 21);
+        cbGender.setBounds(119, 150, 180, 23);
 
         txtPhone.setBackground(new java.awt.Color(102, 102, 102));
+        txtPhone.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtPhone.setForeground(new java.awt.Color(255, 255, 255));
         txtPhone.setBorder(null);
         txtPhone.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtPhone);
-        txtPhone.setBounds(119, 181, 180, 14);
+        txtPhone.setBounds(119, 181, 180, 15);
 
         lblTitle.setBackground(new java.awt.Color(102, 102, 102));
-        lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Admin Modifiy User");
         jPanel1.add(lblTitle);
-        lblTitle.setBounds(70, 20, 220, 50);
+        lblTitle.setBounds(30, 0, 330, 70);
 
         txtName.setBackground(new java.awt.Color(102, 102, 102));
+        txtName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtName.setForeground(new java.awt.Color(255, 255, 255));
         txtName.setBorder(null);
         txtName.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -208,14 +214,15 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtName);
-        txtName.setBounds(123, 100, 180, 14);
+        txtName.setBounds(123, 100, 180, 15);
 
         txtPassword.setBackground(new java.awt.Color(102, 102, 102));
+        txtPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.setBorder(null);
         txtPassword.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtPassword);
-        txtPassword.setBounds(123, 125, 180, 14);
+        txtPassword.setBounds(123, 125, 180, 15);
 
         lblEmail.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblEmail.setText("Email:");
@@ -239,7 +246,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         lblUID.setBounds(123, 80, 0, 0);
 
         chkModify.setBackground(new java.awt.Color(102, 102, 102));
-        chkModify.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        chkModify.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         chkModify.setForeground(new java.awt.Color(255, 255, 255));
         chkModify.setText("Modify Mode");
         chkModify.addActionListener(new java.awt.event.ActionListener() {
@@ -248,10 +255,11 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(chkModify);
-        chkModify.setBounds(230, 370, 100, 23);
+        chkModify.setBounds(250, 370, 100, 23);
 
-        btnSave.setBackground(new java.awt.Color(51, 51, 51));
+        btnSave.setBackground(new java.awt.Color(102, 102, 102));
         btnSave.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,10 +277,10 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         jLabel2.setBounds(20, 350, 80, 17);
 
         cbVaccine.setBackground(new java.awt.Color(102, 102, 102));
-        cbVaccine.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbVaccine.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbVaccine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NoDose", "FirstDose", "SecondDose" }));
         jPanel1.add(cbVaccine);
-        cbVaccine.setBounds(120, 350, 85, 21);
+        cbVaccine.setBounds(120, 350, 85, 23);
 
         lblAddress1.setBackground(new java.awt.Color(102, 102, 102));
         lblAddress1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -339,6 +347,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
             txtIC.setEditable(true);
             cbState.setEnabled(true);
             cbCountry.setEnabled(true);
+            cbVaccine.setEnabled(true);
             btnSave.setEnabled(true);
         }else
         {
@@ -351,6 +360,7 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
             txtIC.setEditable(false);
             cbState.setEnabled(false);
             cbCountry.setEnabled(false);
+            cbVaccine.setEnabled(false);
             btnSave.setEnabled(false);
         }
     }//GEN-LAST:event_chkModifyActionPerformed

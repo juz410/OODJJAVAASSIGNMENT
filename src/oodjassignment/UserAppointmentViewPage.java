@@ -18,12 +18,13 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
      * Creates new form UserAppointmentViewPage
      */
     
-    String userID;
-    File file = new File("Appointment.txt");
-    CurrentDateTime currentDateTime = new CurrentDateTime();
+    private String userID;
+    private File file = new File("Appointment.txt");
+    private CurrentDateTime currentDateTime = new CurrentDateTime();
     public UserAppointmentViewPage(String userID) 
     {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.userID = userID;
         Appointment appointment = new Appointment();
         if (appointment.viewAppointment(userID))
@@ -98,44 +99,44 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         lblTime.setBackground(new java.awt.Color(102, 102, 102));
-        lblTime.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblTime.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTime.setText("jLabel9");
         lblTime.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblTime.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(lblTime);
-        lblTime.setBounds(150, 206, 148, 21);
+        lblTime.setBounds(150, 206, 148, 23);
 
         lblAppointmentID.setBackground(new java.awt.Color(102, 102, 102));
-        lblAppointmentID.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblAppointmentID.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblAppointmentID.setForeground(new java.awt.Color(255, 255, 255));
         lblAppointmentID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAppointmentID.setText("jLabel9");
         lblAppointmentID.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblAppointmentID.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(lblAppointmentID);
-        lblAppointmentID.setBounds(150, 102, 148, 21);
+        lblAppointmentID.setBounds(150, 102, 148, 23);
 
         lblCenterID.setBackground(new java.awt.Color(102, 102, 102));
-        lblCenterID.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblCenterID.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblCenterID.setForeground(new java.awt.Color(255, 255, 255));
         lblCenterID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCenterID.setText("jLabel9");
         lblCenterID.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblCenterID.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(lblCenterID);
-        lblCenterID.setBounds(150, 128, 148, 21);
+        lblCenterID.setBounds(150, 128, 148, 23);
 
         lblDate.setBackground(new java.awt.Color(102, 102, 102));
-        lblDate.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblDate.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblDate.setForeground(new java.awt.Color(255, 255, 255));
         lblDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDate.setText("jLabel9");
         lblDate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblDate.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(lblDate);
-        lblDate.setBounds(150, 180, 148, 21);
+        lblDate.setBounds(150, 180, 148, 23);
 
         jLabel9.setBackground(new java.awt.Color(102, 102, 102));
         jLabel9.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -145,14 +146,14 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
         jLabel9.setBounds(53, 261, 80, 17);
 
         lblState.setBackground(new java.awt.Color(102, 102, 102));
-        lblState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblState.setForeground(new java.awt.Color(255, 255, 255));
         lblState.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblState.setText("jLabel9");
         lblState.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblState.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(lblState);
-        lblState.setBounds(150, 154, 148, 21);
+        lblState.setBounds(150, 154, 148, 23);
 
         jLabel10.setBackground(new java.awt.Color(102, 102, 102));
         jLabel10.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -162,24 +163,24 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
         jLabel10.setBounds(49, 235, 90, 17);
 
         lblStatus.setBackground(new java.awt.Color(102, 102, 102));
-        lblStatus.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblStatus.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblStatus.setText("jLabel9");
         lblStatus.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(lblStatus);
-        lblStatus.setBounds(150, 232, 148, 21);
+        lblStatus.setBounds(150, 232, 148, 23);
 
         lblVaccineType.setBackground(new java.awt.Color(102, 102, 102));
-        lblVaccineType.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblVaccineType.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblVaccineType.setForeground(new java.awt.Color(255, 255, 255));
         lblVaccineType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVaccineType.setText("jLabel9");
         lblVaccineType.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblVaccineType.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(lblVaccineType);
-        lblVaccineType.setBounds(150, 258, 148, 21);
+        lblVaccineType.setBounds(150, 258, 148, 23);
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
         jLabel5.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -217,11 +218,12 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
         jLabel4.setBounds(98, 157, 30, 17);
 
         lblAdminName.setBackground(new java.awt.Color(102, 102, 102));
-        lblAdminName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblAdminName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 32)); // NOI18N
+        lblAdminName.setForeground(new java.awt.Color(255, 255, 255));
         lblAdminName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAdminName.setText("Your");
         jPanel1.add(lblAdminName);
-        lblAdminName.setBounds(150, 30, 70, 33);
+        lblAdminName.setBounds(140, 20, 70, 42);
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
@@ -231,14 +233,15 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
         jLabel3.setBounds(69, 131, 60, 17);
 
         lblAdminName1.setBackground(new java.awt.Color(102, 102, 102));
-        lblAdminName1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblAdminName1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 32)); // NOI18N
+        lblAdminName1.setForeground(new java.awt.Color(255, 255, 255));
         lblAdminName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAdminName1.setText("Appointment");
         jPanel1.add(lblAdminName1);
-        lblAdminName1.setBounds(100, 50, 180, 33);
+        lblAdminName1.setBounds(70, 50, 210, 42);
 
         lblDose.setBackground(new java.awt.Color(102, 102, 102));
-        lblDose.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        lblDose.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblDose.setForeground(new java.awt.Color(255, 255, 255));
         lblDose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDose.setText("jLabel9");
@@ -247,8 +250,9 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
         jPanel1.add(lblDose);
         lblDose.setBounds(150, 284, 148, 18);
 
-        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,10 +260,11 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnBack);
-        btnBack.setBounds(267, 396, 80, 20);
+        btnBack.setBounds(260, 410, 100, 30);
 
-        btnCancel.setBackground(new java.awt.Color(51, 51, 51));
+        btnCancel.setBackground(new java.awt.Color(102, 102, 102));
         btnCancel.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setText("Cancel Appointment");
         btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -275,7 +280,7 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
         lblCurrentTime.setForeground(new java.awt.Color(255, 255, 255));
         lblCurrentTime.setText("jLabel1");
         jPanel1.add(lblCurrentTime);
-        lblCurrentTime.setBounds(310, 0, 70, 90);
+        lblCurrentTime.setBounds(320, 0, 60, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

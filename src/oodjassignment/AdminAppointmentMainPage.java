@@ -55,19 +55,20 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
         lblUserName.setBackground(new java.awt.Color(102, 102, 102));
-        lblUserName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblUserName.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
         lblUserName.setForeground(new java.awt.Color(255, 255, 255));
         lblUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUserName.setText("Appointment Main Page");
 
         lblTitle1.setBackground(new java.awt.Color(102, 102, 102));
-        lblTitle1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        lblTitle1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Admin");
 
-        btnViewPage.setBackground(new java.awt.Color(51, 51, 51));
+        btnViewPage.setBackground(new java.awt.Color(102, 102, 102));
         btnViewPage.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnViewPage.setForeground(new java.awt.Color(255, 255, 255));
         btnViewPage.setText("View Appointment");
         btnViewPage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnViewPage.addActionListener(new java.awt.event.ActionListener() {
@@ -76,8 +77,9 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
             }
         });
 
-        btnApprovePage.setBackground(new java.awt.Color(51, 51, 51));
+        btnApprovePage.setBackground(new java.awt.Color(102, 102, 102));
         btnApprovePage.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnApprovePage.setForeground(new java.awt.Color(255, 255, 255));
         btnApprovePage.setText("Approve Appointment");
         btnApprovePage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnApprovePage.addActionListener(new java.awt.event.ActionListener() {
@@ -96,8 +98,9 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Approve and Reject Appointment");
 
-        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back ");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,10 +113,6 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(77, 77, 77)
@@ -121,9 +120,9 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
                             .addComponent(btnApprovePage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnViewPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,17 +132,21 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(65, 65, 65))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(33, 33, 33)
                 .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addComponent(lblUserName)
+                .addGap(25, 25, 25)
                 .addComponent(btnViewPage, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
@@ -151,9 +154,9 @@ public class AdminAppointmentMainPage extends javax.swing.JFrame {
                 .addComponent(btnApprovePage, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(btnBack)
-                .addGap(61, 61, 61))
+                .addGap(55, 55, 55))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

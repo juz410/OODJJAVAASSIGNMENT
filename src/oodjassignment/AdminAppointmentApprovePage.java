@@ -335,11 +335,11 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         plAppointment.add(lblTitle);
         lblTitle.setBounds(170, 10, 520, 80);
 
-        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Serach Here:");
         plAppointment.add(jLabel1);
-        jLabel1.setBounds(30, 260, 90, 19);
+        jLabel1.setBounds(20, 260, 100, 30);
 
         txtSearch.setBackground(new java.awt.Color(102, 102, 102));
         txtSearch.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
@@ -359,8 +359,9 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         plAppointment.add(txtSearch);
         txtSearch.setBounds(110, 260, 175, 19);
 
-        btnApprove.setBackground(new java.awt.Color(51, 51, 51));
+        btnApprove.setBackground(new java.awt.Color(102, 102, 102));
         btnApprove.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnApprove.setForeground(new java.awt.Color(255, 255, 255));
         btnApprove.setText("Approve");
         btnApprove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnApprove.addActionListener(new java.awt.event.ActionListener() {
@@ -371,8 +372,9 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         plAppointment.add(btnApprove);
         btnApprove.setBounds(20, 310, 115, 33);
 
-        btnReject.setBackground(new java.awt.Color(51, 51, 51));
+        btnReject.setBackground(new java.awt.Color(102, 102, 102));
         btnReject.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnReject.setForeground(new java.awt.Color(255, 255, 255));
         btnReject.setText("Reject");
         btnReject.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReject.addActionListener(new java.awt.event.ActionListener() {
@@ -403,8 +405,9 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         plAppointment.add(jScrollPane2);
         jScrollPane2.setBounds(20, 90, 847, 167);
 
-        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back To previous Page");
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -418,7 +421,7 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("—————————————————");
         plAppointment.add(jLabel12);
-        jLabel12.setBounds(110, 270, 200, 20);
+        jLabel12.setBounds(110, 270, 470, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

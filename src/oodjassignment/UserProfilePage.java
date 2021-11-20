@@ -15,10 +15,11 @@ public class UserProfilePage extends javax.swing.JFrame {
      * Creates new form UserProfilePage
      */
     
-    String userID;
-    CurrentDateTime currentDateTime = new CurrentDateTime();
+    private String userID;
+    private CurrentDateTime currentDateTime = new CurrentDateTime();
     public UserProfilePage(String userID) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.userID = userID;
         Users user = new Users();
         user.userProfile(userID);
@@ -76,7 +77,7 @@ public class UserProfilePage extends javax.swing.JFrame {
         lblPhone.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblPhone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         plUserProfile.add(lblPhone);
-        lblPhone.setBounds(89, 141, 193, 21);
+        lblPhone.setBounds(110, 140, 193, 21);
 
         lblEmail.setBackground(new java.awt.Color(102, 102, 102));
         lblEmail.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
@@ -86,21 +87,21 @@ public class UserProfilePage extends javax.swing.JFrame {
         lblEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         plUserProfile.add(lblEmail);
-        lblEmail.setBounds(89, 172, 193, 21);
+        lblEmail.setBounds(110, 170, 193, 21);
 
         jLabel7.setBackground(new java.awt.Color(102, 102, 102));
         jLabel7.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("User ID:");
         plUserProfile.add(jLabel7);
-        jLabel7.setBounds(30, 87, 40, 17);
+        jLabel7.setBounds(40, 90, 50, 17);
 
         jLabel4.setBackground(new java.awt.Color(102, 102, 102));
         jLabel4.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email:");
         plUserProfile.add(jLabel4);
-        jLabel4.setBounds(35, 172, 32, 17);
+        jLabel4.setBounds(41, 170, 50, 17);
 
         lblGender.setBackground(new java.awt.Color(102, 102, 102));
         lblGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
@@ -110,21 +111,21 @@ public class UserProfilePage extends javax.swing.JFrame {
         lblGender.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblGender.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         plUserProfile.add(lblGender);
-        lblGender.setBounds(89, 111, 193, 21);
+        lblGender.setBounds(110, 110, 193, 21);
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Gender:");
         plUserProfile.add(jLabel2);
-        jLabel2.setBounds(31, 113, 40, 17);
+        jLabel2.setBounds(38, 110, 50, 17);
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
         jLabel5.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("IC/Passport:");
         plUserProfile.add(jLabel5);
-        jLabel5.setBounds(9, 250, 62, 17);
+        jLabel5.setBounds(20, 230, 80, 20);
 
         btnBack.setBackground(new java.awt.Color(51, 51, 51));
         btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
@@ -135,7 +136,7 @@ public class UserProfilePage extends javax.swing.JFrame {
             }
         });
         plUserProfile.add(btnBack);
-        btnBack.setBounds(140, 390, 110, 40);
+        btnBack.setBounds(140, 370, 110, 40);
 
         lblTitle.setBackground(new java.awt.Color(102, 102, 102));
         lblTitle.setFont(new java.awt.Font("Tempus Sans ITC", 0, 20)); // NOI18N
@@ -150,14 +151,14 @@ public class UserProfilePage extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Status:");
         plUserProfile.add(jLabel1);
-        jLabel1.setBounds(38, 282, 32, 17);
+        jLabel1.setBounds(40, 260, 50, 17);
 
         jLabel6.setBackground(new java.awt.Color(102, 102, 102));
         jLabel6.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Address:");
         plUserProfile.add(jLabel6);
-        jLabel6.setBounds(29, 212, 42, 17);
+        jLabel6.setBounds(31, 197, 60, 30);
 
         lblStatus.setBackground(new java.awt.Color(102, 102, 102));
         lblStatus.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
@@ -167,7 +168,7 @@ public class UserProfilePage extends javax.swing.JFrame {
         lblStatus.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         plUserProfile.add(lblStatus);
-        lblStatus.setBounds(88, 282, 118, 90);
+        lblStatus.setBounds(110, 260, 118, 90);
 
         lblAddress.setBackground(new java.awt.Color(102, 102, 102));
         lblAddress.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
@@ -177,7 +178,7 @@ public class UserProfilePage extends javax.swing.JFrame {
         lblAddress.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblAddress.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         plUserProfile.add(lblAddress);
-        lblAddress.setBounds(89, 210, 193, 21);
+        lblAddress.setBounds(110, 201, 193, 21);
 
         lblUserID.setBackground(new java.awt.Color(102, 102, 102));
         lblUserID.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
@@ -187,14 +188,14 @@ public class UserProfilePage extends javax.swing.JFrame {
         lblUserID.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblUserID.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         plUserProfile.add(lblUserID);
-        lblUserID.setBounds(89, 85, 193, 21);
+        lblUserID.setBounds(110, 80, 193, 21);
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Phone:");
         plUserProfile.add(jLabel3);
-        jLabel3.setBounds(35, 141, 36, 17);
+        jLabel3.setBounds(36, 140, 60, 17);
 
         lblIC.setBackground(new java.awt.Color(102, 102, 102));
         lblIC.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
@@ -204,13 +205,13 @@ public class UserProfilePage extends javax.swing.JFrame {
         lblIC.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblIC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         plUserProfile.add(lblIC);
-        lblIC.setBounds(89, 248, 193, 21);
+        lblIC.setBounds(110, 231, 193, 20);
 
         lblTime.setBackground(new java.awt.Color(102, 102, 102));
         lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("jLabel8");
         plUserProfile.add(lblTime);
-        lblTime.setBounds(280, 0, 90, 90);
+        lblTime.setBounds(310, 0, 90, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

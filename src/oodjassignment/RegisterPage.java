@@ -21,6 +21,7 @@ public class RegisterPage extends javax.swing.JFrame {
     public RegisterPage(String R, String adminID) 
     {
         initComponents();
+        this.setLocationRelativeTo(null);
         admin.setUserID(adminID);
         role = R;
         if (role.equals("Admin"))
@@ -108,7 +109,7 @@ public class RegisterPage extends javax.swing.JFrame {
             }
         });
         plUserRegister.add(btnRegister);
-        btnRegister.setBounds(140, 410, 109, 40);
+        btnRegister.setBounds(150, 410, 109, 40);
 
         cbRegisterAdmin.setBackground(new java.awt.Color(102, 102, 102));
         cbRegisterAdmin.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
@@ -121,7 +122,7 @@ public class RegisterPage extends javax.swing.JFrame {
             }
         });
         plUserRegister.add(cbRegisterAdmin);
-        cbRegisterAdmin.setBounds(280, 380, 99, 23);
+        cbRegisterAdmin.setBounds(290, 373, 99, 30);
 
         lblEmail.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(255, 255, 255));
@@ -141,17 +142,19 @@ public class RegisterPage extends javax.swing.JFrame {
         plUserRegister.add(lblCountry);
         lblCountry.setBounds(70, 350, 60, 17);
 
-        cbState.setBackground(new java.awt.Color(51, 51, 51));
-        cbState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbState.setBackground(new java.awt.Color(102, 102, 102));
+        cbState.setEditable(true);
+        cbState.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Kuala Lumpur", "Kedah", "Kelantan", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Penang", "Perak", "Perlis", "Putrajaya", "Sabah", "Sarawak", "Selangor", "Terengganu" }));
         plUserRegister.add(cbState);
-        cbState.setBounds(130, 320, 210, 21);
+        cbState.setBounds(130, 320, 210, 23);
 
-        cbCountry.setBackground(new java.awt.Color(51, 51, 51));
-        cbCountry.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbCountry.setBackground(new java.awt.Color(102, 102, 102));
+        cbCountry.setEditable(true);
+        cbCountry.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua & Deps", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Rep", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Congo {Democratic Rep}", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland {Republic}", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea North", "Korea South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar, {Burma}", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russian Federation", "Rwanda", "St Kitts & Nevis", "St Lucia", "Saint Vincent & the Grenadines", "Samoa", "San Marino", "Sao Tome & Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe" }));
         plUserRegister.add(cbCountry);
-        cbCountry.setBounds(130, 350, 210, 21);
+        cbCountry.setBounds(130, 350, 210, 23);
 
         lblIC.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         lblIC.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,26 +198,30 @@ public class RegisterPage extends javax.swing.JFrame {
         plUserRegister.add(lblCPassword);
         lblCPassword.setBounds(20, 140, 100, 20);
 
-        cbGender.setBackground(new java.awt.Color(51, 51, 51));
-        cbGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        cbGender.setBackground(new java.awt.Color(102, 102, 102));
+        cbGender.setEditable(true);
+        cbGender.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
         cbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE" }));
         plUserRegister.add(cbGender);
-        cbGender.setBounds(130, 170, 210, 21);
+        cbGender.setBounds(130, 170, 210, 23);
 
         txtAddress.setBackground(new java.awt.Color(102, 102, 102));
+        txtAddress.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(255, 255, 255));
         txtAddress.setBorder(null);
         txtAddress.setCaretColor(new java.awt.Color(255, 255, 255));
         plUserRegister.add(txtAddress);
-        txtAddress.setBounds(130, 290, 176, 14);
+        txtAddress.setBounds(130, 290, 176, 15);
 
         txtPassword.setBackground(new java.awt.Color(102, 102, 102));
+        txtPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.setBorder(null);
         plUserRegister.add(txtPassword);
-        txtPassword.setBounds(130, 110, 176, 14);
+        txtPassword.setBounds(130, 110, 176, 17);
 
         btnBack.setBackground(new java.awt.Color(102, 102, 102));
-        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         btnBack.setText("Back to Previous Page");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,7 +229,7 @@ public class RegisterPage extends javax.swing.JFrame {
             }
         });
         plUserRegister.add(btnBack);
-        btnBack.setBounds(280, 460, 139, 23);
+        btnBack.setBounds(250, 490, 180, 23);
 
         lblTime.setBackground(new java.awt.Color(102, 102, 102));
         lblTime.setFont(new java.awt.Font("Tempus Sans ITC", 0, 11)); // NOI18N
@@ -248,9 +255,11 @@ public class RegisterPage extends javax.swing.JFrame {
         jLabel10.setBounds(130, 150, 210, 10);
 
         txtCPassword.setBackground(new java.awt.Color(102, 102, 102));
+        txtCPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
+        txtCPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtCPassword.setBorder(null);
         plUserRegister.add(txtCPassword);
-        txtCPassword.setBounds(130, 140, 176, 14);
+        txtCPassword.setBounds(130, 140, 176, 17);
 
         lbl2.setForeground(new java.awt.Color(255, 255, 255));
         lbl2.setText("—————————————————");
@@ -288,42 +297,46 @@ public class RegisterPage extends javax.swing.JFrame {
         jLabel1.setBounds(360, 140, 40, 20);
 
         txtName.setBackground(new java.awt.Color(102, 102, 102));
+        txtName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtName.setForeground(new java.awt.Color(255, 255, 255));
         txtName.setBorder(null);
         txtName.setCaretColor(new java.awt.Color(255, 255, 255));
         plUserRegister.add(txtName);
-        txtName.setBounds(130, 80, 176, 14);
+        txtName.setBounds(130, 80, 176, 15);
 
         txtPhone.setBackground(new java.awt.Color(102, 102, 102));
+        txtPhone.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtPhone.setForeground(new java.awt.Color(255, 255, 255));
         txtPhone.setBorder(null);
         txtPhone.setCaretColor(new java.awt.Color(255, 255, 255));
         plUserRegister.add(txtPhone);
-        txtPhone.setBounds(130, 200, 176, 14);
+        txtPhone.setBounds(130, 200, 176, 20);
 
         txtEmail.setBackground(new java.awt.Color(102, 102, 102));
+        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.setBorder(null);
         txtEmail.setCaretColor(new java.awt.Color(255, 255, 255));
         plUserRegister.add(txtEmail);
-        txtEmail.setBounds(130, 230, 176, 14);
+        txtEmail.setBounds(130, 230, 176, 15);
 
         txtIC.setBackground(new java.awt.Color(102, 102, 102));
+        txtIC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtIC.setForeground(new java.awt.Color(255, 255, 255));
         txtIC.setBorder(null);
         txtIC.setCaretColor(new java.awt.Color(255, 255, 255));
         plUserRegister.add(txtIC);
-        txtIC.setBounds(130, 260, 176, 14);
+        txtIC.setBounds(130, 260, 176, 15);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(plUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(plUserRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(plUserRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(plUserRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
         );
 
         pack();
