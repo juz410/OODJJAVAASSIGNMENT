@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -27,6 +28,7 @@ import javax.swing.JTextField;
 public class Validation
 {
     boolean pass ;
+    Appointment appointment = new Appointment();
     
     public boolean icDuplicateValid(String ic)
     {
@@ -185,8 +187,7 @@ public class Validation
     public boolean validationDate(int year, int month, int day,String check)
     {
         LocalDate userDate = LocalDate.of(year,month,day); //convert user input Date into localdate type
-        LocalDate currentDate = LocalDate.now(); //current date
-        LocalDate userDateAdd1Month = userDate.plusMonths(1); //make sure user can make 2nd dose appointment after finish 1st dose 1 month
+        LocalDate currentDate = LocalDate.now(); //current date 
         LocalDate currentDateAdd7Days =  currentDate.plusDays(7); //make a conditions that don't let user make appointment before 7 days
         if (!userDate.isBefore(currentDateAdd7Days) && "r".equals(check))
         {
@@ -196,11 +197,20 @@ public class Validation
         {
             pass = true;
         }
-        else if (userDateAdd1Month.isAfter(currentDate) && "30M".equals(check))
+        return pass;
+    }
+    
+    public boolean validationSecondDoseDate(int year, int month, int day,String userID)
+    {
+        appointment.firstDoseDone(userID);
+        String[]userdate = appointment.getDate().split("/");
+        LocalDate secondDoseDate = LocalDate.of(year, month, day);
+        LocalDate userDate = LocalDate.of(Integer.valueOf(userdate[2]),Integer.valueOf(userdate[1]),Integer.valueOf(userdate[0]));
+        LocalDate userDateAdd1Month = userDate.plusMonths(1);//make sure user can make 2nd dose appointment after finish 1st dose 1 month
+        if (secondDoseDate.isAfter(userDateAdd1Month))
         {
             pass = true;
         }
         return pass;
     }
-
 }

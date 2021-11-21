@@ -133,7 +133,7 @@ public class Appointment
             switch (n)
             {
                 case 0:
-                    appointmentPWriter.print("\n" + this.aptID + "|" + 
+                    appointmentPWriter.println(this.aptID + "|" + 
                             this.userID + "|" +
                             this.centerID + "|" + 
                             this.address + "|" + 
@@ -418,8 +418,15 @@ public class Appointment
          String trackingID = MTrack.setTrackingIDAuto(MTrackArr.size());
          MTrack.setTrackingID(trackingID);
          /////////////////////////////////////////////////
-        String previousStats = AppStatus.Requesting.toString();
-        this.aptStatus = AppStatus.Rejected;
+        String previousStats = this.aptStatus.toString();
+        if(this.aptStatus.equals(AppStatus.Requesting))
+        {
+            this.aptStatus = AppStatus.Rejected;
+        }
+        else if (this.aptStatus.equals(AppStatus.RequestingCancel))
+        {
+            this.aptStatus = AppStatus.Approved;
+        }
         String[] aptArr = this.returnFileLine();
         this.fileCleaning();
         this.changingData(aptArr, previousStats);
@@ -429,7 +436,7 @@ public class Appointment
             MTrackArr.add(MTrack);
             MTrack.FileWrite(MTrackArr);
             ////////////////////////////////////////////
-        JOptionPane.showMessageDialog(null, "Appointment Rejected");
+        JOptionPane.showMessageDialog(null, "Request Rejected");
      }
      public void ApproveUserAppRequest() //KF
      {
@@ -616,10 +623,13 @@ public class Appointment
             {
                 String[] appointmentArray= appointmentReader.nextLine().split("\\|"); 
                 {
-                    if(appointmentArray[1].equals(userID) && "Done".equals(appointmentArray[6]) &&
-                            appointmentArray[9].equals("FirstDose"))
+                    if(appointmentArray[1].equals(userID) && AppStatus.Done.toString().equals(appointmentArray[6]) &&
+                            (appointmentArray[9].equals(UVacStatus.FirstDose.toString()) || 
+                            appointmentArray[9].equals(UVacStatus.SecondDose.toString())))
                     {
                         this.date = appointmentArray[4];
+                        this.aptStatus = AppStatus.valueOf(appointmentArray[6]);
+                        this.vacType = appointmentArray[7];
                         pass = true;
                     }
                 }

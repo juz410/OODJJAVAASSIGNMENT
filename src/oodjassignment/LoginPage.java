@@ -91,6 +91,7 @@ public class LoginPage extends javax.swing.JFrame {
         btnLogin.setBounds(110, 260, 90, 40);
 
         txtUserID.setBackground(new java.awt.Color(102, 102, 102));
+        txtUserID.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         txtUserID.setForeground(new java.awt.Color(255, 255, 255));
         txtUserID.setBorder(null);
         txtUserID.setCaretColor(null);
@@ -106,6 +107,7 @@ public class LoginPage extends javax.swing.JFrame {
         lblTitle.setBounds(60, 60, 165, 58);
 
         txtPassword.setBackground(new java.awt.Color(102, 102, 102));
+        txtPassword.setFont(new java.awt.Font("Tempus Sans ITC", 0, 14)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.setBorder(null);
         txtPassword.setCaretColor(null);

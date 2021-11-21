@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -40,17 +41,18 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame
                 currentDateTime.currentWeek() + "<br>" +
                 currentDateTime.currentTime() + "<html>");
         
-        if("NoDose".equals(user.getVacStatus()))//set the first or second dose
+        if(UVacStatus.NoDose.toString().equals(user.getVacStatus()))//set the first or second dose
         {
             lblDose.setText("FirstDose");
         }
-        else if ("FirstDose".equals(user.getVacStatus()))
+        else if (UVacStatus.FirstDose.toString().equals(user.getVacStatus()))
         {
             lblDose.setText("SecondDose");
         }
         
-        if (user.getVacStatus().equals("FirstDose"))//set the same vaccine as first dose
+        if (UVacStatus.FirstDose.toString().equals(user.getVacStatus()))//set the same vaccine as first dose
         {
+            appointment.firstDoseDone(userID);
             cbVaccineType.removeAllItems();
             cbVaccineType.addItem(appointment.getVacType());
         }
@@ -324,8 +326,13 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame
 
         cbVaccineType.setBackground(new java.awt.Color(102, 102, 102));
         cbVaccineType.setFont(new java.awt.Font("Tempus Sans ITC", 0, 12)); // NOI18N
-        cbVaccineType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AstraZeneca", "Pfizer", "Sinovac" }));
+        cbVaccineType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AstraZeneca", "Phizer", "Sinovac" }));
         cbVaccineType.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbVaccineType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbVaccineTypeActionPerformed(evt);
+            }
+        });
         jPanel2.add(cbVaccineType);
         cbVaccineType.setBounds(126, 226, 210, 23);
 
@@ -475,7 +482,7 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
         Validation validation = new Validation();
-                
+        boolean pass = false;
         int userTotalTime = (Integer.valueOf(String.valueOf(cbHour.getSelectedItem()))*60) +
                 Integer.valueOf(String.valueOf(cbMinute.getSelectedItem())) ; //total hour and minut get from user input
                 
@@ -484,34 +491,56 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame
                 String.valueOf(cbYear.getSelectedItem());
         String time = String.valueOf(cbHour.getSelectedItem() + ":" +   //combine hour and minute to a string
                 String.valueOf(cbMinute.getSelectedItem()));
-        Appointment appointment = new Appointment(this.userID,lblAddress.getText(),String.valueOf(cbCenterID.getSelectedItem()), 
-                date,time,String.valueOf(cbVaccineType.getSelectedItem()),String.valueOf(lblDose.getText()));
         
-        if (validation.validationDate(Integer.valueOf(String.valueOf(cbYear.getSelectedItem())),
-                Integer.valueOf(String.valueOf(cbMonth.getSelectedItem())),
-                Integer.valueOf(String.valueOf(cbDay.getSelectedItem())),"r"))
+        if (appointment.firstDoseDone(userID))//checking first dose done or not
         {
-            if(userTotalTime >= 480 && userTotalTime <=1080)
+           
+            if (validation.validationSecondDoseDate(Integer.valueOf(String.valueOf(cbYear.getSelectedItem())),
+                    Integer.valueOf(String.valueOf(cbMonth.getSelectedItem())),
+                    Integer.valueOf(String.valueOf(cbDay.getSelectedItem())),this.userID)) //Check if the first dose has been 1 month later
             {
-                if (appointment.appointmentRegister())
-                {
-                this.setVisible(false);
-                this.dispose();
-                UserAppointmentMainPage userAppointmentMainPage = new UserAppointmentMainPage(this.userID);
-                userAppointmentMainPage.setVisible(true);
-                }
+                pass = true;
             }
             else
             {
-                JOptionPane.showMessageDialog(null, "<html>Please select in <b>working hours</b>!"
-                        + "<br> (08:00AM-06:00PM)<html>");
+                JOptionPane.showMessageDialog(null, "<html>Your 1st Dose is at: " + appointment.getDate() +
+                        "<br> Please make appointment after <b>1</b> month! <html>");
             }
         }
         else
         {
-           JOptionPane.showMessageDialog(null, "<html>Please make an appointment in <b>7</b> days!<html>");
+           pass = true;
         }
-            
+        
+        if(pass)
+        {
+            if (validation.validationDate(Integer.valueOf(String.valueOf(cbYear.getSelectedItem())),
+                    Integer.valueOf(String.valueOf(cbMonth.getSelectedItem())),
+                    Integer.valueOf(String.valueOf(cbDay.getSelectedItem())),"r"))
+            {
+                if(userTotalTime >= 480 && userTotalTime <=1080)
+                {
+                    Appointment appointment = new Appointment(this.userID,lblAddress.getText(),String.valueOf(cbCenterID.getSelectedItem()), 
+                     date,time,String.valueOf(cbVaccineType.getSelectedItem()),String.valueOf(lblDose.getText()));
+                    if (appointment.appointmentRegister())
+                    {
+                        this.setVisible(false);
+                        this.dispose();
+                        UserAppointmentMainPage userAppointmentMainPage = new UserAppointmentMainPage(this.userID);
+                        userAppointmentMainPage.setVisible(true);
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "<html>Please select in <b>working hours</b>!"
+                            + "<br> (08:00AM-06:00PM)<html>");
+                }
+            }
+            else
+            {
+               JOptionPane.showMessageDialog(null, "<html>Please make an appointment in <b>7</b> days!<html>");
+            }
+        }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void lblCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCheckMouseClicked
@@ -547,6 +576,10 @@ public class UserAppointmentRegisterPage extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "Please select a date after today!");
         }
     }//GEN-LAST:event_btnOKActionPerformed
+
+    private void cbVaccineTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVaccineTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbVaccineTypeActionPerformed
 
     /**
      * @param args the command line arguments

@@ -312,9 +312,9 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
                 JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,null,null,null);
         if (appointment.viewAppointment(this.userID))
         {
-            if ("Requesting".equals(appointment.getAptStatus())) //if requesting, cancel directly
+            if (AppStatus.Requesting.toString().equals(appointment.getAptStatus())) //if requesting, cancel directly
             {
-                appointment.setAptStatus("Cancelled");
+                appointment.setAptStatus(AppStatus.Cancelled.toString());
                 switch (n)
                 {
                     case 0:
@@ -325,9 +325,9 @@ public class UserAppointmentViewPage extends javax.swing.JFrame {
                         break;
                 }
             }
-            else if ("Approved".equals(appointment.getAptStatus())) //if approved, send request to admin
+            else if (AppStatus.Approved.toString().equals(appointment.getAptStatus())) //if approved, send request to admin
             {
-                appointment.setAptStatus("Request Cancellation");
+                appointment.setAptStatus(AppStatus.RequestingCancel.toString());
                 switch (n)
                 {
                     case 0:

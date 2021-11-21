@@ -17,6 +17,7 @@ public class UserMainPage extends javax.swing.JFrame
 {
     private String userID;
     private Users user = new Users();
+    private Appointment appointment = new Appointment();
     private CurrentDateTime currentDateTime = new CurrentDateTime();
     public UserMainPage(String userID) 
     {
@@ -457,7 +458,8 @@ public class UserMainPage extends javax.swing.JFrame
     private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
         // TODO add your handling code here:
         user.userProfile(this.userID);
-        if ("SecondDose".equals(user.getVacStatus()))
+        appointment.firstDoseDone(userID);
+        if ("SecondDose".equals(user.getVacStatus()) && AppStatus.Done.toString().equals(appointment.getAptStatus()))
         {
             JOptionPane.showMessageDialog(null, "<html> Congratulation! You have been vaccinated!"
                     + " <br> No appointment required! <html>");

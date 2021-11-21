@@ -146,58 +146,25 @@ public class UserAppointmentMainPage extends javax.swing.JFrame {
         Validation validation = new Validation();
         boolean pass = false;
         
-        if (appointment.firstDoseDone(userID))//checking first dose done or not
+        if (appointment.viewAppointment(userID))//Check if the user has an appointment before
         {
-            String[] bookDate = appointment.getDate().split("/");
-            System.out.print(bookDate[0]+"/"+bookDate[1]+"/"+bookDate[2]);
-            if (validation.validationDate(Integer.valueOf(bookDate[2]), Integer.valueOf(bookDate[1]),
-                    Integer.valueOf(bookDate[0]), "30M")) //Check if the first dose has been 1 month later
+            if ( ("FirstDose".equals(appointment.getVacDose()) || "SecondDose".equals(appointment.getVacDose())) && 
+                    (AppStatus.Requesting.toString().equals(appointment.getAptStatus()) || 
+                    AppStatus.Approved.toString().equals(appointment.getAptStatus()) ||
+                    AppStatus.RequestingCancel.toString().equals(appointment.getAptStatus()))) //Check if the user has an appointment
             {
-                if (appointment.viewAppointment(userID))//Check if the user has an appointment before
-                {
-                    if ( ("FirstDose".equals(appointment.getVacDose()) || "SecondDose".equals(appointment.getVacDose())) && 
-                            ("Requesting".equals(appointment.getAptStatus()) || "Approved".equals(appointment.getAptStatus()) ||
-                            "Request Cancellation".equals(appointment.getAptStatus()))) //Check if the user has an appointment
-                    {
-                        JOptionPane.showMessageDialog(null, "You already have an appointment!");
-                    }
-                    else
-                    {
-                        pass = true;
-                    }
-                }
-                else
-                {
-                    pass = true;
-                }
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "<html>Your 1st Dose is at: " + appointment.getDate() +
-                        "<br> Please make appointment after <b>1</b> month! <html>");
-            }
-        }
-        else
-        {
-            if (appointment.viewAppointment(userID))//Check if the user has an appointment before
-            {
-                if ( ("FirstDose".equals(appointment.getVacDose()) || "SecondDose".equals(appointment.getVacDose())) && 
-                        ("Requesting".equals(appointment.getAptStatus()) || "Approved".equals(appointment.getAptStatus()) ||
-                        "Request Cancellation".equals(appointment.getAptStatus()))) //Check if the user has an appointment
-                {
-                    JOptionPane.showMessageDialog(null, "You already have an appointment!");
-                }
-                else
-                {
-                    pass = true;
-                }
+                JOptionPane.showMessageDialog(null, "You already have an appointment!");
             }
             else
             {
                 pass = true;
             }
         }
-        
+        else
+        {
+            pass = true;
+        }
+       
         if (pass)
         {
             UserAppointmentRegisterPage userAppointmentRegisterPage = new UserAppointmentRegisterPage(this.userID);
