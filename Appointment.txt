@@ -14,9 +14,9 @@ APT00000012|010203-04-0506|J03|Dewan Raya Taman Universiti|01/12/2021|14:00|Canc
 APT00000013|010203-04-0506|J01|Dewan Raya Putra|01/12/2021|14:00|Cancelled|AstraZeneca|NULL|FirstDose
 APT00000014|010203-04-0506|J03|Dewan Raya Taman Universiti|01/12/2021|11:00|Cancelled|Pfizer|NULL|FirstDose
 APT00000015|010203-04-0506|J03|Dewan Raya Taman Universiti|18/10/2021|19:00|Done|AstraZeneca|NULL|FirstDose
-APT00000016|010203-04-0506|J03|Dewan Raya Taman Universiti|01/03/2022|11:00|Requesting|Pfizer|NULL|SecondDose
-APT00000017|010203040001|J03|Dewan Raya Taman Universiti|20/12/2021|08:00|RequestingCancel|Sinovac|NULL|FirstDose
-APT00000018|010203040001|J01|Dewan Raya Putra|18/11/2021|17:00|RequestingCancel|AstraZeneca|A000000032|FirstDose
+APT00000016|010203-04-0506|J03|Dewan Raya Taman Universiti|01/03/2022|11:00|Rejected|Pfizer|NULL|SecondDose
+APT00000017|010203040001|J03|Dewan Raya Taman Universiti|20/12/2021|08:00|Cancelled|Sinovac|NULL|FirstDose
+APT00000018|010203040001|J01|Dewan Raya Putra|18/11/2021|17:00|Cancelled|AstraZeneca|NULL|FirstDose
 APT00000019|010203040001|J01|Dewan Raya Putra|01/01/2022|15:00|Cancelled|Sinovac|NULL|SecondDose
 APT00000020|010203040002|J01|Dewan Raya Putra|29/11/2021|15:00|Done|AstraZeneca|NULL|FirstDose
 APT00000021|010203040002|J02|Temenggong Seri Maharaja Tun Ibrahim Hospital|30/12/2021|11:00|Done|AstraZeneca|NULL|SecondDose

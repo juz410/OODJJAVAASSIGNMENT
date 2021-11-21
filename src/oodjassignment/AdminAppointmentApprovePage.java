@@ -17,7 +17,8 @@ import javax.swing.table.TableRowSorter;
  */
 public class AdminAppointmentApprovePage extends javax.swing.JFrame {
     Users admin = new Users();
-    
+    Validation adminValid = new Validation();
+    boolean confirm;
     private void showTableData()
     {
         ((DefaultTableModel)tblRequestedAppTable.getModel()).setNumRows(0);
@@ -477,15 +478,18 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
             
             Appointment app = new Appointment(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9]);
             app.setAdminID(admin.getUserID());
-          
-            if(app.getAptStatus().equals(AppStatus.Requesting.toString()))
+            confirm =adminValid.AdminActionConfirmation("Are you sure you want to approve this reuqest? The action can't be undone");
+            if(confirm)
             {
-                app.ApproveUserAppRequest();
-            }else if(app.getAptStatus().equals(AppStatus.RequestingCancel.toString()))
-            {
-                app.cancelUserAppointment(AppStatus.RequestingCancel);
-                
+               if(app.getAptStatus().equals(AppStatus.Requesting.toString()))
+                {
+                    app.ApproveUserAppRequest();
+                }else if(app.getAptStatus().equals(AppStatus.RequestingCancel.toString()))
+                {
+                    app.cancelUserAppointment(AppStatus.RequestingCancel);
+                }     
             }
+            
             
             this.showTableData();
             
@@ -512,7 +516,12 @@ public class AdminAppointmentApprovePage extends javax.swing.JFrame {
             
             Appointment app = new Appointment(tb[0][0],tb[0][1],tb[0][2],tb[0][3],tb[0][4],tb[0][5],tb[0][6],tb[0][7],tb[0][8],tb[0][9]);
             app.setAdminID(admin.getUserID());
-            app.RejectUserAppRequest();
+            confirm = adminValid.AdminActionConfirmation("Are you sure want to reject this request? The action can't be undone");
+            if(confirm)
+            {
+                app.RejectUserAppRequest();
+            }
+            
             this.showTableData();
         }
     }//GEN-LAST:event_btnRejectActionPerformed

@@ -17,7 +17,8 @@ import javax.swing.JOptionPane;
  * @author user
  */
 public class AdminModifyUserAccountPage extends javax.swing.JFrame {
-
+    boolean confirm;
+    Validation adminValid = new Validation();
     public static Users user = new Users();
     Users admin = new Users();
     public AdminModifyUserAccountPage(Users u,String adminID) {
@@ -388,7 +389,13 @@ public class AdminModifyUserAccountPage extends javax.swing.JFrame {
         user.setState(cbState.getSelectedItem().toString());
         user.setCountry(cbCountry.getSelectedItem().toString());
         user.setVacStatus(cbVaccine.getSelectedItem().toString());
-        user.AdminUserModify(admin.getUserID());
+        confirm = adminValid.AdminActionConfirmation("Are you sure want to change the user details? The action can't be undone");
+        if(confirm)
+        {
+            user.AdminUserModify(admin.getUserID());
+        }
+                
+        
 
     }//GEN-LAST:event_btnSaveActionPerformed
 

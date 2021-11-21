@@ -16,9 +16,8 @@ import javax.swing.table.TableRowSorter;
  */
 public class AdminVaccineCenterPage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AdminVaccinePage
-     */
+    Validation adminValid = new Validation();
+    boolean confirm;
      private void showTableData()
     {
         ((DefaultTableModel)tblVCenter.getModel()).setNumRows(0);
@@ -456,7 +455,12 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
             try
             {
                 vc.setRequestQuantity(Integer.parseInt(txtRemoveQuantity.getText()));
-                vc.RemoveVaccine();
+                confirm = adminValid.AdminActionConfirmation("Are you sure want to remove " + vc.getRequestQuantity()+" amount of "+vc.getVacType()+"?The action can't be undone");
+                if(confirm)
+                {
+                    vc.RemoveVaccine();
+                }
+                
             }catch (NumberFormatException e){
                 JOptionPane.showMessageDialog(null, "Please enter numeric number");
                 txtRemoveQuantity.setText("");
@@ -479,7 +483,12 @@ public class AdminVaccineCenterPage extends javax.swing.JFrame {
             try
             {
                 vc.setRequestQuantity(Integer.parseInt(txtQuantity.getText()));
-                vc.AddVaccine();
+                confirm = adminValid.AdminActionConfirmation("Are you sure want to add " + vc.getRequestQuantity()+" amount of "+vc.getVacType()+"?The action can't be undone");
+                if(confirm)
+                {
+                    vc.AddVaccine();
+                }
+                
             }catch (NumberFormatException e){
                 JOptionPane.showMessageDialog(null, "Please enter numeric number");
                 txtQuantity.setText("");

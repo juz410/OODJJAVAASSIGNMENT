@@ -16,7 +16,8 @@ import javax.swing.table.TableRowSorter;
  * @author User
  */
 public class AdminAppointmentViewPage extends javax.swing.JFrame {
-
+    boolean confirm;
+    Validation adminValid = new Validation();
     Users admin = new Users();
     private Appointment returnSelectedRow()
     {
@@ -242,7 +243,12 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
             if (!app.getAptID().equals("NULL"))
             {
                 app.setAdminID(admin.getUserID());
-                app.DoneAppointment();
+                confirm = adminValid.AdminActionConfirmation("Are you sure want to set this appointment as completed? The action can't be undone");
+                if(confirm)
+                {
+                    app.DoneAppointment();
+                }
+                
                 this.showTableData();
             }
             
@@ -253,7 +259,12 @@ public class AdminAppointmentViewPage extends javax.swing.JFrame {
             if (!app.getAptID().equals("NULL"))
             {
                 app.setAdminID(admin.getUserID());
-                app.cancelUserAppointment(AppStatus.Approved);
+                confirm = adminValid.AdminActionConfirmation("Are you sure want to cancel this appointment? The action can't be undone");
+                if(confirm)
+                {
+                    app.cancelUserAppointment(AppStatus.Approved);
+                }
+                
                 this.showTableData();
             }
     }//GEN-LAST:event_btnRemoveActionPerformed

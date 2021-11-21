@@ -213,4 +213,15 @@ public class Validation
         }
         return pass;
     }
+    
+    public boolean AdminActionConfirmation(String message)
+    {
+        boolean pass = false;
+        if (JOptionPane.showConfirmDialog(null, message, "Action Confirmation",
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+           pass = true; 
+        }
+        return pass;
+        
+    }
 }
