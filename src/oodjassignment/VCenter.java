@@ -217,15 +217,13 @@ public class VCenter extends Vaccines {
         int count = 0;
         for (int i = 0; i < Arr.length; i ++)
         {
-            
-            
+
             String [] list = Arr[i].split("\\|");
-            
+
             {
                 if(list[1].equals(this.VacType.toString()) && list[2].equals(previousStats) && count < Quantity && list[3].equals(this.CenterID))
                 {
 
-                    
                     list[2] = this.VacStatus.toString();
                     list[3] = nCID;
                     this.VacID = list[0];
@@ -233,10 +231,8 @@ public class VCenter extends Vaccines {
                     
                 }else
                 {
-                    
                     continue;
                 }
-                
             }
             
             Arr[i] = String.join("|", list);
@@ -248,9 +244,7 @@ public class VCenter extends Vaccines {
             PrintWriter pw = new PrintWriter(fw,true);
             for (int i = 0; i < Arr.length;i++)
             {
-                
                 pw.println(Arr[i]);
-                
             }
             
             fw.close();

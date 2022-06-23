@@ -34,7 +34,8 @@ public class AModifyUserTracking extends ModifyTrackingAbstract {
     @Override
     public String toString()
     {
-        return this.trackingID + "|" + this.adminID +"|" + this.targetID + "|" + this.AType +"|" + this.TType +"|" + this.Date +"|"+ this.Time+"|" +this.Remark;
+        return this.trackingID + "|" + this.adminID +"|" + this.targetID + "|" +
+                this.AType +"|" + this.TType +"|" + this.Date +"|"+ this.Time+"|" +this.Remark;
     }
     
     public String setTrackingIDAuto(int count)

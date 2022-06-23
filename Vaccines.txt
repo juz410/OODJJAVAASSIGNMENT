@@ -82,11 +82,11 @@ P000000080|Phizer|InStock|J03
 P000000081|Phizer|InStock|J03
 P000000082|Phizer|InStock|J03
 P000000083|Phizer|InStock|J03
-P000000084|Phizer|Available|NULL
-P000000085|Phizer|Available|NULL
-P000000086|Phizer|Available|NULL
-P000000087|Phizer|Available|NULL
-P000000088|Phizer|Available|NULL
+P000000084|Phizer|InStock|KL01
+P000000085|Phizer|InStock|KL01
+P000000086|Phizer|InStock|KL01
+P000000087|Phizer|InStock|KL01
+P000000088|Phizer|InStock|KL01
 P000000089|Phizer|Available|NULL
 P000000090|Phizer|Available|NULL
 P000000091|Phizer|Available|NULL
